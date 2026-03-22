@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b0iiqqpuhinen"]
+
+[ext_resource type="Script" uid="uid://cra8h5yh33t8e" path="res://Entidades/interacttest.gd" id="1_badqx"]
+[ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://afonso.jpeg" id="2_uwuph"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v08gn"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.62683266, 0.25892994, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v08gn"]
+material = SubResource("StandardMaterial3D_v08gn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_badqx"]
+
+[node name="InteractObj" type="Node3D" unique_id=1798192419]
+transform = Transform3D(1.78, 0, 0, 0, 1.78, 0, 0, 0, 1.78, 0, 0, 0)
+script = ExtResource("1_badqx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=937714487]
+transform = Transform3D(0.575, 0, 0, 0, 0.575, 0, 0, 0, 0.575, 0, 0, 0)
+mesh = SubResource("BoxMesh_v08gn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=885541789]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2068627249]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0, 0)
+shape = SubResource("BoxShape3D_badqx")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=603486980]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=73869082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21, 0)
+shape = SubResource("BoxShape3D_badqx")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1713954065]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0.0010089593, 2.1407003, 0.328879)
+layers = 4
+text = "a"
+font_size = 90
+
+[node name="AFONSO" type="Sprite3D" parent="." unique_id=137135279]
+transform = Transform3D(0.20999998, 0, 0, 0, 0.20999998, 0, 0, 0, 0.20999998, 0, 0, 0.43188494)
+visible = false
+texture = ExtResource("2_uwuph")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

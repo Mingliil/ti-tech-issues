@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://d31q3hyelabb2"]
+
+[ext_resource type="PackedScene" uid="uid://ceahfnv25ootb" path="res://Entidades/player.tscn" id="1_sfdph"]
+[ext_resource type="PackedScene" uid="uid://b0iiqqpuhinen" path="res://Entidades/test interact.tscn" id="2_3vvcd"]
+
+[sub_resource type="Environment" id="Environment_sfdph"]
+background_mode = 1
+background_color = Color(0.4917022, 0.49349242, 1, 1)
+background_energy_multiplier = 1.65
+ambient_light_color = Color(0.2646297, 0.06990273, 2.4065375e-08, 1)
+ambient_light_energy = 3.15
+reflected_light_source = 2
+tonemap_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_bymjj"]
+
+[sub_resource type="Skin" id="Skin_sfdph"]
+resource_local_to_scene = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nynj4"]
+size = Vector3(1, 0.003551758, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1920273546]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=193618251]
+environment = SubResource("Environment_sfdph")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1734302930]
+disable_mode = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1036155955]
+transform = Transform3D(-19.785286, 0, 0, 0, 0.026673213, 0.9699001, 0, 7.797163, -0.0033179184, 0, 0, 0)
+mesh = SubResource("QuadMesh_bymjj")
+skin = SubResource("Skin_sfdph")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=725983043]
+transform = Transform3D(19.709032, 0, 0, 0, 1, 0, 0, 0, 7.814594, 0, -0.0002006772, 0)
+shape = SubResource("BoxShape3D_nynj4")
+
+[node name="Player" parent="." unique_id=1868046579 groups=["Player"] instance=ExtResource("1_sfdph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8326708, 0)
+
+[node name="TestInt" parent="." unique_id=1798192419 instance=ExtResource("2_3vvcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.31, 0)
+
+[connection signal="interact" from="Player" to="TestInt" method="_on_player_interact"]

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://ceahfnv25ootb"]
+
+[ext_resource type="Script" uid="uid://ppcvppk2c2ku" path="res://Codigos/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://conw8jmndx6ot" path="res://Codigos/sped.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://cgrrtpip4e3fj" path="res://Entidades/Interact.gd" id="3_vcobw"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sh265"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_sh265"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4flbx"]
+
+[sub_resource type="Theme" id="Theme_i3pqv"]
+default_font_size = 22
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcobw"]
+size = Vector3(1, 2.0408936, 1)
+
+[node name="Player" type="CharacterBody3D" unique_id=1868046579]
+script = ExtResource("1_4flbx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1724996855]
+mesh = SubResource("CylinderMesh_sh265")
+surface_material_override/0 = SubResource("ORMMaterial3D_sh265")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=487505200]
+shape = SubResource("CylinderShape3D_4flbx")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1962944184]
+
+[node name="PlayerCam" type="Camera3D" parent="Pivot" unique_id=1553448593]
+transform = Transform3D(1, 0, 0, 0, 0.62400234, 0.78142244, 0, -0.78142244, 0.62400234, 0, 4.00167, 2.9955783)
+
+[node name="Player_hud" type="Control" parent="." unique_id=1797330249]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_i3pqv")
+
+[node name="sped" type="Label" parent="Player_hud" unique_id=184438089]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 543.0
+offset_right = 105.0
+offset_bottom = 574.0
+theme_override_colors/font_color = Color(1, 1, 0.42745098, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "SPEED: 0"
+script = ExtResource("2_onrkg")
+
+[node name="Interact" type="Label" parent="Player_hud" unique_id=2143843198]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 594.0
+offset_right = 202.0
+offset_bottom = 625.0
+theme_override_colors/font_color = Color(1, 1, 0.42745098, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "Interagivel?: NÃO"
+script = ExtResource("3_vcobw")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1524809691]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1976273162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03324735, 0)
+shape = SubResource("BoxShape3D_vcobw")
+
+[connection signal="PlSpeed" from="." to="Player_hud/sped" method="_on_player_pl_speed"]
+[connection signal="area_entered" from="Area3D" to="Player_hud/Interact" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="Player_hud/Interact" method="_on_area_3d_area_exited"]
