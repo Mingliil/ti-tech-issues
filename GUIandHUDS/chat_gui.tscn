@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dw1ecymh86dyb"]
+
+[ext_resource type="Script" uid="uid://b1pp6g61ujh8w" path="res://GUIandHUDS/chat_gui.gd" id="1_p3ux3"]
+[ext_resource type="Texture2D" uid="uid://r1l870o7reaq" path="res://icon.svg" id="2_lffgt"]
+
+[sub_resource type="Theme" id="Theme_0n6nj"]
+default_font_size = 23
+
+[sub_resource type="Theme" id="Theme_r7mgr"]
+default_font_size = 23
+
+[node name="ChatGUI" type="Control" unique_id=1135800005]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0n6nj")
+script = ExtResource("1_p3ux3")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1331202888]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 499.0
+offset_right = 178.0
+offset_bottom = 627.0
+theme = SubResource("Theme_r7mgr")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=1267700300]
+layout_mode = 2
+texture = ExtResource("2_lffgt")
+expand_mode = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=1897492053]
+clip_contents = true
+layout_direction = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.165
+anchor_top = 0.77000004
+anchor_right = 0.97200006
+anchor_bottom = 0.96800005
+offset_left = -0.08000183
+offset_top = 0.039978027
+offset_right = 0.25598145
+offset_bottom = -0.2640381
+theme = SubResource("Theme_r7mgr")
+
+[node name="Label" type="Label" parent="PanelContainer2" unique_id=1670524764]
+layout_direction = 3
+layout_mode = 2
+size_flags_vertical = 0
+text = "já queria que fosse tudo fácil fazendo esse jgo mas ok, eu preciso de muito texto aqui pra testar coisas sabe? Olha funciona essa coisa"
+horizontal_alignment = 3
+autowrap_mode = 2
+paragraph_separator = "/n"

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0iiqqpuhinen"]
 
-[ext_resource type="Script" uid="uid://cra8h5yh33t8e" path="res://Entidades/interacttest.gd" id="1_badqx"]
+[ext_resource type="Script" uid="uid://cra8h5yh33t8e" path="res://Codigos/interacttest.gd" id="1_badqx"]
 [ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://afonso.jpeg" id="2_uwuph"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v08gn"]
@@ -12,7 +12,7 @@ material = SubResource("StandardMaterial3D_v08gn")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_badqx"]
 
-[node name="InteractObj" type="Node3D" unique_id=1798192419]
+[node name="TestNpc" type="Node3D" unique_id=1798192419]
 transform = Transform3D(1.78, 0, 0, 0, 1.78, 0, 0, 0, 1.78, 0, 0, 0)
 script = ExtResource("1_badqx")
 

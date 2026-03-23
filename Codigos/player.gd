@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	if Input.is_action_just_pressed("ui_down"):
 		print(get_tree().get_nodes_in_group("Player"))
-	if Input.is_action_just_pressed("ui_up"):
-		emit_signal("interact", true)
+	if Input.is_action_just_pressed("Interact"):
+		emit_signal("interact", 1)
 	emit_signal("PlSpeed", velocity)
 	move_and_slide()

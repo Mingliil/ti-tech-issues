@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d31q3hyelabb2"]
 
 [ext_resource type="PackedScene" uid="uid://ceahfnv25ootb" path="res://Entidades/player.tscn" id="1_sfdph"]
-[ext_resource type="PackedScene" uid="uid://b0iiqqpuhinen" path="res://Entidades/test interact.tscn" id="2_3vvcd"]
+[ext_resource type="PackedScene" uid="uid://b0iiqqpuhinen" path="res://Entidades/NPCTest.tscn" id="2_3vvcd"]
 
 [sub_resource type="Environment" id="Environment_sfdph"]
 background_mode = 1
@@ -20,7 +20,7 @@ resource_local_to_scene = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_nynj4"]
 size = Vector3(1, 0.003551758, 1)
 
-[node name="Node3D" type="Node3D" unique_id=1920273546]
+[node name="World" type="Node3D" unique_id=1920273546]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=193618251]
 environment = SubResource("Environment_sfdph")
@@ -40,7 +40,7 @@ shape = SubResource("BoxShape3D_nynj4")
 [node name="Player" parent="." unique_id=1868046579 groups=["Player"] instance=ExtResource("1_sfdph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8326708, 0)
 
-[node name="TestInt" parent="." unique_id=1798192419 instance=ExtResource("2_3vvcd")]
+[node name="TestNpc" parent="." unique_id=1798192419 instance=ExtResource("2_3vvcd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.31, 0)
 
-[connection signal="interact" from="Player" to="TestInt" method="_on_player_interact"]
+[connection signal="interact" from="Player" to="TestNpc" method="_on_player_interact"]

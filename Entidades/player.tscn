@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ppcvppk2c2ku" path="res://Codigos/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://conw8jmndx6ot" path="res://Codigos/sped.gd" id="2_onrkg"]
-[ext_resource type="Script" uid="uid://cgrrtpip4e3fj" path="res://Entidades/Interact.gd" id="3_vcobw"]
+[ext_resource type="Script" uid="uid://cgrrtpip4e3fj" path="res://Codigos/Interact.gd" id="3_vcobw"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_sh265"]
 
