@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://du0prqdytllax"]
+
+[ext_resource type="Script" uid="uid://cq7m608oidr2j" path="res://InteractArea.gd" id="1_ad8rm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ct782"]
+height = 0.29492188
+radius = 0.4868164
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ad8rm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ct782"]
+albedo_color = Color(0.31915188, 0.38560978, 0, 1)
+
+[node name="Area3D" type="Area3D" unique_id=7940264]
+script = ExtResource("1_ad8rm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=670889022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14257813, 0)
+shape = SubResource("CylinderShape3D_ct782")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1086786363]
+transform = Transform3D(1, 0, 0, 0, 0.0009037525, 0, 0, 0, 1, 0, -0.030852258, 0)
+mesh = SubResource("CylinderMesh_ad8rm")
+surface_material_override/0 = SubResource("StandardMaterial3D_ct782")

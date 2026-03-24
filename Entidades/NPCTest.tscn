@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cra8h5yh33t8e" path="res://Codigos/interacttest.gd" id="1_badqx"]
 [ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://afonso.jpeg" id="2_uwuph"]
+[ext_resource type="PackedScene" uid="uid://du0prqdytllax" path="res://Ferramentas e mais/area_de_interação.tscn" id="3_ir2xh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v08gn"]
 vertex_color_use_as_albedo = true
@@ -26,14 +27,8 @@ mesh = SubResource("BoxMesh_v08gn")
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0, 0)
 shape = SubResource("BoxShape3D_badqx")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=603486980]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=73869082]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21, 0)
-shape = SubResource("BoxShape3D_badqx")
-
 [node name="Label3D" type="Label3D" parent="." unique_id=1713954065]
-transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0.0010089593, 2.1407003, 0.328879)
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0.0010089593, 2.3301907, 0.328879)
 layers = 4
 text = "a"
 font_size = 90
@@ -43,5 +38,5 @@ transform = Transform3D(0.20999998, 0, 0, 0, 0.20999998, 0, 0, 0, 0.20999998, 0,
 visible = false
 texture = ExtResource("2_uwuph")
 
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[node name="Area de interação" parent="." unique_id=1977210726 instance=ExtResource("3_ir2xh")]
+transform = Transform3D(3.12, 0, 0, 0, 3.12, 0, 0, 0, 3.12, 0, 0, 0)

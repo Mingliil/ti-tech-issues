@@ -38,9 +38,10 @@ transform = Transform3D(19.709032, 0, 0, 0, 1, 0, 0, 0, 7.814594, 0, -0.00020067
 shape = SubResource("BoxShape3D_nynj4")
 
 [node name="Player" parent="." unique_id=1868046579 groups=["Player"] instance=ExtResource("1_sfdph")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8326708, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3724899, 1.8326708, 0)
 
 [node name="TestNpc" parent="." unique_id=1798192419 instance=ExtResource("2_3vvcd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.31, 0)
+transform = Transform3D(1.78, 0, 0, 0, 1.78, 0, 0, 0, 1.78, -6.765199, 0.56030035, 0)
 
-[connection signal="interact" from="Player" to="TestNpc" method="_on_player_interact"]
+[node name="TestNpc2" parent="." unique_id=1232378812 instance=ExtResource("2_3vvcd")]
+transform = Transform3D(3.1683996, 0, 0, 0, 3.1683996, 0, 0, 0, 3.1683996, 7.302338, 0.969432, 0)
