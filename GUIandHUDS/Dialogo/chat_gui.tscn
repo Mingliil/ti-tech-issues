@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dw1ecymh86dyb"]
+
+[ext_resource type="Script" uid="uid://b1pp6g61ujh8w" path="res://GUIandHUDS/Dialogo/chat_gui.gd" id="1_p3ux3"]
+[ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://afonso.jpeg" id="2_p3ux3"]
+
+[sub_resource type="Theme" id="Theme_0n6nj"]
+default_font_size = 23
+
+[node name="ChatGUI" type="Control" unique_id=1135800005]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0n6nj")
+script = ExtResource("1_p3ux3")
+
+[node name="Panel" type="Panel" parent="." unique_id=21828499]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 499.0
+offset_right = 1130.0
+offset_bottom = 635.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1559878765]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 499.0
+offset_right = 1130.0
+offset_bottom = 635.0
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=1575085033]
+custom_minimum_size = Vector2(161.545, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Control" unique_id=2077643053]
+position = Vector2(78, 29.999985)
+scale = Vector2(0.115833394, 0.12999997)
+texture = ExtResource("2_p3ux3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1439256491]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer" unique_id=1963747826]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/RichTextLabel" unique_id=1961642806]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=708370591]
+max_polyphony = 1000
