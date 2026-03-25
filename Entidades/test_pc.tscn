@@ -1,9 +1,20 @@
-[gd_scene format=3 uid="uid://28jmnidkqjlo"]
+[gd_scene format=3 uid="uid://5otior1ihcg"]
 
 [ext_resource type="Script" uid="uid://bc4xtxv87dwuv" path="res://test_pc.gd" id="1_l6o1r"]
 [ext_resource type="PackedScene" uid="uid://du0prqdytllax" path="res://Ferramentas e mais/area_de_interação.tscn" id="2_0cw8w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6o1r"]
+albedo_color = Color(0.112100564, 0.000120110286, 0.18834552, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0cw8w"]
+material = SubResource("StandardMaterial3D_l6o1r")
 
 [node name="TestPc" type="Node3D" unique_id=780785931]
 script = ExtResource("1_l6o1r")
 
 [node name="Area3D" parent="." unique_id=7940264 instance=ExtResource("2_0cw8w")]
+transform = Transform3D(1.595, 0, 0, 0, 1.595, 0, 0, 0, 1.595, -0.71277887, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2111273248]
+transform = Transform3D(0.3545969, 0, 0, 0, 0.88781834, 0, 0, 0, 0.8441376, 0, 0.36423358, 0)
+mesh = SubResource("BoxMesh_0cw8w")

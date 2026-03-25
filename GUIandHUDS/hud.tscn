@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cg0k7w31gb4gx"]
+
+[ext_resource type="Script" uid="uid://bwo4ee58wiv5c" path="res://Cenarios/player_hud.gd" id="1_06m7l"]
+[ext_resource type="Script" uid="uid://m72ecay852nl" path="res://GUIandHUDS/HUD_manager.gd" id="1_m502x"]
+
+[sub_resource type="Theme" id="Theme_ovo6g"]
+default_font_size = 22
+
+[node name="HUD" type="CanvasLayer" unique_id=1502469353 groups=["HUD"]]
+script = ExtResource("1_m502x")
+
+[node name="Player_hud" type="Control" parent="." unique_id=1934462318]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ovo6g")
+script = ExtResource("1_06m7l")
+
+[node name="sped" type="Label" parent="Player_hud" unique_id=130905861]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 543.0
+offset_right = 105.0
+offset_bottom = 574.0
+theme_override_colors/font_color = Color(1, 1, 0.42745098, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "SPEED: 0"
+
+[node name="Interact" type="Label" parent="Player_hud" unique_id=1365949856]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 594.0
+offset_right = 202.0
+offset_bottom = 625.0
+theme_override_colors/font_color = Color(1, 1, 0.42745098, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "Interagivel?: NÃO"
