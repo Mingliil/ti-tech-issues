@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c1x40uo106kds"]
+
+[ext_resource type="Script" uid="uid://ci258hc1pxxvc" path="res://dialogue_area.gd" id="1_a1t6t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1epvv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w35qi"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d12yr"]
+material = SubResource("StandardMaterial3D_w35qi")
+
+[node name="DialogueArea" type="Area3D" unique_id=238159058]
+script = ExtResource("1_a1t6t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1997724830]
+transform = Transform3D(1.96, 0, 0, 0, 1.96, 0, 0, 0, 1.96, 0, 0, 0)
+shape = SubResource("BoxShape3D_1epvv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1870281122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.052680016, 0)
+mesh = SubResource("PlaneMesh_d12yr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

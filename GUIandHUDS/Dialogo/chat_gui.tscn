@@ -30,11 +30,11 @@ offset_top = 499.0
 offset_right = 1130.0
 offset_bottom = 635.0
 
-[node name="Control" type="Control" parent="HBoxContainer" unique_id=1575085033]
+[node name="FalaParente" type="Control" parent="HBoxContainer" unique_id=1575085033]
 custom_minimum_size = Vector2(161.545, 0)
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Control" unique_id=2077643053]
+[node name="FalaSprite" type="Sprite2D" parent="HBoxContainer/FalaParente" unique_id=2077643053]
 position = Vector2(78, 29.999985)
 scale = Vector2(0.115833394, 0.12999997)
 texture = ExtResource("2_p3ux3")
@@ -50,11 +50,9 @@ bbcode_enabled = true
 scroll_active = false
 visible_characters_behavior = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/RichTextLabel" unique_id=1961642806]
+[node name="ButtonCont" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1961642806]
 visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=708370591]
+[node name="FalaAudio" type="AudioStreamPlayer2D" parent="." unique_id=708370591]
 max_polyphony = 1000
