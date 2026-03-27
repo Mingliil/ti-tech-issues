@@ -39,7 +39,7 @@ skin = SubResource("Skin_sfdph")
 transform = Transform3D(19.709032, 0, 0, 0, 1, 0, 0, 0, 7.814594, 0, -0.0002006772, 0)
 shape = SubResource("BoxShape3D_nynj4")
 
-[node name="Player" parent="." unique_id=1868046579 groups=["Player"] instance=ExtResource("1_sfdph")]
+[node name="Player" parent="." unique_id=1868046579 instance=ExtResource("1_sfdph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3724899, 1.8326708, 0)
 
 [node name="TestNpc" parent="." unique_id=1798192419 instance=ExtResource("2_3vvcd")]

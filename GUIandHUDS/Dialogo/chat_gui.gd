@@ -3,8 +3,10 @@ extends Control
 const ButtonDiag = preload("res://GUIandHUDS/dialogue_button.tscn")
 
 @onready var DialogueLabel: RichTextLabel = $HBoxContainer/VBoxContainer/RichTextLabel
-@onready var SpeakerSprite: Sprite2D = $HBoxContainer/Control/FalaSprite
+@onready var SpeakerSprite: Sprite2D = $HBoxContainer/FalaParente/FalaSprite
 @onready var ButtaoContainer: HBoxContainer = $HBoxContainer/VBoxContainer/ButtonCont
+@onready var FalaNome: RichTextLabel = $FalaNome
+@onready var playerHUD: CanvasLayer
 
 var dialogue: Array[DE]
 var current_dialogue_item: int = 0
@@ -13,7 +15,9 @@ var next_item: bool = true
 var PLAYER: CharacterBody3D
 
 func _ready() -> void:
+	playerHUD = get_tree().get_first_node_in_group("HUD")
 	visible = false
+	playerHUD.visible = true
 	ButtaoContainer.visible = false
 	PLAYER = get_tree().get_first_node_in_group("Player")
 
@@ -23,30 +27,42 @@ func _process(delta: float) -> void:
 			for i in get_tree().get_nodes_in_group("Player"):
 				PLAYER = i
 			return
-		PLAYER.can_move = true
+		#PLAYER.Speed = true
 		queue_free()
+		playerHUD.visible = true
 		return
 	
 	if next_item:
 		next_item = false
+		playerHUD.visible = true
 		var i = dialogue[current_dialogue_item]
-		
+		if i.speaker_name:
+			FalaNome.text = i.speaker_name
+			print(i.speaker_name)
+		else:
+			FalaNome.visible = false
+		print(i.speaker_name)
 		if i is DialogueFunction:
 			if i.hide_dialogue_box:
 				visible = false
+				playerHUD.visible = true
 			else:
 				visible = true
+				playerHUD.visible = false
 			_function_resource(i)
 		elif i is DialogueChoice:
 			visible = true
+			playerHUD.visible = false
 			_choice_resource(i)
 		elif i is DialogueText:
 			visible = true
+			playerHUD.visible = false
 			_text_resource(i)
 		else:
 			printerr("tu fez algo errado aqui com a DE")
 			current_dialogue_item += 1
 			next_item = true
+		
 
 func _function_resource(i:DialogueFunction) -> void:
 	var target_node = get_node(i.target_path)
@@ -141,7 +157,7 @@ func _text_resource(i:DialogueText) -> void:
 	var total_characters: int = text_without_square_brackets.length()
 	var character_timer: float = 0.0
 	while DialogueLabel.visible_characters < total_characters:
-		if Input.is_action_just_pressed("ui_cancel"):
+		if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("pulo"):
 			DialogueLabel.visible_characters = total_characters
 			break
 		
@@ -164,7 +180,7 @@ func _text_resource(i:DialogueText) -> void:
 	while  true:
 		await  get_tree().process_frame
 		if DialogueLabel.visible_characters == total_characters:
-			if Input. is_action_just_pressed("ui_accept"):
+			if Input. is_action_just_pressed("Interact"):
 				current_dialogue_item +=1
 				next_item = true
 

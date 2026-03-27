@@ -6,9 +6,6 @@ var HUD
 func _ready() -> void:
 	PLAYER = get_tree().get_first_node_in_group("Player")
 	HUD = get_tree().get_first_node_in_group("HUD")
-	IntArea = get_node("Area3D")
-	IntArea.area_entered.connect(_on_area_entered)
-	IntArea.area_exited.connect(_on_area_exited)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
