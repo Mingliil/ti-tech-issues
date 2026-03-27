@@ -11,7 +11,6 @@ const ButtonDiag = preload("res://GUIandHUDS/dialogue_button.tscn")
 var dialogue: Array[DE]
 var current_dialogue_item: int = 0
 var next_item: bool = true
-
 var PLAYER: CharacterBody3D
 
 func _ready() -> void:
@@ -112,7 +111,6 @@ func _choice_resource(i:DialogueChoice	) -> void:
 			CONNECT_ONE_SHOT)
 		else:
 			DialogueButtonVar.connect("pressed", _choice_button_pressed.bind(null, ""), CONNECT_ONE_SHOT)
-		
 		ButtaoContainer.add_child(DialogueButtonVar)
 	ButtaoContainer.get_child(0).grab_focus()
 

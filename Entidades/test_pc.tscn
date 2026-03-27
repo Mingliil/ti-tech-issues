@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://5otior1ihcg"]
 
+[ext_resource type="Script" uid="uid://c1n8uobhqyivd" path="res://Entidades/test_pc.gd" id="1_ph4a5"]
 [ext_resource type="PackedScene" uid="uid://c1x40uo106kds" path="res://GUIandHUDS/dialogue_area.tscn" id="2_l6o1r"]
-[ext_resource type="Script" uid="uid://bbrtb8bom50nx" path="res://GUIandHUDS/Dialogo/DialogueExportResource.gd" id="3_3maik"]
-[ext_resource type="Script" uid="uid://c0bvb08wya4bi" path="res://GUIandHUDS/Dialogo/DialogueFunctionResource.gd" id="3_vl11k"]
-[ext_resource type="Script" uid="uid://bdm8tdtgbhgkm" path="res://GUIandHUDS/Dialogo/DialogueChoiceResource.gd" id="4_8t4gu"]
-[ext_resource type="Script" uid="uid://ukphwgautcoi" path="res://GUIandHUDS/Dialogo/DialogueTextResource.gd" id="4_vl11k"]
+[ext_resource type="Script" uid="uid://bbrtb8bom50nx" path="res://Recursos/DialogueExportResource.gd" id="3_3maik"]
+[ext_resource type="Script" uid="uid://c0bvb08wya4bi" path="res://Recursos/DialogueFunctionResource.gd" id="3_vl11k"]
+[ext_resource type="Script" uid="uid://bdm8tdtgbhgkm" path="res://Recursos/DialogueChoiceResource.gd" id="4_8t4gu"]
+[ext_resource type="Script" uid="uid://ukphwgautcoi" path="res://Recursos/DialogueTextResource.gd" id="4_vl11k"]
 [ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://afonso.jpeg" id="5_8t4gu"]
+[ext_resource type="Script" uid="uid://bshvvrsyo0xn2" path="res://Recursos/Choices_Resources.gd" id="5_mk7g8"]
 [ext_resource type="AudioStream" uid="uid://d2rool8pds2sg" path="res://Void in Blue - Glare.mp3" id="7_8t4gu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6o1r"]
@@ -14,12 +16,23 @@ albedo_color = Color(0.112100564, 0.000120110286, 0.18834552, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_0cw8w"]
 material = SubResource("StandardMaterial3D_l6o1r")
 
+[sub_resource type="Resource" id="Resource_aojtt"]
+script = ExtResource("4_8t4gu")
+metadata/_custom_type_script = "uid://bdm8tdtgbhgkm"
+
+[sub_resource type="Resource" id="Resource_ph4a5"]
+script = ExtResource("5_mk7g8")
+DialogParaEscolha = SubResource("Resource_aojtt")
+target_path = NodePath("..")
+function_name = "_teste"
+metadata/_custom_type_script = "uid://bshvvrsyo0xn2"
+
 [sub_resource type="Resource" id="Resource_8j842"]
 script = ExtResource("4_8t4gu")
 speaker_name = "Pc"
 text = "Você está falando com um pc cara..."
 choice_text = Array[String](["Sim eu estou ué", "É pra te conserta..."])
-choice_function_call = Array[ExtResource("3_vl11k")]([null, null])
+choice_function_call = Array[ExtResource("3_vl11k")]([SubResource("Resource_ph4a5"), null])
 metadata/_custom_type_script = "uid://bdm8tdtgbhgkm"
 
 [sub_resource type="Resource" id="Resource_vl11k"]
@@ -46,6 +59,7 @@ text_sound = ExtResource("7_8t4gu")
 metadata/_custom_type_script = "uid://ukphwgautcoi"
 
 [node name="TestPc" type="Node3D" unique_id=780785931]
+script = ExtResource("1_ph4a5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2111273248]
 transform = Transform3D(0.3545969, 0, 0, 0, 0.88781834, 0, 0, 0, 0.8441376, 0, 0.36423358, 0)

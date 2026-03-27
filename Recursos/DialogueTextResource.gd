@@ -1,6 +1,6 @@
 extends DE
 class_name DialogueText
-
+@export var TextChoice: bool = false
 @export var speaker_name: String
 @export var speaker_img: Texture
 @export var speaker_img_Hframes: int = 1
