@@ -12,6 +12,8 @@ var dialogue: Array[DE]
 var current_dialogue_item: int = 0
 var next_item: bool = true
 var PLAYER: CharacterBody3D
+var originalDial: Array[DE]
+var reset: bool = false
 
 func _ready() -> void:
 	playerHUD = get_tree().get_first_node_in_group("HUD")
@@ -19,9 +21,11 @@ func _ready() -> void:
 	playerHUD.visible = true
 	ButtaoContainer.visible = false
 	PLAYER = get_tree().get_first_node_in_group("Player")
+	if !is_in_group("Dialogue"):
+		add_to_group("Dialogue")
 
 func _process(delta: float) -> void:
-	if current_dialogue_item == dialogue.size():
+	if current_dialogue_item >= dialogue.size():
 		if !PLAYER:
 			for i in get_tree().get_nodes_in_group("Player"):
 				PLAYER = i
@@ -30,7 +34,7 @@ func _process(delta: float) -> void:
 		queue_free()
 		playerHUD.visible = true
 		return
-	
+
 	if next_item:
 		next_item = false
 		playerHUD.visible = true
@@ -40,7 +44,6 @@ func _process(delta: float) -> void:
 			print(i.speaker_name)
 		else:
 			FalaNome.visible = false
-		print(i.speaker_name)
 		if i is DialogueFunction:
 			if i.hide_dialogue_box:
 				visible = false
@@ -113,13 +116,13 @@ func _choice_resource(i:DialogueChoice	) -> void:
 			DialogueButtonVar.connect("pressed", _choice_button_pressed.bind(null, ""), CONNECT_ONE_SHOT)
 		ButtaoContainer.add_child(DialogueButtonVar)
 	ButtaoContainer.get_child(0).grab_focus()
+	
 
 func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue: String):
 	ButtaoContainer.visible = false
 	for i in ButtaoContainer.get_children():
 		i.queue_free()
 	#adicionar aqui audio de botao se precisar
-	
 	if wait_for_signal_to_continue:
 		var signal_name = wait_for_signal_to_continue
 		if target_node.has_signal(signal_name):
@@ -128,6 +131,7 @@ func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue: Stri
 			target_node.connect(signal_name, callable, CONNECT_ONE_SHOT)
 			while not signal_state.done:
 				await get_tree().process_frame
+	
 	current_dialogue_item +=1
 	next_item = true
 
