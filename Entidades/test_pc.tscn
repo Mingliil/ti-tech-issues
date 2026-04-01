@@ -1,16 +1,78 @@
 [gd_scene format=3 uid="uid://5otior1ihcg"]
 
 [ext_resource type="Script" uid="uid://c1n8uobhqyivd" path="res://Entidades/test_pc.gd" id="1_ph4a5"]
+[ext_resource type="Script" uid="uid://bshvvrsyo0xn2" path="res://Recursos/Choices_Resources.gd" id="2_8t4gu"]
 [ext_resource type="PackedScene" uid="uid://c1x40uo106kds" path="res://GUIandHUDS/dialogue_area.tscn" id="2_l6o1r"]
 [ext_resource type="Script" uid="uid://bbrtb8bom50nx" path="res://Recursos/DialogueExportResource.gd" id="3_3maik"]
 [ext_resource type="Script" uid="uid://c0bvb08wya4bi" path="res://Recursos/DialogueFunctionResource.gd" id="3_vl11k"]
 [ext_resource type="Script" uid="uid://bdm8tdtgbhgkm" path="res://Recursos/DialogueChoiceResource.gd" id="4_8t4gu"]
 [ext_resource type="Script" uid="uid://ukphwgautcoi" path="res://Recursos/DialogueTextResource.gd" id="4_vl11k"]
+[ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://afonso.jpeg" id="5_mk7g8"]
+[ext_resource type="Texture2D" uid="uid://r1l870o7reaq" path="res://icon.svg" id="5_ph4a5"]
 
-[sub_resource type="Resource" id="Resource_8t4gu"]
+[sub_resource type="Resource" id="Resource_ph4a5"]
 script = ExtResource("4_vl11k")
-text = "teste"
+text = "escolha 1"
+text_speed = 60.0
 metadata/_custom_type_script = "uid://ukphwgautcoi"
+
+[sub_resource type="Resource" id="Resource_a55a6"]
+script = ExtResource("3_vl11k")
+target_path = NodePath("DialogueArea")
+function_name = "_activate_dialogue()"
+metadata/_custom_type_script = "uid://c0bvb08wya4bi"
+
+[sub_resource type="Resource" id="Resource_8j842"]
+script = ExtResource("2_8t4gu")
+Option = Array[ExtResource("3_3maik")]([SubResource("Resource_ph4a5"), SubResource("Resource_a55a6")])
+metadata/_custom_type_script = "uid://bshvvrsyo0xn2"
+
+[sub_resource type="Resource" id="Resource_aojtt"]
+script = ExtResource("4_vl11k")
+speaker_img = ExtResource("5_ph4a5")
+text = "escolha 2"
+text_speed = 60.0
+metadata/_custom_type_script = "uid://ukphwgautcoi"
+
+[sub_resource type="Resource" id="Resource_sh2go"]
+script = ExtResource("3_vl11k")
+target_path = NodePath("DialogueArea")
+function_name = "_activate_dialogue()"
+metadata/_custom_type_script = "uid://c0bvb08wya4bi"
+
+[sub_resource type="Resource" id="Resource_puk5p"]
+script = ExtResource("2_8t4gu")
+Option = Array[ExtResource("3_3maik")]([SubResource("Resource_aojtt"), SubResource("Resource_sh2go")])
+metadata/_custom_type_script = "uid://bshvvrsyo0xn2"
+
+[sub_resource type="Resource" id="Resource_fbtfo"]
+script = ExtResource("4_vl11k")
+speaker_img = ExtResource("5_mk7g8")
+text = "escolha Afonso"
+text_speed = 54.0
+metadata/_custom_type_script = "uid://ukphwgautcoi"
+
+[sub_resource type="Resource" id="Resource_kg575"]
+script = ExtResource("3_vl11k")
+target_path = NodePath("DialogueArea")
+function_name = "_activate_dialogue()"
+metadata/_custom_type_script = "uid://c0bvb08wya4bi"
+
+[sub_resource type="Resource" id="Resource_q6i27"]
+script = ExtResource("2_8t4gu")
+Option = Array[ExtResource("3_3maik")]([SubResource("Resource_fbtfo"), SubResource("Resource_kg575")])
+metadata/_custom_type_script = "uid://bshvvrsyo0xn2"
+
+[sub_resource type="Resource" id="Resource_ygv2b"]
+script = ExtResource("4_vl11k")
+text = "Até mais então, estranho que fala com um pc"
+text_speed = 33.5
+metadata/_custom_type_script = "uid://ukphwgautcoi"
+
+[sub_resource type="Resource" id="Resource_1a3sq"]
+script = ExtResource("2_8t4gu")
+Option = Array[ExtResource("3_3maik")]([SubResource("Resource_ygv2b")])
+metadata/_custom_type_script = "uid://bshvvrsyo0xn2"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6o1r"]
 albedo_color = Color(0.112100564, 0.000120110286, 0.18834552, 1)
@@ -28,19 +90,44 @@ metadata/_custom_type_script = "uid://ukphwgautcoi"
 script = ExtResource("3_vl11k")
 target_path = NodePath("..")
 function_name = "_option_dialogue"
+function_arguments = [0]
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://c0bvb08wya4bi"
+
+[sub_resource type="Resource" id="Resource_prbp6"]
+script = ExtResource("3_vl11k")
+target_path = NodePath("..")
+function_name = "_option_dialogue"
+function_arguments = [1]
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://c0bvb08wya4bi"
+
+[sub_resource type="Resource" id="Resource_w703p"]
+script = ExtResource("3_vl11k")
+target_path = NodePath("..")
+function_name = "_option_dialogue"
+function_arguments = [2]
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://c0bvb08wya4bi"
+
+[sub_resource type="Resource" id="Resource_0cyef"]
+script = ExtResource("3_vl11k")
+target_path = NodePath("..")
+function_name = "_option_dialogue"
+function_arguments = [3]
 hide_dialogue_box = true
 metadata/_custom_type_script = "uid://c0bvb08wya4bi"
 
 [sub_resource type="Resource" id="Resource_vl11k"]
 script = ExtResource("4_8t4gu")
 text = "escolha \"algo\" pra mandar dialogo legal"
-choice_text = Array[String](["algo", "sdds"])
-choice_function_call = Array[ExtResource("3_vl11k")]([SubResource("Resource_mk7g8"), null])
+choice_text = Array[String](["opçã0 1 ", "opçã0 2", "opçã0 afonso", "sair"])
+choice_function_call = Array[ExtResource("3_vl11k")]([SubResource("Resource_mk7g8"), SubResource("Resource_prbp6"), SubResource("Resource_w703p"), SubResource("Resource_0cyef")])
 metadata/_custom_type_script = "uid://bdm8tdtgbhgkm"
 
 [node name="TestPc" type="Node3D" unique_id=780785931 groups=["Player"]]
 script = ExtResource("1_ph4a5")
-option1 = Array[ExtResource("3_3maik")]([SubResource("Resource_8t4gu")])
+opcao = Array[ExtResource("2_8t4gu")]([SubResource("Resource_8j842"), SubResource("Resource_puk5p"), SubResource("Resource_q6i27"), SubResource("Resource_1a3sq")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2111273248]
 transform = Transform3D(0.3545969, 0, 0, 0, 0.88781834, 0, 0, 0, 0.8441376, 0, 0.36423358, 0)

@@ -12,7 +12,6 @@ var dialogue: Array[DE]
 var current_dialogue_item: int = 0
 var next_item: bool = true
 var PLAYER: CharacterBody3D
-var originalDial: Array[DE]
 var reset: bool = false
 
 func _ready() -> void:
