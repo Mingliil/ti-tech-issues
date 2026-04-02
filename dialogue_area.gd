@@ -36,7 +36,7 @@ func _activate_dialogue() -> void:
 	# PLAYER.move_and_slide() = false
 	
 	var new_dialogue = DialogueSysPreload.instantiate()
-	new_dialogue.dialogue = dialogue
+	
 	if override_dialogue_position:
 		desired_dialogue_pos = override_position
 	#else:
@@ -45,7 +45,7 @@ func _activate_dialogue() -> void:
 	#	else:
 	#		desired_dialogue_pos = dialogue_bottom_pos
 	new_dialogue.global_position = desired_dialogue_pos
-	
+	new_dialogue.dialogue = dialogue
 	get_parent().add_child(new_dialogue)
 
 func _on_body_entered(body: Node3D) -> void:

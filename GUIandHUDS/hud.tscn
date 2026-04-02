@@ -19,7 +19,7 @@ grow_vertical = 2
 theme = SubResource("Theme_ovo6g")
 script = ExtResource("1_06m7l")
 
-[node name="sped" type="Label" parent="Player_hud" unique_id=130905861]
+[node name="velocidade" type="Label" parent="Player_hud" unique_id=130905861]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 543.0
@@ -29,9 +29,8 @@ theme_override_colors/font_color = Color(1, 1, 0.42745098, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
-text = "SPEED: 0"
 
-[node name="Interact" type="Label" parent="Player_hud" unique_id=1365949856]
+[node name="Stats" type="Label" parent="Player_hud" unique_id=1365949856]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 594.0

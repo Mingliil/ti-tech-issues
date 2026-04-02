@@ -38,11 +38,12 @@ func _process(delta: float) -> void:
 		next_item = false
 		playerHUD.visible = true
 		var i = dialogue[current_dialogue_item]
-		if i.speaker_name:
-			FalaNome.text = i.speaker_name
-			print(i.speaker_name)
-		else:
-			FalaNome.visible = false
+		if i is not DialogueFunction:
+			if i.speaker_name:
+				FalaNome.text = i.speaker_name
+				print(i.speaker_name)
+			else:
+				FalaNome.visible = false
 		if i is DialogueFunction:
 			if i.hide_dialogue_box:
 				visible = false

@@ -2,6 +2,7 @@ extends Node3D
 var Player
 var TextoInte
 var IntArea
+var perdesanidade: bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	TextoInte = get_node("Label3D")
@@ -11,6 +12,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if perdesanidade:
+		Player.PlayerStats[0].sanidade -= 0.15
+		Player.PlayerStats[0].sanidade = snappedf(Player.PlayerStats[0].sanidade, 0.01)
+		await 100
 	pass
 
 
@@ -36,5 +41,8 @@ func _on_player_interact(Interact: Variant) -> void:
 				afonso.visible = true
 				var chat = ResourceLoader.load("res://GUIandHUDS/chat_gui.tscn")
 				add_child(chat)
+				perdesanidade = true
+				
 			else:
+				perdesanidade = false
 				afonso.visible = false
