@@ -3,12 +3,13 @@ class_name PlayerCode
 
 @export var JUMP_VELOCITY = 4.5
 @export var PlayerStats: Array[PRE]
-
+@onready var camera = $Pivot/PlayerCam
 signal PlSpeed(Plspeed)
 signal interact(Interact)
 
 func _ready() -> void:
 	get_tree().get_first_node_in_group("HUD").find_child("")
+	camera.make_current()
 	pass
 func _process(delta: float) -> void:
 	pass
@@ -41,5 +42,6 @@ func _physics_process(delta: float) -> void:
 			emit_signal("interact", 1)
 		emit_signal("PlSpeed", velocity)
 	i.velocidadeAtual = velocity
+
 	move_and_slide()
 	

@@ -1,8 +1,11 @@
 extends Node3D
+@export var missao: Array[MissoesData]
+
 var Player
 var TextoInte
 var IntArea
 var perdesanidade: bool
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	TextoInte = get_node("Label3D")
@@ -17,7 +20,6 @@ func _process(delta: float) -> void:
 		Player.PlayerStats[0].sanidade = snappedf(Player.PlayerStats[0].sanidade, 0.01)
 		await 100
 	pass
-
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	TextoInte.text = "aperte E para interagir"
@@ -42,7 +44,15 @@ func _on_player_interact(Interact: Variant) -> void:
 				var chat = ResourceLoader.load("res://GUIandHUDS/chat_gui.tscn")
 				add_child(chat)
 				perdesanidade = true
-				
+				if !missao:
+					print("sem missão")
+				else:
+					var miHdr = preload("res://Codigos/MissionHandler.gd").new()
+					for i in missao.size():
+						if missao[i].missaoDada:
+							pass
+						else:
+							missao[i].missaoDada = miHdr._create_mission(missao[i], Player)
 			else:
 				perdesanidade = false
 				afonso.visible = false

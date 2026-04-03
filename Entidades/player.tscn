@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ceahfnv25ootb"]
 
 [ext_resource type="Script" uid="uid://ppcvppk2c2ku" path="res://Codigos/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bxntmh1plpjqu" path="res://Recursos/PRExport.gd" id="2_vcobw"]
 [ext_resource type="Script" uid="uid://d3qcwh1evctxc" path="res://Recursos/PlayerResources.gd" id="3_vcobw"]
 
 [sub_resource type="Resource" id="Resource_1mtym"]
@@ -23,7 +24,7 @@ size = Vector3(1, 2.0408936, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=1868046579 groups=["Player"]]
 script = ExtResource("1_4flbx")
-PlayerStats = Array[ExtResource("3_vcobw")]([SubResource("Resource_1mtym")])
+PlayerStats = Array[ExtResource("2_vcobw")]([SubResource("Resource_1mtym")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1724996855]
 mesh = SubResource("CylinderMesh_sh265")
@@ -36,6 +37,7 @@ shape = SubResource("CylinderShape3D_4flbx")
 
 [node name="PlayerCam" type="Camera3D" parent="Pivot" unique_id=1553448593]
 transform = Transform3D(1, 0, 0, 0, 0.62400234, 0.78142244, 0, -0.78142244, 0.62400234, 0, 4.00167, 2.9955783)
+current = true
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1524809691]
 

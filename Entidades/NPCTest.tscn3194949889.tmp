@@ -1,17 +1,8 @@
 [gd_scene format=3 uid="uid://b0iiqqpuhinen"]
 
 [ext_resource type="Script" uid="uid://cra8h5yh33t8e" path="res://Codigos/interacttest.gd" id="1_badqx"]
-[ext_resource type="Script" uid="uid://dr5vwlbuhk655" path="res://Recursos/PlayerMissoes.gd" id="2_lcqu8"]
 [ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://Imagens/afonso.jpeg" id="2_uwuph"]
 [ext_resource type="PackedScene" uid="uid://du0prqdytllax" path="res://Ferramentas e mais/area_de_interação.tscn" id="3_ir2xh"]
-
-[sub_resource type="Resource" id="Resource_oo6pi"]
-script = ExtResource("2_lcqu8")
-metadata/_custom_type_script = "uid://dr5vwlbuhk655"
-
-[sub_resource type="Resource" id="Resource_lcqu8"]
-script = ExtResource("2_lcqu8")
-metadata/_custom_type_script = "uid://dr5vwlbuhk655"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v08gn"]
 vertex_color_use_as_albedo = true
@@ -25,7 +16,6 @@ material = SubResource("StandardMaterial3D_v08gn")
 [node name="TestNpc" type="Node3D" unique_id=1798192419]
 transform = Transform3D(1.78, 0, 0, 0, 1.78, 0, 0, 0, 1.78, 0, 0, 0)
 script = ExtResource("1_badqx")
-missao = Array[ExtResource("2_lcqu8")]([SubResource("Resource_oo6pi"), SubResource("Resource_lcqu8")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=937714487]
 transform = Transform3D(0.575, 0, 0, 0, 0.575, 0, 0, 0, 0.575, 0, 0, 0)

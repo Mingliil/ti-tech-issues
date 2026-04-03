@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://d2rool8pds2sg"
-path="res://.godot/imported/Void in Blue - Glare.mp3-8f308d9b49eebf7b7cad4a8d07d4d82f.mp3str"
+path="res://.godot/imported/Void in Blue - Glare.mp3-fabc11d6680c678f468db1979a2377da.mp3str"
 
 [deps]
 
-source_file="res://Void in Blue - Glare.mp3"
-dest_files=["res://.godot/imported/Void in Blue - Glare.mp3-8f308d9b49eebf7b7cad4a8d07d4d82f.mp3str"]
+source_file="res://audios/Void in Blue - Glare.mp3"
+dest_files=["res://.godot/imported/Void in Blue - Glare.mp3-fabc11d6680c678f468db1979a2377da.mp3str"]
 
 [params]
 
