@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4uf01fuad4ey"]
 
-[ext_resource type="Script" uid="uid://d3rcfag1sucl0" path="res://GUIandHUDS/celhandler.gd" id="1_3klme"]
+[ext_resource type="Script" uid="uid://d3rcfag1sucl0" path="res://GUIandHUDS/Celular/celhandler.gd" id="1_3klme"]
 
 [node name="Phone" type="Control" unique_id=1886967729]
 layout_mode = 3

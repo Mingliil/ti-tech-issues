@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c1n8uobhqyivd" path="res://Entidades/test_pc.gd" id="1_ph4a5"]
 [ext_resource type="Script" uid="uid://bshvvrsyo0xn2" path="res://Recursos/Choices_Resources.gd" id="2_8t4gu"]
-[ext_resource type="PackedScene" uid="uid://c1x40uo106kds" path="res://GUIandHUDS/dialogue_area.tscn" id="2_l6o1r"]
+[ext_resource type="PackedScene" uid="uid://c1x40uo106kds" path="res://GUIandHUDS/Dialogo/dialogue_area.tscn" id="2_l6o1r"]
 [ext_resource type="Script" uid="uid://bbrtb8bom50nx" path="res://Recursos/DialogueExportResource.gd" id="3_3maik"]
 [ext_resource type="Script" uid="uid://c0bvb08wya4bi" path="res://Recursos/DialogueFunctionResource.gd" id="3_vl11k"]
 [ext_resource type="Script" uid="uid://bdm8tdtgbhgkm" path="res://Recursos/DialogueChoiceResource.gd" id="4_8t4gu"]
 [ext_resource type="Script" uid="uid://ukphwgautcoi" path="res://Recursos/DialogueTextResource.gd" id="4_vl11k"]
-[ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://afonso.jpeg" id="5_mk7g8"]
+[ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://Imagens/afonso.jpeg" id="5_mk7g8"]
 [ext_resource type="Texture2D" uid="uid://r1l870o7reaq" path="res://icon.svg" id="5_ph4a5"]
 
 [sub_resource type="Resource" id="Resource_pv7ay"]
