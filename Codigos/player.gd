@@ -4,7 +4,7 @@ class_name PlayerCode
 @export var JUMP_VELOCITY = 4.5
 @export var PlayerStats: Array[PRE]
 @onready var camera = $Pivot/PlayerCam
-@onready var Phone = preload("res://GUIandHUDS/Phone.tscn")
+@onready var Phone = preload("res://GUIandHUDS/Celular/Phone.tscn")
 var celularNaTela: bool = false
 signal PlSpeed(Plspeed)
 signal interact(Interact)

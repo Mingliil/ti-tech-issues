@@ -1,6 +1,6 @@
 extends Control
 
-const ButtonDiag = preload("res://GUIandHUDS/dialogue_button.tscn")
+const ButtonDiag = preload("res://GUIandHUDS/Dialogo/dialogue_button.tscn")
 
 @onready var DialogueLabel: RichTextLabel = $HBoxContainer/VBoxContainer/RichTextLabel
 @onready var SpeakerSprite: Sprite2D = $HBoxContainer/FalaParente/FalaSprite
