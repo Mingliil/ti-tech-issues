@@ -37,3 +37,10 @@ offset_right = 162.0
 offset_bottom = 239.0
 bbcode_enabled = true
 text = "Esse textp é um placeholder"
+
+[node name="appUso" type="ReferenceRect" parent="tela" unique_id=1454486968]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 163.0
+offset_bottom = 234.0
