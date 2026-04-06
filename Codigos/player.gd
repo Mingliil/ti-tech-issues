@@ -4,6 +4,8 @@ class_name PlayerCode
 @export var JUMP_VELOCITY = 4.5
 @export var PlayerStats: Array[PRE]
 @onready var camera = $Pivot/PlayerCam
+@onready var Phone = preload("res://GUIandHUDS/Phone.tscn")
+var celularNaTela: bool = false
 signal PlSpeed(Plspeed)
 signal interact(Interact)
 
@@ -12,7 +14,17 @@ func _ready() -> void:
 	camera.make_current()
 	pass
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("tab"):
+		var celular
+		if !celularNaTela:
+			celular = Phone.instantiate()
+			celularNaTela = true
+			get_parent().add_child(celular)
+		else:
+			var i = get_parent().get_node("Phone")
+			i.queue_free()
+			celularNaTela = false
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 

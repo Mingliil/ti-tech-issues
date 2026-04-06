@@ -23,7 +23,6 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	TextoInte.text = "aperte E para interagir"
-	print("foi")
 	add_to_group("Player")
 	Player = get_tree().get_first_node_in_group("Player")
 	print(Player)
@@ -36,7 +35,6 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 
 func _on_player_interact(Interact: Variant) -> void:
 	if is_in_group("Player"):
-		print("foi")
 		if Interact == 1:
 			var afonso = get_node("AFONSO")
 			if afonso.visible == false:
@@ -44,15 +42,12 @@ func _on_player_interact(Interact: Variant) -> void:
 				var chat = ResourceLoader.load("res://GUIandHUDS/chat_gui.tscn")
 				add_child(chat)
 				perdesanidade = true
-				if !missao:
-					print("sem missão")
-				else:
-					var miHdr = preload("res://Codigos/MissionHandler.gd").new()
-					for i in missao.size():
-						if missao[i].missaoDada:
-							pass
-						else:
-							missao[i].missaoDada = miHdr._create_mission(missao[i], Player)
+				var miHdr = preload("res://Codigos/MissionHandler.gd").new()
+				for i in missao.size():
+					if missao[i].missaoDada:
+						pass
+					else:
+						missao[i].missaoDada = miHdr._create_mission(missao[i], Player)
 			else:
 				perdesanidade = false
 				afonso.visible = false

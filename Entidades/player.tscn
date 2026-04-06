@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://ppcvppk2c2ku" path="res://Codigos/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bxntmh1plpjqu" path="res://Recursos/PRExport.gd" id="2_vcobw"]
 [ext_resource type="Script" uid="uid://d3qcwh1evctxc" path="res://Recursos/PlayerResources.gd" id="3_vcobw"]
+[ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Recursos/PlayerMissoes.gd" id="4_q7xc8"]
+[ext_resource type="Script" uid="uid://dr5vwlbuhk655" path="res://Recursos/MissoesData.gd" id="5_2waec"]
 
 [sub_resource type="Resource" id="Resource_1mtym"]
 script = ExtResource("3_vcobw")
@@ -11,6 +13,10 @@ sprintSpeed = 13
 podeMover = true
 sanidade = 100.0
 metadata/_custom_type_script = "uid://d3qcwh1evctxc"
+
+[sub_resource type="Resource" id="Resource_7ftqi"]
+script = ExtResource("5_2waec")
+metadata/_custom_type_script = "uid://dr5vwlbuhk655"
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_sh265"]
 
@@ -24,7 +30,7 @@ size = Vector3(1, 2.0408936, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=1868046579 groups=["Player"]]
 script = ExtResource("1_4flbx")
-PlayerStats = Array[ExtResource("2_vcobw")]([SubResource("Resource_1mtym")])
+PlayerStats = Array[ExtResource("2_vcobw")]([SubResource("Resource_1mtym"), SubResource("Resource_7ftqi")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1724996855]
 mesh = SubResource("CylinderMesh_sh265")
