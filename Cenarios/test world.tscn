@@ -1,19 +1,8 @@
 [gd_scene format=3 uid="uid://d31q3hyelabb2"]
 
-[ext_resource type="PackedScene" uid="uid://ceahfnv25ootb" path="res://Entidades/player.tscn" id="1_sfdph"]
 [ext_resource type="PackedScene" uid="uid://b0iiqqpuhinen" path="res://Entidades/NPCTest.tscn" id="2_3vvcd"]
 [ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Recursos/PlayerMissoes.gd" id="3_n6tsu"]
 [ext_resource type="PackedScene" uid="uid://5otior1ihcg" path="res://Entidades/test_pc.tscn" id="3_upe6q"]
-[ext_resource type="PackedScene" uid="uid://cg0k7w31gb4gx" path="res://GUIandHUDS/hud.tscn" id="4_7rgf2"]
-
-[sub_resource type="Environment" id="Environment_sfdph"]
-background_mode = 1
-background_color = Color(0.4917022, 0.49349242, 1, 1)
-background_energy_multiplier = 1.65
-ambient_light_color = Color(0.2646297, 0.06990273, 2.4065375e-08, 1)
-ambient_light_energy = 3.15
-reflected_light_source = 2
-tonemap_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_bymjj"]
 
@@ -38,10 +27,17 @@ script = ExtResource("3_n6tsu")
 nomeMissao = "compr um notebook"
 metadata/_custom_type_script = "uid://bra25pm2a8td5"
 
-[node name="World" type="Node3D" unique_id=1920273546]
+[sub_resource type="Environment" id="Environment_sfdph"]
+background_mode = 1
+background_color = Color(0.4917022, 0.49349242, 1, 1)
+background_energy_multiplier = 1.65
+ambient_light_color = Color(0.2646297, 0.06990273, 2.4065375e-08, 1)
+ambient_light_energy = 3.15
+reflected_light_source = 2
+tonemap_mode = 2
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=193618251]
-environment = SubResource("Environment_sfdph")
+[node name="World" type="Node3D" unique_id=1920273546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66387737, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1734302930]
 disable_mode = 1
@@ -55,9 +51,6 @@ skin = SubResource("Skin_sfdph")
 transform = Transform3D(19.709032, 0, 0, 0, 1, 0, 0, 0, 7.814594, 0, -0.0002006772, 0)
 shape = SubResource("BoxShape3D_nynj4")
 
-[node name="Player" parent="." unique_id=1868046579 instance=ExtResource("1_sfdph")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3724899, 1.8326708, 0)
-
 [node name="TestNpc" parent="." unique_id=1798192419 instance=ExtResource("2_3vvcd")]
 transform = Transform3D(1.78, 0, 0, 0, 1.78, 0, 0, 0, 1.78, -6.765199, 0.56030035, 0)
 missao = Array[ExtResource("3_n6tsu")]([SubResource("Resource_uncvp")])
@@ -69,4 +62,5 @@ missao = Array[ExtResource("3_n6tsu")]([SubResource("Resource_ovo6g"), SubResour
 [node name="TestPc" parent="." unique_id=780785931 instance=ExtResource("3_upe6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.495941, 0.10552883, 0)
 
-[node name="HUD" parent="." unique_id=1502469353 instance=ExtResource("4_7rgf2")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=193618251]
+environment = SubResource("Environment_sfdph")

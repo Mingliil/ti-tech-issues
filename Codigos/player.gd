@@ -10,7 +10,6 @@ signal PlSpeed(Plspeed)
 signal interact(Interact)
 
 func _ready() -> void:
-	get_tree().get_first_node_in_group("HUD").find_child("")
 	camera.make_current()
 	pass
 func _process(delta: float) -> void:

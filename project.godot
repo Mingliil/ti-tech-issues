@@ -11,13 +11,16 @@ config_version=5
 [application]
 
 config/name="TI tech issues"
-run/main_scene="uid://d31q3hyelabb2"
+config/description="Um jogo feito para o tcc"
+config/version="0.1A"
+run/main_scene="uid://jrrd17d38bfj"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://csuayriuriygd"
 
 [autoload]
 
 MissionHandle="*uid://bw8d7k0keycu"
+WorldCode="*uid://cs1b1gpgpe877"
 
 [global_group]
 

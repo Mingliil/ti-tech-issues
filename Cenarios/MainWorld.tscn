@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://jrrd17d38bfj"]
+
+[ext_resource type="Script" uid="uid://cs1b1gpgpe877" path="res://Cenarios/WorldHandler.gd" id="1_2nyr6"]
+
+[node name="MainWorld" type="Node3D" unique_id=1507969834]
+script = ExtResource("1_2nyr6")

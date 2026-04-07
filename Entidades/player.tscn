@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d3qcwh1evctxc" path="res://Recursos/PlayerResources.gd" id="3_vcobw"]
 [ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Recursos/PlayerMissoes.gd" id="4_q7xc8"]
 [ext_resource type="Script" uid="uid://dr5vwlbuhk655" path="res://Recursos/MissoesData.gd" id="5_2waec"]
+[ext_resource type="PackedScene" uid="uid://cg0k7w31gb4gx" path="res://GUIandHUDS/hud.tscn" id="6_2waec"]
 
 [sub_resource type="Resource" id="Resource_1mtym"]
 script = ExtResource("3_vcobw")
@@ -50,3 +51,5 @@ current = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1976273162]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03324735, 0)
 shape = SubResource("BoxShape3D_vcobw")
+
+[node name="HUD" parent="." unique_id=1502469353 instance=ExtResource("6_2waec")]
