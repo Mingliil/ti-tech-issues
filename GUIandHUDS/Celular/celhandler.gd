@@ -18,8 +18,11 @@ func _process(delta: float) -> void:
 func missao_botao() -> void:
 	var miHdr = preload("res://Codigos/MissionHandler.gd").new()
 	if botaoMissaoExiste:
-		for i in appUso.get_child_count():
-			appUso.get_child(i).queue_free()
+		if appUso.get_child_count() == 0:
+			pass
+		else: 
+				for i in appUso.get_child_count():
+					appUso.get_child(i).queue_free()
 		botaoMissaoExiste = false
 	else:
 		for i in player.PlayerStats[1].missao.size():
