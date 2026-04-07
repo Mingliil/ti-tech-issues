@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b8fccs68et2ao"]
 
-[node name="PanelContainer" type="PanelContainer" unique_id=2146284905]
-offset_left = -78.0
-offset_top = -20.0
-offset_right = 80.0
-offset_bottom = 20.0
-
-[node name="Button" type="Button" parent="." unique_id=1423591802]
-layout_mode = 2
-text = "missao nome"
+[node name="btMissao" type="Button" unique_id=485202556]
+anchors_preset = -1
+anchor_right = 0.149
+anchor_bottom = 0.048
+offset_right = -163.64801
+offset_bottom = -23.104
+size_flags_vertical = 0
+text = "tEXTO pLACEHOLDER"
+alignment = 0

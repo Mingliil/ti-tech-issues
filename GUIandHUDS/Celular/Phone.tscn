@@ -13,6 +13,7 @@ offset_right = -6.0
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_stretch_ratio = 1.35
 script = ExtResource("1_3klme")
 
 [node name="tela" type="Panel" parent="." unique_id=756484847]
@@ -29,18 +30,15 @@ offset_bottom = 15.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="tela" unique_id=1601648222]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 7.0
-offset_right = 162.0
-offset_bottom = 239.0
-bbcode_enabled = true
-text = "Esse textp é um placeholder"
-
-[node name="appUso" type="ReferenceRect" parent="tela" unique_id=1454486968]
-layout_mode = 0
+[node name="appUso" type="PanelContainer" parent="tela" unique_id=1276233128]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.95800006
+anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = 5.0
-offset_right = 163.0
-offset_bottom = 234.0
+offset_right = 0.01399231
+
+[node name="botaoCaixa" type="VBoxContainer" parent="tela/appUso" unique_id=1460545689]
+layout_mode = 2
+size_flags_horizontal = 0
