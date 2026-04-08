@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://tccsg7ngx7bc"]
+
+[ext_resource type="Script" uid="uid://cwd4smx2iynvw" path="res://GUIandHUDS/main_menu.gd" id="1_wf6ll"]
+
+[node name="MainMenu" type="Control" unique_id=1801297170]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wf6ll")
+
+[node name="AreaMenu" type="ReferenceRect" parent="." unique_id=1989032472]
+layout_mode = 0
+offset_right = 454.0
+offset_bottom = 655.0
+
+[node name="Button" type="Button" parent="AreaMenu" unique_id=939619604]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 81.0
+offset_right = 134.0
+offset_bottom = 139.0
+text = "Carregar jogo"
+alignment = 0
+
+[connection signal="pressed" from="AreaMenu/Button" to="." method="_on_button_pressed"]
