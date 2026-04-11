@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ceahfnv25ootb"]
 
 [ext_resource type="Script" uid="uid://ppcvppk2c2ku" path="res://Codigos/player.gd" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://bxntmh1plpjqu" path="res://Recursos/PRExport.gd" id="2_vcobw"]
-[ext_resource type="Script" uid="uid://d3qcwh1evctxc" path="res://Recursos/PlayerResources.gd" id="3_vcobw"]
-[ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Recursos/PlayerMissoes.gd" id="4_q7xc8"]
-[ext_resource type="Script" uid="uid://dr5vwlbuhk655" path="res://Recursos/MissoesData.gd" id="5_2waec"]
+[ext_resource type="Script" uid="uid://bxntmh1plpjqu" path="res://Codigos/Recursos/PRExport.gd" id="2_vcobw"]
+[ext_resource type="Script" uid="uid://d3qcwh1evctxc" path="res://Codigos/Recursos/PlayerResources.gd" id="3_vcobw"]
+[ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Codigos/Recursos/PlayerMissoes.gd" id="4_q7xc8"]
+[ext_resource type="Script" uid="uid://dr5vwlbuhk655" path="res://Codigos/Recursos/MissoesData.gd" id="5_2waec"]
 [ext_resource type="PackedScene" uid="uid://cg0k7w31gb4gx" path="res://GUIandHUDS/hud.tscn" id="6_2waec"]
 
 [sub_resource type="Resource" id="Resource_1mtym"]

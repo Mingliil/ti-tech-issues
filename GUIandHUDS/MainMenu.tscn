@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dqmwi6mmkv7w1"]
+
+[ext_resource type="Script" uid="uid://p3chplpafldx" path="res://Codigos/main_menu.gd" id="1_s5ex8"]
+
+[node name="MainMenu" type="Node3D" unique_id=1932880650]
+script = ExtResource("1_s5ex8")
+cenaInicial = &"uid://d31q3hyelabb2"
+
+[node name="Button" type="Button" parent="." unique_id=1230424426]
+offset_left = 5.0
+offset_top = 79.0
+offset_right = 98.0
+offset_bottom = 110.0
+text = "iniciar jogo"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

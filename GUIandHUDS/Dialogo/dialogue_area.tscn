@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1x40uo106kds"]
 
-[ext_resource type="Script" uid="uid://ci258hc1pxxvc" path="res://dialogue_area.gd" id="1_a1t6t"]
+[ext_resource type="Script" uid="uid://ci258hc1pxxvc" path="res://Codigos/dialogue_area.gd" id="1_a1t6t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1epvv"]
 

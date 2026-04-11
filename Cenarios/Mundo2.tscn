@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c5ogaumi1qljo"]
+
+[ext_resource type="PackedScene" uid="uid://b1wymy8afnund" path="res://Entidades/porta.tscn" id="1_6ybvj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_s3f27"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1dpha"]
+size = Vector3(1, 0.51257324, 1)
+
+[sub_resource type="Environment" id="Environment_nisl4"]
+background_mode = 1
+background_color = Color(0.75197595, 0.11850285, 0.13666219, 1)
+background_energy_multiplier = 1.66
+ambient_light_source = 2
+ambient_light_color = Color(0.6091884, 0.22926965, 0.030749196, 1)
+ambient_light_energy = 2.65
+
+[node name="Mundo2" type="Node3D" unique_id=754689500]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1411049839]
+transform = Transform3D(2.6153631, 0, 0, 0, 1, 0, 0, 0, 2.1524684, 0, -0.498171, 0)
+mesh = SubResource("BoxMesh_s3f27")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1069366800]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=488404457]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.24416527, 0)
+shape = SubResource("BoxShape3D_1dpha")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=233758160]
+environment = SubResource("Environment_nisl4")
+
+[node name="Porta" parent="." unique_id=1885812493 instance=ExtResource("1_6ybvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7542518, 0.13499248, 0)
+cenaLoad = "uid://d31q3hyelabb2"

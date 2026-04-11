@@ -25,7 +25,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	TextoInte.text = "aperte E para interagir"
 	add_to_group("Player")
 	Player = get_tree().get_first_node_in_group("Player")
-	print(Player)
 	if not Player.interact.connect(_on_player_interact):
 		Player.interact.connect(_on_player_interact)
 

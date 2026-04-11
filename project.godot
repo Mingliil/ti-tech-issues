@@ -13,14 +13,25 @@ config_version=5
 config/name="TI tech issues"
 config/description="Um jogo feito para o tcc"
 config/version="0.1A"
-run/main_scene="uid://jrrd17d38bfj"
+run/main_scene="uid://dqmwi6mmkv7w1"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://csuayriuriygd"
 
 [autoload]
 
 MissionHandle="*uid://bw8d7k0keycu"
-WorldCode="*uid://cs1b1gpgpe877"
+SceneLoader="*uid://l835o8ovy1rd"
+
+[file_customization]
+
+folder_colors={
+"res://Cenarios/": "blue",
+"res://Codigos/": "purple",
+"res://Codigos/Autoload/": "green",
+"res://Entidades/": "orange",
+"res://Ferramentas e mais/": "red",
+"res://GUIandHUDS/": "yellow"
+}
 
 [global_group]
 

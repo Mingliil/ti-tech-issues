@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cg0k7w31gb4gx"]
 
-[ext_resource type="Script" uid="uid://bwo4ee58wiv5c" path="res://Cenarios/player_hud.gd" id="1_06m7l"]
-[ext_resource type="Script" uid="uid://m72ecay852nl" path="res://GUIandHUDS/HUD_manager.gd" id="1_m502x"]
+[ext_resource type="Script" uid="uid://bwo4ee58wiv5c" path="res://Codigos/player_hud.gd" id="1_06m7l"]
+[ext_resource type="Script" uid="uid://m72ecay852nl" path="res://Codigos/HUD_manager.gd" id="1_m502x"]
 
 [sub_resource type="Theme" id="Theme_ovo6g"]
 default_font_size = 22

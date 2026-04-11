@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://d31q3hyelabb2"]
 
 [ext_resource type="PackedScene" uid="uid://b0iiqqpuhinen" path="res://Entidades/NPCTest.tscn" id="2_3vvcd"]
-[ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Recursos/PlayerMissoes.gd" id="3_n6tsu"]
+[ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Codigos/Recursos/PlayerMissoes.gd" id="3_n6tsu"]
 [ext_resource type="PackedScene" uid="uid://5otior1ihcg" path="res://Entidades/test_pc.tscn" id="3_upe6q"]
+[ext_resource type="PackedScene" uid="uid://b1wymy8afnund" path="res://Entidades/porta.tscn" id="4_7rgf2"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_bymjj"]
 
@@ -37,7 +38,6 @@ reflected_light_source = 2
 tonemap_mode = 2
 
 [node name="World" type="Node3D" unique_id=1920273546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66387737, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1734302930]
 disable_mode = 1
@@ -64,3 +64,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.495941, 0.10552883, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=193618251]
 environment = SubResource("Environment_sfdph")
+
+[node name="SpawnPos" type="Node3D" parent="." unique_id=13620229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5246086, 0.9231626, 0)
+
+[node name="Porta" parent="." unique_id=1885812493 instance=ExtResource("4_7rgf2")]
+transform = Transform3D(1.787326, 0, 0, 0, 2.3206794, 0, 0, 0, 2.1671815, 8.844555, 0.18310559, 0)
