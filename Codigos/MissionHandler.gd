@@ -12,10 +12,6 @@ func _create_mission(missao: MissoesData, player) -> bool:
 		player = get_tree().get_first_node_in_group("Player")
 	var Plmissao = player.PlayerStats[1]
 	Plmissao.missao.append(missao)
-	print(Plmissao.missao.size())
-	print("Missão criada")
-	
-	
 	return true
 
 func _get_missions(player, i: int) -> String:

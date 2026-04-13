@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cpay3yonm7005"]
+
+[ext_resource type="Script" uid="uid://ba08pmof4yr2e" path="res://GUIandHUDS/Celular/Aplicativos/mission_hub.gd" id="1_nqtfm"]
+
+[node name="MissionHub" type="Control" unique_id=1761146457]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nqtfm")
+
+[node name="MissionArea" type="PanelContainer" parent="." unique_id=1901798975]
+layout_mode = 0
+offset_right = 117.69231
+offset_bottom = 163.0
+
+[node name="Scroll" type="ScrollContainer" parent="MissionArea" unique_id=1176503198]
+layout_mode = 2
+
+[node name="MissionBox" type="VBoxContainer" parent="MissionArea/Scroll" unique_id=1479370957]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(109.865, 162.335)
+layout_mode = 2

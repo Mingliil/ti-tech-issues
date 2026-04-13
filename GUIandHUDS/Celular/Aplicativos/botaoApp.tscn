@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dchv8ra5y6lbl"]
+
+[ext_resource type="Script" uid="uid://drhxe6vy7aiud" path="res://GUIandHUDS/Celular/Aplicativos/botao_app.gd" id="1_6mm2i"]
+
+[node name="painelBotao" type="PanelContainer" unique_id=690121436]
+custom_minimum_size = Vector2(100, 150)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6mm2i")
+
+[node name="Vbox" type="VBoxContainer" parent="." unique_id=598394755]
+layout_mode = 2
+
+[node name="btApp" type="Button" parent="Vbox" unique_id=598761072]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "teste"
+
+[node name="Label" type="Label" parent="Vbox" unique_id=2011816224]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "nome do aplicativo que tem aqui, colocar nome que não seja grande"
+horizontal_alignment = 1
+autowrap_mode = 1
+text_overrun_behavior = 3
+
+[connection signal="pressed" from="Vbox/btApp" to="." method="_pressed"]

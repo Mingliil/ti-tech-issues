@@ -18,6 +18,41 @@ script = ExtResource("3_n6tsu")
 nomeMissao = "Conserte uma fonte"
 metadata/_custom_type_script = "uid://bra25pm2a8td5"
 
+[sub_resource type="Resource" id="Resource_hvo44"]
+script = ExtResource("3_n6tsu")
+nomeMissao = "Conserte uma fonte"
+metadata/_custom_type_script = "uid://bra25pm2a8td5"
+
+[sub_resource type="Resource" id="Resource_7rgf2"]
+script = ExtResource("3_n6tsu")
+nomeMissao = "Conserte uma fonte"
+metadata/_custom_type_script = "uid://bra25pm2a8td5"
+
+[sub_resource type="Resource" id="Resource_5biev"]
+script = ExtResource("3_n6tsu")
+nomeMissao = "Conserte uma fonte"
+metadata/_custom_type_script = "uid://bra25pm2a8td5"
+
+[sub_resource type="Resource" id="Resource_wrbo3"]
+script = ExtResource("3_n6tsu")
+nomeMissao = "Conserte uma fonte"
+metadata/_custom_type_script = "uid://bra25pm2a8td5"
+
+[sub_resource type="Resource" id="Resource_n6tsu"]
+script = ExtResource("3_n6tsu")
+nomeMissao = "Conserte uma fonte"
+metadata/_custom_type_script = "uid://bra25pm2a8td5"
+
+[sub_resource type="Resource" id="Resource_cxw67"]
+script = ExtResource("3_n6tsu")
+nomeMissao = "Conserte uma fonte"
+metadata/_custom_type_script = "uid://bra25pm2a8td5"
+
+[sub_resource type="Resource" id="Resource_2wxmm"]
+script = ExtResource("3_n6tsu")
+nomeMissao = "Conserte uma fonte"
+metadata/_custom_type_script = "uid://bra25pm2a8td5"
+
 [sub_resource type="Resource" id="Resource_ovo6g"]
 script = ExtResource("3_n6tsu")
 nomeMissao = "instale uma placa mae"
@@ -53,7 +88,7 @@ shape = SubResource("BoxShape3D_nynj4")
 
 [node name="TestNpc" parent="." unique_id=1798192419 instance=ExtResource("2_3vvcd")]
 transform = Transform3D(1.78, 0, 0, 0, 1.78, 0, 0, 0, 1.78, -6.765199, 0.56030035, 0)
-missao = Array[ExtResource("3_n6tsu")]([SubResource("Resource_uncvp")])
+missao = Array[ExtResource("3_n6tsu")]([SubResource("Resource_uncvp"), SubResource("Resource_hvo44"), SubResource("Resource_7rgf2"), SubResource("Resource_5biev"), SubResource("Resource_wrbo3"), SubResource("Resource_n6tsu"), SubResource("Resource_cxw67"), SubResource("Resource_2wxmm")])
 
 [node name="TestNpc2" parent="." unique_id=1232378812 instance=ExtResource("2_3vvcd")]
 transform = Transform3D(1.688, 0, 0, 0, 1.688, 0, 0, 0, 1.688, 10.176886, 0.969432, -4.8287277)

@@ -2,10 +2,13 @@
 
 [node name="btMissao" type="Button" unique_id=485202556]
 anchors_preset = -1
-anchor_right = 0.149
-anchor_bottom = 0.048
-offset_right = -163.64801
-offset_bottom = -23.104
+anchor_right = 0.1
+anchor_bottom = 0.037
+offset_right = -0.20000458
+offset_bottom = 0.024000168
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 10
 text = "tEXTO pLACEHOLDER"
 alignment = 0
+text_overrun_behavior = 1
+autowrap_mode = 3

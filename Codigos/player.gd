@@ -4,7 +4,7 @@ class_name PlayerCode
 @export var JUMP_VELOCITY = 4.5
 @export var PlayerStats: Array[PRE]
 @onready var camera = $Pivot/PlayerCam
-@onready var Phone = preload("res://GUIandHUDS/Celular/Phone.tscn")
+@onready var Phone = preload("res://GUIandHUDS/Celular/celular.tscn")
 var celularNaTela: bool = false
 signal PlSpeed(Plspeed)
 signal interact(Interact)
@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 			celularNaTela = true
 			get_parent().add_child(celular)
 		else:
-			var i = get_parent().get_node("Phone")
+			var i = get_parent().get_node("Celular")
 			i.queue_free()
 			celularNaTela = false
 

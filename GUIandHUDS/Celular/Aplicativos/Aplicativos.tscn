@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://buydqqngtik0w"]
+
+[ext_resource type="PackedScene" uid="uid://dchv8ra5y6lbl" path="res://GUIandHUDS/Celular/Aplicativos/botaoApp.tscn" id="1_1t6ll"]
+[ext_resource type="PackedScene" uid="uid://cpay3yonm7005" path="res://GUIandHUDS/Celular/Aplicativos/MissionHub.tscn" id="2_1p18c"]
+
+[node name="Control" type="Control" unique_id=1106708541]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gridapps" type="GridContainer" parent="." unique_id=1873161210]
+layout_mode = 0
+offset_left = 1.2820511
+offset_top = 1.0
+offset_right = 309.28204
+offset_bottom = 471.0
+columns = 3
+
+[node name="painelBotao" parent="Gridapps" unique_id=690121436 instance=ExtResource("1_1t6ll")]
+layout_mode = 2
+aplicativoAba = ExtResource("2_1p18c")
+aplicativoNome = "Aplicativo da Empresa"
+
+[node name="painelBotao2" parent="Gridapps" unique_id=362590662 instance=ExtResource("1_1t6ll")]
+layout_mode = 2
+
+[node name="painelBotao3" parent="Gridapps" unique_id=681007477 instance=ExtResource("1_1t6ll")]
+layout_mode = 2
+
+[node name="painelBotao4" parent="Gridapps" unique_id=2083332303 instance=ExtResource("1_1t6ll")]
+layout_mode = 2
+
+[node name="painelBotao5" parent="Gridapps" unique_id=1569767060 instance=ExtResource("1_1t6ll")]
+layout_mode = 2
+
+[node name="painelBotao6" parent="Gridapps" unique_id=47590581 instance=ExtResource("1_1t6ll")]
+layout_mode = 2
+
+[node name="painelBotao7" parent="Gridapps" unique_id=146384747 instance=ExtResource("1_1t6ll")]
+layout_mode = 2
+
+[node name="painelBotao8" parent="Gridapps" unique_id=24587459 instance=ExtResource("1_1t6ll")]
+layout_mode = 2
+
+[node name="painelBotao9" parent="Gridapps" unique_id=267876908 instance=ExtResource("1_1t6ll")]
+layout_mode = 2

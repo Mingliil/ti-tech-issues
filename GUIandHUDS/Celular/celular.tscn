@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c4di3ol3epnih"]
+
+[ext_resource type="Script" uid="uid://d3rcfag1sucl0" path="res://GUIandHUDS/Celular/celhandler.gd" id="1_f7h03"]
+
+[node name="Celular" type="CanvasLayer" unique_id=169388323]
+layer = 90
+scale = Vector2(0.78, 1)
+transform = Transform2D(0.78, 0, 0, 1, 0, 0)
+script = ExtResource("1_f7h03")
+
+[node name="TelaNormal" type="Panel" parent="." unique_id=1409530578]
+anchors_preset = -1
+offset_left = -60.0
+offset_top = -197.0
+offset_right = 60.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset_ratio = Vector2(0.5, 1)
+
+[node name="AreaApp" type="PanelContainer" parent="TelaNormal" unique_id=258110753]
+layout_mode = 0
+offset_left = 1.2820511
+offset_top = 1.0
+offset_right = 118.97436
+offset_bottom = 164.0
