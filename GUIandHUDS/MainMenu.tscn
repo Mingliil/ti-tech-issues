@@ -1,16 +1,57 @@
 [gd_scene format=3 uid="uid://dqmwi6mmkv7w1"]
 
 [ext_resource type="Script" uid="uid://p3chplpafldx" path="res://Codigos/main_menu.gd" id="1_s5ex8"]
+[ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://Imagens/afonso.jpeg" id="2_kgx6s"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f7sf0"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kgx6s"]
 
 [node name="MainMenu" type="Node3D" unique_id=1932880650]
 script = ExtResource("1_s5ex8")
 cenaInicial = &"uid://d31q3hyelabb2"
 
-[node name="Button" type="Button" parent="." unique_id=1230424426]
-offset_left = 5.0
-offset_top = 79.0
-offset_right = 98.0
-offset_bottom = 110.0
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1688763069]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=345752018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5920883, 1.1336795, 0)
+mesh = SubResource("CylinderMesh_f7sf0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1150767251]
+transform = Transform3D(1, 0, 0, 0, 0.9261144, -0.37724283, 0, 0.37724283, 0.9261144, -0.9698026, 0, 0)
+mesh = SubResource("PlaneMesh_kgx6s")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=258260827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.953496, 1.8290172, 2.7413516)
+
+[node name="Control" type="Control" parent="." unique_id=1139594472]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control" unique_id=786249365]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 38.000004
+offset_right = 390.0
+offset_bottom = 300.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel" unique_id=454317155]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 28.999996
+offset_right = 1333.0
+offset_bottom = 1629.0
+scale = Vector2(0.095, 0.095)
+texture = ExtResource("2_kgx6s")
+
+[node name="Button" type="Button" parent="Control" unique_id=1230424426]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 69.0
+offset_right = 114.0
+offset_bottom = 100.0
 text = "iniciar jogo"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
