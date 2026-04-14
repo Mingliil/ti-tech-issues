@@ -26,6 +26,7 @@ aplicativoNome = "Aplicativo da Empresa"
 
 [node name="painelBotao2" parent="Gridapps" unique_id=362590662 instance=ExtResource("1_1t6ll")]
 layout_mode = 2
+aplicativoNome = "Banco CUbank"
 
 [node name="painelBotao3" parent="Gridapps" unique_id=681007477 instance=ExtResource("1_1t6ll")]
 layout_mode = 2

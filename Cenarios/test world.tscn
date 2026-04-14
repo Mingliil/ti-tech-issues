@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b0iiqqpuhinen" path="res://Entidades/NPCTest.tscn" id="2_3vvcd"]
 [ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Codigos/Recursos/PlayerMissoes.gd" id="3_n6tsu"]
+[ext_resource type="Script" uid="uid://bexhdnpux2ns3" path="res://Codigos/Recursos/MissaoRequisitoRes.gd" id="3_uncvp"]
 [ext_resource type="PackedScene" uid="uid://5otior1ihcg" path="res://Entidades/test_pc.tscn" id="3_upe6q"]
 [ext_resource type="PackedScene" uid="uid://b1wymy8afnund" path="res://Entidades/porta.tscn" id="4_7rgf2"]
 
@@ -13,10 +14,31 @@ resource_local_to_scene = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_nynj4"]
 size = Vector3(1, 0.003551758, 1)
 
+[sub_resource type="Resource" id="Resource_jpygw"]
+script = ExtResource("3_uncvp")
+RequisitoMax = true
+RequisitoAtual = false
+metadata/_custom_type_script = "uid://bexhdnpux2ns3"
+
+[sub_resource type="Resource" id="Resource_tej5o"]
+script = ExtResource("3_uncvp")
+RequisitoMax = 69
+RequisitoAtual = 0
+metadata/_custom_type_script = "uid://bexhdnpux2ns3"
+
+[sub_resource type="Resource" id="Resource_qhcgw"]
+script = ExtResource("3_uncvp")
+RequisitoMax = 4.2
+RequisitoAtual = 4.2
+metadata/_custom_type_script = "uid://bexhdnpux2ns3"
+
 [sub_resource type="Resource" id="Resource_uncvp"]
 script = ExtResource("3_n6tsu")
 nomeMissao = "Conserte uma fonte"
+missoesRequisitosNome = Array[String](["SE MAATA", "ME MATA", "PORRA"])
+missoesRequisitosInfo = Array[ExtResource("3_uncvp")]([SubResource("Resource_jpygw"), SubResource("Resource_tej5o"), SubResource("Resource_qhcgw")])
 recompensaTexto = "THERES A BOM-ss"
+recompensaVar = [99999]
 metadata/_custom_type_script = "uid://bra25pm2a8td5"
 
 [sub_resource type="Resource" id="Resource_hvo44"]

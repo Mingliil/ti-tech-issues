@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dixnv1fdwh7kh" path="res://GUIandHUDS/Celular/Aplicativos/missionInf.gd" id="1_v1f3n"]
 [ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Codigos/Recursos/PlayerMissoes.gd" id="2_6w321"]
+[ext_resource type="Script" uid="uid://bexhdnpux2ns3" path="res://Codigos/Recursos/MissaoRequisitoRes.gd" id="2_p5id4"]
 
 [sub_resource type="Resource" id="Resource_p5id4"]
 script = ExtResource("2_6w321")
@@ -52,11 +53,8 @@ scroll_active = false
 autowrap_mode = 2
 tab_size = 24
 
-[node name="PlaceHolder" type="CheckBox" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=1040450550]
+[node name="Requisitos" type="VBoxContainer" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=81260323]
 layout_mode = 2
-toggle_mode = false
-text = "info de cada tipo de check da missão"
-autowrap_mode = 2
 
 [node name="MissaoRec" type="RichTextLabel" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=80645577]
 clip_contents = false

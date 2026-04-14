@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cjhvy4urxjoj8"]
+
+[node name="requisitoMissao" type="CheckBox" unique_id=561655366]
+custom_minimum_size = Vector2(112, 0)
+offset_right = 24.0
+offset_bottom = 24.0
+localize_numeral_system = false
+text = "TExto do prerequisito"
+autowrap_mode = 3
+autowrap_trim_flags = 0

@@ -9,7 +9,7 @@ class_name MissoesData
 @export_multiline() var descricao: String
 #requisitos para concluir a missão
 @export var missoesRequisitosNome: Array[String]
-@export var missoesRequisitosInfo: Array
+@export var missoesRequisitosInfo: Array[MissaoRequis]
 
 @export var recompensaTexto: String
 @export var recompensaVar: Array
