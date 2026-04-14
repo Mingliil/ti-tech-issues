@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b8fccs68et2ao"]
 
+[ext_resource type="Script" uid="uid://bu8vvkgjw06ye" path="res://GUIandHUDS/Celular/getMissionInfo.gd" id="1_qw5se"]
+
 [node name="btMissao" type="Button" unique_id=485202556]
 anchors_preset = -1
 anchor_right = 0.1
@@ -12,3 +14,6 @@ text = "tEXTO pLACEHOLDER"
 alignment = 0
 text_overrun_behavior = 1
 autowrap_mode = 3
+script = ExtResource("1_qw5se")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

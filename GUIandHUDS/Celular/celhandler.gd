@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var player
 @onready var botaoMissao = preload("res://GUIandHUDS/Celular/botaomissao.tscn")
-@onready var appUso: = $TelaNormal/AreaApp
+@onready var appUso: = $TelaNormal/AreaApp/AreaNucleo
 @onready var aplicativos = preload("res://GUIandHUDS/Celular/Aplicativos/Aplicativos.tscn")
 var botaoMissaoExiste: bool = false
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +26,7 @@ func mude_app_aba(preloadAba: PackedScene) -> void:
 
 func missao_botao() -> void:
 	var miHdr = preload("res://Codigos/MissionHandler.gd").new()
-	var tabelaMissoes: VBoxContainer = get_node("/root/Celular/TelaNormal/AreaApp/MissionHub/MissionArea/Scroll/MissionBox")
+	var tabelaMissoes: VBoxContainer = get_node("/root/Celular/TelaNormal/AreaApp/AreaNucleo/MissionHub/MissionArea/Scroll/MissionBox")
 	if botaoMissaoExiste:
 		if appUso.get_child_count() == 0:
 			pass

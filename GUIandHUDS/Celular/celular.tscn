@@ -9,7 +9,6 @@ transform = Transform2D(0.78, 0, 0, 1, 0, 0)
 script = ExtResource("1_f7h03")
 
 [node name="TelaNormal" type="Panel" parent="." unique_id=1409530578]
-anchors_preset = -1
 offset_left = -60.0
 offset_top = -197.0
 offset_right = 60.0
@@ -25,3 +24,7 @@ offset_left = 1.2820511
 offset_top = 1.0
 offset_right = 118.97436
 offset_bottom = 164.0
+
+[node name="AreaNucleo" type="ScrollContainer" parent="TelaNormal/AreaApp" unique_id=1376013072]
+custom_minimum_size = Vector2(117.692, 163)
+layout_mode = 2

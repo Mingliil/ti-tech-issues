@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bsx357x5joexr"]
+
+[sub_resource type="Theme" id="Theme_tyyf4"]
+default_font_size = 13
+
+[node name="Control" type="Control" unique_id=920016152]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AreaApp" type="PanelContainer" parent="." unique_id=226810326]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 300.0
+
+[node name="AreaNucleo" type="ScrollContainer" parent="AreaApp" unique_id=1510897973]
+custom_minimum_size = Vector2(117.692, 163)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AreaApp/AreaNucleo" unique_id=1788490776]
+layout_mode = 2
+theme = SubResource("Theme_tyyf4")
+
+[node name="Label" type="Label" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=119019172]
+custom_minimum_size = Vector2(197.17, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Missão Titulo"
+autowrap_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=1158464206]
+custom_minimum_size = Vector2(2.145, 24.64)
+layout_mode = 2
+text = "Texto para a descrição da missao que tiver"
+fit_content = true
+scroll_active = false
+
+[node name="CheckBox" type="CheckBox" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=1040450550]
+layout_mode = 2
+toggle_mode = false
+text = "info de cada tipo de check da missão"
+autowrap_mode = 2
