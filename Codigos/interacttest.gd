@@ -41,7 +41,7 @@ func _on_player_interact(Interact: Variant) -> void:
 				var chat = ResourceLoader.load("res://GUIandHUDS/chat_gui.tscn")
 				add_child(chat)
 				perdesanidade = true
-				var miHdr = preload("res://Codigos/MissionHandler.gd").new()
+				var miHdr = preload("res://Codigos/Autoload/MissionHandler.gd").new()
 				for i in missao.size():
 					if missao[i].missaoDada:
 						pass

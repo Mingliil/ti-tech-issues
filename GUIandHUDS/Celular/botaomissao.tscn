@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://b8fccs68et2ao"]
 
 [ext_resource type="Script" uid="uid://bu8vvkgjw06ye" path="res://GUIandHUDS/Celular/getMissionInfo.gd" id="1_qw5se"]
+[ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Codigos/Recursos/PlayerMissoes.gd" id="2_2qcoe"]
+
+[sub_resource type="Resource" id="Resource_1hd7h"]
+script = ExtResource("2_2qcoe")
+metadata/_custom_type_script = "uid://bra25pm2a8td5"
 
 [node name="btMissao" type="Button" unique_id=485202556]
 anchors_preset = -1
@@ -15,5 +20,6 @@ alignment = 0
 text_overrun_behavior = 1
 autowrap_mode = 3
 script = ExtResource("1_qw5se")
+MissionInfo = SubResource("Resource_1hd7h")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

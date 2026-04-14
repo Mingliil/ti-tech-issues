@@ -19,7 +19,7 @@ var PLAYER: CharacterBody3D = null
 
 func _ready() -> void:
 	print(get_tree().get_first_node_in_group("Player"))
-	PLAYER = get_tree().get_first_node_in_group()
+	PLAYER = get_tree().get_first_node_in_group("Player")
 func _process(delta: float) -> void:
 	if PLAYER == null:
 		PLAYER = get_tree().get_first_node_in_group("Player")

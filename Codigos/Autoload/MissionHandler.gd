@@ -14,10 +14,10 @@ func _create_mission(missao: MissoesData, player) -> bool:
 	Plmissao.missao.append(missao)
 	return true
 
-func _get_missions(player, i: int) -> String:
+func _get_missions(player, i: int) -> Array:
 	var t
 	if !player:
 		player = get_tree().get_first_node_in_group("Player")
 	var Plmissao = player.PlayerStats[1]
 	t = Plmissao.missao[i].nomeMissao
-	return t
+	return [t,Plmissao.missao[i]]

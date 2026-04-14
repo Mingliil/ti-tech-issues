@@ -25,7 +25,7 @@ func mude_app_aba(preloadAba: PackedScene) -> void:
 	appUso.add_child(preloadAba.instantiate())
 
 func missao_botao() -> void:
-	var miHdr = preload("res://Codigos/MissionHandler.gd").new()
+	var miHdr = preload("res://Codigos/Autoload/MissionHandler.gd").new()
 	var tabelaMissoes: VBoxContainer = get_node("/root/Celular/TelaNormal/AreaApp/AreaNucleo/MissionHub/MissionArea/Scroll/MissionBox")
 	if botaoMissaoExiste:
 		if appUso.get_child_count() == 0:
@@ -37,7 +37,9 @@ func missao_botao() -> void:
 	else:
 		for i in player.PlayerStats[1].missao.size():
 			var btMissao = botaoMissao.instantiate()
-			btMissao.text = miHdr._get_missions(get_tree().get_first_node_in_group("Player"), i)
+			var misInfo: Array = miHdr._get_missions(get_tree().get_first_node_in_group("Player"), i)
+			btMissao.text = misInfo[0]
+			btMissao.MissionInfo = misInfo[1]
 			tabelaMissoes.add_child(btMissao)
 			tabelaMissoes.get_child(i).scale.x = appUso.size.x / appUso.get_child(0).get_child(0).size.x
 		botaoMissaoExiste = true
