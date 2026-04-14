@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://bsx357x5joexr"]
 
+[ext_resource type="Script" uid="uid://dixnv1fdwh7kh" path="res://GUIandHUDS/Celular/Aplicativos/missionInf.gd" id="1_v1f3n"]
+[ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Codigos/Recursos/PlayerMissoes.gd" id="2_6w321"]
+
+[sub_resource type="Resource" id="Resource_p5id4"]
+script = ExtResource("2_6w321")
+metadata/_custom_type_script = "uid://bra25pm2a8td5"
+
 [sub_resource type="Theme" id="Theme_tyyf4"]
 default_font_size = 13
 
@@ -12,10 +19,12 @@ offset_right = -1152.0
 offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v1f3n")
+MissionInf = SubResource("Resource_p5id4")
 
 [node name="AreaApp" type="PanelContainer" parent="." unique_id=226810326]
 layout_mode = 0
-offset_right = 200.0
+offset_right = 117.692
 offset_bottom = 300.0
 
 [node name="AreaNucleo" type="ScrollContainer" parent="AreaApp" unique_id=1510897973]
@@ -26,22 +35,35 @@ layout_mode = 2
 layout_mode = 2
 theme = SubResource("Theme_tyyf4")
 
-[node name="Label" type="Label" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=119019172]
-custom_minimum_size = Vector2(197.17, 0)
+[node name="MissaoTit" type="Label" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=119019172]
+custom_minimum_size = Vector2(117.692, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Missão Titulo"
 autowrap_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=1158464206]
-custom_minimum_size = Vector2(2.145, 24.64)
+[node name="MissaoDesc" type="RichTextLabel" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=1158464206]
+clip_contents = false
+custom_minimum_size = Vector2(8.93, 0)
 layout_mode = 2
 text = "Texto para a descrição da missao que tiver"
 fit_content = true
 scroll_active = false
+autowrap_mode = 2
+tab_size = 24
 
-[node name="CheckBox" type="CheckBox" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=1040450550]
+[node name="PlaceHolder" type="CheckBox" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=1040450550]
 layout_mode = 2
 toggle_mode = false
 text = "info de cada tipo de check da missão"
 autowrap_mode = 2
+
+[node name="MissaoRec" type="RichTextLabel" parent="AreaApp/AreaNucleo/VBoxContainer" unique_id=80645577]
+clip_contents = false
+custom_minimum_size = Vector2(8.93, 0)
+layout_mode = 2
+text = "Recompensas ficam aqui"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 24

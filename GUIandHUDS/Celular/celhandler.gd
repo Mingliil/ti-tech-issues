@@ -13,7 +13,7 @@ func _ready() -> void:
 		get_viewport().size_changed.connect(_change_phone_size)
 	var app:Control = aplicativos.instantiate()
 	appUso.add_child(app)
-	adapt_app_size()
+	adapt_app_size(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -51,8 +51,9 @@ func _change_phone_size() -> void:
 	scale.x = 1*(offset.x/900)
 	scale.y = 1*(offset.x/900)
 
-func adapt_app_size() -> void:
-	var appRoot: Control = appUso.get_child(0)
+func adapt_app_size(i: int) -> void:
+	
+	var appRoot: Control = appUso.get_child(i)
 	appRoot.get_child(0).scale.x = appUso.size.x / appRoot.get_child(0).size.x
 	appRoot.get_child(0).scale.y = appRoot.get_child(0).scale.x
 	pass
