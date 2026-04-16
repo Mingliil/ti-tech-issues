@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bexhdnpux2ns3" path="res://Codigos/Recursos/MissaoRequisitoRes.gd" id="3_uncvp"]
 [ext_resource type="PackedScene" uid="uid://5otior1ihcg" path="res://Entidades/test_pc.tscn" id="3_upe6q"]
 [ext_resource type="PackedScene" uid="uid://b1wymy8afnund" path="res://Entidades/porta.tscn" id="4_7rgf2"]
+[ext_resource type="PackedScene" uid="uid://bv2bk8svst24s" path="res://Entidades/PC/Computador.tscn" id="6_uncvp"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_bymjj"]
 
@@ -32,11 +33,23 @@ RequisitoMax = 4.2
 RequisitoAtual = 4.2
 metadata/_custom_type_script = "uid://bexhdnpux2ns3"
 
+[sub_resource type="Resource" id="Resource_gkt5n"]
+script = ExtResource("3_uncvp")
+RequisitoMax = 311313
+RequisitoAtual = 234124
+metadata/_custom_type_script = "uid://bexhdnpux2ns3"
+
+[sub_resource type="Resource" id="Resource_32q2h"]
+script = ExtResource("3_uncvp")
+RequisitoMax = 99999.96
+RequisitoAtual = 99.0
+metadata/_custom_type_script = "uid://bexhdnpux2ns3"
+
 [sub_resource type="Resource" id="Resource_uncvp"]
 script = ExtResource("3_n6tsu")
 nomeMissao = "Conserte uma fonte"
-missoesRequisitosNome = Array[String](["SE MAATA", "ME MATA", "PORRA"])
-missoesRequisitosInfo = Array[ExtResource("3_uncvp")]([SubResource("Resource_jpygw"), SubResource("Resource_tej5o"), SubResource("Resource_qhcgw")])
+missoesRequisitosNome = Array[String](["SE MAATA", "ME MATA", "PORRA", "ahasfaf22", "hhnmgndf..."])
+missoesRequisitosInfo = Array[ExtResource("3_uncvp")]([SubResource("Resource_jpygw"), SubResource("Resource_tej5o"), SubResource("Resource_qhcgw"), SubResource("Resource_gkt5n"), SubResource("Resource_32q2h")])
 recompensaTexto = "THERES A BOM-ss"
 recompensaVar = [99999]
 metadata/_custom_type_script = "uid://bra25pm2a8td5"
@@ -128,3 +141,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5246086, 0.9231626, 0)
 
 [node name="Porta" parent="." unique_id=1885812493 instance=ExtResource("4_7rgf2")]
 transform = Transform3D(1.787326, 0, 0, 0, 2.3206794, 0, 0, 0, 2.1671815, 8.844555, 0.18310559, 0)
+
+[node name="Computador" parent="." unique_id=774488811 instance=ExtResource("6_uncvp")]
+transform = Transform3D(1.78, 0, 0, 0, 1.78, 0, 0, 0, 1.78, 1.1023436, 0.56030035, -2.4576416)

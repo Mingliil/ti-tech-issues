@@ -1,8 +1,8 @@
-extends Control
+extends PanelContainer
 
 @export var MissionInf: MissoesData
 @onready var preloadRecBotao = preload("res://GUIandHUDS/Celular/Aplicativos/MissioHub/requisito_missao.tscn")
-@onready var Vbox: VBoxContainer = $AreaApp/VBoxContainer
+@onready var Vbox: VBoxContainer = $VBoxContainer
 func _ready() -> void:
 	Vbox.get_node("MissaoTit").text = MissionInf.nomeMissao
 	Vbox.get_node("MissaoDesc").text = MissionInf.descricao

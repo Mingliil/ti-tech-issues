@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bv2bk8svst24s"]
+
+[ext_resource type="PackedScene" uid="uid://du0prqdytllax" path="res://Ferramentas e mais/area_de_interação.tscn" id="1_6jm54"]
+[ext_resource type="Script" uid="uid://dnsqwg08cgp40" path="res://Entidades/PC/computador.gd" id="1_67m1g"]
+[ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://Imagens/afonso.jpeg" id="2_67m1g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rjpc"]
+albedo_texture = ExtResource("2_67m1g")
+
+[sub_resource type="BoxMesh" id="BoxMesh_r8f8i"]
+material = SubResource("StandardMaterial3D_0rjpc")
+
+[node name="Computador" type="Node3D" unique_id=774488811]
+script = ExtResource("1_67m1g")
+
+[node name="Area3D" parent="." unique_id=7940264 instance=ExtResource("1_6jm54")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=880325757]
+transform = Transform3D(0.2567706, 0, 0, 0, 0.9178813, 0, 0, 0, 0.80715376, -0.25411287, 0.4053892, 0)
+mesh = SubResource("BoxMesh_r8f8i")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=317421556]
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_exited"]
