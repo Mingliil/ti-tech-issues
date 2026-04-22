@@ -6,13 +6,13 @@
 [ext_resource type="Script" uid="uid://bra25pm2a8td5" path="res://Codigos/Recursos/PlayerMissoes.gd" id="4_q7xc8"]
 [ext_resource type="Script" uid="uid://dr5vwlbuhk655" path="res://Codigos/Recursos/MissoesData.gd" id="5_2waec"]
 [ext_resource type="PackedScene" uid="uid://cg0k7w31gb4gx" path="res://GUIandHUDS/hud.tscn" id="6_2waec"]
-[ext_resource type="Texture2D" uid="uid://csuayriuriygd" path="res://Imagens/afonso.jpeg" id="7_7ftqi"]
 
 [sub_resource type="Resource" id="Resource_1mtym"]
 script = ExtResource("3_vcobw")
 baseSpeed = 9.0
 sprintSpeed = 13
 podeMover = true
+podeInteragir = true
 sanidade = 100.0
 metadata/_custom_type_script = "uid://d3qcwh1evctxc"
 
@@ -54,19 +54,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03324735, 0)
 shape = SubResource("BoxShape3D_vcobw")
 
 [node name="HUD" parent="." unique_id=1502469353 instance=ExtResource("6_2waec")]
-
-[node name="SubJanela" type="SubViewportContainer" parent="." unique_id=710914014]
-visible = false
-offset_left = 38.295
-offset_right = 1116.295
-offset_bottom = 601.0
-
-[node name="SubViewport" type="SubViewport" parent="SubJanela" unique_id=1881968201]
-handle_input_locally = false
-size = Vector2i(1078, 601)
-render_target_update_mode = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="SubJanela" unique_id=819609408]
-visible = false
-position = Vector2(584.705, 762)
-texture = ExtResource("7_7ftqi")
