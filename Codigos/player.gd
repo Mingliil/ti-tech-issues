@@ -49,7 +49,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, i.baseSpeed)
 			velocity.z = move_toward(velocity.z, 0, i.baseSpeed)
 		if Input.is_action_just_pressed("Interact"):
-			emit_signal("interact", 1)
+			if PlayerStats[0].podeInteragir:
+				emit_signal("interact", 1)
 		emit_signal("PlSpeed", velocity)
 	i.velocidadeAtual = velocity
 

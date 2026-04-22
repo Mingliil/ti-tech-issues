@@ -19,7 +19,5 @@ script = ExtResource("1_67m1g")
 transform = Transform3D(0.2567706, 0, 0, 0, 0.9178813, 0, 0, 0, 0.80715376, -0.25411287, 0.4053892, 0)
 mesh = SubResource("BoxMesh_r8f8i")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=317421556]
-
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_exited"]

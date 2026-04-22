@@ -2,6 +2,9 @@
 
 [node name="Node2D" type="Node2D" unique_id=1384638344]
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=644581869]
+position = Vector2(577, 320)
+
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1699419405]
 position = Vector2(10, 9)
 polygon = PackedVector2Array(769, 387, 731, 327, 776, 326, 782, 97, 450, 95, 453, 318, 512, 321, 458, 374, -5, 406, 4, 630, 1153, 648, 1150, 434)
