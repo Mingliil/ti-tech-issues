@@ -11,7 +11,5 @@ func _on_area_exited(area: Area3D) -> void:
 	player.interact.disconnect(acesso_setup)
 
 func acesso_setup(Interact: Variant) -> void:
-	var sub = player.get_node("SubJanela").get_child(0)
-	sub.get_parent().visible = true
 	player.add_child(preloadPcSetup.instantiate())
 	player.PlayerStats[0].podeInteragir = false
