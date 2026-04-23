@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://decafil0jcorv"]
+
+[node name="MonitorBase" type="Window" unique_id=551706674]
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(500, 500)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=553449595]
+z_index = 90
+offset_right = 502.0
+offset_bottom = 500.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1616510286]
+physics_object_picking = true
+
+[node name="esquerda" type="Button" parent="SubViewportContainer/SubViewport" unique_id=1413321017]
+offset_left = 6.0
+offset_top = 280.0
+offset_right = 87.0
+offset_bottom = 318.0
+text = "esquerda"
+
+[node name="direita" type="Button" parent="SubViewportContainer/SubViewport" unique_id=377657636]
+offset_left = 434.0
+offset_top = 277.0
+offset_right = 493.0
+offset_bottom = 315.0
+text = "direita"

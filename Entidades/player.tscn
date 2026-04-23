@@ -54,3 +54,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03324735, 0)
 shape = SubResource("BoxShape3D_vcobw")
 
 [node name="HUD" parent="." unique_id=1502469353 instance=ExtResource("6_2waec")]
+visible = false

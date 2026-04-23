@@ -3,22 +3,21 @@
 [ext_resource type="Script" uid="uid://6bqrfidkgyac" path="res://Entidades/PC/pc_setup.gd" id="1_0gpe3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox31i"]
-size = Vector2(378.5, 305)
+size = Vector2(331.98138, 241.87288)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fi4b"]
-size = Vector2(147, 268)
+size = Vector2(152.32596, 270.75513)
 
 [node name="PcRoot" type="Node2D" unique_id=1384638344]
-z_index = 4096
 script = ExtResource("1_0gpe3")
 
 [node name="SubJanela" type="SubViewportContainer" parent="." unique_id=34753667]
+z_index = 15
 z_as_relative = false
 offset_left = 38.295
 offset_right = 1116.295
 offset_bottom = 601.0
 focus_mode = 2
-mouse_filter = 2
 mouse_target = true
 
 [node name="SubViewport" type="SubViewport" parent="SubJanela" unique_id=1329318418]
@@ -28,25 +27,35 @@ size = Vector2i(1078, 601)
 render_target_update_mode = 4
 
 [node name="Arte-Placeholder" type="Polygon2D" parent="SubJanela/SubViewport" unique_id=1699419405]
-position = Vector2(9.726706, 12.092224)
-scale = Vector2(0.94534105, 0.96745026)
+position = Vector2(-5.294998, 10)
+scale = Vector2(0.94534117, 0.96745026)
 polygon = PackedVector2Array(769, 387, 731, 327, 776, 326, 782, 97, 450, 95, 453, 318, 512, 321, 458, 374, 284.31836, 386.00388, 289, 146, 162, 143, 160, 397, -5, 406, 4, 630, 1153, 648, 1150, 434)
 
 [node name="Monitor" type="Area2D" parent="SubJanela/SubViewport" unique_id=523790832]
 position = Vector2(0.2732954, 3.385172)
 scale = Vector2(0.94534105, 0.96745026)
+priority = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubJanela/SubViewport/Monitor" unique_id=1603595353]
-position = Vector2(623.75, 252.5)
+z_index = 3
+position = Vector2(612.9341, 215.63364)
+scale = Vector2(1.0000002, 1)
 shape = SubResource("RectangleShape2D_ox31i")
 
 [node name="computador" type="Area2D" parent="SubJanela/SubViewport" unique_id=1619382824]
+z_index = 80
 position = Vector2(0.2732954, 3.385172)
-scale = Vector2(0.94534105, 0.96745026)
+scale = Vector2(0.94534117, 0.96745026)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubJanela/SubViewport/computador" unique_id=1003755569]
-position = Vector2(233.5, 279)
+z_index = 3
+position = Vector2(220.48305, 276.61868)
+scale = Vector2(1, 0.9999999)
 shape = SubResource("RectangleShape2D_6fi4b")
+
+[node name="Button" type="Button" parent="SubJanela/SubViewport" unique_id=1436972188]
+offset_right = 189.705
+offset_bottom = 290.0
 
 [node name="Cam" type="Camera2D" parent="." unique_id=644581869]
 position = Vector2(577, 320)

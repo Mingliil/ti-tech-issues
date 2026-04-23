@@ -7,7 +7,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_computador_mouse_entered() -> void:
-	print("pc entrou")
+	if Input.is_action_just_pressed("ClickPrim"):
+		_abrir_janela("uid://decafil0jcorv")
+		print("pc entrou")
 	pass # Replace with function body.
 
 
@@ -22,3 +24,6 @@ func _on_monitor_mouse_entered() -> void:
 
 func _on_monitor_mouse_exited() -> void:
 	print("monitor saiu")
+	
+func _abrir_janela(path: String) -> void:
+	var cena = load(path)
