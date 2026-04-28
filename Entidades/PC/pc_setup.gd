@@ -1,15 +1,18 @@
 extends Node2D
-
+var dentro
 @onready var player: CharacterBody3D
+@onready var cenatest = preload("uid://decafil0jcorv")
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 func _process(delta: float) -> void:
-	pass
+	if dentro:
+		if Input.is_action_just_released("ClickPrim"):
+			_abrir_janela(cenatest)
+			print("pc entrou")
+			dentro = false
 
 func _on_computador_mouse_entered() -> void:
-	if Input.is_action_just_pressed("ClickPrim"):
-		_abrir_janela("uid://decafil0jcorv")
-		print("pc entrou")
+	dentro = true
 	pass # Replace with function body.
 
 
@@ -25,5 +28,6 @@ func _on_monitor_mouse_entered() -> void:
 func _on_monitor_mouse_exited() -> void:
 	print("monitor saiu")
 	
-func _abrir_janela(path: String) -> void:
-	var cena = load(path)
+func _abrir_janela(Cenapreload: PackedScene) -> void:
+	var cena = Cenapreload.instantiate()
+	add_child(cena)
