@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bytm6j3djwmpy"]
 
 [ext_resource type="Script" uid="uid://6bqrfidkgyac" path="res://Entidades/PC/pc_setup.gd" id="1_0gpe3"]
+[ext_resource type="Script" uid="uid://bemhdv3qcmfx4" path="res://Codigos/Recursos/RecursosPC/MonitorRecursos.gd" id="2_6fi4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox31i"]
 size = Vector2(331.98138, 241.87288)
@@ -10,6 +11,7 @@ size = Vector2(152.32596, 270.75513)
 
 [node name="PcRoot" type="Node2D" unique_id=1384638344]
 script = ExtResource("1_0gpe3")
+InfoMonitor = Array[ExtResource("2_6fi4b")]([null])
 
 [node name="SubJanela" type="SubViewportContainer" parent="." unique_id=34753667]
 z_index = 15
