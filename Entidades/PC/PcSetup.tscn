@@ -53,10 +53,6 @@ position = Vector2(220.48305, 276.61868)
 scale = Vector2(1, 0.9999999)
 shape = SubResource("RectangleShape2D_6fi4b")
 
-[node name="Button" type="Button" parent="SubJanela/SubViewport" unique_id=1436972188]
-offset_right = 189.705
-offset_bottom = 290.0
-
 [node name="Cam" type="Camera2D" parent="." unique_id=644581869]
 position = Vector2(577, 320)
 

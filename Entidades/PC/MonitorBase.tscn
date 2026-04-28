@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://decafil0jcorv"]
 
-[node name="MonitorBase" type="Window" unique_id=551706674]
+[node name="JanelaBase" type="Window" unique_id=551706674]
 oversampling_override = 1.0
 initial_position = 2
 size = Vector2i(500, 500)
@@ -11,7 +11,9 @@ offset_right = 502.0
 offset_bottom = 500.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1616510286]
+handle_input_locally = false
 physics_object_picking = true
+render_target_update_mode = 4
 
 [node name="esquerda" type="Button" parent="SubViewportContainer/SubViewport" unique_id=1413321017]
 offset_left = 6.0
