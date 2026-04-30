@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bytm6j3djwmpy"]
 
 [ext_resource type="Script" uid="uid://6bqrfidkgyac" path="res://Entidades/PC/pc_setup.gd" id="1_0gpe3"]
-[ext_resource type="Script" uid="uid://bemhdv3qcmfx4" path="res://Codigos/Recursos/RecursosPC/MonitorRecursos.gd" id="2_6fi4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox31i"]
 size = Vector2(331.98138, 241.87288)
@@ -9,16 +8,19 @@ size = Vector2(331.98138, 241.87288)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fi4b"]
 size = Vector2(152.32596, 270.75513)
 
-[node name="PcRoot" type="Node2D" unique_id=1384638344]
+[node name="PcRoot" type="Window" unique_id=320120643]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(1066, 587)
 script = ExtResource("1_0gpe3")
-InfoMonitor = Array[ExtResource("2_6fi4b")]([null])
 
 [node name="SubJanela" type="SubViewportContainer" parent="." unique_id=34753667]
 z_index = 15
 z_as_relative = false
-offset_left = 38.295
-offset_right = 1116.295
-offset_bottom = 601.0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 1079.0
+offset_bottom = 597.0
 focus_mode = 2
 mouse_target = true
 
@@ -58,6 +60,7 @@ shape = SubResource("RectangleShape2D_6fi4b")
 [node name="Cam" type="Camera2D" parent="." unique_id=644581869]
 position = Vector2(577, 320)
 
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="mouse_entered" from="SubJanela/SubViewport/Monitor" to="." method="_on_monitor_mouse_entered"]
 [connection signal="mouse_exited" from="SubJanela/SubViewport/Monitor" to="." method="_on_monitor_mouse_exited"]
 [connection signal="mouse_entered" from="SubJanela/SubViewport/computador" to="." method="_on_computador_mouse_entered"]

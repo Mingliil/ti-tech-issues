@@ -38,6 +38,7 @@ folder_colors={
 Player=""
 HUD=""
 Dialogue=""
+CurrentPC="para pegar a informação do pc atual"
 
 [input]
 
