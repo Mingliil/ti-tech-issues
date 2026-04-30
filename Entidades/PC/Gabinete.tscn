@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://djk5hsv8wo31p"]
 
 [ext_resource type="Script" uid="uid://chc1s6pahdmib" path="res://Entidades/PC/gabinete.gd" id="1_vgsct"]
+[ext_resource type="PackedScene" uid="uid://dcydotjaiw6s5" path="res://Codigos/Recursos/Camera.tscn" id="2_fkm0b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgsct"]
 albedo_color = Color(0.84434843, 0.2800292, 0, 1)
@@ -15,5 +16,7 @@ script = ExtResource("1_vgsct")
 transform = Transform3D(0.51939994, 0, 0, 0, 1.184451, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_13fe1")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=803080660]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3795936)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=216594440]
+transform = Transform3D(0.4573496, 0.61849064, -0.6389841, -0.35997617, 0.7857922, 0.50293916, 0.81317186, 0, 0.5820236, -1.1720972, 1.2675449, 1.3583066)
+
+[node name="Pivot" parent="." unique_id=185618284 instance=ExtResource("2_fkm0b")]

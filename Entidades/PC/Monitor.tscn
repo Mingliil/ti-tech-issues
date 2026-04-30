@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b03pc17i0fo1s"]
+
+[ext_resource type="PackedScene" uid="uid://dcydotjaiw6s5" path="res://Codigos/Recursos/Camera.tscn" id="1_g523g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g523g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xtm3m"]
+material = SubResource("StandardMaterial3D_g523g")
+
+[node name="Monitor" type="Node3D" unique_id=1517641887]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1452833281]
+mesh = SubResource("BoxMesh_xtm3m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=729588327]
+transform = Transform3D(0.70058554, 0, -0.7135684, 0.22005464, 0.9512613, 0.21605091, 0.67879, -0.3083862, 0.6664399, -1.0502462, 0.57728434, 1.2815475)
+
+[node name="Pivot" parent="." unique_id=185618284 instance=ExtResource("1_g523g")]

@@ -5,8 +5,6 @@ extends Window
 @onready var subView:SubViewport = $SubViewportContainer/JanelaMundo
 
 func _load_component(type:int) -> void:
-	print(type)
-	
 	match type:
 		1: #Pc
 			title = "Gabinete"
@@ -14,6 +12,8 @@ func _load_component(type:int) -> void:
 			get_child(0).get_child(0).add_child(preload("res://Entidades/PC/Gabinete.tscn").instantiate())
 		2: #Monitor
 			title = "Monitor"
+			
+			get_child(0).get_child(0).add_child(preload("uid://b03pc17i0fo1s").instantiate())
 			typeWindow = type
 		0:
 			queue_free()
