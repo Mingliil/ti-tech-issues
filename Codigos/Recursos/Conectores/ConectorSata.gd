@@ -1,7 +1,6 @@
 extends ConE
-class_name ConUsb
+class_name ConSata
 
-@export var tipo: String
 @export var versao: int
 @export var conectado: bool
 @export var defeituosa: bool

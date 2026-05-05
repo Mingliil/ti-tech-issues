@@ -1,5 +1,5 @@
 extends ConE
-class_name ConUsb
+class_name ConEthernet
 
 @export var tipo: String
 @export var versao: int

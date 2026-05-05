@@ -1,8 +1,7 @@
 extends ConE
-class_name ConUsb
+class_name ConDisplayPort
 
-@export var tipo: String
-@export var versao: int
+@export var versao: String
 @export var conectado: bool
 @export var defeituosa: bool
 @export var mal_encaixado: bool

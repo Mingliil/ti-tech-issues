@@ -1,8 +1,6 @@
 extends ConE
-class_name ConUsb
+class_name ConVga
 
-@export var tipo: String
-@export var versao: int
 @export var conectado: bool
 @export var defeituosa: bool
 @export var mal_encaixado: bool
