@@ -48,5 +48,6 @@ func _abrir_janela(i: int) -> void:
 
 func _on_close_requested() -> void:
 	player.PlayerStats[0].podeInteragir = true
+	player.PlayerStats[0].podeMover = true
 	queue_free()
 	pass # Replace with function body.

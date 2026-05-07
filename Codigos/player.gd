@@ -52,6 +52,8 @@ func _physics_process(delta: float) -> void:
 			if PlayerStats[0].podeInteragir:
 				emit_signal("interact", 1)
 		emit_signal("PlSpeed", velocity)
+	else:
+		velocity = Vector3(0,0,0)
 	i.velocidadeAtual = velocity
 
 	move_and_slide()

@@ -15,3 +15,4 @@ func acesso_setup(Interact: Variant) -> void:
 	add_to_group("CurrentPC")
 	player.add_child(pc)
 	player.PlayerStats[0].podeInteragir = false
+	player.PlayerStats[0].podeMover = false

@@ -9,14 +9,32 @@ albedo_color = Color(0.84434843, 0.2800292, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_13fe1"]
 material = SubResource("StandardMaterial3D_vgsct")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fkm0b"]
+size = Vector3(0.46704102, 0.32958984, 0.41363525)
+
 [node name="Gabinete" type="Node3D" unique_id=830023246]
 script = ExtResource("1_vgsct")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1786892564]
-transform = Transform3D(0.51939994, 0, 0, 0, 1.184451, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.51939994, 0, 0, 0, 0.025477193, 0, 0, 0, 1, 0, -0.5671719, 0)
 mesh = SubResource("BoxMesh_13fe1")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=216594440]
-transform = Transform3D(0.4573496, 0.61849064, -0.6389841, -0.35997617, 0.7857922, 0.50293916, 0.81317186, 0, 0.5820236, -1.1720972, 1.2675449, 1.3583066)
-
 [node name="Pivot" parent="." unique_id=185618284 instance=ExtResource("2_fkm0b")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1872467601]
+transform = Transform3D(0.5175382, 0, 0, 0, -2.505364e-09, -1, 0, 0.057316046, -4.371139e-08, 0, -0.07806122, -0.4618019)
+mesh = SubResource("BoxMesh_13fe1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=591370441]
+transform = Transform3D(0.5175382, 0, 0, 0, -2.505364e-09, -1, 0, 0.057316046, -4.371139e-08, 0, -0.07806122, 0.46917105)
+mesh = SubResource("BoxMesh_13fe1")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1614399349]
+transform = Transform3D(-4.034561e-08, -0.052, 4.7645415e-08, 0, -2.2729922e-09, -1.09, 0.923, -2.2729922e-09, 2.0826471e-15, 0.20008951, -0.024020568, 0.0047709197)
+mesh = SubResource("BoxMesh_13fe1")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1634917296]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1899352157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029663086, -0.33520508, -0.19400024)
+shape = SubResource("BoxShape3D_fkm0b")

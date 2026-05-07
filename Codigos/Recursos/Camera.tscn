@@ -3,8 +3,13 @@
 [ext_resource type="Script" uid="uid://cb7jgrc5fulm3" path="res://Codigos/Recursos/CameraControl.gd" id="1_fmh1o"]
 
 [node name="Pivot" type="Node3D" unique_id=185618284]
-transform = Transform3D(0.9988592, -0.047751497, 0, 0.047751497, 0.9988592, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.9988592, -0.0477515, 0, 0.0477515, 0.9988592, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_fmh1o")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1433324471]
+[node name="SubPivot" type="Node3D" parent="." unique_id=2095232953]
+
+[node name="Camera3D" type="Camera3D" parent="SubPivot" unique_id=1433324471]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3795936)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubPivot/Camera3D" unique_id=739831431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26811185, 0.1313025, 0.2269386)
