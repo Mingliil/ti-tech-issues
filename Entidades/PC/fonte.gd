@@ -1,29 +1,52 @@
 extends Node3D
-@onready var camera: Camera3D
-var canHold: bool = false
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	camera = get_viewport().get_camera_3d()
-	pass # Replace with function body.
 
+var grabbed_object = null
+var grab_distance = 10
+var mouse = Vector2()
+const DIST = 1000 #Ray Max distance
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if grabbed_object:
+		if grabbed_object is RigidBody3D:
+			lift_item(grabbed_object,get_grab_position(),delta)
+		else:
+			grabbed_object.position = get_grab_position()
 
-
-func _on_mouse_entered() -> void:
-	canHold = true
-func _on_mouse_exited() -> void:
-	canHold = false
-	
 func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("ClickPrim") and canHold:
-		print("segurando")
-		var z = 1
-		var position2D = get_viewport().get_mouse_position()
-		var dropPlane  = Plane(Vector3(0, 0, 1), z)
-		var position3D = dropPlane.intersects_ray(
-							 camera.project_ray_origin(position2D),
-							 camera.project_ray_normal(position2D))
-		position = position3D
+	if event is InputEventMouseMotion:
+		mouse = event.position
+	if event is InputEventMouseButton:
+		if event.pressed == false and event.button_index == MOUSE_BUTTON_LEFT:
+			get_mouse_world_pos(mouse)
+		elif event.pressed == false and event.button_index == MOUSE_BUTTON_RIGHT:
+			grabbed_object = null
+
+func get_mouse_world_pos(mouse:Vector2):
+	#The physics state of the world
+	var space = get_world_3d().direct_space_state
+	#start and end world positions for the ray
+	var start = get_viewport().get_camera_3d().project_ray_origin(mouse)
+	var end = get_viewport().get_camera_3d().project_position(mouse,DIST)
+	#Params for 3D raycast
+	#Alt var params = PhysicsRayQueryParameters3D.create(start,end)
+	var params = PhysicsRayQueryParameters3D.new()
+	params.from = start
+	params.to = end
+	#cast the ray using the space and return the results as a Dictionary
+	var result = space.intersect_ray(params)
+	if result.is_empty() == false:
+		grabbed_object = result.collider
+
+#Get the position in the world you want to object to follow
+func get_grab_position():
+	return get_viewport().get_camera_3d().project_position(mouse,grab_distance)
+
+func lift_item(item:RigidBody3D,target_position:Vector3,delta):
+		#attach to objects to move
+		var I = 500.0 #influence #export to make adjustable
+		var S = 20.0 #stiffness #export to make adjustable
+		var P = target_position - item.global_position
+		var M = item.mass
+		var V = item.linear_velocity
+		var impulse = (I*P) - (S*M*V)
+		item.apply_central_impulse(impulse * delta)
