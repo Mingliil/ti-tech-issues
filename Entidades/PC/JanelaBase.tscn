@@ -8,7 +8,7 @@
 oversampling_override = 1.0
 title = "Gabinete"
 initial_position = 2
-size = Vector2i(500, 500)
+size = Vector2i(800, 500)
 unresizable = true
 always_on_top = true
 script = ExtResource("1_y5um7")
@@ -27,6 +27,7 @@ own_world_3d = true
 world_3d = SubResource("World3D_4v0or")
 handle_input_locally = false
 physics_object_picking = true
+size = Vector2i(800, 500)
 render_target_update_mode = 4
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]

@@ -1,6 +1,7 @@
 extends Node3D
 
 var zoomSpeed = 1
+var camSpeed = 0.03
 @onready var subpiv = $SubPivot 
 func _input(event: InputEvent) -> void:
 	
@@ -21,15 +22,15 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			#input cima/baixo
 			if event.relative.x > 0:
-				print(event.relative.x)
-				rotation.y += event.relative.x *0.05
+				#print(event.relative.x)
+				rotation.y += event.relative.x *camSpeed
 			elif event.relative.x < 0:
-				print(event.relative.x)
-				rotation.y += event.relative.x *0.05
+				#print(event.relative.x)
+				rotation.y += event.relative.x *camSpeed
 			#input lados
 			if event.relative.y > 0:
-				print(event.relative.y)
-				rotation.x -= event.relative.y *0.05
+				#print(event.relative.y)
+				rotation.x -= event.relative.y *camSpeed
 			elif event.relative.y < 0:
-				print(event.relative.y)
-				rotation.x -= event.relative.y *0.05
+				#print(event.relative.y)
+				rotation.x -= event.relative.y *camSpeed

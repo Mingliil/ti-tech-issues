@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chc1s6pahdmib" path="res://Entidades/PC/gabinete.gd" id="1_vgsct"]
 [ext_resource type="PackedScene" uid="uid://dcydotjaiw6s5" path="res://Codigos/Recursos/Camera.tscn" id="2_fkm0b"]
+[ext_resource type="PackedScene" uid="uid://djb051xtaskc" path="res://Entidades/PC/Fonte.tscn" id="3_f1nlg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgsct"]
 albedo_color = Color(0.84434843, 0.2800292, 0, 1)
@@ -14,6 +15,9 @@ size = Vector3(0.46704102, 0.32958984, 0.41363525)
 
 [node name="Gabinete" type="Node3D" unique_id=830023246]
 script = ExtResource("1_vgsct")
+
+[node name="Fonte" parent="." unique_id=50525090 instance=ExtResource("3_f1nlg")]
+transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, 0, -0.262907, -0.18573448)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1786892564]
 transform = Transform3D(0.51939994, 0, 0, 0, 0.025477193, 0, 0, 0, 1, 0, -0.5671719, 0)
@@ -33,8 +37,8 @@ mesh = SubResource("BoxMesh_13fe1")
 transform = Transform3D(-4.034561e-08, -0.052, 4.7645415e-08, 0, -2.2729922e-09, -1.09, 0.923, -2.2729922e-09, 2.0826471e-15, 0.20008951, -0.024020568, 0.0047709197)
 mesh = SubResource("BoxMesh_13fe1")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1634917296]
+[node name="AreaFontePlace" type="Area3D" parent="." unique_id=1634917296]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1899352157]
+[node name="ColFontePlace" type="CollisionShape3D" parent="AreaFontePlace" unique_id=1899352157]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029663086, -0.33520508, -0.19400024)
 shape = SubResource("BoxShape3D_fkm0b")

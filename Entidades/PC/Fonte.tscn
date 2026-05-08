@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://djb051xtaskc"]
 
+[ext_resource type="Script" uid="uid://dbhtfyklmgphs" path="res://Entidades/PC/fonte.gd" id="1_rjbaq"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_bwvn5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rjbaq"]
 size = Vector3(1, 0.8791504, 1)
 
 [node name="Fonte" type="Node3D" unique_id=50525090]
+script = ExtResource("1_rjbaq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1282113169]
 transform = Transform3D(1, 0, 0, 0, 0.86982644, 0, 0, 0, 1, 0, 0, 0)
@@ -13,6 +16,9 @@ mesh = SubResource("BoxMesh_bwvn5")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1060624145]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=95049717]
+[node name="ColFonte" type="CollisionShape3D" parent="Area3D" unique_id=95049717]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0015869141, 0)
 shape = SubResource("BoxShape3D_rjbaq")
+
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_mouse_exited"]
