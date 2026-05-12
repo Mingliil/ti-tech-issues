@@ -2,12 +2,60 @@ extends Node3D
 
 @export var gabineteInfo: Array[PcRes]
 @onready var CamPivot: Node3D = $Pivot
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
-	pass # Replace with function body.
 
+#physcs
+#attach to objects to move
+var I = 500.0 #influence #export to make adjustable
+var S = 20.0 #stiffness #export to make adjustable
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var grabbed_object = null
+@export var grab_distance = 3
+var mouse = Vector2()
+const DIST = 200 #Ray Max distance
+
 func _process(delta: float) -> void:
-	pass
+	if grabbed_object:
+		if grabbed_object is RigidBody3D:
+			lift_item(grabbed_object,get_grab_position(),delta)
+		else:
+			grabbed_object.position = get_grab_position()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		mouse = event.position
+	if event is InputEventMouseButton:
+		
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			get_mouse_world_pos(mouse)
+			if get_tree().create_timer(1.5).timeout:
+				if !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+					grabbed_object.position = mouse
+		else:
+			grabbed_object = null
+
+func get_mouse_world_pos(mouse:Vector2):
+	#The physics state of the world
+	var space = get_world_3d().direct_space_state
+	#start and end world positions for the ray
+	var start = get_viewport().get_camera_3d().project_ray_origin(mouse)
+	var end = get_viewport().get_camera_3d().project_position(mouse,DIST)
+	#Params for 3D raycast
+	#Alt var params = PhysicsRayQueryParameters3D.create(start,end)
+	var params = PhysicsRayQueryParameters3D.new()
+	params.from = start
+	params.to = end
+	#cast the ray using the space and return the results as a Dictionary
+	var result = space.intersect_ray(params)
+	if result.is_empty() == false:
+		grabbed_object = result.collider
+
+#Get the position in the world you want to object to follow
+func get_grab_position():
+	return get_viewport().get_camera_3d().project_position(mouse,grab_distance)
+
+func lift_item(item:RigidBody3D,target_position:Vector3,delta):
+		var P = target_position - item.global_position
+		var M = item.mass
+		var V = item.linear_velocity
+		var impulse = (I*P) - (S*M*V)
+		item.apply_central_impulse(impulse * delta)

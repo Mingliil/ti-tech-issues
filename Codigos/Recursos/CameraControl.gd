@@ -3,6 +3,7 @@ extends Node3D
 var zoomSpeed = 1
 var camSpeed = 0.03
 @onready var subpiv = $SubPivot 
+
 func _input(event: InputEvent) -> void:
 	
 	#lida com o zoom, talvez coloque em uma função separada

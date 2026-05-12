@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=4 uid="uid://c4xdni3ld08gi"]
+[gd_scene format=4 uid="uid://c4xdni3ld08gi"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_ibpku"]
+[ext_resource type="Script" uid="uid://uqa6ejnjnxa6" path="res://grabCode.gd" id="1_ibpku"]
 [ext_resource type="PackedScene" uid="uid://dmjtjars8fypj" path="res://Box.tscn" id="2_7gp6h"]
-[ext_resource type="PackedScene" uid="uid://dl5oki3d07yo1" path="res://PlayArea.blend" id="2_c5q5u"]
-[ext_resource type="Script" path="res://box.gd" id="4_2ks7d"]
+[ext_resource type="Script" uid="uid://bj0eix2b2ukju" path="res://box.gd" id="4_2ks7d"]
 [ext_resource type="Material" uid="uid://blagvhmglk6ct" path="res://colormat.tres" id="5_hrrl2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pcgv5"]
@@ -60,42 +59,42 @@ points = PackedVector3Array(1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=1109751701]
 script = ExtResource("1_ibpku")
 
-[node name="MainScene" parent="." instance=ExtResource("2_c5q5u")]
+[node name="MainScene" parent="." unique_id=611837498]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1679426862]
 environment = SubResource("Environment_nynqx")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1729978946]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=212499782]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.52422)
 use_collision = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=902376115]
 transform = Transform3D(1, 0, 0, 0, 0.979014, 0.203796, 0, -0.203796, 0.979014, 0, 2.46227, 3.18557)
 current = true
 
-[node name="Box" parent="." instance=ExtResource("2_7gp6h")]
+[node name="Box" parent="." unique_id=1694197713 instance=ExtResource("2_7gp6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46769, 2.40356, -4.68929)
 script = ExtResource("4_2ks7d")
 
-[node name="Box2RigidBody" type="RigidBody3D" parent="."]
+[node name="Box2RigidBody" type="RigidBody3D" parent="." unique_id=2027561658]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.58077, 2.40356, -4.68929)
 gravity_scale = 0.0
 
-[node name="box" type="MeshInstance3D" parent="Box2RigidBody"]
+[node name="box" type="MeshInstance3D" parent="Box2RigidBody" unique_id=150227093]
 mesh = SubResource("ArrayMesh_r3cn8")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box2RigidBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box2RigidBody" unique_id=1809304601]
 shape = SubResource("ConvexPolygonShape3D_gy1gc")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1006913262]
 offset_left = 40.0
 offset_top = 39.0
 offset_right = 229.0
