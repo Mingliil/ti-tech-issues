@@ -8,6 +8,7 @@ extends Node3D
 var I = 500.0 #influence #export to make adjustable
 var S = 20.0 #stiffness #export to make adjustable
 
+var grabbed:bool = false
 var grabbed_object = null
 @export var grab_distance = 3
 var mouse = Vector2()
@@ -24,14 +25,17 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse = event.position
 	if event is InputEventMouseButton:
-		
+		#if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			get_mouse_world_pos(mouse)
-			if get_tree().create_timer(1.5).timeout:
-				if !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-					grabbed_object.position = mouse
-		else:
-			grabbed_object = null
+			if grabbed:
+				grabbed = false
+			else:
+				grabbed = true
+	if grabbed:
+		get_mouse_world_pos(mouse)
+	else:
+		grabbed_object = null
+			
 
 func get_mouse_world_pos(mouse:Vector2):
 	#The physics state of the world
