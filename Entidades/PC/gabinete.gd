@@ -33,7 +33,12 @@ func _input(event: InputEvent) -> void:
 				grabbed = true
 	if grabbed:
 		get_mouse_world_pos(mouse)
+		if grabbed_object:
+			grabbed_object.segurado = true
+			grabbed_object.freeze =false
 	else:
+		if grabbed_object:
+			grabbed_object.segurado = false
 		grabbed_object = null
 			
 
@@ -63,3 +68,7 @@ func lift_item(item:RigidBody3D,target_position:Vector3,delta):
 		var V = item.linear_velocity
 		var impulse = (I*P) - (S*M*V)
 		item.apply_central_impulse(impulse * delta)
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	pass # Replace with function body.

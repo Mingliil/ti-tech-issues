@@ -16,13 +16,12 @@ script = ExtResource("1_rjbaq")
 transform = Transform3D(1, 0, 0, 0, 0.86982644, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_bwvn5")
 
-[node name="Area3D" type="Area3D" parent="MeshInstance3D" unique_id=1060624145]
-transform = Transform3D(1, 0, 0, 0, 1.1496546, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="ColFonte" type="CollisionShape3D" parent="MeshInstance3D/Area3D" unique_id=95049717]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0015869141, 0)
-shape = SubResource("BoxShape3D_rjbaq")
-
 [node name="ColFonte" type="CollisionShape3D" parent="." unique_id=1470759210]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0031738281, 0)
+shape = SubResource("BoxShape3D_rjbaq")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1060624145]
+
+[node name="ColFonte" type="CollisionShape3D" parent="Area3D" unique_id=95049717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0015869141, 0)
 shape = SubResource("BoxShape3D_rjbaq")
