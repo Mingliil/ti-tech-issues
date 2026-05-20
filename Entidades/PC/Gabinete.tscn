@@ -6,11 +6,6 @@
 [ext_resource type="Script" uid="uid://cmh2g3xtkuj3c" path="res://Codigos/Recursos/RecursosPC/PCComps.gd" id="3_nv1c0"]
 [ext_resource type="Script" uid="uid://56ic2dhb2wen" path="res://Entidades/PC/LockObject.gd" id="5_ymdgj"]
 
-[sub_resource type="Resource" id="Resource_ymdgj"]
-script = ExtResource("3_nv1c0")
-fonte = true
-metadata/_custom_type_script = "uid://cmh2g3xtkuj3c"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgsct"]
 albedo_color = Color(0.84434843, 0.2800292, 0, 1)
 
@@ -26,44 +21,69 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_q67e1"]
 material = SubResource("StandardMaterial3D_ymdgj")
 
-[node name="Gabinete" type="Node3D" unique_id=830023246]
+[sub_resource type="Resource" id="Resource_ymdgj"]
+script = ExtResource("3_nv1c0")
+fonte = true
+metadata/_custom_type_script = "uid://cmh2g3xtkuj3c"
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ymdgj"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_q67e1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ymdgj"]
+
+[node name="ScenRoot" type="Node3D" unique_id=1419080262]
 script = ExtResource("1_vgsct")
+
+[node name="Gabinete" type="Node3D" parent="." unique_id=830023246]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Gabinete" unique_id=1786892564]
+transform = Transform3D(0.51939994, 0, 0, 0, 0.025477193, 0, 0, 0, 1, 0, -0.5671719, 0)
+mesh = SubResource("BoxMesh_13fe1")
+
+[node name="Pivot" parent="Gabinete" unique_id=185618284 instance=ExtResource("2_fkm0b")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Gabinete" unique_id=1872467601]
+transform = Transform3D(0.5175382, 0, 0, 0, -2.505364e-09, -1, 0, 0.057316046, -4.371139e-08, 0, -0.07806122, -0.4618019)
+mesh = SubResource("BoxMesh_13fe1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Gabinete" unique_id=591370441]
+transform = Transform3D(0.5175382, 0, 0, 0, -2.505364e-09, -1, 0, 0.057316046, -4.371139e-08, 0, -0.07806122, 0.46917105)
+mesh = SubResource("BoxMesh_13fe1")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Gabinete" unique_id=1614399349]
+transform = Transform3D(-4.034561e-08, -0.052, 4.7645415e-08, 0, -2.2729922e-09, -1.09, 0.923, -2.2729922e-09, 2.0826471e-15, 0.20008951, -0.024020568, 0.0047709197)
+mesh = SubResource("BoxMesh_13fe1")
+
+[node name="Area3D" type="Area3D" parent="Gabinete" unique_id=953116798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38996542, 0.2515993)
+script = ExtResource("5_ymdgj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gabinete/Area3D" unique_id=1958541273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07611084, 0.0022583008, 0.017430305)
+shape = SubResource("BoxShape3D_nv1c0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Gabinete/Area3D" unique_id=1767065674]
+transform = Transform3D(0.2978505, 0, 0, 0, 0.45360494, 0, 0, 0, 0.3965162, 0, 0, 0)
+mesh = SubResource("BoxMesh_q67e1")
 
 [node name="Fonte" parent="." unique_id=50525090 instance=ExtResource("3_f1nlg")]
 transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, 0, -0.263, -0.5025684)
 lock_rotation = true
 tipo_peca = SubResource("Resource_ymdgj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1786892564]
-transform = Transform3D(0.51939994, 0, 0, 0, 0.025477193, 0, 0, 0, 1, 0, -0.5671719, 0)
-mesh = SubResource("BoxMesh_13fe1")
+[node name="Chao" type="StaticBody3D" parent="." unique_id=1018379369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2494719, 0)
+physics_material_override = SubResource("PhysicsMaterial_ymdgj")
 
-[node name="Pivot" parent="." unique_id=185618284 instance=ExtResource("2_fkm0b")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chao" unique_id=855342632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27750838, 0)
+shape = SubResource("WorldBoundaryShape3D_q67e1")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1872467601]
-transform = Transform3D(0.5175382, 0, 0, 0, -2.505364e-09, -1, 0, 0.057316046, -4.371139e-08, 0, -0.07806122, -0.4618019)
-mesh = SubResource("BoxMesh_13fe1")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Chao" unique_id=707440870]
+transform = Transform3D(19.459526, 0, 0, 0, 0.55811906, 0, 0, 0, 19.121738, 0, 0, 0)
+mesh = SubResource("BoxMesh_ymdgj")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=591370441]
-transform = Transform3D(0.5175382, 0, 0, 0, -2.505364e-09, -1, 0, 0.057316046, -4.371139e-08, 0, -0.07806122, 0.46917105)
-mesh = SubResource("BoxMesh_13fe1")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1614399349]
-transform = Transform3D(-4.034561e-08, -0.052, 4.7645415e-08, 0, -2.2729922e-09, -1.09, 0.923, -2.2729922e-09, 2.0826471e-15, 0.20008951, -0.024020568, 0.0047709197)
-mesh = SubResource("BoxMesh_13fe1")
-
-[node name="Area3D" type="Area3D" parent="." unique_id=953116798]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38996542, 0.2515993)
-script = ExtResource("5_ymdgj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1958541273]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07611084, 0.0022583008, 0.017430305)
-shape = SubResource("BoxShape3D_nv1c0")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=1767065674]
-transform = Transform3D(0.2978505, 0, 0, 0, 0.45360494, 0, 0, 0, 0.3965162, 0, 0, 0)
-mesh = SubResource("BoxMesh_q67e1")
-
-[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
-[connection signal="area_exited" from="Area3D" to="Area3D" method="_on_area_exited"]
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="area_entered" from="Gabinete/Area3D" to="Gabinete/Area3D" method="_on_area_entered"]
+[connection signal="area_exited" from="Gabinete/Area3D" to="Gabinete/Area3D" method="_on_area_exited"]
+[connection signal="body_entered" from="Gabinete/Area3D" to="Gabinete/Area3D" method="_on_body_entered"]

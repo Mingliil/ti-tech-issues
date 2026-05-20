@@ -36,13 +36,18 @@ func _input(event: InputEvent) -> void:
 			else:
 				grabbed = true
 	if grabbed:
+		if !grabbed_object is RigidBody3D:
+			grabbed_object = null
+			pass
 		get_mouse_world_pos(mouse)
-		if grabbed_object:
+		if grabbed_object and grabbed_object is RigidBody3D:
 			grabbed_object.segurado = true
 			grabbed_object.freeze =false
+			grabbed_object.gravity_scale = 0
 	else:
-		if grabbed_object:
+		if grabbed_object and grabbed_object is RigidBody3D:
 			grabbed_object.segurado = false
+			grabbed_object.gravity_scale = 1
 		grab_distance = 3
 		grabbed_object = null
 			
@@ -60,6 +65,7 @@ func get_mouse_world_pos(mouse:Vector2):
 	params.to = end
 	#cast the ray using the space and return the results as a Dictionary
 	var result = space.intersect_ray(params)
+	print(result)
 	if result.is_empty() == false:
 		grabbed_object = result.collider
 
@@ -73,7 +79,3 @@ func lift_item(item:RigidBody3D,target_position:Vector3,delta):
 		var V = item.linear_velocity
 		var impulse = (I*P) - (S*M*V)
 		item.apply_central_impulse(impulse * delta)
-
-
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	pass # Replace with function body.
