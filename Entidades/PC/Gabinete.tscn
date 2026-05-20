@@ -16,6 +16,8 @@ albedo_color = Color(0.84434843, 0.2800292, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_13fe1"]
 material = SubResource("StandardMaterial3D_vgsct")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nv1c0"]
+
 [node name="Gabinete" type="Node3D" unique_id=830023246]
 script = ExtResource("1_vgsct")
 
@@ -41,3 +43,9 @@ mesh = SubResource("BoxMesh_13fe1")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1614399349]
 transform = Transform3D(-4.034561e-08, -0.052, 4.7645415e-08, 0, -2.2729922e-09, -1.09, 0.923, -2.2729922e-09, 2.0826471e-15, 0.20008951, -0.024020568, 0.0047709197)
 mesh = SubResource("BoxMesh_13fe1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=47606246]
+transform = Transform3D(7.255, 0, 0, 0, 5.9341445, 0, 0, 0, 7.255, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=118071332]
+shape = SubResource("BoxShape3D_nv1c0")
