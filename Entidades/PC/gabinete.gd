@@ -20,6 +20,10 @@ func _process(delta: float) -> void:
 			lift_item(grabbed_object,get_grab_position(),delta)
 		else:
 			grabbed_object.position = get_grab_position()
+		if Input.is_action_pressed("cima"):
+			grab_distance += -0.4
+		if Input.is_action_pressed("baixo"):
+			grab_distance += +0.4
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -39,6 +43,7 @@ func _input(event: InputEvent) -> void:
 	else:
 		if grabbed_object:
 			grabbed_object.segurado = false
+		grab_distance = 3
 		grabbed_object = null
 			
 
