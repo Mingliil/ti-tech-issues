@@ -9,7 +9,7 @@ func _load_component(type:int) -> void:
 		1: #Pc
 			title = "Gabinete"
 			typeWindow = type
-			get_child(0).get_child(0).add_child(preload("res://Entidades/PC/Gabinete.tscn").instantiate())
+			get_child(0).get_child(0).add_child(preload("uid://djk5hsv8wo31p").instantiate())
 		2: #Monitor
 			title = "Monitor"
 			

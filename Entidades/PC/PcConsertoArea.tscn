@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://djk5hsv8wo31p"]
+
+[ext_resource type="Script" uid="uid://dbsskijou2awh" path="res://Entidades/PC/PcSceneRoot.gd" id="1_gh1vg"]
+[ext_resource type="PackedScene" uid="uid://dhgu3deffrj54" path="res://Entidades/PC/Gabinetes/gabinete1.tscn" id="2_fivkf"]
+[ext_resource type="Script" uid="uid://cmeeu84thixlt" path="res://Entidades/PC/chao.gd" id="4_7ua6l"]
+[ext_resource type="PackedScene" uid="uid://dcydotjaiw6s5" path="res://Codigos/Recursos/Camera.tscn" id="5_3yvcj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ymdgj"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_q67e1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ymdgj"]
+
+[node name="ScenRoot" type="Node3D" unique_id=1419080262]
+script = ExtResource("1_gh1vg")
+Lista_Gabinete = Array[PackedScene]([ExtResource("2_fivkf")])
+
+[node name="Chao" type="StaticBody3D" parent="." unique_id=1018379369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2494719, 0)
+collision_layer = 3
+collision_mask = 3
+input_ray_pickable = false
+physics_material_override = SubResource("PhysicsMaterial_ymdgj")
+script = ExtResource("4_7ua6l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chao" unique_id=855342632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27750838, 0)
+shape = SubResource("WorldBoundaryShape3D_q67e1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Chao" unique_id=707440870]
+transform = Transform3D(19.459526, 0, 0, 0, 0.55811906, 0, 0, 0, 19.121738, 0, 0, 0)
+mesh = SubResource("BoxMesh_ymdgj")
+
+[node name="Pivot" parent="." unique_id=185618284 instance=ExtResource("5_3yvcj")]

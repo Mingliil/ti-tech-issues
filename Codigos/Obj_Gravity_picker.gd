@@ -49,7 +49,6 @@ func _input(event: InputEvent) -> void:
 				grabbed_object.gravity_scale = 1
 				grabbed_object = null
 			grab_distance = 3
-	print(grabbed_object)
 
 func get_mouse_world_pos(mouse:Vector2):
 	#The physics state of the world

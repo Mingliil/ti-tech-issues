@@ -7,7 +7,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_rjbaq"]
 size = Vector3(1, 0.8791504, 1)
 
-[node name="RigidBody3D" type="RigidBody3D" unique_id=564445378]
+[node name="Fonte" type="RigidBody3D" unique_id=564445378]
 mass = 2.5
 gravity_scale = 0.0
 script = ExtResource("1_rjbaq")
