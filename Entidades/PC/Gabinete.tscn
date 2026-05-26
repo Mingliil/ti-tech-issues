@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://djk5hsv8wo31p"]
 
-[ext_resource type="Script" uid="uid://chc1s6pahdmib" path="res://Entidades/PC/gabinete.gd" id="1_vgsct"]
+[ext_resource type="Script" uid="uid://dbsskijou2awh" path="res://Entidades/PC/PcSceneRoot.gd" id="1_q67e1"]
 [ext_resource type="PackedScene" uid="uid://dcydotjaiw6s5" path="res://Codigos/Recursos/Camera.tscn" id="2_fkm0b"]
 [ext_resource type="PackedScene" uid="uid://djb051xtaskc" path="res://Entidades/PC/Fonte.tscn" id="3_f1nlg"]
 [ext_resource type="Script" uid="uid://cmh2g3xtkuj3c" path="res://Codigos/Recursos/RecursosPC/PCComps.gd" id="3_nv1c0"]
 [ext_resource type="Script" uid="uid://56ic2dhb2wen" path="res://Entidades/PC/LockObject.gd" id="5_ymdgj"]
+[ext_resource type="Script" uid="uid://cmeeu84thixlt" path="res://Entidades/PC/chao.gd" id="6_q67e1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgsct"]
 albedo_color = Color(0.84434843, 0.2800292, 0, 1)
@@ -33,7 +34,7 @@ metadata/_custom_type_script = "uid://cmh2g3xtkuj3c"
 [sub_resource type="BoxMesh" id="BoxMesh_ymdgj"]
 
 [node name="ScenRoot" type="Node3D" unique_id=1419080262]
-script = ExtResource("1_vgsct")
+script = ExtResource("1_q67e1")
 
 [node name="Gabinete" type="Node3D" parent="." unique_id=830023246]
 
@@ -74,7 +75,9 @@ tipo_peca = SubResource("Resource_ymdgj")
 
 [node name="Chao" type="StaticBody3D" parent="." unique_id=1018379369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2494719, 0)
+input_ray_pickable = false
 physics_material_override = SubResource("PhysicsMaterial_ymdgj")
+script = ExtResource("6_q67e1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chao" unique_id=855342632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27750838, 0)

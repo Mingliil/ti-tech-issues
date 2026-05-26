@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 @export var gabineteInfo: Array[PcRes]
 @onready var CamPivot: Node3D = $Pivot
@@ -29,32 +29,31 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse = event.position
 	if event is InputEventMouseButton:
-		#if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if event.pressed == false and event.button_index == MOUSE_BUTTON_LEFT:
 			if grabbed:
 				grabbed = false
 			else:
 				grabbed = true
-	if grabbed:
-		if !grabbed_object is RigidBody3D:
-			grabbed_object = null
-			pass
-		get_mouse_world_pos(mouse)
-		if grabbed_object and grabbed_object is RigidBody3D:
-			grabbed_object.segurado = true
-			grabbed_object.freeze =false
-			grabbed_object.gravity_scale = 0
-	else:
-		if grabbed_object and grabbed_object is RigidBody3D:
-			grabbed_object.segurado = false
-			grabbed_object.gravity_scale = 1
-		grab_distance = 3
-		grabbed_object = null
-			
+		if grabbed:
+			get_mouse_world_pos(mouse)
+			if grabbed_object and !grabbed_object.pickable:
+				grabbed_object = null
+				pass
+			if grabbed_object and grabbed_object is RigidBody3D:
+				grabbed_object.segurado = true
+				grabbed_object.freeze =false
+				grabbed_object.gravity_scale = 0
+		else:
+			if grabbed_object and grabbed_object is RigidBody3D:
+				grabbed_object.segurado = false
+				grabbed_object.gravity_scale = 1
+				grabbed_object = null
+			grab_distance = 3
+	print(grabbed_object)
 
 func get_mouse_world_pos(mouse:Vector2):
 	#The physics state of the world
-	var space = get_world_3d().direct_space_state
+	var space = get_tree().root.get_world_3d().direct_space_state
 	#start and end world positions for the ray
 	var start = get_viewport().get_camera_3d().project_ray_origin(mouse)
 	var end = get_viewport().get_camera_3d().project_position(mouse,DIST)
@@ -65,9 +64,9 @@ func get_mouse_world_pos(mouse:Vector2):
 	params.to = end
 	#cast the ray using the space and return the results as a Dictionary
 	var result = space.intersect_ray(params)
-	print(result)
 	if result.is_empty() == false:
-		grabbed_object = result.collider
+		if !grabbed_object:
+			grabbed_object = result.collider
 
 #Get the position in the world you want to object to follow
 func get_grab_position():

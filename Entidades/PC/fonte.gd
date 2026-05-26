@@ -1,5 +1,6 @@
 extends RigidBody3D
 
+@export var pickable:bool = true
 @export var tipo_peca: PCCOMP
 @export var segurado: bool
 var rebound_speed = 3
