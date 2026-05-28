@@ -8,7 +8,8 @@
 size = Vector3(1, 0.8791504, 1)
 
 [node name="Fonte" type="RigidBody3D" unique_id=564445378]
-mass = 2.5
+collision_priority = 2.0
+mass = 3.0
 gravity_scale = 0.0
 script = ExtResource("1_rjbaq")
 
