@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b71b6ekslpuiq"]
+
+[ext_resource type="FontFile" uid="uid://dey3wwhks2wyo" path="res://Fontes/VCR_OSD_MONO_1.001.ttf" id="1_0cch8"]
+[ext_resource type="Script" uid="uid://cmdi1aa1xccmu" path="res://Cenas/MainMenu/Scripts/janela_sair.gd" id="1_wiq8i"]
+
+[sub_resource type="Theme" id="Theme_0cch8"]
+default_font = ExtResource("1_0cch8")
+default_font_size = 43
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1mb3"]
+bg_color = Color(0.14509805, 0.14509805, 0.14509805, 0.16470589)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+corner_detail = 17
+
+[node name="JanelaSair" type="Window" unique_id=672603393]
+transparent_bg = true
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(600, 200)
+unresizable = true
+borderless = true
+script = ExtResource("1_wiq8i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1506165054]
+offset_left = 15.0
+offset_right = 598.0
+offset_bottom = 221.0
+theme = SubResource("Theme_0cch8")
+theme_override_constants/separation = 11
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=801293990]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d1mb3")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer" unique_id=879989357]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=1327106802]
+custom_minimum_size = Vector2(0, 93.725)
+layout_mode = 2
+text = "Você realmente deseja sair?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1837303183]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+size_flags_stretch_ratio = 3.0
+
+[node name="Sim" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=801751965]
+custom_minimum_size = Vector2(150, 56)
+layout_mode = 2
+text = "Sim"
+
+[node name="Não" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=615798473]
+custom_minimum_size = Vector2(150, 56)
+layout_mode = 2
+text = "Não"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Sim" to="." method="_on_sim_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Não" to="." method="_on_não_pressed"]

@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dfw8eeclysdct"]
+
+[ext_resource type="Texture2D" uid="uid://cnqxl032mcudd" path="res://Blender/ruatext.png" id="1_cqrge"]
+
+[resource]
+resource_name = "rua"
+cull_mode = 2
+albedo_texture = ExtResource("1_cqrge")
+roughness = 0.9227273
+texture_filter = 2
+metadata/extras = {
+"blenderkit": {}
+}

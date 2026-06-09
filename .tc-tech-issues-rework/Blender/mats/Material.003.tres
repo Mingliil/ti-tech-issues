@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b8vk10nh66uct"]
+
+[resource]
+resource_name = "Material.003"
+cull_mode = 2
+albedo_color = Color(0.46834832, 0.46834832, 0.46834832, 1)
+metallic = 1.0
+roughness = 0.5
+metadata/extras = {
+"blenderkit": {}
+}

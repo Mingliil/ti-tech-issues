@@ -1,0 +1,227 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://i08v0psgo80y"]
+
+[ext_resource type="Texture2D" uid="uid://dlqgqlksswknb" path="res://Blender/textures/grass diffuse.jpg" id="1_xtxjf"]
+[ext_resource type="Texture2D" uid="uid://yyorcmmw6kss" path="res://Blender/textures/grass rough.jpg" id="2_bkia1"]
+[ext_resource type="Texture2D" uid="uid://83f6ws8m5dfe" path="res://Blender/textures/grass bump.jpg" id="3_h8pga"]
+
+[resource]
+resource_name = "Green grass or lawn.002"
+cull_mode = 2
+albedo_texture = ExtResource("1_xtxjf")
+metallic = 1.0
+metallic_texture = ExtResource("2_bkia1")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_bkia1")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_h8pga")
+uv1_scale = Vector3(3.1999998, 3.6999998, 1)
+uv1_offset = Vector3(-2.6999998, 1.6173213e-07, 0)
+metadata/extras = {
+"asset_data": {
+"addonVersion": "3.8.0",
+"adult": 0.0,
+"assetBaseId": "adb0e07d-df6b-44e6-9a71-3a2aba4515dc",
+"assetType": "material",
+"author": {
+"aboutMe": "I am a Blender animator, modeller as well as a digital imaging specialist (Photoshop, since 1998).",
+"aboutMeUrl": "https://www.turningturnip.co.uk",
+"avatar128": "/avatar-redirect/f27f13f1-fabb-4c68-a841-9fda3c707246/128/",
+"avatar256": "/avatar-redirect/f27f13f1-fabb-4c68-a841-9fda3c707246/256/",
+"avatar512": "/avatar-redirect/f27f13f1-fabb-4c68-a841-9fda3c707246/512/",
+"firstName": "James",
+"fullName": "James Middleton",
+"gravatarHash": "08d08063b99022fda90e8477a0b502f5",
+"id": "33950",
+"lastName": "Middleton",
+"socialNetworks": []
+},
+"available_resolutions": [512.0, 1024.0, 2048.0],
+"canDownload": 1.0,
+"canDownloadError": 1.0,
+"category": "stone",
+"created": "2023-10-03T10:59:45.880049+02:00",
+"description": "A rock stone texture wall 2K PBR rock or stone wall texture with displacement.",
+"descriptionHtml": "<p>A rock stone texture wall 2K PBR rock or stone wall texture with displacement.</p>",
+"dictParameters": {
+"animated": 0.0,
+"engine": "cycles",
+"imageAltTextGen4v": "High-quality 2K PBR stone material for 3D rendering, suitable for Blender and other 3D apps.",
+"materialStyle": "realistic",
+"megapixels": 20.0,
+"nodeCount": 12.0,
+"pbrType": "metallic",
+"procedural": 0.0,
+"purePbr": 1.0,
+"shaders": ["principled"],
+"textAIcheckedDate": "2023-10-03",
+"textureCount": 5.0,
+"textureResolutionMax": 2048.0,
+"textureResolutionMin": 2048.0,
+"textureSizeMeters": 1.0,
+"uv": 0.0
+},
+"displayName": "Stone",
+"downloaded": 0.0,
+"files": [{
+"created": "2023-10-03T11:03:30.608422+02:00",
+"downloadUrl": "https://www.blenderkit.com/api/v1/downloads/241630/",
+"fileThumbnail": null,
+"fileThumbnailLarge": null,
+"fileType": "blend",
+"mimeType": null,
+"modified": "2023-10-03T11:03:30.608452+02:00",
+"resolution": null,
+"uuid": null
+}, {
+"created": "2023-10-08T22:19:19.415835+02:00",
+"downloadUrl": "https://www.blenderkit.com/api/v1/downloads/248453/",
+"fileThumbnail": null,
+"fileThumbnailLarge": null,
+"fileType": "resolution_0_5K",
+"mimeType": null,
+"modified": "2023-10-08T22:19:19.415884+02:00",
+"resolution": null,
+"uuid": null
+}, {
+"created": "2023-10-08T22:19:17.104024+02:00",
+"downloadUrl": "https://www.blenderkit.com/api/v1/downloads/248450/",
+"fileThumbnail": null,
+"fileThumbnailLarge": null,
+"fileType": "resolution_1K",
+"mimeType": null,
+"modified": "2023-10-08T22:19:17.104069+02:00",
+"resolution": null,
+"uuid": null
+}, {
+"created": "2023-10-08T22:19:12.439874+02:00",
+"downloadUrl": "https://www.blenderkit.com/api/v1/downloads/248448/",
+"fileThumbnail": null,
+"fileThumbnailLarge": null,
+"fileType": "resolution_2K",
+"file_name": "resolution_2K_e25023d5-448f-4d1e-a8b1-a2b02bcde611.blend",
+"mimeType": null,
+"modified": "2023-10-08T22:19:12.439921+02:00",
+"resolution": null,
+"url": "https://public.blenderkit.com/public-assets/assets/506416244e8144a78b37f03a0e800ece/files/resolution_2K_e25023d5-448f-4d1e-a8b1-a2b02bcde611.blend",
+"uuid": null
+}, {
+"created": "2023-10-03T11:03:14.442405+02:00",
+"downloadUrl": "https://www.blenderkit.com/api/v1/downloads/241629/",
+"fileThumbnail": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.96x96_q85_crop-%2C.png",
+"fileThumbnailLarge": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.1024x1024_q85_crop-%2C.png",
+"fileType": "thumbnail",
+"mimeType": null,
+"modified": "2023-10-03T11:03:14.442454+02:00",
+"resolution": null,
+"uuid": null
+}],
+"filesSize": 24128.0,
+"id": "50641624-4e81-44a7-8b37-f03a0e800ece",
+"isFree": 1.0,
+"isPrivate": 0.0,
+"lastBlendUpload": "2023-10-03T09:03:30.608422+00:00",
+"lastGltfUpload": null,
+"lastResolutionUpload": "2023-10-08T20:19:19.415835+00:00",
+"lastThumbnailUpload": "2023-10-03T09:03:14.442405+00:00",
+"lastUserInteraction": "2023-10-03T11:03:35.812177+02:00",
+"lastVideoUpload": null,
+"lastZipFileUpload": null,
+"license": "royalty_free",
+"max_resolution": 2048.0,
+"name": "Stone",
+"pk": 66177.0,
+"ratingsAverage": {
+"bookmarks": 1.0,
+"quality": 9.0,
+"virtualPrice": null,
+"workingHours": 1.0
+},
+"ratingsCount": {
+"bookmarks": 19.0,
+"quality": 1.0,
+"virtualPrice": 0.0,
+"workingHours": 1.0
+},
+"ratingsMedian": {
+"bookmarks": 1.0,
+"quality": 9.0,
+"virtualPrice": null,
+"workingHours": 1.0
+},
+"ratingsSum": {
+"bookmarks": 19.0,
+"quality": 9.0,
+"score": 90.0,
+"virtualPrice": null,
+"workingHours": 1.0
+},
+"resolution": "resolution_2K",
+"score": 90.0,
+"showMarketingLabels": 1.0,
+"sourceAppName": "blender",
+"sourceAppVersion": "3.6.3",
+"tags": ["rock", "stone", "pbr", "displacement", "wall"],
+"texture_size_meters": 1.0,
+"thumbnail": "thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.512x512_q85_crop-%2C.png.webp",
+"thumbnailLargeUrl": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.1024x1024_q85_crop-%2C.png",
+"thumbnailLargeUrlNonsquared": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.1024x1024_q85.png",
+"thumbnailLargeUrlNonsquaredWebp": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.1024x1024_q85.png.webp?webp_generated=1696794393",
+"thumbnailLargeUrlWebp": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.1024x1024_q85_crop-%2C.png.webp?webp_generated=1696794393",
+"thumbnailMiddleUrl": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.512x512_q85_crop-%2C.png",
+"thumbnailMiddleUrlNonsquared": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.512x512_q85.png",
+"thumbnailMiddleUrlNonsquaredWebp": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.512x512_q85.png.webp?webp_generated=1696794393",
+"thumbnailMiddleUrlWebp": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.512x512_q85_crop-%2C.png.webp?webp_generated=1696794393",
+"thumbnailSmallUrl": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.256x256_q85_crop-%2C.png",
+"thumbnailSmallUrlNonsquared": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.256x256_q85.png",
+"thumbnailSmallUrlNonsquaredWebp": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.256x256_q85.png.webp?webp_generated=1696794393",
+"thumbnailSmallUrlWebp": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.256x256_q85_crop-%2C.png.webp?webp_generated=1696794393",
+"thumbnailXlargeUrl": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.2048x2048_q85_crop-%2C.png",
+"thumbnailXlargeUrlNonsquared": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.2048x2048_q85.png",
+"thumbnailXlargeUrlNonsquaredWebp": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.2048x2048_q85.png.webp?webp_generated=1696794393",
+"thumbnailXlargeUrlWebp": "https://public.blenderkit.com/thumbnails/assets/506416244e8144a78b37f03a0e800ece/files/thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.2048x2048_q85_crop-%2C.png.webp?webp_generated=1696794393",
+"thumbnail_small": "thumbnail_edabf159-f081-4a0f-afba-13dd3a678c5e.png.256x256_q85_crop-%2C.png.webp",
+"tooltip_data": {
+"aname": "Stone",
+"author_text": "by James Middleton",
+"quality": "9"
+},
+"url": "https://www.blenderkit.com/api/v1/assets/50641624-4e81-44a7-8b37-f03a0e800ece/",
+"verificationStatus": "validated",
+"versionNumber": 1.0,
+"webpGeneratedTimestamp": 1696794393.0
+},
+"blenderkit": {
+"adaptive_subdivision": 1.0,
+"asset_base_id": "8536c6e6-3f43-4922-a2d2-3d697ad6f28a",
+"category": 12.0,
+"description": "Green grass or lawn for garden scene, PBR material with displacement channel",
+"has_thumbnail": 1.0,
+"id": "5bbb2f46-e97a-4006-bf38-de3d86d381e4",
+"is_generating_thumbnail": 0.0,
+"is_private": 1.0,
+"is_procedural": 0.0,
+"name": "Green grass or lawn",
+"name_changed": 1.0,
+"name_old": "Green grass or lawn",
+"node_count": 19.0,
+"pbr": 1.0,
+"report": "",
+"shaders": "principled, ",
+"tags": "grass, lawn, green, garden, nature, forest, landscape, displacement",
+"texture_count": 7.0,
+"texture_resolution_max": 2400.0,
+"texture_resolution_min": 2400.0,
+"texture_size_meters": 1.0,
+"thumbnail": "//car_junkyard_in_the_forest_0000.png",
+"thumbnail_generating_state": "",
+"thumbnail_generator_type": 1.0,
+"thumbnail_resolution": 3.0,
+"thumbnail_samples": 100.0,
+"thumbnail_scale": 0.6,
+"total_megapixels": 38.0,
+"upload_state": "100% - Asset successfully uploaded.",
+"uploading": 0.0,
+"verification_status": 2.0
+}
+}

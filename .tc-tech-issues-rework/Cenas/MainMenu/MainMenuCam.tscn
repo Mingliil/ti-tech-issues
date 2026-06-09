@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bj4eg7tova5sw"]
+
+[ext_resource type="PackedScene" uid="uid://dq8cumhxwgeru" path="res://Blender/CameraAnim.blend" id="1_ihbts"]
+
+[node name="CameraAnim" unique_id=415533797 instance=ExtResource("1_ihbts")]
+
+[node name="Camera" parent="." index="0" unique_id=1467884249]
+transform = Transform3D(1, -3.803561e-17, -6.2811226e-19, 3.7900972e-17, 0.99477416, 0.10209959, -3.2585905e-18, -0.10209959, 0.99477416, -3.7353702e-18, 0.10000109, 3.448635)
+current = true

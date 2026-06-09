@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cbd35gibdrrq3"]
+
+[ext_resource type="Shader" uid="uid://bbnln7dl61am7" path="res://Cenas/loadScreen.gdshader" id="1_xrekv"]
+[ext_resource type="Texture2D" uid="uid://dqs05yp5eq5lc" path="res://Imagens/MinCon.png" id="2_wbycr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xrekv"]
+shader = ExtResource("1_xrekv")
+shader_parameter/overlay = false
+shader_parameter/resolution = Vector2(173.97, 480)
+shader_parameter/brightness = 1.8199999999999998
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/roll = true
+shader_parameter/roll_speed = 15.2
+shader_parameter/roll_size = 2.0
+shader_parameter/roll_variation = 1.714
+shader_parameter/distort_intensity = 0.005
+shader_parameter/aberration = 0.11500005296249993
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.02
+shader_parameter/pixelate = true
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="ShaderTest" type="Panel" unique_id=7181714]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1960677818]
+position = Vector2(630, 304)
+scale = Vector2(1.198, 1.221)
+texture = ExtResource("2_wbycr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1565002710]
+material = SubResource("ShaderMaterial_xrekv")
+layout_mode = 0
+offset_left = 3.0
+offset_right = 1137.0
+offset_bottom = 637.0

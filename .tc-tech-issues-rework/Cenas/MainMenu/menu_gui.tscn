@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cnx1rhausg3td"]
+
+[sub_resource type="Theme" id="Theme_0rt6a"]
+default_font_size = 36
+
+[node name="MenuGui" type="Control" unique_id=318844679]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0rt6a")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=628043544]
+layout_mode = 0
+offset_right = 561.0
+offset_bottom = 138.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer" unique_id=392367240]
+layout_mode = 2
+text = "Isso aqui é apenas um visual para o botão
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec sed ornare mi, ut fringilla quam. In laoreet metus at posuere posuere. Sed hendrerit, risus non porta efficitur, odio odio malesuada est, non maximus magna nunc sit amet mi. Proin aliquam id erat quis accumsan. Nam feugiat at mauris sit amet dapibus. Phasellus sed interdum dui. Sed varius lacinia nibh, ut viverra quam faucibus vel.
+
+Mauris nisi eros, consectetur a viverra et, elementum nec lacus. Suspendisse potenti. Praesent volutpat lorem urna, eget volutpat orci venenatis in. In congue vulputate ex, in porttitor dui vulputate consectetur. Maecenas sed justo urna. Nunc elementum v"

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c143gxtw20x32"]
+
+[ext_resource type="Script" uid="uid://c4wk1iiphja1" path="res://bt_menu_root.gd" id="1_afq8p"]
+[ext_resource type="FontFile" uid="uid://dey3wwhks2wyo" path="res://Fontes/VCR_OSD_MONO_1.001.ttf" id="2_dq7sg"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dq7sg"]
+viewport_path = NodePath("Graf")
+
+[sub_resource type="Theme" id="Theme_nlgur"]
+default_font = ExtResource("2_dq7sg")
+default_font_size = 92
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nlgur"]
+margin = 0.0
+size = Vector3(5.896164, 1.9916992, 0.042003907)
+
+[node name="BtMenuRoot" type="Sprite3D" unique_id=788815734]
+texture = SubResource("ViewportTexture_dq7sg")
+script = ExtResource("1_afq8p")
+
+[node name="Graf" type="SubViewport" parent="." unique_id=1867573857]
+size = Vector2i(608, 122)
+
+[node name="Control" type="Control" parent="Graf" unique_id=1295265776]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+theme = SubResource("Theme_nlgur")
+
+[node name="Contain" type="MarginContainer" parent="Graf/Control" unique_id=1405328459]
+layout_mode = 0
+offset_right = 593.0
+offset_bottom = 165.0
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Texto" type="Label" parent="Graf/Control/Contain" unique_id=1358244427]
+layout_mode = 2
+text = "Placehodler
+"
+
+[node name="Interact" type="Area3D" parent="." unique_id=530661254]
+
+[node name="Colisao" type="CollisionShape3D" parent="Interact" unique_id=468415002]
+shape = SubResource("BoxShape3D_nlgur")
+debug_color = Color(0.9206412, 0.28151485, 0, 0.41960785)
+
+[connection signal="input_event" from="Interact" to="." method="_on_interact_input_event"]
+[connection signal="mouse_entered" from="Interact" to="." method="_on_interact_mouse_entered"]
+[connection signal="mouse_exited" from="Interact" to="." method="_on_interact_mouse_exited"]
