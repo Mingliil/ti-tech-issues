@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csuayriuriygd"
-path.s3tc="res://.godot/imported/afonso.jpeg-ff3fcc2533d26d61ef61c7c0e90a6764.s3tc.ctex"
+path.s3tc="res://.godot/imported/afonso.jpeg-7870fcd7381b375e0d7997e6ba8b4470.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Imagens/afonso.jpeg"
-dest_files=["res://.godot/imported/afonso.jpeg-ff3fcc2533d26d61ef61c7c0e90a6764.s3tc.ctex"]
+source_file="res://Imagens - outdated/afonso.jpeg"
+dest_files=["res://.godot/imported/afonso.jpeg-7870fcd7381b375e0d7997e6ba8b4470.s3tc.ctex"]
 
 [params]
 

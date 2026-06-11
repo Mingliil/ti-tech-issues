@@ -15,6 +15,12 @@ run/main_scene="uid://b4e53ry8lfalx"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://Cenas/MainMenu/Scripts/Recursos/": "red"
+}
+
 [filesystem]
 
 import/blender/enabled.android=true

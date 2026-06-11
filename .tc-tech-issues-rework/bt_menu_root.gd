@@ -51,6 +51,8 @@ func action_option() -> void:
 				pass
 			3: #CONFIGURAÇÕES
 				$"..".get_node("Janelas").add_child(ConfigPreload.instantiate())
+				var telaTamanho = get_tree().root.get_camera_3d().get_viewport().size
+				$"..".get_node("Janelas").get_child(0).size = Vector2(telaTamanho.x / 1.2, telaTamanho.y /1.2)
 				pass
 			4: #APOIA-ME/PATREON???
 				pass
