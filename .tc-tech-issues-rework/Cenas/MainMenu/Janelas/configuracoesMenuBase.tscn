@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://pjb8q6plwuta"]
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=1429644710]
+offset_right = 72.0
+offset_bottom = 31.0
+
+[node name="Gráficos" type="Button" parent="." unique_id=604391961]
+layout_mode = 2
+text = "Gráficos"
+
+[node name="Som" type="Button" parent="." unique_id=1418816877]
+layout_mode = 2
+text = "Som
+"
+
+[node name="Controles" type="Button" parent="." unique_id=308694107]
+layout_mode = 2
+text = "Controles
+"

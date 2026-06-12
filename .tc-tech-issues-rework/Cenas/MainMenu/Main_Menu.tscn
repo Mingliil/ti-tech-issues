@@ -128,12 +128,12 @@ autoplay = &"CameraAction"
 wait_time = 12.0
 autostart = true
 
-[node name="Logo" type="Sprite3D" parent="MainPart" unique_id=1508404223]
-transform = Transform3D(0.056018773, 0, 0.9132836, 0, 0.915, 0, -0.9132836, 0, 0.056018773, 529.67346, 10.072, 86.0775)
-texture = ExtResource("7_e3yl0")
-
 [node name="MenuUi" type="Node3D" parent="MainPart" unique_id=2007745185]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 529.51, 6.557, 87.143)
+
+[node name="Logo" type="Sprite3D" parent="MainPart/MenuUi" unique_id=1508404223]
+transform = Transform3D(0.9132836, 0, -0.056018814, 0, 0.915, 0, 0.056018814, 0, 0.9132836, 1.0654984, 3.5149994, 0.16345215)
+texture = ExtResource("7_e3yl0")
 
 [node name="BtMenuRoot" parent="MainPart/MenuUi" unique_id=788815734 instance=ExtResource("9_x87i1")]
 transform = Transform3D(1, 0, 0, 0, 0.99965733, 0.02617695, 0, -0.02617695, 0.99965733, 0, 0, 0)

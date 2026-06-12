@@ -21,13 +21,15 @@ ConfigManager="*uid://dpxatx87jduki"
 
 [display]
 
+window/size/mode=4
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 
 [file_customization]
 
 folder_colors={
-"res://Cenas/MainMenu/Scripts/Recursos/": "red"
+"res://Scripts/Recursos/": "red"
 }
 
 [filesystem]
