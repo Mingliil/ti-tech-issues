@@ -2,19 +2,24 @@
 
 [ext_resource type="Script" uid="uid://2wmpfa4qk73n" path="res://Interação/obj_interact_test.gd" id="1_rjide"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1solj"]
-albedo_color = Color(0.21960784, 0, 0.53333336, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjide"]
+albedo_color = Color(0.75034803, 0.0004528141, 0.7550273, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rjide"]
-material = SubResource("StandardMaterial3D_1solj")
+material = SubResource("StandardMaterial3D_rjide")
+uv2_padding = 2.5
+size = Vector3(1, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ekv5"]
+size = Vector3(1, 1.6843262, 1)
 
 [node name="RigidBody3D" type="RigidBody3D" unique_id=1902823210]
+mass = 9.696
 script = ExtResource("1_rjide")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1011134408]
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1011134408]
 mesh = SubResource("BoxMesh_rjide")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=534962734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016723633, 0)
 shape = SubResource("BoxShape3D_3ekv5")

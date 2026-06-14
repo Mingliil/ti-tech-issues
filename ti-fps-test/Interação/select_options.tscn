@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c4gl4yc2f8sxk"]
+
+[ext_resource type="Texture2D" uid="uid://4v7m1phkij2m" path="res://Lado.png" id="1_hn0cr"]
+
+[node name="ReferenceRect" type="ReferenceRect" unique_id=1181585437]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1923461626]
+layout_mode = 1
+offset_right = 100.00003
+offset_bottom = 100.0
+scale = Vector2(0.475, 0.475)
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("1_hn0cr")
+expand_mode = 2
+stretch_mode = 2
+flip_h = true
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=545526340]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_right = 6.1035156e-05
+offset_bottom = 100.0
+grow_horizontal = 0
+scale = Vector2(0.475, 0.475)
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("1_hn0cr")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1660852421]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 100.00003
+grow_vertical = 0
+scale = Vector2(0.475, 0.475)
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("1_hn0cr")
+expand_mode = 2
+stretch_mode = 2
+flip_h = true
+flip_v = true
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=895327126]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 6.1035156e-05
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.475, 0.475)
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("1_hn0cr")
+expand_mode = 2
+stretch_mode = 2
+flip_v = true

@@ -13,10 +13,10 @@
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=608174150]
 script = ExtResource("1_4flbx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1031274586]
+[node name="Colisao" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1031274586]
 shape = SubResource("CapsuleShape3D_sh265")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D" unique_id=56363875]
+[node name="Modelo" type="MeshInstance3D" parent="CharacterBody3D" unique_id=56363875]
 mesh = SubResource("CapsuleMesh_4flbx")
 
 [node name="Neck" type="Node3D" parent="CharacterBody3D" unique_id=702796845]
@@ -27,19 +27,51 @@ script = ExtResource("2_onrkg")
 
 [node name="Control" type="Control" parent="CharacterBody3D/Neck" unique_id=779408786]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="CharacterBody3D/Neck/Control" unique_id=1200620457]
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
-scale = Vector2(0.145, 0.145)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_iersn")
+expand_mode = 1
+
+[node name="Status" type="VBoxContainer" parent="CharacterBody3D/Neck/Control" unique_id=1689514168]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -64.0
+offset_right = 96.0
+offset_bottom = -14.0
+grow_vertical = 0
+
+[node name="Estamina" type="Label" parent="CharacterBody3D/Neck/Control/Status" unique_id=1143883164]
+layout_mode = 2
+text = "Estamina: 0"
+
+[node name="Sanidade" type="Label" parent="CharacterBody3D/Neck/Control/Status" unique_id=1300669672]
+layout_mode = 2
+text = "Sanidade: 0"
+
+[node name="UpdateTick" type="Timer" parent="CharacterBody3D" unique_id=226820803]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="CharacterBody3D/UpdateTick" to="CharacterBody3D" method="_on_update_tick_timeout"]

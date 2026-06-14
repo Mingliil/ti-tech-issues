@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://c7ome5am8efja" path="res://Cenas/player.tscn" id="1_oji8i"]
 [ext_resource type="PackedScene" uid="uid://cg46qg1r7kced" path="res://Interação/Obj_Interact_Test.tscn" id="2_j5dva"]
+[ext_resource type="PackedScene" uid="uid://di1stwvj6uw28" path="res://Interação/afonso_Sphere.tscn" id="3_8gp82"]
+[ext_resource type="PackedScene" uid="uid://di1mrpup570wu" path="res://Interação/server_test.tscn" id="4_qboq2"]
+[ext_resource type="PackedScene" uid="uid://bwtmol6jld04" path="res://Cenas/cama.tscn" id="5_qvmr6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xwo6f"]
 size = Vector2(22, 22)
@@ -35,7 +38,7 @@ environment = SubResource("Environment_6ba58")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0577275, 0)
 
 [node name="RigidBody3D" parent="." unique_id=1902823210 instance=ExtResource("2_j5dva")]
-transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -3.568, 0.871, 0)
+transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -3.568, 0.871, 2.1482453)
 pickable = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1560015709]
@@ -50,3 +53,12 @@ transform = Transform3D(0.5776, 0, 0, 0, 0.5776, 0, 0, 0, 0.5776, -4.579368, 1.5
 transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -5.576375, 1.6297467, 0)
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1887305069]
+
+[node name="RigidBody3D4" parent="." unique_id=123200301 instance=ExtResource("3_8gp82")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2681143, 1.9702015, 0)
+
+[node name="RigidBody3D5" parent="." unique_id=191732812 instance=ExtResource("4_qboq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+
+[node name="cama" parent="." unique_id=1684092794 instance=ExtResource("5_qvmr6")]
+transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, 0, 1.1207271, 7.1017885)
