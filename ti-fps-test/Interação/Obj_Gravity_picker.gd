@@ -32,8 +32,8 @@ func _input(event: InputEvent) -> void:
 				if grabbed_object.get_node("IntOptionsRoot"):
 					grabbed_object.get_node("IntOptionsRoot").queue_free()
 				if grabbed_object:
-					if "pickable" in grabbed_object:
-						if !grabbed_object.pickable:
+					if "obj_vars" in grabbed_object:
+						if !obj_looking.obj_vars[0].pickable:
 							grabbed_object = null
 							pegar_obj = false
 						else:
@@ -79,8 +79,8 @@ func get_mouse_world_pos(mouse:Vector2):
 	var result = space.intersect_ray(params)
 	if result.is_empty() == false:
 		obj_looking = result.collider
-		if "pickable" in obj_looking and !grabbed_object:
-			if obj_looking.pickable:
+		if "obj_vars" in obj_looking and !grabbed_object:
+			if obj_looking.obj_vars[0].pickable:
 				show_interact_options()
 				if last_obj_looking != obj_looking and last_obj_looking:
 					if last_obj_looking.get_node("IntOptionsRoot"):

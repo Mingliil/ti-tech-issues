@@ -1,5 +1,14 @@
 [gd_scene format=3 uid="uid://bwtmol6jld04"]
 
 [ext_resource type="PackedScene" uid="uid://hhdv6b7q7i2" path="res://blender/cama.blend" id="1_cotai"]
+[ext_resource type="Script" uid="uid://dokkp6b8webgl" path="res://Resources/ExpObjBase.gd" id="2_8hfx4"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Resources/ObjOptions.gd" id="3_2cleg"]
+
+[sub_resource type="Resource" id="Resource_56e37"]
+script = ExtResource("3_2cleg")
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
 
 [node name="cama" unique_id=1684092794 instance=ExtResource("1_cotai")]
+
+[node name="Cube" parent="." index="0" unique_id=1132890841]
+obj_vars = Array[ExtResource("2_8hfx4")]([SubResource("Resource_56e37")])
