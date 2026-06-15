@@ -22,10 +22,11 @@ func _process(delta: float) -> void:
 	#print(obj_looking)
 
 func _input(event: InputEvent) -> void:
+	
 	if event is InputEventMouseMotion:
 		mouse = event.position
 		get_mouse_world_pos(mouse)
-	if Input.is_action_just_pressed("interagir"):
+	if Input.is_action_just_pressed("Pegar-segurar"):
 		if !pegar_obj:
 			if obj_looking:
 				grabbed_object = obj_looking
@@ -44,7 +45,9 @@ func _input(event: InputEvent) -> void:
 		else:
 			grabbed_object = null
 			pegar_obj = false
-		print(pegar_obj)
+	if Input.is_action_just_pressed("interagir"):
+		if obj_looking:
+			obj_looking.interact.emit()
 		
 	#if event is InputEventMouseButton:
 		#if event.pressed == false and event.button_index == MOUSE_BUTTON_LEFT:

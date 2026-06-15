@@ -10,7 +10,8 @@ viewport_path = NodePath("Sprite3D/SubViewport")
 script = ExtResource("2_hrelr")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1056249116]
-modulate = Color(0.31431612, 0.31431612, 0.3143161, 1)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(75, 0)
 billboard = 1
 no_depth_test = true
 texture_filter = 2
@@ -18,6 +19,6 @@ texture = SubResource("ViewportTexture_hrelr")
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=708242237]
 transparent_bg = true
-size = Vector2i(301, 136)
+size = Vector2i(414, 198)
 
 [node name="HBoxContainer" parent="Sprite3D/SubViewport" unique_id=1098414662 instance=ExtResource("1_ku57y")]

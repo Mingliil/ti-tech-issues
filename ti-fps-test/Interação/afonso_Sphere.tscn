@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://di1stwvj6uw28"]
 
 [ext_resource type="Script" uid="uid://2wmpfa4qk73n" path="res://Interação/obj_interact_test.gd" id="1_stxjd"]
+[ext_resource type="Script" uid="uid://dokkp6b8webgl" path="res://Resources/ExpObjBase.gd" id="2_dfe2d"]
 [ext_resource type="Texture2D" uid="uid://2qxoybaqqtna" path="res://afonso - Copia.jpeg" id="2_tjucj"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Resources/ObjOptions.gd" id="3_tacom"]
+
+[sub_resource type="Resource" id="Resource_53xlp"]
+script = ExtResource("3_tacom")
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfe2d"]
 albedo_texture = ExtResource("2_tjucj")
@@ -13,6 +19,7 @@ material = SubResource("StandardMaterial3D_dfe2d")
 
 [node name="RigidBody3D" type="RigidBody3D" unique_id=1902823210]
 script = ExtResource("1_stxjd")
+obj_vars = Array[ExtResource("2_dfe2d")]([SubResource("Resource_53xlp")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1011134408]
 mesh = SubResource("SphereMesh_tacom")
