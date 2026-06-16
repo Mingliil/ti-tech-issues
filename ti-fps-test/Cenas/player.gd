@@ -12,6 +12,7 @@ var segura_agacha:bool = false
 var sprint = 1.0
 var max_stamina = 10
 var max_sanidade = 10
+@export var interagindo: bool = false
 @export var resting: int #-1 sleeping, 0 resting, 1 walking, 2 running
 @export var estamina_atual:float
 @export var sanidade_atual:float
@@ -44,33 +45,34 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	# Handle jump.
-	if Input.is_action_just_pressed("pulo") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	if Input.is_action_pressed("agachar"): 
-		colisao.shape.height = altura_agachada
-		modelo.mesh.height = altura_agachada
-	else:
-		colisao.shape.height = altura
-		modelo.mesh.height = altura
-	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
-	var direction = (get_node("Neck").transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		
-		resting = 1
-		if Input.is_action_pressed("correr") and estamina_atual > 20:
-			sprint = config.get_value("PlayerData", "vel_correr")
-			resting = 2
+	if !interagindo:
+		if Input.is_action_just_pressed("pulo") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		if Input.is_action_pressed("agachar"): 
+			colisao.shape.height = altura_agachada
+			modelo.mesh.height = altura_agachada
 		else:
-			sprint = 1
-		velocity.x = direction.x * SPEED * sprint
-		velocity.z = direction.z * SPEED * sprint
-	else:
-		resting = 0
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+			colisao.shape.height = altura
+			modelo.mesh.height = altura
+
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
+		var direction = (get_node("Neck").transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			
+			resting = 1
+			if Input.is_action_pressed("correr") and estamina_atual > 20:
+				sprint = config.get_value("PlayerData", "vel_correr")
+				resting = 2
+			else:
+				sprint = 1
+			velocity.x = direction.x * SPEED * sprint
+			velocity.z = direction.z * SPEED * sprint
+		else:
+			resting = 0
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_and_slide()
 
 
