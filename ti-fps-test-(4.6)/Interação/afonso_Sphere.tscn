@@ -13,12 +13,12 @@ metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
 
 [sub_resource type="Resource" id="Resource_yhocw"]
 script = ExtResource("4_53xlp")
-FalanteNome = "Afonso"
 texto = "Eu sou afonso"
 metadata/_custom_type_script = "uid://dt8mm568gbbpj"
 
 [sub_resource type="Resource" id="Resource_tacom"]
 script = ExtResource("4_tacom")
+FalanteNome = "Afonso"
 falas = Array[ExtResource("4_53xlp")]([SubResource("Resource_yhocw")])
 metadata/_custom_type_script = "uid://dff5x8b5nkgi2"
 

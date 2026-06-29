@@ -5,18 +5,15 @@ var obj_looking = null
 var mouse = Vector2()
 var last_obj_looking = null
 
-var player
+
 @export var grab_distance = 3
 var pegar_obj = false
 const DIST = 50 #Ray Max distance
 var I = 300.0 #influence #export to make adjustable
 var S = 20.0 #stiffness #export to make adjustable
-func _ready() -> void:
-	player = get_tree().get_first_node_in_group("PLAYER").get_child(0)
+
 var IntOptPreload = preload("res://Interação/Interact_Options.tscn")
 func _process(delta: float) -> void:
-	if !player:
-		player = get_tree().get_first_node_in_group("PLAYER").get_child(0)
 	if grabbed_object:
 		if grabbed_object is RigidBody3D:
 			lift_item(grabbed_object,get_grab_position(),delta)
@@ -29,7 +26,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse = event.position
 		get_mouse_world_pos(mouse)
-	if Input.is_action_just_pressed("Pegar-segurar") and !player.interagindo:
+	if Input.is_action_just_pressed("Pegar-segurar"):
 		if !pegar_obj:
 			if obj_looking:
 				grabbed_object = obj_looking
@@ -48,7 +45,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			grabbed_object = null
 			pegar_obj = false
-	if Input.is_action_just_pressed("interagir") and !player.interagindo and !grabbed_object:
+	if Input.is_action_just_pressed("interagir"):
 		if obj_looking:
 			obj_looking.interact.emit()
 		

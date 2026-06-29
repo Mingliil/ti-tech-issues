@@ -1,0 +1,2 @@
+extends UniResExpo
+class_name EscolhaDiagSize

@@ -17,10 +17,10 @@ func _process(delta: float) -> void:
 	pass
 		
 func on_interact() -> void:
+	
 	if obj_vars.size() == 2:	
-		BeginChat.beginChatting(self)
-		#var dialogueBox = textBox.instantiate()
-		#dialogueBox.FalaData = obj_vars[1]
-		#get_tree().root.add_child(dialogueBox)
+		var dialogueBox = textBox.instantiate()
+		dialogueBox.FalaData = obj_vars[1]
+		get_tree().root.add_child(dialogueBox)
 		#ChattingManager.Begin_Chat(obj_vars[1])
 	print(obj_vars.size())

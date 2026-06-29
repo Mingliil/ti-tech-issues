@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://64qxwkui8uym"]
+
+[ext_resource type="PackedScene" uid="uid://c7ome5am8efja" path="res://Cenas/player.tscn" id="1_oji8i"]
+[ext_resource type="PackedScene" uid="uid://cg46qg1r7kced" path="res://Interação/Obj_Interact_Test.tscn" id="2_j5dva"]
+[ext_resource type="PackedScene" uid="uid://di1stwvj6uw28" path="res://Interação/afonso_Sphere.tscn" id="3_8gp82"]
+[ext_resource type="Script" uid="uid://dokkp6b8webgl" path="res://Resources/ExpObjBase.gd" id="4_1ag4k"]
+[ext_resource type="PackedScene" uid="uid://di1mrpup570wu" path="res://Interação/server_test.tscn" id="4_qboq2"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Resources/ObjOptions.gd" id="5_osa5f"]
+[ext_resource type="PackedScene" uid="uid://bwtmol6jld04" path="res://Cenas/cama.tscn" id="5_qvmr6"]
+[ext_resource type="Script" uid="uid://dt8mm568gbbpj" path="res://Interação/Chatting/TextData.gd" id="6_j4kvc"]
+[ext_resource type="Script" uid="uid://dff5x8b5nkgi2" path="res://Interação/Chatting/speakerData.gd" id="7_bjsl6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xwo6f"]
+size = Vector2(22, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ba58"]
+size = Vector3(22, 0.475, 22)
+
+[sub_resource type="Sky" id="Sky_xwo6f"]
+
+[sub_resource type="Environment" id="Environment_6ba58"]
+background_mode = 1
+background_color = Color(0.49064654, 0.60417676, 0.7029579, 1)
+sky = SubResource("Sky_xwo6f")
+
+[sub_resource type="Resource" id="Resource_1ag4k"]
+script = ExtResource("5_osa5f")
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
+[sub_resource type="Resource" id="Resource_osa5f"]
+script = ExtResource("5_osa5f")
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
+[sub_resource type="Resource" id="Resource_bjsl6"]
+script = ExtResource("5_osa5f")
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
+[sub_resource type="Resource" id="Resource_j4kvc"]
+script = ExtResource("5_osa5f")
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
+[sub_resource type="Resource" id="Resource_yn71n"]
+script = ExtResource("6_j4kvc")
+texto = "Eu sou o afonso"
+metadata/_custom_type_script = "uid://dt8mm568gbbpj"
+
+[sub_resource type="Resource" id="Resource_c6pvx"]
+script = ExtResource("7_bjsl6")
+FalanteNome = "Afonso"
+falas = Array[ExtResource("6_j4kvc")]([SubResource("Resource_yn71n")])
+metadata/_custom_type_script = "uid://dff5x8b5nkgi2"
+
+[node name="Node3D" type="Node3D" unique_id=950320572]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=162090124]
+input_ray_pickable = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1194121301]
+mesh = SubResource("PlaneMesh_xwo6f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2002094357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23248291, 0)
+shape = SubResource("BoxShape3D_6ba58")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=97627678]
+environment = SubResource("Environment_6ba58")
+
+[node name="CharacterBody3D" parent="." unique_id=608174150 instance=ExtResource("1_oji8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0577275, 0)
+
+[node name="RigidBody3D" parent="." unique_id=1902823210 instance=ExtResource("2_j5dva")]
+transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -3.568, 0.871, 2.1482453)
+obj_vars = Array[ExtResource("4_1ag4k")]([SubResource("Resource_1ag4k")])
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1560015709]
+transform = Transform3D(-0.7443115, 0.27694568, -0.60770184, 0, 0.9099613, 0.41469324, 0.6678326, 0.30866095, -0.6772947, 0, 4.2856097, -7.0832477)
+light_energy = 2.333
+light_indirect_energy = 1.14
+
+[node name="RigidBody3D2" parent="." unique_id=1865247720 instance=ExtResource("2_j5dva")]
+transform = Transform3D(0.5776, 0, 0, 0, 0.5776, 0, 0, 0, 0.5776, -4.579368, 1.5329599, 0.042746067)
+obj_vars = Array[ExtResource("4_1ag4k")]([SubResource("Resource_osa5f")])
+
+[node name="RigidBody3D3" parent="." unique_id=1919349029 instance=ExtResource("2_j5dva")]
+transform = Transform3D(0.76, 0, 0, 0, 0.76, 0, 0, 0, 0.76, -5.576375, 1.6297467, 0)
+obj_vars = Array[ExtResource("4_1ag4k")]([SubResource("Resource_bjsl6")])
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1887305069]
+
+[node name="RigidBody3D4" parent="." unique_id=123200301 instance=ExtResource("3_8gp82")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2681143, 1.9702015, 0)
+obj_vars = Array[ExtResource("4_1ag4k")]([SubResource("Resource_j4kvc"), SubResource("Resource_c6pvx")])
+
+[node name="RigidBody3D5" parent="." unique_id=191732812 instance=ExtResource("4_qboq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+
+[node name="cama" parent="." unique_id=1684092794 instance=ExtResource("5_qvmr6")]
+transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, 0, 1.1207271, 7.1017885)

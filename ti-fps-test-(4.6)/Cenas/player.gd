@@ -49,17 +49,17 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("pulo") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		if Input.is_action_pressed("agachar"): 
-			colisao.shape.size.y = altura_agachada
+			colisao.shape.height = altura_agachada
 			modelo.mesh.height = altura_agachada
 		else:
-			colisao.shape.size.y = altura
+			colisao.shape.height = altura
 			modelo.mesh.height = altura
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
 		var direction = (get_node("Neck").transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		if direction and !interagindo:
+		if direction:
 			
 			resting = 1
 			if Input.is_action_pressed("correr") and estamina_atual > 20:
