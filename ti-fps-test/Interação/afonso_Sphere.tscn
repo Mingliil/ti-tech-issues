@@ -6,21 +6,44 @@
 [ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Resources/ObjOptions.gd" id="3_tacom"]
 [ext_resource type="Script" uid="uid://dt8mm568gbbpj" path="res://Interação/Chatting/TextData.gd" id="4_53xlp"]
 [ext_resource type="Script" uid="uid://dff5x8b5nkgi2" path="res://Interação/Chatting/speakerData.gd" id="4_tacom"]
+[ext_resource type="Script" uid="uid://eoor4uo4jch6" path="res://Interação/Chatting/diagData.gd" id="5_53xlp"]
+[ext_resource type="Texture2D" uid="uid://c5kv0gw8q2do7" path="res://afonso.jpeg" id="6_uwto6"]
 
 [sub_resource type="Resource" id="Resource_53xlp"]
 script = ExtResource("3_tacom")
+interactble = 1
 metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
 
 [sub_resource type="Resource" id="Resource_yhocw"]
 script = ExtResource("4_53xlp")
 FalanteNome = "Afonso"
-texto = "Eu sou afonso"
+FalanteImg = ExtResource("6_uwto6")
+texto = "Eu sou o Afonso"
 metadata/_custom_type_script = "uid://dt8mm568gbbpj"
 
-[sub_resource type="Resource" id="Resource_tacom"]
+[sub_resource type="Resource" id="Resource_uwto6"]
+script = ExtResource("4_53xlp")
+FalanteNome = "Afonso"
+FalanteImg = ExtResource("6_uwto6")
+texto = "Eu gosto de Bananas"
+metadata/_custom_type_script = "uid://dt8mm568gbbpj"
+
+[sub_resource type="Resource" id="Resource_do3ix"]
+script = ExtResource("4_53xlp")
+FalanteNome = "Afonso"
+FalanteImg = ExtResource("6_uwto6")
+texto = "Não gosto de mulheres"
+metadata/_custom_type_script = "uid://dt8mm568gbbpj"
+
+[sub_resource type="Resource" id="Resource_ivvrk"]
 script = ExtResource("4_tacom")
-falas = Array[ExtResource("4_53xlp")]([SubResource("Resource_yhocw")])
+falas = Array[ExtResource("4_53xlp")]([SubResource("Resource_yhocw"), SubResource("Resource_uwto6"), SubResource("Resource_do3ix")])
 metadata/_custom_type_script = "uid://dff5x8b5nkgi2"
+
+[sub_resource type="Resource" id="Resource_dfe2d"]
+script = ExtResource("5_53xlp")
+Conversas = Array[ExtResource("4_tacom")]([SubResource("Resource_ivvrk")])
+metadata/_custom_type_script = "uid://eoor4uo4jch6"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfe2d"]
 albedo_texture = ExtResource("2_tjucj")
@@ -32,7 +55,7 @@ material = SubResource("StandardMaterial3D_dfe2d")
 
 [node name="Afonso" type="RigidBody3D" unique_id=1902823210]
 script = ExtResource("1_stxjd")
-obj_vars = Array[ExtResource("2_dfe2d")]([SubResource("Resource_53xlp"), SubResource("Resource_tacom")])
+obj_vars = Array[ExtResource("2_dfe2d")]([SubResource("Resource_53xlp"), SubResource("Resource_dfe2d")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1011134408]
 mesh = SubResource("SphereMesh_tacom")
