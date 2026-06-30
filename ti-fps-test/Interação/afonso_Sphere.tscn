@@ -8,41 +8,51 @@
 [ext_resource type="Script" uid="uid://dff5x8b5nkgi2" path="res://Interação/Chatting/speakerData.gd" id="4_tacom"]
 [ext_resource type="Script" uid="uid://eoor4uo4jch6" path="res://Interação/Chatting/diagData.gd" id="5_53xlp"]
 [ext_resource type="Texture2D" uid="uid://c5kv0gw8q2do7" path="res://afonso.jpeg" id="6_uwto6"]
+[ext_resource type="Script" uid="uid://tbes6tsettvy" path="res://Interação/Chatting/ButtoesEscolha.gd" id="7_5jca7"]
+[ext_resource type="Script" uid="uid://c05opp0d5osos" path="res://Interação/Chatting/EscolhaDiagData.gd" id="7_ivvrk"]
 
 [sub_resource type="Resource" id="Resource_53xlp"]
 script = ExtResource("3_tacom")
 interactble = 1
 metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
 
-[sub_resource type="Resource" id="Resource_yhocw"]
+[sub_resource type="Resource" id="Resource_ng2wx"]
 script = ExtResource("4_53xlp")
 FalanteNome = "Afonso"
 FalanteImg = ExtResource("6_uwto6")
-texto = "Eu sou o Afonso"
-metadata/_custom_type_script = "uid://dt8mm568gbbpj"
-
-[sub_resource type="Resource" id="Resource_uwto6"]
-script = ExtResource("4_53xlp")
-FalanteNome = "Afonso"
-FalanteImg = ExtResource("6_uwto6")
-texto = "Eu gosto de Bananas"
+texto = "Qual o seu nome?"
 metadata/_custom_type_script = "uid://dt8mm568gbbpj"
 
 [sub_resource type="Resource" id="Resource_do3ix"]
-script = ExtResource("4_53xlp")
-FalanteNome = "Afonso"
-FalanteImg = ExtResource("6_uwto6")
-texto = "Não gosto de mulheres"
-metadata/_custom_type_script = "uid://dt8mm568gbbpj"
+script = ExtResource("7_5jca7")
+ButtaoTexto = "Eu sou Deus"
+metadata/_custom_type_script = "uid://tbes6tsettvy"
+
+[sub_resource type="Resource" id="Resource_ffaw0"]
+script = ExtResource("7_ivvrk")
+Opcoes = Array[ExtResource("7_5jca7")]([SubResource("Resource_do3ix")])
+metadata/_custom_type_script = "uid://c05opp0d5osos"
 
 [sub_resource type="Resource" id="Resource_ivvrk"]
 script = ExtResource("4_tacom")
-falas = Array[ExtResource("4_53xlp")]([SubResource("Resource_yhocw"), SubResource("Resource_uwto6"), SubResource("Resource_do3ix")])
+falas = Array[ExtResource("2_dfe2d")]([SubResource("Resource_ng2wx"), SubResource("Resource_ffaw0")])
+metadata/_custom_type_script = "uid://dff5x8b5nkgi2"
+
+[sub_resource type="Resource" id="Resource_fxw3i"]
+script = ExtResource("4_53xlp")
+FalanteNome = "Afonso"
+FalanteImg = ExtResource("6_uwto6")
+texto = "Você não é igual a eu, então duvido muito disso;"
+metadata/_custom_type_script = "uid://dt8mm568gbbpj"
+
+[sub_resource type="Resource" id="Resource_y2xy3"]
+script = ExtResource("4_tacom")
+falas = Array[ExtResource("2_dfe2d")]([SubResource("Resource_fxw3i")])
 metadata/_custom_type_script = "uid://dff5x8b5nkgi2"
 
 [sub_resource type="Resource" id="Resource_dfe2d"]
 script = ExtResource("5_53xlp")
-Conversas = Array[ExtResource("4_tacom")]([SubResource("Resource_ivvrk")])
+Conversas = Array[ExtResource("4_tacom")]([SubResource("Resource_ivvrk"), SubResource("Resource_y2xy3")])
 metadata/_custom_type_script = "uid://eoor4uo4jch6"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfe2d"]

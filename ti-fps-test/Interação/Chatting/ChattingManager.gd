@@ -13,6 +13,8 @@ var ItemAtual: int = 0
 @onready var falaTexto: RichTextLabel = $VBoxContainer/PanelContainer/MarginContainer/FalaTexto
 @export var DialogueData: diagData
 
+@onready var OptButtonPreload = preload("res://Interação/Chatting/option_button.tscn")
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("PLAYER").get_child(0)
 	player.interagindo = true
@@ -24,6 +26,7 @@ func _process(delta: float) -> void:
 		player.interagindo = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		queue_free()
+	
 	else:
 		if DialogueData.Conversas[0].falas[ItemAtual].FalanteImg:
 			ImgFala.texture =DialogueData.Conversas[0].falas[ItemAtual].FalanteImg
