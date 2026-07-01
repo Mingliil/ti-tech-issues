@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c5kv0gw8q2do7" path="res://afonso.jpeg" id="6_uwto6"]
 [ext_resource type="Script" uid="uid://tbes6tsettvy" path="res://Interação/Chatting/ButtoesEscolha.gd" id="7_5jca7"]
 [ext_resource type="Script" uid="uid://c05opp0d5osos" path="res://Interação/Chatting/EscolhaDiagData.gd" id="7_ivvrk"]
+[ext_resource type="Script" uid="uid://bjre067qgoh7x" path="res://Interação/Chatting/FuncaoDiagData.gd" id="8_33upl"]
 
 [sub_resource type="Resource" id="Resource_53xlp"]
 script = ExtResource("3_tacom")
@@ -23,9 +24,14 @@ FalanteImg = ExtResource("6_uwto6")
 texto = "Qual o seu nome?"
 metadata/_custom_type_script = "uid://dt8mm568gbbpj"
 
+[sub_resource type="Resource" id="Resource_5jca7"]
+script = ExtResource("8_33upl")
+metadata/_custom_type_script = "uid://bjre067qgoh7x"
+
 [sub_resource type="Resource" id="Resource_do3ix"]
 script = ExtResource("7_5jca7")
 ButtaoTexto = "Eu sou Deus"
+Funcao = SubResource("Resource_5jca7")
 metadata/_custom_type_script = "uid://tbes6tsettvy"
 
 [sub_resource type="Resource" id="Resource_ffaw0"]
@@ -38,21 +44,9 @@ script = ExtResource("4_tacom")
 falas = Array[ExtResource("2_dfe2d")]([SubResource("Resource_ng2wx"), SubResource("Resource_ffaw0")])
 metadata/_custom_type_script = "uid://dff5x8b5nkgi2"
 
-[sub_resource type="Resource" id="Resource_fxw3i"]
-script = ExtResource("4_53xlp")
-FalanteNome = "Afonso"
-FalanteImg = ExtResource("6_uwto6")
-texto = "Você não é igual a eu, então duvido muito disso;"
-metadata/_custom_type_script = "uid://dt8mm568gbbpj"
-
-[sub_resource type="Resource" id="Resource_y2xy3"]
-script = ExtResource("4_tacom")
-falas = Array[ExtResource("2_dfe2d")]([SubResource("Resource_fxw3i")])
-metadata/_custom_type_script = "uid://dff5x8b5nkgi2"
-
 [sub_resource type="Resource" id="Resource_dfe2d"]
 script = ExtResource("5_53xlp")
-Conversas = Array[ExtResource("4_tacom")]([SubResource("Resource_ivvrk"), SubResource("Resource_y2xy3")])
+Conversas = Array[ExtResource("4_tacom")]([SubResource("Resource_ivvrk")])
 metadata/_custom_type_script = "uid://eoor4uo4jch6"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfe2d"]
