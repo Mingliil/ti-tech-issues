@@ -24,3 +24,6 @@ func on_interact() -> void:
 		#get_tree().root.add_child(dialogueBox)
 		#ChattingManager.Begin_Chat(obj_vars[1])
 	print(obj_vars.size())
+
+func TesteBinomioDeNewton() -> void:
+	print("bagulho daora")

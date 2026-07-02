@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b5domi3bfwc1g"]
 
-[ext_resource type="Script" uid="uid://bt4bkkq1dd5gu" path="res://Interação/Chatting/ChattingManager.gd" id="1_fq50e"]
+[ext_resource type="Script" uid="uid://bt4bkkq1dd5gu" path="res://Interação/Chatting/Codigos/ChattingManager.gd" id="1_fq50e"]
 
 [node name="TextBox" type="Control" unique_id=725860973]
 layout_mode = 3
