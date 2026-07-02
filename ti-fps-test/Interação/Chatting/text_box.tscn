@@ -51,7 +51,7 @@ text = "nOME"
 custom_minimum_size = Vector2(90, 130)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=1687774752]
+[node name="ButtonBox" type="HBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=1687774752]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
