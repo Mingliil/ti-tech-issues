@@ -4,23 +4,75 @@
 [ext_resource type="Script" uid="uid://dokkp6b8webgl" path="res://Resources/ExpObjBase.gd" id="2_dfe2d"]
 [ext_resource type="Texture2D" uid="uid://2qxoybaqqtna" path="res://afonso - Copia.jpeg" id="2_tjucj"]
 [ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Resources/ObjOptions.gd" id="3_tacom"]
-[ext_resource type="Script" uid="uid://dt8mm568gbbpj" path="res://Interação/Chatting/TextData.gd" id="4_53xlp"]
+[ext_resource type="Script" uid="uid://dt8mm568gbbpj" path="res://Interação/Chatting/Recursos/TextData.gd" id="4_53xlp"]
 [ext_resource type="Script" uid="uid://dff5x8b5nkgi2" path="res://Interação/Chatting/speakerData.gd" id="4_tacom"]
+[ext_resource type="Script" uid="uid://eoor4uo4jch6" path="res://Interação/Chatting/Recursos/diagData.gd" id="5_53xlp"]
+[ext_resource type="Texture2D" uid="uid://c5kv0gw8q2do7" path="res://afonso.jpeg" id="6_uwto6"]
+[ext_resource type="Script" uid="uid://tbes6tsettvy" path="res://Interação/Chatting/ButtoesEscolha.gd" id="7_5jca7"]
+[ext_resource type="Script" uid="uid://c05opp0d5osos" path="res://Interação/Chatting/Recursos/EscolhaDiagData.gd" id="7_ivvrk"]
+[ext_resource type="Script" uid="uid://bjre067qgoh7x" path="res://Interação/Chatting/Recursos/FuncaoDiagData.gd" id="8_33upl"]
 
 [sub_resource type="Resource" id="Resource_53xlp"]
 script = ExtResource("3_tacom")
+interactble = 1
 metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
 
-[sub_resource type="Resource" id="Resource_yhocw"]
+[sub_resource type="Resource" id="Resource_ng2wx"]
 script = ExtResource("4_53xlp")
 FalanteNome = "Afonso"
-texto = "Eu sou afonso"
+FalanteImg = ExtResource("6_uwto6")
+texto = "Qual o seu nome?"
 metadata/_custom_type_script = "uid://dt8mm568gbbpj"
 
-[sub_resource type="Resource" id="Resource_tacom"]
+[sub_resource type="Resource" id="Resource_5jca7"]
+script = ExtResource("8_33upl")
+metadata/_custom_type_script = "uid://bjre067qgoh7x"
+
+[sub_resource type="Resource" id="Resource_do3ix"]
+script = ExtResource("7_5jca7")
+ButtaoTexto = "Eu sou Deus"
+DialogoSeguinte = 1
+Funcao = SubResource("Resource_5jca7")
+metadata/_custom_type_script = "uid://tbes6tsettvy"
+
+[sub_resource type="Resource" id="Resource_vqmpm"]
+script = ExtResource("8_33upl")
+caminhoNode = NodePath(".")
+FuncNome = "TesteBinomioDeNewton"
+metadata/_custom_type_script = "uid://bjre067qgoh7x"
+
+[sub_resource type="Resource" id="Resource_2b6ou"]
+script = ExtResource("7_5jca7")
+ButtaoTexto = "Daora me fala do mamam"
+Funcao = SubResource("Resource_vqmpm")
+metadata/_custom_type_script = "uid://tbes6tsettvy"
+
+[sub_resource type="Resource" id="Resource_ffaw0"]
+script = ExtResource("7_ivvrk")
+Opcoes = Array[ExtResource("7_5jca7")]([SubResource("Resource_do3ix"), SubResource("Resource_2b6ou")])
+metadata/_custom_type_script = "uid://c05opp0d5osos"
+
+[sub_resource type="Resource" id="Resource_ivvrk"]
 script = ExtResource("4_tacom")
-falas = Array[ExtResource("4_53xlp")]([SubResource("Resource_yhocw")])
+falas = Array[ExtResource("2_dfe2d")]([SubResource("Resource_ng2wx"), SubResource("Resource_ffaw0")])
 metadata/_custom_type_script = "uid://dff5x8b5nkgi2"
+
+[sub_resource type="Resource" id="Resource_6ing6"]
+script = ExtResource("4_53xlp")
+FalanteNome = "Afonso"
+FalanteImg = ExtResource("6_uwto6")
+texto = "Você não é eu, então duvido muito;"
+metadata/_custom_type_script = "uid://dt8mm568gbbpj"
+
+[sub_resource type="Resource" id="Resource_fq50e"]
+script = ExtResource("4_tacom")
+falas = Array[ExtResource("2_dfe2d")]([SubResource("Resource_6ing6")])
+metadata/_custom_type_script = "uid://dff5x8b5nkgi2"
+
+[sub_resource type="Resource" id="Resource_dfe2d"]
+script = ExtResource("5_53xlp")
+Conversas = Array[ExtResource("4_tacom")]([SubResource("Resource_ivvrk"), SubResource("Resource_fq50e")])
+metadata/_custom_type_script = "uid://eoor4uo4jch6"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfe2d"]
 albedo_texture = ExtResource("2_tjucj")
@@ -32,7 +84,7 @@ material = SubResource("StandardMaterial3D_dfe2d")
 
 [node name="Afonso" type="RigidBody3D" unique_id=1902823210]
 script = ExtResource("1_stxjd")
-obj_vars = Array[ExtResource("2_dfe2d")]([SubResource("Resource_53xlp"), SubResource("Resource_tacom")])
+obj_vars = Array[ExtResource("2_dfe2d")]([SubResource("Resource_53xlp"), SubResource("Resource_dfe2d")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1011134408]
 mesh = SubResource("SphereMesh_tacom")
