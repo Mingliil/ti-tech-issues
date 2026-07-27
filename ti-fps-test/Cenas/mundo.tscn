@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bwtmol6jld04" path="res://Cenas/cama.tscn" id="5_qvmr6"]
 [ext_resource type="Script" uid="uid://dt8mm568gbbpj" path="res://Interação/Chatting/TextData.gd" id="6_j4kvc"]
 [ext_resource type="Script" uid="uid://dff5x8b5nkgi2" path="res://Interação/Chatting/speakerData.gd" id="7_bjsl6"]
+[ext_resource type="PackedScene" uid="uid://2bqo86lgxu6y" path="res://Cenas/PCS/Monitor.tscn" id="10_bjsl6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xwo6f"]
 size = Vector2(22, 22)
@@ -46,7 +47,6 @@ metadata/_custom_type_script = "uid://dt8mm568gbbpj"
 
 [sub_resource type="Resource" id="Resource_c6pvx"]
 script = ExtResource("7_bjsl6")
-FalanteNome = "Afonso"
 falas = Array[ExtResource("6_j4kvc")]([SubResource("Resource_yn71n")])
 metadata/_custom_type_script = "uid://dff5x8b5nkgi2"
 
@@ -96,3 +96,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
 
 [node name="cama" parent="." unique_id=1684092794 instance=ExtResource("5_qvmr6")]
 transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, 0, 1.1207271, 7.1017885)
+
+[node name="Node3D2" parent="." unique_id=2146492497 instance=ExtResource("10_bjsl6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.7015052, 3.8104653)

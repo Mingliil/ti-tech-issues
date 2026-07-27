@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d3h2mslc7y7yd"]
+
+[ext_resource type="Texture2D" uid="uid://4v7m1phkij2m" path="res://Lado.png" id="1_3f5hi"]
+
+[node name="DOORS" type="Node2D" unique_id=1912440697]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1820543327]
+position = Vector2(264, 178.99998)
+rotation = -1.4802642
+scale = Vector2(0.62086076, 0.5422934)
+texture = ExtResource("1_3f5hi")
