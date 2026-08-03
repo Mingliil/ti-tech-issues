@@ -5,12 +5,14 @@ extends Window
 
 @onready var FilesDisplay: ItemList = $PanelContainer/VBoxContainer/HBoxContainer/FilesDisplay
 @onready var FilePath: LineEdit = $PanelContainer/VBoxContainer/HBoxContainer2/FilePath
+@onready var PhotoDisplayer = preload("uid://cjmt3sctfsyan")
 ## - EXPORTS
 @export var FilesSprites: Array[CompressedTexture2D]
 @export var FileOnlySprites: Array[CompressedTexture2D]
 var OSUserName
 var OldFilePath: String
 var choosedDir: String
+var INGAMEONLY:bool =  true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var startPath: String
@@ -19,12 +21,10 @@ func _ready() -> void:
 		startPath = "C:/Users/%s" %OSUserName
 	else:
 		startPath = "C:/Users"
+	if INGAMEONLY:
+		startPath = get_tree().root.get_node("DOORS").DOORSSYSTEMINF.DriveRootPath
 	searchDirectoryndFile(startPath)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func searchDirectoryndFile(path: String) -> void:
 	if path == "":
@@ -50,7 +50,29 @@ func _on_filePath_submitted(new_text: String) -> void:
 
 
 func _on_fileDisplay_activated(index: int) -> void:
-	if OldFilePath.ends_with("/"):
+	var typeFile = FilesDisplay.get_item_text(index).split(".", false)
+	
+	print(typeFile)
+	if typeFile.size() > 1:
+		match typeFile[typeFile.size()-1]:
+			"png", "jpeg", "gif", "webm","tiff","bmp":
+				
+				var photo = PhotoDisplayer.instantiate()
+				var areaTrabalho = get_tree().root.get_node("DOORS/AreaDeTrabalho")
+				var nome: String = ""
+				for i in typeFile.size():
+					if nome == "":
+						nome = typeFile[i]
+					else:
+						nome = nome + "." + typeFile[i]
+					print(nome)
+				var path = OldFilePath +"/"+ nome
+				areaTrabalho.add_child(photo)
+				areaTrabalho.get_node("PhotoShock").ShowFile(path, "Foto")
+				print(areaTrabalho.get_children())
+			_:
+				return
+	elif OldFilePath.ends_with("/"):
 		searchDirectoryndFile(OldFilePath + FilesDisplay.get_item_text(index))
 	else:
 		searchDirectoryndFile(OldFilePath +"/"+ FilesDisplay.get_item_text(index))
@@ -69,4 +91,3 @@ func _on_return() -> void:
 		else:
 			ReturnPath += "/" + dirs[i]
 	searchDirectoryndFile(ReturnPath)
-	pass # Replace with function body.

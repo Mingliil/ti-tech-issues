@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://dbudojcxk0q6v" path="res://OS-DOORS/Recursos/OSDRExpt.gd" id="2_glh10"]
 [ext_resource type="Texture2D" uid="uid://cpxamhq78hish" path="res://icon.svg" id="3_msr7n"]
 [ext_resource type="Script" uid="uid://v238075i26ql" path="res://OS-DOORS/Recursos/OSLoginInfRes.gd" id="3_v46vv"]
-[ext_resource type="PackedScene" uid="uid://b0lqb17nf1dl1" path="res://OS-DOORS/Cenas/FileExplorer.tscn" id="5_78yng"]
+[ext_resource type="PackedScene" uid="uid://b5rq1gook2y2h" path="res://OS-DOORS/Cenas/AppRelated/atalho_base.tscn" id="5_h8k25"]
+[ext_resource type="Script" uid="uid://civrx76rn2utc" path="res://OS-DOORS/Recursos/OSRES.gd" id="5_y8mw5"]
 
 [sub_resource type="Resource" id="Resource_bhunq"]
 script = ExtResource("3_v46vv")
@@ -12,6 +13,12 @@ UserImg = ExtResource("3_msr7n")
 UserName = "Petya"
 UserPsswd = "123456"
 metadata/_custom_type_script = "uid://v238075i26ql"
+
+[sub_resource type="Resource" id="Resource_78yng"]
+script = ExtResource("5_y8mw5")
+SYSTEMSIMPATH = "res://OS-DOORS/MACHINEDSIMFILES/"
+DriveRootPath = Array[String](["DRIVE0-C/"])
+metadata/_custom_type_script = "uid://civrx76rn2utc"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msr7n"]
 bg_color = Color(0.09209319, 0.0079951435, 0.15142417, 1)
@@ -59,6 +66,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v46vv")
 DOORSINF = Array[ExtResource("2_glh10")]([SubResource("Resource_bhunq")])
+DOORSSYSTEMINF = SubResource("Resource_78yng")
 
 [node name="Debug entry" type="RichTextLabel" parent="." unique_id=234854645]
 layout_mode = 0
@@ -81,6 +89,12 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bhunq")
+
+[node name="GridContainer" type="GridContainer" parent="AreaDeTrabalho/VBoxContainer/AppArea" unique_id=1367395660]
+layout_mode = 2
+
+[node name="AtalhoBase" parent="AreaDeTrabalho/VBoxContainer/AppArea/GridContainer" unique_id=485553010 instance=ExtResource("5_h8k25")]
+layout_mode = 2
 
 [node name="BarraTarefa" type="PanelContainer" parent="AreaDeTrabalho/VBoxContainer" unique_id=1194779404]
 z_index = 90
@@ -114,7 +128,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_qr0ht")
-
-[node name="FileExplorer" parent="." unique_id=780883503 instance=ExtResource("5_78yng")]
 
 [connection signal="pressed" from="AreaDeTrabalho/VBoxContainer/BarraTarefa/HBoxContainer/DOORSButton" to="." method="_on_doorsbutton_pressed"]

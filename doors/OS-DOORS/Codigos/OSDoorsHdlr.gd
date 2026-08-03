@@ -2,6 +2,7 @@ extends Node
 
 @onready var debugentry = $"Debug entry"
 @export var DOORSINF: Array[OSDRE]
+@export var DOORSSYSTEMINF: OSystemRes
 @onready var LockScreen: PackedScene = preload("uid://dfm3ecw6drct2")
 @export var locked: bool = false
 @onready var protecScreen = $ProtectionScreen
@@ -10,7 +11,6 @@ var doorslkscName = "DoorsLockScreen"
 
 func _ready() -> void:
 	debugentry.text += "DOORS iniciating \n"
-	
 	debugentry.text += "DOORS ready"
 	
 	if locked:
@@ -27,7 +27,6 @@ func on_unlock() -> void:
 	protecScreen.visible = false
 	print("DEBUG - desbloqueado")
 	get_node(doorslkscName).queue_free()
-	
 
 
 func _on_doorsbutton_pressed() -> void:

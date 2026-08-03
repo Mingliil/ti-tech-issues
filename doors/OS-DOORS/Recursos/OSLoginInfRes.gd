@@ -1,7 +1,6 @@
 extends OSDRE
 class_name OSLoginInfRes
 
-
 ##info Básica do usuario
 @export var UserImg: CompressedTexture2D
 @export var UserName: String
