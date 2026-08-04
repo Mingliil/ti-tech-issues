@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://c7ome5am8efja" path="res://TUDO NECESSÁRIO/Cenas/player.tscn" id="1_oji8i"]
 [ext_resource type="PackedScene" uid="uid://di1stwvj6uw28" path="res://TUDO NECESSÁRIO/Cenas/afonso_Sphere.tscn" id="3_8gp82"]
 [ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://TUDO NECESSÁRIO/Resources/ObjOptions.gd" id="3_mqwp4"]
+[ext_resource type="PackedScene" uid="uid://c1x40uo106kds" path="res://TUDO NECESSÁRIO/Codigos/Dialogo/dialogue_area.tscn" id="5_08rhy"]
+[ext_resource type="Script" uid="uid://bx3eief6vc1ek" path="res://TUDO NECESSÁRIO/Codigos/Dialogo/Res/DialogueExportResource.gd" id="6_pot6s"]
+[ext_resource type="Script" uid="uid://csqu6gkg1w27l" path="res://TUDO NECESSÁRIO/Codigos/Dialogo/Res/DialogueTextResource.gd" id="7_0o821"]
 [ext_resource type="PackedScene" uid="uid://2bqo86lgxu6y" path="res://TUDO NECESSÁRIO/Computadores/PCS/Monitor.tscn" id="10_bjsl6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xwo6f"]
@@ -21,6 +24,13 @@ sky = SubResource("Sky_xwo6f")
 [sub_resource type="Resource" id="Resource_08rhy"]
 script = ExtResource("3_mqwp4")
 metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
+[sub_resource type="Resource" id="Resource_432fl"]
+script = ExtResource("7_0o821")
+speaker_name = "dsda"
+text = "OI"
+text_speed = 60.0
+metadata/_custom_type_script = "uid://csqu6gkg1w27l"
 
 [node name="Node3D" type="Node3D" unique_id=950320572]
 
@@ -53,3 +63,7 @@ obj_vars = SubResource("Resource_08rhy")
 
 [node name="Afonso" parent="." unique_id=1902823210 instance=ExtResource("3_8gp82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2695556, -3.264935)
+
+[node name="DialogueArea" parent="." unique_id=238159058 instance=ExtResource("5_08rhy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.72365, 0, 0)
+dialogue = Array[ExtResource("6_pot6s")]([SubResource("Resource_432fl")])

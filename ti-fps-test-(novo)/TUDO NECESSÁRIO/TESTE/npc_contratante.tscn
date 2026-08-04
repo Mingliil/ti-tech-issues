@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dvcqqalghaxqq"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8imwq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_86ap7"]
+
+[node name="NPC-Contratante" type="RigidBody3D" unique_id=1290944902]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=928637903]
+mesh = SubResource("CylinderMesh_8imwq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1131983465]
+shape = SubResource("CylinderShape3D_86ap7")

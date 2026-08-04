@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://hhdv6b7q7i2"
-path="res://.godot/imported/cama.blend-3e7bb91de9e9f823b08c073a68b2fec1.scn"
+uid="uid://cx4nqdf6dvglg"
+path="res://.godot/imported/LojaTeste.blend-12b945f24f148e5f301d2cdbdaa5ff5a.scn"
 
 [deps]
 
-source_file="res://TUDO NECESSÁRIO/blender/cama.blend"
-dest_files=["res://.godot/imported/cama.blend-3e7bb91de9e9f823b08c073a68b2fec1.scn"]
+source_file="res://TUDO NECESSÁRIO/blender/LojaTeste.blend"
+dest_files=["res://.godot/imported/LojaTeste.blend-12b945f24f148e5f301d2cdbdaa5ff5a.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false
@@ -39,30 +39,14 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:Cube": {
-"generate/physics": true,
-"node/script": Resource("uid://2wmpfa4qk73n", "res://TUDO NECESSÁRIO/Codigos/Interação/obj_interact_test.gd"),
-"physics/body_type": 1
-},
-"PATH:Cube_001": {
-"generate/physics": true,
-"physics/body_type": 1
-},
-"PATH:Cube_002": {
-"generate/physics": true,
-"physics/body_type": 1
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
 blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
-blender/meshes/vertex_colors=2
+blender/meshes/vertex_colors=1
 blender/meshes/uvs=true
 blender/meshes/normals=true
 blender/meshes/export_geometry_nodes_instances=false
@@ -76,4 +60,4 @@ blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true
 gltf/naming_version=2
-gltf/texture_map_mode=0
+gltf/texture_map_mode=1
