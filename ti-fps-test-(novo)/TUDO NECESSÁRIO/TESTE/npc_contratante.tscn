@@ -1,10 +1,44 @@
 [gd_scene format=3 uid="uid://dvcqqalghaxqq"]
 
+[ext_resource type="Script" uid="uid://c6t4lyu4jrls0" path="res://TUDO NECESSÁRIO/TESTE/npc_contratante.gd" id="1_snuai"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://TUDO NECESSÁRIO/Resources/ObjOptions.gd" id="2_lq4qd"]
+[ext_resource type="Script" uid="uid://bx3eief6vc1ek" path="res://TUDO NECESSÁRIO/Codigos/Dialogo/Res/DialogueExportResource.gd" id="2_owq5p"]
+[ext_resource type="Script" uid="uid://csqu6gkg1w27l" path="res://TUDO NECESSÁRIO/Codigos/Dialogo/Res/DialogueTextResource.gd" id="3_ug4yl"]
+
+[sub_resource type="Resource" id="Resource_snuai"]
+script = ExtResource("3_ug4yl")
+text = "No dia mais claro
+na noite mais densa
+o mau sucumbirá 
+ante minha presença.
+"
+text_speed = 26.0
+metadata/_custom_type_script = "uid://csqu6gkg1w27l"
+
+[sub_resource type="Resource" id="Resource_owq5p"]
+script = ExtResource("3_ug4yl")
+text = "Todo aquele que venera
+ o mal há de penar,
+quando o poder do 
+Lanterna Verde enfrentar!"
+metadata/_custom_type_script = "uid://csqu6gkg1w27l"
+
+[sub_resource type="Resource" id="Resource_kcjfc"]
+script = ExtResource("2_lq4qd")
+pickable = false
+interactble = 1
+ObjExScript = ExtResource("1_snuai")
+FunctionName = "_shop_Start"
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_8imwq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_86ap7"]
 
 [node name="NPC-Contratante" type="RigidBody3D" unique_id=1290944902]
+script = ExtResource("1_snuai")
+dialogue = Array[ExtResource("2_owq5p")]([SubResource("Resource_snuai"), SubResource("Resource_owq5p")])
+obj_vars = SubResource("Resource_kcjfc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=928637903]
 mesh = SubResource("CylinderMesh_8imwq")

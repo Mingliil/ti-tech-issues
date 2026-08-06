@@ -19,8 +19,7 @@ func _ready() -> void:
 	visible = false
 	ButtaoContainer.visible = false
 	PLAYER = get_tree().get_first_node_in_group("PLAYER").get_child(0)
-	if !is_in_group("Dialogue"):
-		add_to_group("Dialogue")
+	PLAYER.interagindo = false
 
 func _process(delta: float) -> void:
 	if current_dialogue_item >= dialogue.size():
@@ -28,7 +27,7 @@ func _process(delta: float) -> void:
 			for i in get_tree().get_nodes_in_group("PLAYER"):
 				PLAYER = i
 			return
-		#PLAYER.Speed = true
+		PLAYER.Speed = true
 		queue_free()
 		return
 	if next_item:

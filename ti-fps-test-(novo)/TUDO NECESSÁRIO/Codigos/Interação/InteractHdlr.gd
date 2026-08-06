@@ -23,6 +23,10 @@ func _process(delta: float) -> void:
 			lift_item(grabbed_object,get_grab_position(),delta)
 		else:
 			grabbed_object.position = get_grab_position()
+	if !obj_looking:
+		if last_obj_looking:
+			if last_obj_looking.get_node(objOptName):
+				last_obj_looking.get_node(objOptName).queue_free()
 	#print(obj_looking)
 
 func _input(event: InputEvent) -> void:
@@ -30,6 +34,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse = event.position
 		get_mouse_world_pos(mouse)
+	#if obj_looking:
+		#if obj_looking
 	if Input.is_action_just_pressed("Pegar-segurar") and !player.interagindo:
 		if !pegar_obj:
 			if obj_looking:
@@ -49,25 +55,12 @@ func _input(event: InputEvent) -> void:
 		else:
 			grabbed_object = null
 			pegar_obj = false
-	if Input.is_action_just_pressed("interagir") and !player.interagindo and !grabbed_object:
-		if obj_looking:
-			obj_looking.interact.emit()
-	#if event is InputEventMouseButton:
-		#if event.pressed == false and event.button_index == MOUSE_BUTTON_LEFT:
-			#if obj_looking:
-				#grabbed_object = obj_looking
-				#if grabbed_object.get_node(objOptName):
-					#grabbed_object.get_node(objOptName).queue_free()
-				#if grabbed_object:
-					#if "pickable" in grabbed_object:
-						#if !grabbed_object.pickable:
-							#grabbed_object = null
-					#else:
-						#grabbed_object = null
-			#else:
-				#pass
-		#elif event.pressed == false and event.button_index == MOUSE_BUTTON_RIGHT:
-			#grabbed_object = null
+	if Input.is_action_just_pressed("interagir") and player.interagindo and !grabbed_object:
+		if "obj_vars" in obj_looking:
+			if obj_looking.obj_vars.interactble:
+				var functionName = obj_looking.obj_vars.FunctionName
+				obj_looking.call(functionName)
+
 
 
 func get_mouse_world_pos(mouse:Vector2):
@@ -86,7 +79,7 @@ func get_mouse_world_pos(mouse:Vector2):
 	if result.is_empty() == false:
 		obj_looking = result.collider
 		if "obj_vars" in obj_looking and !grabbed_object:
-			if obj_looking.obj_vars.pickable:
+			if obj_looking.obj_vars.pickable or obj_looking.obj_vars.interactble:
 				show_interact_options()
 				if last_obj_looking != obj_looking and last_obj_looking:
 					if last_obj_looking.get_node(objOptName):
@@ -106,9 +99,10 @@ func show_interact_options() -> void:
 		if !obj_looking.get_node(objOptName):
 			obj_looking.add_child(IntOptPreload.instantiate())
 		else:
-			if last_obj_looking != obj_looking:
-				if last_obj_looking.get_node(objOptName):
-					last_obj_looking.get_node(objOptName).queue_free()
+			if last_obj_looking:
+				if last_obj_looking != obj_looking:
+					if last_obj_looking.get_node(objOptName):
+						last_obj_looking.get_node(objOptName).queue_free()
 			pass
 
 #Get the position in the world you want to object to follow
