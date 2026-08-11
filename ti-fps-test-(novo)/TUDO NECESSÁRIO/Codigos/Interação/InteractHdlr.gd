@@ -55,11 +55,12 @@ func _input(event: InputEvent) -> void:
 		else:
 			grabbed_object = null
 			pegar_obj = false
-	if Input.is_action_just_pressed("interagir") and player.interagindo and !grabbed_object:
-		if "obj_vars" in obj_looking:
-			if obj_looking.obj_vars.interactble:
-				var functionName = obj_looking.obj_vars.FunctionName
-				obj_looking.call(functionName)
+	if Input.is_action_just_pressed("interagir") and !player.interagindo and !grabbed_object:
+		if obj_looking:
+			if "obj_vars" in obj_looking:
+				if obj_looking.obj_vars.interactble:
+					var functionName = obj_looking.obj_vars.FunctionName
+					obj_looking.call(functionName)
 
 
 

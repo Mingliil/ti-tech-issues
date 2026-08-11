@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cw1qmlb5janwr"]
+
+[sub_resource type="Theme" id="Theme_pyqmc"]
+default_base_scale = 1.0
+default_font_size = 150
+
+[node name="PaperInf" type="Control" unique_id=442036547]
+layout_mode = 3
+anchor_right = 2.153
+anchor_bottom = 5.414
+offset_right = -0.25610352
+offset_bottom = -0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pyqmc")
+
+[node name="Cor" type="ColorRect" parent="." unique_id=1393476995]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Cor" unique_id=1699611301]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cor/MarginContainer" unique_id=1952013540]
+layout_mode = 2
+
+[node name="Nome" type="Label" parent="Cor/MarginContainer/VBoxContainer" unique_id=1280741686]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Noem do contrato"
+
+[node name="Texto" type="RichTextLabel" parent="Cor/MarginContainer/VBoxContainer" unique_id=490662021]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "TESTE, ESSE TESXTO É UM TEXTO PARA REALIZAR TESTES DAORAS, QUE LEGAL"

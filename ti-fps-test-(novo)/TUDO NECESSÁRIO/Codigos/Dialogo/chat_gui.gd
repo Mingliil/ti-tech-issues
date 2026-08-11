@@ -15,11 +15,12 @@ var PLAYER: CharacterBody3D
 var reset: bool = false
 
 func _ready() -> void:
-
+	
 	visible = false
 	ButtaoContainer.visible = false
 	PLAYER = get_tree().get_first_node_in_group("PLAYER").get_child(0)
-	PLAYER.interagindo = false
+	PLAYER.interagindo = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _process(delta: float) -> void:
 	if current_dialogue_item >= dialogue.size():
@@ -27,7 +28,8 @@ func _process(delta: float) -> void:
 			for i in get_tree().get_nodes_in_group("PLAYER"):
 				PLAYER = i
 			return
-		PLAYER.Speed = true
+		PLAYER.interagindo = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		queue_free()
 		return
 	if next_item:
@@ -150,7 +152,7 @@ func _text_resource(i:DialogueText) -> void:
 	var total_characters: int = text_without_square_brackets.length()
 	var character_timer: float = 0.0
 	while DialogueLabel.visible_characters < total_characters:
-		if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("pulo"):
+		if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("pulo") or Input.is_action_just_pressed("click"):
 			DialogueLabel.visible_characters = total_characters
 			break
 		
@@ -173,7 +175,7 @@ func _text_resource(i:DialogueText) -> void:
 	while  true:
 		await  get_tree().process_frame
 		if DialogueLabel.visible_characters == total_characters:
-			if Input.is_action_just_pressed("interagir"):
+			if Input.is_action_just_pressed("interagir") or Input.is_action_just_pressed("click"):
 				current_dialogue_item +=1
 				next_item = true
 

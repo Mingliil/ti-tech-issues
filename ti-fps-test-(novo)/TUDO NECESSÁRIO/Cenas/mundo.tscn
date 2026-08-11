@@ -55,5 +55,5 @@ obj_vars = SubResource("Resource_08rhy")
 [node name="Afonso" parent="." unique_id=1902823210 instance=ExtResource("3_8gp82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2695556, -3.264935)
 
-[node name="NPC-Contratante" parent="." unique_id=1290944902 instance=ExtResource("5_08rhy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7136576, 1.1883271, 2.6470242)
+[node name="ROOT" parent="." unique_id=1431121814 instance=ExtResource("5_08rhy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4148464, 1.062619, 1.7055359)

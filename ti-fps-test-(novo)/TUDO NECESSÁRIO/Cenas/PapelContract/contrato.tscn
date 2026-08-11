@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://pk11td747jl6"]
+
+[ext_resource type="PackedScene" uid="uid://cw1qmlb5janwr" path="res://TUDO NECESSÁRIO/Cenas/PapelContract/paper_inf.tscn" id="1_2ldhm"]
+[ext_resource type="Script" uid="uid://1q7wcu1ffxqj" path="res://TUDO NECESSÁRIO/Cenas/PapelContract/contrato.gd" id="1_8xbpf"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nsr7o"]
+viewport_path = NodePath("Contrato/SubView")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86ap7"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_nsr7o")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_86ap7"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_86ap7")
+size = Vector2(0.21, 0.297)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_86ap7"]
+size = Vector3(0.21, 0.006, 0.297)
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=595100481]
+script = ExtResource("1_8xbpf")
+
+[node name="Contrato" type="MeshInstance3D" parent="." unique_id=1421038130]
+mesh = SubResource("PlaneMesh_86ap7")
+
+[node name="SubView" type="SubViewport" parent="Contrato" unique_id=261292395]
+size = Vector2i(2480, 3508)
+
+[node name="PaperInf" parent="Contrato/SubView" unique_id=442036547 instance=ExtResource("1_2ldhm")]
+offset_right = -2859.4404
+offset_bottom = -15484.3125
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2128894834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0020855814, 0)
+shape = SubResource("BoxShape3D_86ap7")
