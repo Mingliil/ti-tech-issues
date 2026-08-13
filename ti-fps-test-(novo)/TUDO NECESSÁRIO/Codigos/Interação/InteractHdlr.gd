@@ -7,7 +7,7 @@ var last_obj_looking = null
 var IntOptPreload = preload("uid://co8futgwdr5dd")
 var objOptName = "IntOptionsRoot"
 var player
-@export var grab_distance = 3
+@export var grab_distance = 1
 var pegar_obj = false
 const DIST = 50 #Ray Max distance
 var I = 300.0 #influence #export to make adjustable
@@ -60,7 +60,8 @@ func _input(event: InputEvent) -> void:
 			if "obj_vars" in obj_looking:
 				if obj_looking.obj_vars.interactble:
 					var functionName = obj_looking.obj_vars.FunctionName
-					obj_looking.call(functionName)
+					if functionName:
+						obj_looking.call(functionName)
 
 
 
@@ -112,7 +113,6 @@ func get_grab_position():
 
 func lift_item(item:RigidBody3D,target_position:Vector3,delta):
 		#attach to objects to move
-
 		var P = target_position - item.global_position
 		var M = item.mass
 		var V = item.linear_velocity

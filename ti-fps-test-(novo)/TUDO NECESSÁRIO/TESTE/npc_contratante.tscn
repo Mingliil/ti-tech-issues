@@ -1,24 +1,18 @@
 [gd_scene format=3 uid="uid://dvcqqalghaxqq"]
 
+[ext_resource type="Script" uid="uid://u1jdulh6wuga" path="res://TUDO NECESSÁRIO/TESTE/ContratanteGeral.gd" id="1_3db0d"]
 [ext_resource type="Script" uid="uid://c6t4lyu4jrls0" path="res://TUDO NECESSÁRIO/TESTE/npc_contratante.gd" id="1_snuai"]
 [ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://TUDO NECESSÁRIO/Resources/ObjOptions.gd" id="2_lq4qd"]
 [ext_resource type="Script" uid="uid://bx3eief6vc1ek" path="res://TUDO NECESSÁRIO/Codigos/Dialogo/Res/DialogueExportResource.gd" id="2_owq5p"]
-[ext_resource type="Script" uid="uid://csqu6gkg1w27l" path="res://TUDO NECESSÁRIO/Codigos/Dialogo/Res/DialogueTextResource.gd" id="3_ug4yl"]
 [ext_resource type="Script" uid="uid://b7p0qb35icw2n" path="res://TUDO NECESSÁRIO/Codigos/Dialogo/Res/DialogueFunctionResource.gd" id="4_3db0d"]
 [ext_resource type="Script" uid="uid://c0k5i8l6i17dj" path="res://TUDO NECESSÁRIO/Codigos/NPC/Contratante/res/contractInfo.gd" id="5_ug4yl"]
 
 [sub_resource type="Resource" id="Resource_3db0d"]
 script = ExtResource("4_3db0d")
-target_path = NodePath(".")
-function_name = "start_shop"
+target_path = NodePath("..")
+function_name = "ContratosLook"
 hide_dialogue_box = true
-wait_for_signal_to_continue = "teste"
 metadata/_custom_type_script = "uid://b7p0qb35icw2n"
-
-[sub_resource type="Resource" id="Resource_86ap7"]
-script = ExtResource("3_ug4yl")
-text = "ag"
-metadata/_custom_type_script = "uid://csqu6gkg1w27l"
 
 [sub_resource type="Resource" id="Resource_kcjfc"]
 script = ExtResource("2_lq4qd")
@@ -44,6 +38,9 @@ metadata/_custom_type_script = "uid://c0k5i8l6i17dj"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_86ap7"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_86ap7"]
+size = Vector3(1, 1, 3.0317383)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8imwq"]
 albedo_color = Color(0.96508366, 0.2836982, 0.6836414, 1)
 metallic = 0.3
@@ -52,14 +49,12 @@ metallic = 0.3
 material = SubResource("StandardMaterial3D_8imwq")
 size = Vector3(1, 1, 3.0317383)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_86ap7"]
-size = Vector3(1, 1, 3.0317383)
-
-[node name="ROOT" type="Node3D" unique_id=1431121814]
+[node name="AreaLoja" type="Node3D" unique_id=1431121814]
+script = ExtResource("1_3db0d")
 
 [node name="NPCContratante" type="RigidBody3D" parent="." unique_id=1290944902]
 script = ExtResource("1_snuai")
-dialogue = Array[ExtResource("2_owq5p")]([SubResource("Resource_3db0d"), SubResource("Resource_86ap7")])
+dialogue = Array[ExtResource("2_owq5p")]([SubResource("Resource_3db0d")])
 obj_vars = SubResource("Resource_kcjfc")
 Contracts = Array[ExtResource("5_ug4yl")]([SubResource("Resource_w5wku"), SubResource("Resource_ug4yl")])
 
@@ -69,12 +64,17 @@ mesh = SubResource("CylinderMesh_8imwq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCContratante" unique_id=1131983465]
 shape = SubResource("CylinderShape3D_86ap7")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=381485078]
+[node name="Mesa" type="RigidBody3D" parent="." unique_id=1459104823]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3465939, -0.6434951, -1.0158691)
-mesh = SubResource("BoxMesh_86ap7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D" unique_id=181029816]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa" unique_id=181029816]
 shape = SubResource("BoxShape3D_86ap7")
 
-[node name="Node3D" type="Node3D" parent="MeshInstance3D" unique_id=416549571]
+[node name="MeshMesa" type="MeshInstance3D" parent="Mesa" unique_id=381485078]
+mesh = SubResource("BoxMesh_86ap7")
+
+[node name="CamPoint" type="Node3D" parent="Mesa" unique_id=416549571]
 transform = Transform3D(-0.010145828, -0.38308984, 0.9236554, -0.0042077694, 0.9237111, 0.38306674, -0.9999397, 0, -0.010983767, 1.405983, 1.4240994, 0)
+
+[node name="Papeis" type="Node3D" parent="." unique_id=852232879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.375164, 0, -1.0725267)

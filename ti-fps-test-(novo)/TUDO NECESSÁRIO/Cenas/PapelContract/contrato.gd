@@ -20,9 +20,8 @@ func _ready() -> void:
 				objectMovable = child
 				break
 	interact.connect(Interact)
-	obj_vars.IntObject = objectMovable.get_path()
 	print("DEBUG - objeto: ",objectMovable)
-	print("DEBUG - caminho: ",obj_vars.IntObject)
-	
 func Interact() -> void:
 	pass
+func InsertContractInfo(infoContrato) -> void:
+	print("foi ", infoContrato)
