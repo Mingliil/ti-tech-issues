@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://pt4u6tskcot2"]
-
-[node name="OptionButton" type="Button" unique_id=1759427429]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Button Test"
