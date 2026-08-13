@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cs6e875x58wtv"]
+
+[ext_resource type="PackedScene" uid="uid://by0bt4yx415be" path="res://Player/Player.tscn" id="1_6smej"]
+[ext_resource type="PackedScene" uid="uid://bhapcm1m3lcit" path="res://Objetos/porta.tscn" id="2_g5yij"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bhunq"]
+size = Vector2(20.39, 18.91)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bhunq"]
+
+[sub_resource type="Environment" id="Environment_jglcn"]
+background_mode = 1
+background_color = Color(0.41881505, 0.4233772, 0.5104654, 1)
+background_energy_multiplier = 2.65
+ambient_light_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+ambient_light_energy = 2.48
+
+[node name="MundoTeste" type="Node3D" unique_id=1308074465]
+
+[node name="Player" parent="." unique_id=2026455054 instance=ExtResource("1_6smej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3005184, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2109652330]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=535625967]
+mesh = SubResource("PlaneMesh_bhunq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1544958117]
+shape = SubResource("WorldBoundaryShape3D_bhunq")
+
+[node name="Porta" parent="." unique_id=1666890047 instance=ExtResource("2_g5yij")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3071207, -2.0517635)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=732770157]
+environment = SubResource("Environment_jglcn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=301423925]
+transform = Transform3D(-0.003318754, -0.49875864, 0.8667346, 0.6568134, 0.6524777, 0.37798035, -0.7540459, 0.5705373, 0.32542592, 2.6539268, 2.356153, 0)
