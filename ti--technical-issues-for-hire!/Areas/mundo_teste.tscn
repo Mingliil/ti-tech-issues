@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://by0bt4yx415be" path="res://Player/Player.tscn" id="1_6smej"]
 [ext_resource type="PackedScene" uid="uid://bhapcm1m3lcit" path="res://Objetos/porta.tscn" id="2_g5yij"]
+[ext_resource type="PackedScene" uid="uid://cwax6lsj3jffr" path="res://Objetos/lampada.tscn" id="3_6in6t"]
+[ext_resource type="PackedScene" uid="uid://dylyqmowv44jk" path="res://Objetos/corda.tscn" id="4_eq1iw"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bhunq"]
 size = Vector2(20.39, 18.91)
@@ -36,3 +38,11 @@ environment = SubResource("Environment_jglcn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=301423925]
 transform = Transform3D(-0.003318754, -0.49875864, 0.8667346, 0.6568134, 0.6524777, 0.37798035, -0.7540459, 0.5705373, 0.32542592, 2.6539268, 2.356153, 0)
+
+[node name="Corda" parent="." unique_id=1796440619 instance=ExtResource("4_eq1iw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 1.651)
+link_count = 20
+link_length = 0.16
+link_radius = 0.045
+mesh_scale = 1.62
+attached_scene = ExtResource("3_6in6t")

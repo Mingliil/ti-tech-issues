@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dylyqmowv44jk"]
+
+[ext_resource type="Script" uid="uid://dcusmh0acunu4" path="res://corda.gd" id="1_vw6hx"]
+
+[node name="Corda" type="Node3D" unique_id=1796440619 node_paths=PackedStringArray("ancora", "link_container")]
+script = ExtResource("1_vw6hx")
+link_collision_layer = 4
+link_collision_mask = 3
+ancora = NodePath("Ancora")
+link_container = NodePath("LinkContainer")
+
+[node name="Ancora" type="StaticBody3D" parent="." unique_id=68756677]
+
+[node name="LinkContainer" type="Node3D" parent="." unique_id=460628016]
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="." unique_id=1564107567]
+node_a = NodePath("../Ancora")
+linear_limit_x/enabled = false
+linear_limit_y/enabled = false
+linear_limit_z/enabled = false

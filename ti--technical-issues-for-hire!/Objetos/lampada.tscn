@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cwax6lsj3jffr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bhunq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bhunq"]
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=216951276]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1611201871]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 0, 0, 0)
+shape = SubResource("SphereShape3D_bhunq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1860855280]
+mesh = SubResource("SphereMesh_bhunq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CollisionShape3D/MeshInstance3D" unique_id=1983294228]
+transform = Transform3D(1.9607843, 0, 0, 0, 1.9607843, 0, 0, 0, 1.9607843, 0, -0.7468787, 0)

@@ -66,6 +66,12 @@ Pegar-segurar={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Env"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="PhysObjs"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
