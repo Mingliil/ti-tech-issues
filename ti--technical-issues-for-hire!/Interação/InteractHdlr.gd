@@ -7,7 +7,7 @@ var last_obj_looking = null
 var IntOptPreload = preload("uid://co8futgwdr5dd")
 var objOptName = "IntOptionsRoot"
 var player
-@export var grab_distance = 1
+@export var grab_distance = 3
 var pegar_obj = false
 const DIST = 50 #Ray Max distance
 var I = 300.0 #influence #export to make adjustable
@@ -80,6 +80,7 @@ func get_mouse_world_pos(mouse:Vector2):
 	var result = space.intersect_ray(params)
 	if result.is_empty() == false:
 		obj_looking = result.collider
+		
 		if "obj_vars" in obj_looking and !grabbed_object:
 			if obj_looking.obj_vars.pickable or obj_looking.obj_vars.interactble:
 				show_interact_options()

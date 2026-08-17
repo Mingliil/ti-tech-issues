@@ -5,8 +5,10 @@
 [ext_resource type="Script" uid="uid://8dt4jmnmgbp3" path="res://Player/interact.gd" id="3_tok1r"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bhunq"]
+height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_riqys"]
+height = 1.8
 
 [node name="Player" type="CharacterBody3D" unique_id=2026455054 groups=["PLAYER"]]
 collision_layer = 2

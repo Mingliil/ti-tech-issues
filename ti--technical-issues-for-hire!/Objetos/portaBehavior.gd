@@ -17,5 +17,7 @@ func _process(delta: float) -> void:
 		corpo.lock_rotation = false
 
 func _entered(body: Node3D) -> void:
+	print("oi", body)
 	if body == get_node("Hinge/PortaCorpo"):
+		print("pode")
 		podetrancar = true

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dylyqmowv44jk"]
 
-[ext_resource type="Script" uid="uid://dcusmh0acunu4" path="res://corda.gd" id="1_vw6hx"]
+[ext_resource type="Script" uid="uid://dcusmh0acunu4" path="res://Objetos/corda.gd" id="1_vw6hx"]
 
 [node name="Corda" type="Node3D" unique_id=1796440619 node_paths=PackedStringArray("ancora", "link_container")]
 script = ExtResource("1_vw6hx")

@@ -55,6 +55,9 @@ class_name Corda extends Node3D
 		if Engine.is_editor_hint():
 			_regenerate_chain()
 
+@export_group("interruptor lampada")
+@export var interruptor: Node
+
 @export_group("referencias")
 @export var ancora: StaticBody3D
 @export var link_container: Node3D
@@ -88,12 +91,13 @@ func _generate_chain() -> void:
 	if attached_scene and links.size() >0:
 		var attachment = attached_scene.instantiate()
 		link_container.add_child(attachment)
-		
 		var bottom_link = links[links.size()-1]
 		attachment.global_position = bottom_link.global_position + Vector3(0, -link_length, 0)
 		if attachment is RigidBody3D:
 			var joint = _create_joint(bottom_link, attachment)
 			attachment.add_child(joint)
+			if interruptor:
+				interruptor.Setlamp(attachment)
 
 func _create_link(index: int) -> RigidBody3D:
 	var link = RigidBody3D.new()

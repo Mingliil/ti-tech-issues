@@ -15,5 +15,10 @@ shape = SubResource("SphereShape3D_bhunq")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1860855280]
 mesh = SubResource("SphereMesh_bhunq")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="CollisionShape3D/MeshInstance3D" unique_id=1983294228]
-transform = Transform3D(1.9607843, 0, 0, 0, 1.9607843, 0, 0, 0, 1.9607843, 0, -0.7468787, 0)
+[node name="Luz" type="Node3D" parent="." unique_id=92459817]
+
+[node name="Light" type="OmniLight3D" parent="Luz" unique_id=1983294228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38090813, 0)
+light_indirect_energy = 7.73
+light_volumetric_fog_energy = 16.0
+light_size = 16.17
