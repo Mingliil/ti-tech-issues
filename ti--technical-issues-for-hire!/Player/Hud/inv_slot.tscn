@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b7wrcxuqymh4u"]
+
+[node name="InvSlot" type="Control" unique_id=1504696283]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Slot" type="PanelContainer" parent="." unique_id=1905077165]
+layout_mode = 1
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Slot" unique_id=1420807562]

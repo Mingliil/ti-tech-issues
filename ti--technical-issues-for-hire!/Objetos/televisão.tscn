@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://kwn4bs2l4idq"]
+
+[ext_resource type="VideoStream" uid="uid://i2uki6ev1r0a" path="res://Videos/Kids are smoking the coronavirus - imbezo (720p, h264).ogv" id="1_1co7a"]
+[ext_resource type="Script" uid="uid://b5luel62gcfr5" path="res://Objetos/televisão.gd" id="1_q1vai"]
+[ext_resource type="PackedScene" uid="uid://dakt44bvspufa" path="res://Objetos/televisão_tela.tscn" id="3_dpu3h"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_8imwq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sd75g"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_86ap7"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Televisão" type="RigidBody3D" unique_id=1868700382]
+script = ExtResource("1_q1vai")
+Canais = Array[VideoStreamTheora]([ExtResource("1_1co7a")])
+ligado = null
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=2124364686]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=211319341]
+
+[node name="Televisão Tela" parent="SubViewport" unique_id=1570865461 instance=ExtResource("3_dpu3h")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1412258548]
+mesh = SubResource("PrismMesh_8imwq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=792367213]
+shape = SubResource("BoxShape3D_sd75g")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1090183166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0636115, 0.613152)
+texture = SubResource("ViewportTexture_86ap7")

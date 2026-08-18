@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bu2dj6lpgmw3i"]
+
+[ext_resource type="Script" uid="uid://b3ymatc3n8a4n" path="res://Controle.gd" id="1_iqpxa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_86ap7"]
+size = Vector3(0.02, 0.02, 0.1)
+
+[node name="Controle" type="RigidBody3D" unique_id=603549041]
+script = ExtResource("1_iqpxa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=216051253]
+mesh = SubResource("BoxMesh_86ap7")
