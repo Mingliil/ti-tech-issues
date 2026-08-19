@@ -4,8 +4,8 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 @export var interagindo: bool = false
-@export var Inventory: Array[Node3D]
-
+@export var Inventory: InventoryData
+@onready var hand: HingeJoint3D = $Head/Hand
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -25,5 +25,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
 	move_and_slide()
+
+func getItemToInventory(Itemnode:Node3D) -> void:
+	print(Itemnode.itemVars)
+	if Itemnode is RigidBody3D:
+		hand.node_b = Itemnode.get_path()
+		Itemnode.position = hand.position
+	pass

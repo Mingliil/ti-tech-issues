@@ -1,12 +1,37 @@
 [gd_scene format=3 uid="uid://bu2dj6lpgmw3i"]
 
 [ext_resource type="Script" uid="uid://b3ymatc3n8a4n" path="res://Controle.gd" id="1_iqpxa"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="2_wrox8"]
+[ext_resource type="Script" uid="uid://frlfpc6h3wac" path="res://Player/Res/ItemData.gd" id="3_6tote"]
+
+[sub_resource type="Resource" id="Resource_dws3y"]
+script = ExtResource("2_wrox8")
+grabbable = true
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
+[sub_resource type="Resource" id="Resource_dryfg"]
+script = ExtResource("3_6tote")
+ItemName = "Controle"
+ItemDesc = "é um controle, estranhamente só funciona com a tv de minha casa, especificamente a da sala"
+metadata/_custom_type_script = "uid://frlfpc6h3wac"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dryfg"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_86ap7"]
-size = Vector3(0.02, 0.02, 0.1)
+material = SubResource("StandardMaterial3D_dryfg")
+size = Vector3(0.2, 0.1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pms7v"]
+size = Vector3(0.2, 0.1, 0.5)
 
 [node name="Controle" type="RigidBody3D" unique_id=603549041]
 script = ExtResource("1_iqpxa")
+obj_vars = SubResource("Resource_dws3y")
+itemVars = SubResource("Resource_dryfg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=216051253]
 mesh = SubResource("BoxMesh_86ap7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=457628128]
+shape = SubResource("BoxShape3D_pms7v")

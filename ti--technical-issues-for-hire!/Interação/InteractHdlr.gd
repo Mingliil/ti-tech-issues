@@ -12,6 +12,9 @@ var pegar_obj = false
 const DIST = 50 #Ray Max distance
 var I = 300.0 #influence #export to make adjustable
 var S = 20.0 #stiffness #export to make adjustable
+var hold_counter: float = 0.0
+var hold_time:float = 0.8
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("PLAYER")
 
@@ -27,31 +30,26 @@ func _process(delta: float) -> void:
 		if last_obj_looking:
 			if last_obj_looking.get_node(objOptName):
 				last_obj_looking.get_node(objOptName).queue_free()
-	#print(obj_looking)
-
-func _input(event: InputEvent) -> void:
 	
-	if event is InputEventMouseMotion:
-		mouse = event.position
-		get_mouse_world_pos(mouse)
-	#if obj_looking:
-		#if obj_looking
-	if Input.is_action_just_pressed("Pegar-segurar") and !player.interagindo:
-		if !pegar_obj:
+	
+	if Input.is_action_just_released("Pegar-segurar") and !player.interagindo:
+		if hold_counter >= hold_time:
+			if obj_looking:
+				player.getItemToInventory(obj_looking)
+		elif !pegar_obj:
 			if obj_looking:
 				grabbed_object = obj_looking
 				if grabbed_object.get_node(objOptName):
 					grabbed_object.get_node(objOptName).queue_free()
-				if grabbed_object:
-					if "obj_vars" in grabbed_object:
-						if !obj_looking.obj_vars.pickable:
-							grabbed_object = null
-							pegar_obj = false
-						else:
-							pegar_obj = true
-					else:
+				if "obj_vars" in grabbed_object:
+					if !obj_looking.obj_vars.pickable:
 						grabbed_object = null
 						pegar_obj = false
+					else:
+						pegar_obj = true
+				else:
+					grabbed_object = null
+					pegar_obj = false
 		else:
 			grabbed_object = null
 			pegar_obj = false
@@ -62,8 +60,15 @@ func _input(event: InputEvent) -> void:
 					var functionName = obj_looking.obj_vars.FunctionName
 					if functionName:
 						obj_looking.call(functionName)
+	if Input.is_action_pressed("Pegar-segurar"):
+		hold_counter += delta*3
+	else:
+		hold_counter = 0.0
 
-
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		mouse = event.position
+		get_mouse_world_pos(mouse)
 
 func get_mouse_world_pos(mouse:Vector2):
 	#The physics state of the world

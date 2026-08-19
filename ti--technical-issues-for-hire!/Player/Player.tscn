@@ -1,8 +1,21 @@
 [gd_scene format=3 uid="uid://by0bt4yx415be"]
 
 [ext_resource type="Script" uid="uid://bhtsvl3ss1hpk" path="res://Player/player.gd" id="1_q3lat"]
+[ext_resource type="Script" uid="uid://frlfpc6h3wac" path="res://Player/Res/ItemData.gd" id="2_8g4oa"]
+[ext_resource type="Script" uid="uid://dpomvdi1dd7k6" path="res://Player/Res/InventoryData.gd" id="2_ddoul"]
 [ext_resource type="Script" uid="uid://20kdrwdndxt2" path="res://Player/CamScr.gd" id="2_tok1r"]
-[ext_resource type="Script" uid="uid://8dt4jmnmgbp3" path="res://Player/interact.gd" id="3_tok1r"]
+[ext_resource type="Texture2D" uid="uid://2qxoybaqqtna" path="res://imgs/afonso - Copia.jpeg" id="3_6ysni"]
+
+[sub_resource type="Resource" id="Resource_8g4oa"]
+script = ExtResource("2_8g4oa")
+ItemName = "Afonso Supreme"
+ItemSprite = ExtResource("3_6ysni")
+metadata/_custom_type_script = "uid://frlfpc6h3wac"
+
+[sub_resource type="Resource" id="Resource_ddoul"]
+script = ExtResource("2_ddoul")
+InvItens = Array[ExtResource("2_8g4oa")]([SubResource("Resource_8g4oa")])
+metadata/_custom_type_script = "uid://dpomvdi1dd7k6"
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bhunq"]
 height = 1.8
@@ -13,6 +26,7 @@ height = 1.8
 [node name="Player" type="CharacterBody3D" unique_id=2026455054 groups=["PLAYER"]]
 collision_layer = 2
 script = ExtResource("1_q3lat")
+Inventory = SubResource("Resource_ddoul")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1337983611]
 mesh = SubResource("CapsuleMesh_bhunq")
@@ -27,4 +41,9 @@ script = ExtResource("2_tok1r")
 [node name="Cam" type="Camera3D" parent="Head" unique_id=1926517097]
 
 [node name="RayCast3D" type="RayCast3D" parent="Head" unique_id=2067703667]
-script = ExtResource("3_tok1r")
+
+[node name="Hand" type="HingeJoint3D" parent="Head" unique_id=1341140365]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.48764613, 0.87304145, 0, -0.8730412, 0.48764625, 0.06595513, -0.2718674, -0.86787176)
+node_a = NodePath("../..")
+angular_limit/enable = true
+angular_limit/lower = 1.5707964

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dfhl8p0u3btnc" path="res://Objetos/interruptor.tscn" id="5_5qqef"]
 [ext_resource type="PackedScene" uid="uid://c2dlkkm3ugaw5" path="res://Objetos/portal.tscn" id="6_k07eb"]
 [ext_resource type="PackedScene" uid="uid://kwn4bs2l4idq" path="res://Objetos/televisão.tscn" id="7_2d0ko"]
+[ext_resource type="PackedScene" uid="uid://bu2dj6lpgmw3i" path="res://Objetos/controle.tscn" id="8_ed0ma"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bhunq"]
 size = Vector2(20.39, 18.91)
@@ -59,3 +60,7 @@ transform = Transform3D(0.9991042, 0, -0.042316604, 0, 1, 0, 0.042316604, 0, 0.9
 
 [node name="Televisão" parent="." unique_id=1868700382 instance=ExtResource("7_2d0ko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1978023, 0.67717505, 0)
+ligado = true
+
+[node name="Controle" parent="." unique_id=603549041 instance=ExtResource("8_ed0ma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15018404, 1.0766468)

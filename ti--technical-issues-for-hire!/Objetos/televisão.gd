@@ -9,7 +9,7 @@ var canalAtual: int = 0
 @onready var videoPlayer: VideoStreamPlayer = $"SubViewport/Televisão Tela/PanelContainer/VideoStreamPlayer"
 func _ready() -> void:
 	if Controle:
-	
+		pass
 
 func _process(delta: float) -> void:
 	pass
