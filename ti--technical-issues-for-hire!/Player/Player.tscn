@@ -14,6 +14,7 @@ metadata/_custom_type_script = "uid://frlfpc6h3wac"
 
 [sub_resource type="Resource" id="Resource_ddoul"]
 script = ExtResource("2_ddoul")
+Size = 5
 InvItens = Array[ExtResource("2_8g4oa")]([SubResource("Resource_8g4oa")])
 metadata/_custom_type_script = "uid://dpomvdi1dd7k6"
 
@@ -47,3 +48,44 @@ transform = Transform3D(0.9999998, 0, 0, 0, 0.48764613, 0.87304145, 0, -0.873041
 node_a = NodePath("../..")
 angular_limit/enable = true
 angular_limit/lower = 1.5707964
+
+[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Head" unique_id=310536897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60068804, 0, 0)
+joint_type = 1
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="HUD" type="Control" parent="." unique_id=681011377]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="HUD" unique_id=401878687]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -58.0
+offset_right = 20.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Inv" type="HBoxContainer" parent="HUD/Panel" unique_id=287135233]
+custom_minimum_size = Vector2(0, 39.1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1

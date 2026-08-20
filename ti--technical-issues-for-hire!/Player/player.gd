@@ -6,6 +6,14 @@ const JUMP_VELOCITY = 4.5
 @export var interagindo: bool = false
 @export var Inventory: InventoryData
 @onready var hand: HingeJoint3D = $Head/Hand
+@onready var HUD: Control = $HUD
+@onready var InvSlot:PackedScene = preload("uid://b7wrcxuqymh4u")
+func _ready() -> void:
+	for i in Inventory.Size:
+		HUD.get_node("Panel/Inv").add_child(InvSlot.instantiate())
+	
+	
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
