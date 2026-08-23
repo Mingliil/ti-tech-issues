@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cu4silnqcvsnr"]
+
+[ext_resource type="Script" uid="uid://dw4m1my83cw7a" path="res://OS-DOORS/Codigos/OSDoorsHdlr.gd" id="1_brs6i"]
+[ext_resource type="Texture2D" uid="uid://c753jjftidhhp" path="res://OS-DOORS/Imagens/D._Afonso_Henriques_O_Conquistador.jpg" id="2_67ijr"]
+[ext_resource type="Script" uid="uid://dbudojcxk0q6v" path="res://OS-DOORS/Recursos/OSDRExpt.gd" id="2_mldeu"]
+[ext_resource type="PackedScene" uid="uid://b5rq1gook2y2h" path="res://OS-DOORS/Cenas/AppRelated/atalho_base.tscn" id="2_rku0c"]
+[ext_resource type="Script" uid="uid://civrx76rn2utc" path="res://OS-DOORS/Recursos/OSRES.gd" id="3_4vu2a"]
+[ext_resource type="PackedScene" uid="uid://b1b0e4cju0hkn" path="res://OS-DOORS/Cenas/barra_de_tarefas.tscn" id="3_mldeu"]
+[ext_resource type="Script" uid="uid://v238075i26ql" path="res://OS-DOORS/Recursos/OSLoginInfRes.gd" id="3_situe"]
+[ext_resource type="PackedScene" uid="uid://bcsu1i803gyh1" path="res://OS-DOORS/CMD/command_prompt.tscn" id="6_4vu2a"]
+
+[sub_resource type="Resource" id="Resource_bhunq"]
+script = ExtResource("3_situe")
+UserImg = ExtResource("2_67ijr")
+UserName = "Petya"
+metadata/_custom_type_script = "uid://v238075i26ql"
+
+[sub_resource type="Resource" id="Resource_brs6i"]
+script = ExtResource("3_4vu2a")
+metadata/_custom_type_script = "uid://civrx76rn2utc"
+
+[sub_resource type="Resource" id="Resource_7nu8d"]
+script = ExtResource("3_situe")
+metadata/_custom_type_script = "uid://v238075i26ql"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" unique_id=388035642]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 1
+script = ExtResource("1_brs6i")
+userInfo = SubResource("Resource_bhunq")
+DOORSSYSTEMINF = SubResource("Resource_brs6i")
+DOORSINF = Array[ExtResource("2_mldeu")]([SubResource("Resource_7nu8d"), null])
+metadata/_edit_use_anchors_ = true
+
+[node name="WorkplaceSeparator" type="VBoxContainer" parent="." unique_id=402316500]
+layout_mode = 2
+
+[node name="AreaDeTrabalho" type="MarginContainer" parent="WorkplaceSeparator" unique_id=1255732581]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="AtalhoBase" parent="WorkplaceSeparator/AreaDeTrabalho" unique_id=485553010 instance=ExtResource("2_rku0c")]
+position = Vector2(485, 427)
+
+[node name="AtalhoBase2" parent="WorkplaceSeparator/AreaDeTrabalho" unique_id=1090361437 instance=ExtResource("2_rku0c")]
+position = Vector2(306, 473)
+
+[node name="AtalhoBase3" parent="WorkplaceSeparator/AreaDeTrabalho" unique_id=1050755917 instance=ExtResource("2_rku0c")]
+position = Vector2(289, 315)
+
+[node name="BarraDeTarefas" parent="WorkplaceSeparator" unique_id=447050468 instance=ExtResource("3_mldeu")]
+layout_mode = 2
+
+[node name="Debug entry" type="RichTextLabel" parent="." unique_id=777095540]
+layout_mode = 2
+
+[node name="CommandPrompt" parent="." unique_id=431698100 instance=ExtResource("6_4vu2a")]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b1b0e4cju0hkn"]
+
+[ext_resource type="Texture2D" uid="uid://cpxamhq78hish" path="res://icon.svg" id="1_yogwf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78yng"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+
+[node name="BarraDeTarefas" type="PanelContainer" unique_id=447050468]
+z_index = 90
+custom_minimum_size = Vector2(0, 60)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_78yng")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1977081524]
+layout_mode = 2
+
+[node name="DOORSButton" type="TextureButton" parent="HBoxContainer" unique_id=696459563]
+texture_filter = 3
+texture_repeat = 1
+custom_minimum_size = Vector2(61.35, 0)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.855, 0.855)
+texture_normal = ExtResource("1_yogwf")
+ignore_texture_size = true
+stretch_mode = 4

@@ -1,22 +1,10 @@
 [gd_scene format=3 uid="uid://b5rq1gook2y2h"]
 
 [ext_resource type="Script" uid="uid://bgwfab0wf1noc" path="res://OS-DOORS/Codigos/atalhoScript.gd" id="1_slbup"]
-[ext_resource type="Texture2D" uid="uid://cmetfrddfg25t" path="res://OS-DOORS/Imagens/pasta.png" id="2_atmxy"]
-[ext_resource type="PackedScene" uid="uid://b0lqb17nf1dl1" path="res://OS-DOORS/Cenas/AppRelated/Apps/FileExplorer.tscn" id="3_vj4sr"]
-[ext_resource type="Script" uid="uid://cy4tu58fsgbvc" path="res://OS-DOORS/Recursos/AtalhoRes.gd" id="4_it08k"]
 [ext_resource type="Texture2D" uid="uid://c753jjftidhhp" path="res://OS-DOORS/Imagens/D._Afonso_Henriques_O_Conquistador.jpg" id="5_m6tlu"]
 
-[sub_resource type="Theme" id="Theme_qr0ht"]
-default_font_size = 10
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6f8o3"]
-
-[sub_resource type="Resource" id="Resource_slbup"]
-script = ExtResource("4_it08k")
-AppImg = ExtResource("2_atmxy")
-AppName = "FilesExplorer"
-ScenePack = ExtResource("3_vj4sr")
-metadata/_custom_type_script = "uid://cy4tu58fsgbvc"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(84.61, 100.7025)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhunq"]
 
@@ -24,18 +12,30 @@ metadata/_custom_type_script = "uid://cy4tu58fsgbvc"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sn0t7"]
 
-[node name="AtalhoBase" type="PanelContainer" unique_id=485553010]
-offset_right = 128.0
-offset_bottom = 155.0
-theme = SubResource("Theme_qr0ht")
-theme_override_styles/panel = SubResource("StyleBoxEmpty_6f8o3")
+[node name="Atalho" type="StaticBody2D" unique_id=1140816719]
 script = ExtResource("1_slbup")
-AtalhoContend = SubResource("Resource_slbup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1169982792]
+position = Vector2(0, -35.64875)
+shape = SubResource("RectangleShape2D_bhunq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=606075244]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -83.0
+offset_right = 43.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1688394958]
 layout_mode = 2
 
-[node name="Icon" type="TextureButton" parent="VBoxContainer" unique_id=1605376140]
+[node name="Icon" type="TextureButton" parent="VBoxContainer/MarginContainer" unique_id=1605376140]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("5_m6tlu")
@@ -49,7 +49,3 @@ theme_override_styles/read_only = SubResource("StyleBoxEmpty_riqys")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sn0t7")
 text = "AppName"
 alignment = 1
-
-[connection signal="mouse_entered" from="VBoxContainer/Icon" to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Icon" to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="VBoxContainer/Icon" to="." method="_pressed"]
