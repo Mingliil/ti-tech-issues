@@ -2,19 +2,32 @@
 
 [ext_resource type="VideoStream" uid="uid://i2uki6ev1r0a" path="res://Videos/Kids are smoking the coronavirus - imbezo (720p, h264).ogv" id="1_1co7a"]
 [ext_resource type="Script" uid="uid://b5luel62gcfr5" path="res://Objetos/televisão.gd" id="1_q1vai"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="2_dpu3h"]
 [ext_resource type="PackedScene" uid="uid://dakt44bvspufa" path="res://Objetos/televisão_tela.tscn" id="3_dpu3h"]
+
+[sub_resource type="Resource" id="Resource_pms7v"]
+script = ExtResource("2_dpu3h")
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
 
 [sub_resource type="PrismMesh" id="PrismMesh_8imwq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sd75g"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_86ap7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qr0ht"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Televisão" type="RigidBody3D" unique_id=1868700382]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqys"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_qr0ht")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bhunq"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_riqys")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sd75g"]
+
+[node name="Tv" type="RigidBody3D" unique_id=1868700382]
 script = ExtResource("1_q1vai")
+obj_vars = SubResource("Resource_pms7v")
 Canais = Array[VideoStreamTheora]([ExtResource("1_1co7a")])
-ligado = null
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=2124364686]
 
@@ -25,9 +38,9 @@ ligado = null
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1412258548]
 mesh = SubResource("PrismMesh_8imwq")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=572009308]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.501574, 0.51407087)
+mesh = SubResource("PlaneMesh_bhunq")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=792367213]
 shape = SubResource("BoxShape3D_sd75g")
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1090183166]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0636115, 0.613152)
-texture = SubResource("ViewportTexture_86ap7")

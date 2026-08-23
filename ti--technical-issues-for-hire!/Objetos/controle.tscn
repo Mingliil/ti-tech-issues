@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b3ymatc3n8a4n" path="res://Controle.gd" id="1_iqpxa"]
 [ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="2_wrox8"]
 [ext_resource type="Script" uid="uid://frlfpc6h3wac" path="res://Player/Res/ItemData.gd" id="3_6tote"]
+[ext_resource type="Texture2D" uid="uid://de67fv0nytq0j" path="res://Objetos/Objects Images/08542b8c21193f801beaa7f28a4ffbe2-cd3bae334b7138eb7617620346434956-1024-1024.webp" id="3_pms7v"]
 
 [sub_resource type="Resource" id="Resource_dws3y"]
 script = ExtResource("2_wrox8")
@@ -12,7 +13,10 @@ metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
 [sub_resource type="Resource" id="Resource_dryfg"]
 script = ExtResource("3_6tote")
 ItemName = "Controle"
+ItemSprite = ExtResource("3_pms7v")
 ItemDesc = "é um controle, estranhamente só funciona com a tv de minha casa, especificamente a da sala"
+Itemfunction = ExtResource("1_iqpxa")
+LeftClickFunction = "trocarCanal"
 metadata/_custom_type_script = "uid://frlfpc6h3wac"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dryfg"]
@@ -26,11 +30,13 @@ size = Vector3(0.2, 0.1, 0.5)
 size = Vector3(0.2, 0.1, 0.5)
 
 [node name="Controle" type="RigidBody3D" unique_id=603549041]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_iqpxa")
 obj_vars = SubResource("Resource_dws3y")
 itemVars = SubResource("Resource_dryfg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=216051253]
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=216051253]
 mesh = SubResource("BoxMesh_86ap7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=457628128]

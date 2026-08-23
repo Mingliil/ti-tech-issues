@@ -13,6 +13,7 @@ class_name ItemData
 
 
 @export_group("Functions")
+@export var Itemfunction: Script
 @export_subgroup("Left")
 @export var LeftClickFunction: String
 @export var LeftClickFunctionVars: Array

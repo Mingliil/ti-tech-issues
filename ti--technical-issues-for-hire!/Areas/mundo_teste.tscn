@@ -64,3 +64,4 @@ ligado = true
 
 [node name="Controle" parent="." unique_id=603549041 instance=ExtResource("8_ed0ma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15018404, 1.0766468)
+televisao = NodePath("../Televisão")
