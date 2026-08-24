@@ -55,12 +55,9 @@ position = Vector2(485, 427)
 position = Vector2(306, 473)
 
 [node name="AtalhoBase3" parent="WorkplaceSeparator/AreaDeTrabalho" unique_id=1050755917 instance=ExtResource("2_rku0c")]
-position = Vector2(289, 315)
+position = Vector2(172, 225)
 
 [node name="BarraDeTarefas" parent="WorkplaceSeparator" unique_id=447050468 instance=ExtResource("3_mldeu")]
-layout_mode = 2
-
-[node name="Debug entry" type="RichTextLabel" parent="." unique_id=777095540]
 layout_mode = 2
 
 [node name="CommandPrompt" parent="." unique_id=431698100 instance=ExtResource("6_4vu2a")]

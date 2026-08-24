@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c753jjftidhhp" path="res://OS-DOORS/Imagens/D._Afonso_Henriques_O_Conquistador.jpg" id="5_m6tlu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
-size = Vector2(84.61, 100.7025)
+size = Vector2(84, 100)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhunq"]
 
@@ -13,6 +13,7 @@ size = Vector2(84.61, 100.7025)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sn0t7"]
 
 [node name="Atalho" type="StaticBody2D" unique_id=1140816719]
+input_pickable = true
 script = ExtResource("1_slbup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1169982792]
@@ -49,3 +50,6 @@ theme_override_styles/read_only = SubResource("StyleBoxEmpty_riqys")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sn0t7")
 text = "AppName"
 alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
