@@ -127,14 +127,13 @@ func useItemFunction(button: String) -> void:
 	var item: ItemData = Inventory.InvItens[i]
 	if item.Itemfunction:
 		var funcScript = item.Itemfunction.new()
-		funcScript.call(item.LeftClickFunction)
-	match button:
-		"left":
-			item
-		"right":
-			item
-		_:
-			pass
+		match button:
+			"left":
+				funcScript.call(item.LeftClickFunction)
+			"right":
+				funcScript.call(item.RightClickFunction)
+			_:
+				pass
 
 
 func getMouseWorldPosReturn(mouse: Vector2, DIST: float) -> Vector3:
