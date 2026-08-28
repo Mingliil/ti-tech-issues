@@ -5,6 +5,9 @@ extends RigidBody3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
+func teste()->void:
+	print("here lies afonso,
+	you can tell it because we put his name on the song")
 
 func trocarCanal() -> void:
 	print("oi")

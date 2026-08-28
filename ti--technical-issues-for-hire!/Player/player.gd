@@ -49,6 +49,11 @@ func _input(event: InputEvent) -> void:
 			var number_found = int(number.get_string())
 			if number_found:
 				selectedInvSlot = number_found
+	if Input.is_action_pressed("altAction"):
+		if Input.is_action_just_pressed("ItemAction"):
+			useItemFunction(true,"F")
+	elif Input.is_action_just_pressed("ItemAction"):
+		useItemFunction(false,"F")
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			selectedInvSlot -= 1
@@ -59,10 +64,18 @@ func _input(event: InputEvent) -> void:
 			if selectedInvSlot >= 6:
 				selectedInvSlot = 1
 		print(selectedInvSlot)
+		
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			useItemFunction("left")
+			if Input.is_action_pressed("altAction"):
+				useItemFunction(true,"Left")
+			else:
+				useItemFunction(false,"Left")
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			useItemFunction("right")
+			if Input.is_action_pressed("altAction"):
+				useItemFunction(true,"Right")
+			else:
+				useItemFunction(false,"Right")
+	
 	if event is InputEventKey:
 		if Input.is_action_just_pressed("soltar"):
 			DropItem()
@@ -120,20 +133,16 @@ func getSelectedItem()-> int:
 		return -1
 	return -1
 
-func useItemFunction(button: String) -> void:
-	var i = getSelectedItem()
-	if i == -1:
+func useItemFunction(alt: bool, button: String) -> void:
+	var item =Inventory.InvItens[getSelectedItem()] 
+	if item == null:
 		return
-	var item: ItemData = Inventory.InvItens[i]
-	if item.Itemfunction:
-		var funcScript = item.Itemfunction.new()
-		match button:
-			"left":
-				funcScript.call(item.LeftClickFunction)
-			"right":
-				funcScript.call(item.RightClickFunction)
-			_:
-				pass
+	print("é uma ação alt?: ",alt)
+	for i in item.Funtions:
+		if item.Funtions[i].FunctionType == button and item.Funtions[i].alternativeFunction == alt:
+			var funcScript = item.Itemfunction.new()
+			
+			pass
 
 
 func getMouseWorldPosReturn(mouse: Vector2, DIST: float) -> Vector3:
