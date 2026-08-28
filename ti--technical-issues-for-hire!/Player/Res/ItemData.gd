@@ -14,6 +14,7 @@ class_name ItemData
 
 @export_group("Functions")
 @export var Itemfunction: Script
+@export var Funtions: Array[ItemFunction]
 @export_subgroup("Left")
 @export var LeftClickFunction: String
 @export var LeftClickFunctionVars: Array
@@ -22,3 +23,7 @@ class_name ItemData
 @export var RightClickFunction: String
 @export var RightClickFunctionVars: Array
 @export var RightClickSound: AudioStream
+@export_subgroup("Scroll")
+@export var ScrollClickFunction: String
+@export var ScrollClickFunctionVars: Array
+@export var ScrollClickSound: AudioStream
