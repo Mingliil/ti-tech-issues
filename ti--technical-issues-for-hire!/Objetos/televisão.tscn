@@ -2,20 +2,23 @@
 
 [ext_resource type="Script" uid="uid://b5luel62gcfr5" path="res://Objetos/televisão.gd" id="1_q1vai"]
 [ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="2_dpu3h"]
-[ext_resource type="PackedScene" uid="uid://dakt44bvspufa" path="res://Objetos/televisão_tela.tscn" id="3_dpu3h"]
+[ext_resource type="Shader" uid="uid://ifcce5o5hsh8" path="res://Objetos/tvTela.gdshader" id="3_dpu3h"]
+[ext_resource type="VideoStream" uid="uid://i2uki6ev1r0a" path="res://Videos/Kids are smoking the coronavirus - imbezo (720p, h264).ogv" id="4_dpu3h"]
 
 [sub_resource type="Resource" id="Resource_sd75g"]
 script = ExtResource("2_dpu3h")
 metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_src87"]
-viewport_path = NodePath("Tela/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_lphhl"]
+viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2axj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q1vai"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_src87")
+render_priority = 0
+shader = ExtResource("3_dpu3h")
+shader_parameter/screen_texture = SubResource("ViewportTexture_lphhl")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_g5x8i"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_dpu3h"]
 _surfaces = [{
 "aabb": AABB(1.06656, -0.72822225, -0.9339356, 1e-05, 1.6331885, 1.8678712),
 "format": 34896613377,
@@ -29,6 +32,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sd75g"]
+resource_local_to_scene = true
 resource_name = "Televisao_Cube_002"
 _surfaces = [{
 "aabb": AABB(1.06656, -0.72822225, -0.9339356, 1e-05, 1.6331885, 1.8678712),
@@ -36,18 +40,18 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 30,
 "index_data": PackedByteArray("AAABAAIAAAADAAEAAQADAAQABQAAAAYABwAAAAUAAwAAAAcABwAFAAgAAwAHAAkACQAHAAoAAwAJAAsA"),
-"material": SubResource("StandardMaterial3D_b2axj"),
+"material": SubResource("ShaderMaterial_q1vai"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
 "vertex_data": PackedByteArray("AAAAAHMEUtQAAH0EAAAw1AAAVwFNAZnNAACx/k0BStMAAIr7AABU1QAAVwGx/kvTAAAJAIr7EMgAAIr7//8h1AAAfQT//1TVAAD//4r7J9QAALH+sf6czQAA//90BBHI5ysMKhAs9ylpNUolNC1lKaoqqiozLWUpVEDVHyQs7SmqKqoqHSzxKWU1TSVSQNYf")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_g5x8i")
+shadow_mesh = SubResource("ArrayMesh_dpu3h")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bt00v"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_4ao4h"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_src87"]
 _surfaces = [{
 "aabb": AABB(-1.0034686, -1, -1, 2.1390243, 2, 2),
 "format": 34359742465,
@@ -75,17 +79,31 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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9l8pAOb/xL/2XykA0f+twPZfKQDQ/6/A9l8pAOX/xr+B2gAAcKp+/IHaAAA6U9n6gdoAABFTvPqB2gAAm6pg/H2l//9ZAAzAfaX//wEA/799pf//AAD/v32l//9aAAzAgdr//1WKmOmB2v//BnnI6oHa///JeLPqgdr//46KhOnWfwggfP/2v9Z/CCCj/hbA1n8IIJ7+FsDWfwggfv/2v/9/gVoagDbt/3+BWiGHuur/f4FaOYey6v9/gVr/f0Dt/3+B2hwAMMD/f4HaAAD/v/9/gdoAAP+//3+B2h0AMcD/f32ldFVs/P9/faVuWvH//399pX2l////f32lY1Vg/P9/AAD//yzA/38AAKf//7//fwAA//+gwP9/AAC9/v+//38AAP///7//fwAA////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////7//f/9//3////9//3//f////3//f/9/////f/9//3////9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+///////9//////////3//////////f/////////9///////9/////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/////f////799pf//////v32l//////+/faX//////799pf//////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/////f////7//f/9/////P/9//3////8//3//f////z//f/9/////P/9/gdr///8//3+B2v///z//f4Ha////P/9/gdr///8/gdr//////7+B2v//////v4Ha//////+/gdr//////7//f///////v/9///////+//3///////7//f///////vyZOFQD///+/Jk4VAP///78mThUA////vyZOFQD///+//399pf///z//f32l////P/9/faX///8//399pf///z//f34x////P/9/fjH///8//39+Mf///z//f34x////P/////////+//////////7//////////v/////////+/gdoAAP///7+B2gAA////v4HaAAD///+/gdoAAP///7/bfycA////P9t/JwD///8/238nAP///z/bfycA////P/9/gVr///8//3+BWv///z//f4Fa////P/9/gVr///8/Cngpo////z8KeCmj////Pwp4KaP///8/Cngpo////z8AAP9/M+MAgAAA/38z4wCAAAD/f////78AAP9/M+MAgAAA/3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////79c/5b/////v1z/lv////+/XP+W/////79c/5b/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3/D5f//AAD/f8Pl//8AAP9/w+X//wAA/3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3/xoQAAAAD/f////78AAP9//38AAAAA/3////+/AAD/f/9/QwoAAP9/ILoAAAAA/3//f63uAAD/f/9/5zQAAP9/Wv8AAAAA/398pQAA/////////7//////////v/////////+//////////78ETlXu////vwROVe7///+/BE5V7v///78ETlXu////v/9//3////8//3//f////z//f/9/////P/9//3////8/Z4CigP///z9ngKKA////P2eAooD///8/Z4CigP///z9WbgTO////P1ZuBM7///8/Vm4Ezv///z9WbgTO////PykjCfj///+/KSMJ+P///78pIwn4////vykjCfj///+/YGhg6P///79gaGDo////v2BoYOj///+/YGhg6P///7+cY0GA////P5xjQYD///8/nGNBgP///z+cY0GA////PwAA/3+l8ACAAAD/f6XwAIAAAP9/pfAAgAAA/3////+/QgCc4////79CAJzj////v0IAnOP///+/QgCc4////7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9///////+//3///////7//f///////v/9///////+/BqIAAP///78GogAA////vwaiAAD///+/BqIAAP///79A8ld+////P0DyV37///8/QPJXfv///z9A8ld+////P////3////+/////f////7////9/////v////3////+/1fT9g////z/V9P2D////P9X0/YP///8/1fT9g////z//fwci////P/9/ByL///8//38HIv///z//fwci////P/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+/BqL//////78Gov//////vwai//////+/BqL//////7//fznd////P/9/Od3///8//3853f///z//fznd////P/9/Jqn///8//38mqf///z//fyap////P/9/Jqn///8//3//f////z//f/9/////P/9//3////8//3//f////z/Y1gAA////v9jWAAD///+/2NYAAP///7/Y1gAA////v9jW//////+/2Nb//////7/Y1v//////v9jW//////+/AoD//////78CgP//////vwKA//////+/AoD//////7//f9hW////P/9/2Fb///8//3/YVv///z//f9hW////P/////////+//////////7//////////v/////////+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_4ao4h")
+shadow_mesh = SubResource("ArrayMesh_src87")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_86ap7"]
 size = Vector3(0.833374, 0.75531006, 1)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_sn0t7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqys"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_sn0t7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_bhunq"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_riqys")
+size = Vector2(1.855, 1.665)
+
 [node name="RigidBody3D" type="RigidBody3D" unique_id=166821456]
 script = ExtResource("1_q1vai")
 obj_vars = SubResource("Resource_sd75g")
+Canais = Array[VideoStreamTheora]([ExtResource("4_dpu3h")])
 
 [node name="Tela" type="MeshInstance3D" parent="." unique_id=1114333278]
 transform = Transform3D(0.38559163, 0, 0, 0, 0.37595183, 0, 0, 0, 0.4337906, 0, 0, 0)
+visible = false
 mesh = SubResource("ArrayMesh_sd75g")
 
 [node name="TVCorpo" type="MeshInstance3D" parent="." unique_id=1024707977]
@@ -96,6 +114,38 @@ mesh = SubResource("ArrayMesh_q1vai")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02557373, 0.0030822754, 0)
 shape = SubResource("BoxShape3D_86ap7")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=76040035]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1665020041]
+snap_2d_transforms_to_pixel = true
+size = Vector2i(946, 723)
 
-[node name="Televisão Tela" parent="SubViewport" unique_id=1570865461 instance=ExtResource("3_dpu3h")]
+[node name="Control" type="Control" parent="SubViewport" unique_id=1686516013]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer2" type="PanelContainer" parent="SubViewport/Control" unique_id=653150329]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = 1.5
+offset_right = 913.0
+offset_bottom = 681.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/Control/PanelContainer2" unique_id=286042512]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+stream = ExtResource("4_dpu3h")
+volume_db = 3.6799994
+autoplay = true
+loop = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=20031077]
+transform = Transform3D(-1.6854745e-08, 0, 0.38559163, 0, 0.37595183, 0, -0.4337906, 0, -1.896159e-08, 0.41643897, 0.034376606, 0)
+mesh = SubResource("QuadMesh_bhunq")

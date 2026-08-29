@@ -1,7 +1,7 @@
 extends ItemExport
 class_name ItemFunction
-
-@export_enum("Right", "Left", "Scroll","F") var FunctionType
+enum ActionType {Right,Left,Scroll, F}
+@export var FunctionType:ActionType
 @export var alternativeFunction: bool
 @export var FunctionName: String
 @export var FunctionVars: Array

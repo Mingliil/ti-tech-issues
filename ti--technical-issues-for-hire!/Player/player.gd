@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+enum ActionType {Right,Left,Scroll, F}
 @export var interagindo: bool = false
 @export var Inventory: InventoryData
 @onready var handSprite: MeshInstance3D = $Head/MeshInstance3D
@@ -51,9 +52,19 @@ func _input(event: InputEvent) -> void:
 				selectedInvSlot = number_found
 	if Input.is_action_pressed("altAction"):
 		if Input.is_action_just_pressed("ItemAction"):
-			useItemFunction(true,"F")
+			useItemFunction(true,ActionType.F)
 	elif Input.is_action_just_pressed("ItemAction"):
-		useItemFunction(false,"F")
+		useItemFunction(false,ActionType.F)
+	if Input.is_action_just_pressed("clickEsq"):
+			if Input.is_action_pressed("altAction"):
+				useItemFunction(true,ActionType.Left)
+			else:
+				useItemFunction(false,ActionType.Left)
+	elif Input.is_action_just_pressed("clickDir"):
+		if Input.is_action_pressed("altAction"):
+			useItemFunction(true,ActionType.Right)
+		else:
+			useItemFunction(false,ActionType.Right)
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			selectedInvSlot -= 1
@@ -65,16 +76,6 @@ func _input(event: InputEvent) -> void:
 				selectedInvSlot = 1
 		print(selectedInvSlot)
 		
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if Input.is_action_pressed("altAction"):
-				useItemFunction(true,"Left")
-			else:
-				useItemFunction(false,"Left")
-		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			if Input.is_action_pressed("altAction"):
-				useItemFunction(true,"Right")
-			else:
-				useItemFunction(false,"Right")
 	
 	if event is InputEventKey:
 		if Input.is_action_just_pressed("soltar"):
@@ -133,16 +134,22 @@ func getSelectedItem()-> int:
 		return -1
 	return -1
 
-func useItemFunction(alt: bool, button: String) -> void:
-	var item =Inventory.InvItens[getSelectedItem()] 
-	if item == null:
+func useItemFunction(alt: bool, button: ActionType) -> void:
+	var o = getSelectedItem()
+	if o == -1:
+		return
+	var item = Inventory.InvItens[o] 
+	print(item)
+	if !item:
 		return
 	print("é uma ação alt?: ",alt)
-	for i in item.Funtions:
+	for i in item.Funtions.size():
+		print(i)
+		print(item.Funtions[i].FunctionType, "teste e ", button)
 		if item.Funtions[i].FunctionType == button and item.Funtions[i].alternativeFunction == alt:
 			var funcScript = item.Itemfunction.new()
-			
-			pass
+			funcScript.callv(item.Funtions[i].FunctionName, item.Funtions[i].FunctionVars)
+			#pass
 
 
 func getMouseWorldPosReturn(mouse: Vector2, DIST: float) -> Vector3:

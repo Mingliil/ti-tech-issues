@@ -9,6 +9,27 @@ func teste()->void:
 	print("here lies afonso,
 	you can tell it because we put his name on the song")
 
+func getTheTv():
+	if InteractHdlr.obj_looking:
+		if "nome" in InteractHdlr.obj_looking:
+			var tv: String = InteractHdlr.obj_looking.nome
+			if tv == "Tv":
+				print(InteractHdlr.obj_looking)
+				return InteractHdlr.obj_looking
+			else:
+				return null
+		else:
+			return null
+	else:
+		return null
+
+func pausar()->void:
+	var Tv = getTheTv()
+	if Tv:
+		Tv.trocarOuNao()
+	else:
+		return
+
 func trocarCanal() -> void:
 	print("oi")
 	if InteractHdlr.obj_looking:

@@ -60,7 +60,6 @@ transform = Transform3D(0.9991042, 0, -0.042316604, 0, 1, 0, 0.042316604, 0, 0.9
 
 [node name="Televisão" parent="." unique_id=1868700382 instance=ExtResource("7_2d0ko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1978023, 0.67717505, 0)
-ligado = true
 
 [node name="Controle" parent="." unique_id=603549041 instance=ExtResource("8_ed0ma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15018404, 1.0766468)
