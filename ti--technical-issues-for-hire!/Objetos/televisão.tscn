@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="2_dpu3h"]
 [ext_resource type="Shader" uid="uid://ifcce5o5hsh8" path="res://Objetos/tvTela.gdshader" id="3_dpu3h"]
 [ext_resource type="VideoStream" uid="uid://i2uki6ev1r0a" path="res://Videos/Kids are smoking the coronavirus - imbezo (720p, h264).ogv" id="4_dpu3h"]
+[ext_resource type="VideoStream" uid="uid://cwg6kclqg4cw" path="res://Videos/AFONSO-SANTOS-Cibersegurança-e-Privacidade.ogv" id="4_src87"]
 
 [sub_resource type="Resource" id="Resource_sd75g"]
 script = ExtResource("2_dpu3h")
@@ -99,7 +100,7 @@ size = Vector2(1.855, 1.665)
 [node name="RigidBody3D" type="RigidBody3D" unique_id=166821456]
 script = ExtResource("1_q1vai")
 obj_vars = SubResource("Resource_sd75g")
-Canais = Array[VideoStreamTheora]([ExtResource("4_dpu3h")])
+Canais = Array[VideoStreamTheora]([ExtResource("4_dpu3h"), ExtResource("4_src87")])
 
 [node name="Tela" type="MeshInstance3D" parent="." unique_id=1114333278]
 transform = Transform3D(0.38559163, 0, 0, 0, 0.37595183, 0, 0, 0, 0.4337906, 0, 0, 0)
