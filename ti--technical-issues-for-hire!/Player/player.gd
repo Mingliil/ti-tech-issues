@@ -1,16 +1,18 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-enum ActionType {Right,Left,Scroll, F}
+var SPEED:float = 5.0
+const JUMP_VELOCITY :float= 4.5
+const NORMAL_HEIGHT:float= 1.8
+const CROUCH_HEIGHT:float= NORMAL_HEIGHT/2
+enum ActionType {Right,Left,ScrollUp, ScrollDown, F}
+enum keygroup {KEY_1, KEY_2, KEY_3, KEY_4, KEY_5}
 @export var interagindo: bool = false
 @export var Inventory: InventoryData
 @onready var handSprite: MeshInstance3D = $Head/MeshInstance3D
 @onready var HUD: Control = $HUD
 @onready var InvSlot:PackedScene = preload("uid://b7wrcxuqymh4u")
 @onready var flavourText = preload("uid://ch8xv1204camr")
-
 @export var selectedInvSlot: int = 1
 
 func _ready() -> void:
@@ -41,6 +43,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
+	
 	if event is InputEventKey:
 		var i = OS.get_keycode_string(event.physical_keycode)
 		var regex = RegEx.new()
@@ -50,6 +53,12 @@ func _input(event: InputEvent) -> void:
 			var number_found = int(number.get_string())
 			if number_found:
 				selectedInvSlot = number_found
+	if Input.is_action_pressed("control"):
+		SPEED = 2.5
+		$CollisionShape3D.shape.height = CROUCH_HEIGHT
+	elif Input.is_action_just_released("control"):
+		SPEED = 5.0
+		$CollisionShape3D.shape.height = NORMAL_HEIGHT
 	if Input.is_action_pressed("altAction"):
 		if Input.is_action_just_pressed("ItemAction"):
 			useItemFunction(true,ActionType.F)
@@ -67,17 +76,14 @@ func _input(event: InputEvent) -> void:
 			useItemFunction(false,ActionType.Right)
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			selectedInvSlot -= 1
-			if selectedInvSlot <= 0:
-				selectedInvSlot = 5
+			useItemFunction(false, ActionType.ScrollDown)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			selectedInvSlot += 1
-			if selectedInvSlot >= 6:
-				selectedInvSlot = 1
-		print(selectedInvSlot)
-		
-	
+			useItemFunction(false, ActionType.ScrollUp)
 	if event is InputEventKey:
+
+		if event.as_text_keycode().to_int() >= 1 and event.as_text_keycode().to_int() <= 5:
+			selectedInvSlot = event.as_text_keycode().to_int()
+			
 		if Input.is_action_just_pressed("soltar"):
 			DropItem()
 

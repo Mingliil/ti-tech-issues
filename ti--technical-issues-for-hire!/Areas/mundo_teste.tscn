@@ -24,7 +24,7 @@ ambient_light_energy = 2.48
 [node name="MundoTeste" type="Node3D" unique_id=1308074465]
 
 [node name="Player" parent="." unique_id=2026455054 instance=ExtResource("1_6smej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3005184, 0)
+transform = Transform3D(0.037219822, 0, -0.9993071, 0, 1, 0, 0.9993071, 0, 0.037219822, 0, 1.3005184, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2109652330]
 
@@ -59,7 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
 transform = Transform3D(0.9991042, 0, -0.042316604, 0, 1, 0, 0.042316604, 0, 0.9991042, 0.01210171, 1.0328865, 6.1069703)
 
 [node name="Televisão" parent="." unique_id=1868700382 instance=ExtResource("7_2d0ko")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1978023, 0.67717505, 0)
+transform = Transform3D(-0.9992405, 0, -0.038966, 0, 1, 0, 0.038966, 0, -0.9992405, 2.1978023, 0.67717505, 0)
 
 [node name="Controle" parent="." unique_id=603549041 instance=ExtResource("8_ed0ma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15018404, 1.0766468)

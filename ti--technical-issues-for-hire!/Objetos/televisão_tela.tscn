@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dakt44bvspufa"]
 
-[ext_resource type="VideoStream" uid="uid://i2uki6ev1r0a" path="res://Videos/Kids are smoking the coronavirus - imbezo (720p, h264).ogv" id="1_jxuh0"]
+[ext_resource type="VideoStream" uid="uid://dej2bfmgt8lir" path="res://Videos/AFONSO SANTOS - Cibersegurança e Privacidade.ogv" id="1_jxuh0"]
 
 [node name="Televisão Tela" type="Control" unique_id=1570865461]
 layout_mode = 3
@@ -28,6 +28,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 stream = ExtResource("1_jxuh0")
-volume_db = 3.6799998
+volume_db = 3.6799994
 autoplay = true
 loop = true

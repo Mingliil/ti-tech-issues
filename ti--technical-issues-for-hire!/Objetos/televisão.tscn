@@ -3,12 +3,32 @@
 [ext_resource type="Script" uid="uid://b5luel62gcfr5" path="res://Objetos/televisão.gd" id="1_q1vai"]
 [ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="2_dpu3h"]
 [ext_resource type="Shader" uid="uid://ifcce5o5hsh8" path="res://Objetos/tvTela.gdshader" id="3_dpu3h"]
+[ext_resource type="Script" uid="uid://dxpbe58tjfdxq" path="res://Objetos/TvChannelRes.gd" id="3_o6yb6"]
 [ext_resource type="VideoStream" uid="uid://i2uki6ev1r0a" path="res://Videos/Kids are smoking the coronavirus - imbezo (720p, h264).ogv" id="4_dpu3h"]
-[ext_resource type="VideoStream" uid="uid://cwg6kclqg4cw" path="res://Videos/AFONSO-SANTOS-Cibersegurança-e-Privacidade.ogv" id="4_src87"]
+[ext_resource type="VideoStream" uid="uid://dej2bfmgt8lir" path="res://Videos/AFONSO SANTOS - Cibersegurança e Privacidade.ogv" id="4_src87"]
+[ext_resource type="VideoStream" uid="uid://dcauhemx05yar" path="res://Videos/《他怎么能这么逍遥法外！？METRO 亲自向你展示他在《Deadlock》里是如何“送人头”的！(FREE WITH ADS》 - Little Clippers (360p, h264).ogv" id="6_3v2v4"]
 
 [sub_resource type="Resource" id="Resource_sd75g"]
 script = ExtResource("2_dpu3h")
 metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
+[sub_resource type="Resource" id="Resource_616q3"]
+script = ExtResource("3_o6yb6")
+canalNum = 13
+videos = Array[VideoStreamTheora]([ExtResource("4_src87")])
+metadata/_custom_type_script = "uid://dxpbe58tjfdxq"
+
+[sub_resource type="Resource" id="Resource_pkajy"]
+script = ExtResource("3_o6yb6")
+canalNum = 457
+videos = Array[VideoStreamTheora]([ExtResource("4_dpu3h")])
+metadata/_custom_type_script = "uid://dxpbe58tjfdxq"
+
+[sub_resource type="Resource" id="Resource_v27ia"]
+script = ExtResource("3_o6yb6")
+canalNum = 900
+videos = Array[VideoStreamTheora]([ExtResource("6_3v2v4")])
+metadata/_custom_type_script = "uid://dxpbe58tjfdxq"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lphhl"]
 viewport_path = NodePath("SubViewport")
@@ -85,6 +105,71 @@ shadow_mesh = SubResource("ArrayMesh_src87")
 [sub_resource type="BoxShape3D" id="BoxShape3D_86ap7"]
 size = Vector3(0.833374, 0.75531006, 1)
 
+[sub_resource type="Animation" id="Animation_src87"]
+resource_name = "new_animation"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 9.5, -0.07333334, 0.07333334, 0.30831107, 5, -5.5, -0.15835553, -25, 0, 0),
+"times": PackedFloat32Array(0, 0.4, 2)
+}
+
+[sub_resource type="Animation" id="Animation_o6yb6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../VolNum:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3v2v4"]
+_data = {
+&"LabelFade": SubResource("Animation_src87"),
+&"RESET": SubResource("Animation_o6yb6")
+}
+
+[sub_resource type="Animation" id="Animation_3v2v4"]
+resource_name = "volanim"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 9.5, -0.07333334, 0.07333334, 0.30831107, 5, -5.5, -0.15835553, -25, 0, 0),
+"times": PackedFloat32Array(0, 0.4, 0.8666667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_616q3"]
+_data = {
+&"volanim": SubResource("Animation_3v2v4")
+}
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_sn0t7"]
 viewport_path = NodePath("SubViewport")
 
@@ -100,7 +185,8 @@ size = Vector2(1.855, 1.665)
 [node name="RigidBody3D" type="RigidBody3D" unique_id=166821456]
 script = ExtResource("1_q1vai")
 obj_vars = SubResource("Resource_sd75g")
-Canais = Array[VideoStreamTheora]([ExtResource("4_dpu3h"), ExtResource("4_src87")])
+Canais = Array[ExtResource("3_o6yb6")]([SubResource("Resource_616q3"), SubResource("Resource_pkajy"), SubResource("Resource_v27ia")])
+EntradaVideo = 0
 
 [node name="Tela" type="MeshInstance3D" parent="." unique_id=1114333278]
 transform = Transform3D(0.38559163, 0, 0, 0, 0.37595183, 0, 0, 0, 0.4337906, 0, 0, 0)
@@ -117,36 +203,59 @@ shape = SubResource("BoxShape3D_86ap7")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1665020041]
 snap_2d_transforms_to_pixel = true
-size = Vector2i(946, 723)
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
 
-[node name="Control" type="Control" parent="SubViewport" unique_id=1686516013]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="PanelContainer" type="PanelContainer" parent="SubViewport" unique_id=823959767]
+custom_minimum_size = Vector2(512, 512)
+anchors_preset = -1
+anchor_right = 0.44400004
+anchor_bottom = 0.79
+offset_right = 284.672
+offset_bottom = 107.51999
 
-[node name="PanelContainer2" type="PanelContainer" parent="SubViewport/Control" unique_id=653150329]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/PanelContainer" unique_id=286042512]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+autoplay = true
+expand = true
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/PanelContainer/VideoStreamPlayer" unique_id=1643732507]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -7.0
-offset_top = 1.5
-offset_right = 913.0
-offset_bottom = 681.5
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/Control/PanelContainer2" unique_id=286042512]
+[node name="ChannelDisplayer" type="Label" parent="SubViewport/PanelContainer" unique_id=2077109306]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 size_flags_vertical = 0
-stream = ExtResource("4_dpu3h")
-volume_db = 3.6799994
-autoplay = true
-loop = true
+offset_transform_enabled = true
+offset_transform_position = Vector2(-20.55, 0)
+theme_override_font_sizes/font_size = 78
+text = "0"
+horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/PanelContainer/ChannelDisplayer" unique_id=1337024175]
+libraries/ = SubResource("AnimationLibrary_3v2v4")
+autoplay = &"RESET"
+
+[node name="VolNum" type="Label" parent="SubViewport/PanelContainer" unique_id=707200074]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 75
+text = "15"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/PanelContainer/VolNum" unique_id=150994800]
+libraries/ = SubResource("AnimationLibrary_616q3")
+autoplay = &"volanim"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=20031077]
 transform = Transform3D(-1.6854745e-08, 0, 0.38559163, 0, 0.37595183, 0, -0.4337906, 0, -1.896159e-08, 0.41643897, 0.034376606, 0)
 mesh = SubResource("QuadMesh_bhunq")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1753274764]
+
+[connection signal="finished" from="SubViewport/PanelContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

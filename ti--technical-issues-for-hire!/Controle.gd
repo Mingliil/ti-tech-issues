@@ -26,16 +26,21 @@ func getTheTv():
 func pausar()->void:
 	var Tv = getTheTv()
 	if Tv:
-		Tv.trocarOuNao()
+		Tv.Desligar()
 	else:
 		return
 
 func trocarCanal() -> void:
-	print("oi")
-	if InteractHdlr.obj_looking:
-		if "nome" in InteractHdlr.obj_looking:
-			var tv: String = InteractHdlr.obj_looking.nome
-			if tv == "Tv":
-				print(InteractHdlr.obj_looking)
+	var Tv = getTheTv()
+	if Tv:
+		Tv.TrocarCanal()
+	else:
+		return
+
+func Volume(up: bool) -> void:
+	print(up)
+	var Tv = getTheTv()
+	if Tv:
+		Tv.changeVol(up)
 func trocarEntradaVideo() -> void:
 	print("canalTrocado")
