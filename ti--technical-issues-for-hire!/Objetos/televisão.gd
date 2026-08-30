@@ -12,9 +12,9 @@ extends RigidBody3D
 @onready var cont: PanelContainer = $SubViewport/PanelContainer
 @onready var tela : SubViewport = $SubViewport
 @onready var videoPlayer: VideoStreamPlayer = $SubViewport/PanelContainer/VideoStreamPlayer
-@onready var animPlayer: AnimationPlayer = $SubViewport/PanelContainer/ChannelDisplayer/AnimationPlayer
+@onready var animPlayer: AnimationPlayer =$SubViewport/PanelContainer/VideoStreamPlayer/ChannelDisplayer/AnimationPlayer
 @onready var volanim: AnimationPlayer = $SubViewport/PanelContainer/VolNum/AnimationPlayer
-@onready var channelCurNum: Label = $SubViewport/PanelContainer/ChannelDisplayer
+@onready var channelCurNum: Label = $SubViewport/PanelContainer/VideoStreamPlayer/ChannelDisplayer
 @onready var VolNum: Label = $SubViewport/PanelContainer/VolNum
 
 func _ready() -> void:
@@ -76,10 +76,22 @@ func Desligar()->void:
 		ligado = true
 		return
 
+func trocarEntradaVid() -> void:
+	pass
 
 func _on_video_stream_player_finished() -> void:
 	curVideo+=1
 	if Canais[canalAtual].videos.size()-1<curVideo:
 		curVideo = 0
 	SetVideo()
+	pass # Replace with function body.
+
+
+func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	print(event_position)
+	pass # Replace with function body.
+
+
+func _on_area_3d_mouse_entered() -> void:
+	print("oi")
 	pass # Replace with function body.

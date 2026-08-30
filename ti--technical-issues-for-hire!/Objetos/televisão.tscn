@@ -7,6 +7,7 @@
 [ext_resource type="VideoStream" uid="uid://i2uki6ev1r0a" path="res://Videos/Kids are smoking the coronavirus - imbezo (720p, h264).ogv" id="4_dpu3h"]
 [ext_resource type="VideoStream" uid="uid://dej2bfmgt8lir" path="res://Videos/AFONSO SANTOS - Cibersegurança e Privacidade.ogv" id="4_src87"]
 [ext_resource type="VideoStream" uid="uid://dcauhemx05yar" path="res://Videos/《他怎么能这么逍遥法外！？METRO 亲自向你展示他在《Deadlock》里是如何“送人头”的！(FREE WITH ADS》 - Little Clippers (360p, h264).ogv" id="6_3v2v4"]
+[ext_resource type="PackedScene" uid="uid://cu4silnqcvsnr" path="res://Objetos/Software/OS-DOORS/Cenas/OSDoorsRoot.tscn" id="8_616q3"]
 
 [sub_resource type="Resource" id="Resource_sd75g"]
 script = ExtResource("2_dpu3h")
@@ -103,7 +104,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_src87")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_86ap7"]
-size = Vector3(0.833374, 0.75531006, 1)
+size = Vector3(0.8059387, 0.75531006, 1)
 
 [sub_resource type="Animation" id="Animation_src87"]
 resource_name = "new_animation"
@@ -182,7 +183,11 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_riqys")
 size = Vector2(1.855, 1.665)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(0.009777344, 0.6158447, 0.8139038)
+
 [node name="RigidBody3D" type="RigidBody3D" unique_id=166821456]
+mass = 5.0
 script = ExtResource("1_q1vai")
 obj_vars = SubResource("Resource_sd75g")
 Canais = Array[ExtResource("3_o6yb6")]([SubResource("Resource_616q3"), SubResource("Resource_pkajy"), SubResource("Resource_v27ia")])
@@ -198,7 +203,7 @@ transform = Transform3D(0.38559163, 0, 0, 0, 0.37595183, 0, 0, 0, 0.4337906, 0, 
 mesh = SubResource("ArrayMesh_q1vai")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1870639921]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02557373, 0.0030822754, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011856079, 0.0030822754, 0)
 shape = SubResource("BoxShape3D_86ap7")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1665020041]
@@ -228,8 +233,11 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ChannelDisplayer" type="Label" parent="SubViewport/PanelContainer" unique_id=2077109306]
-layout_mode = 2
+[node name="ChannelDisplayer" type="Label" parent="SubViewport/PanelContainer/VideoStreamPlayer" unique_id=2077109306]
+layout_mode = 0
+offset_left = 467.0
+offset_right = 512.0
+offset_bottom = 107.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
 offset_transform_enabled = true
@@ -238,7 +246,7 @@ theme_override_font_sizes/font_size = 78
 text = "0"
 horizontal_alignment = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/PanelContainer/ChannelDisplayer" unique_id=1337024175]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/PanelContainer/VideoStreamPlayer/ChannelDisplayer" unique_id=1337024175]
 libraries/ = SubResource("AnimationLibrary_3v2v4")
 autoplay = &"RESET"
 
@@ -252,10 +260,23 @@ text = "15"
 libraries/ = SubResource("AnimationLibrary_616q3")
 autoplay = &"volanim"
 
+[node name="OsDoors" parent="SubViewport" unique_id=388035642 instance=ExtResource("8_616q3")]
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=20031077]
 transform = Transform3D(-1.6854745e-08, 0, 0.38559163, 0, 0.37595183, 0, -0.4337906, 0, -1.896159e-08, 0.41643897, 0.034376606, 0)
 mesh = SubResource("QuadMesh_bhunq")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1753274764]
 
+[node name="Area3D" type="Area3D" parent="." unique_id=1872967487]
+collision_layer = 7
+collision_mask = 7
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=727311566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43086314, 0.03302002, 0.0011291504)
+shape = SubResource("BoxShape3D_bhunq")
+
 [connection signal="finished" from="SubViewport/PanelContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]

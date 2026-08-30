@@ -36,13 +36,19 @@ FunctionName = "Volume"
 FunctionVars = [false]
 metadata/_custom_type_script = "uid://yroihkg54s42"
 
+[sub_resource type="Resource" id="Resource_61qsw"]
+script = ExtResource("3_v27ia")
+alternativeFunction = true
+FunctionName = "trocarEntradaVideo"
+metadata/_custom_type_script = "uid://yroihkg54s42"
+
 [sub_resource type="Resource" id="Resource_dryfg"]
 script = ExtResource("3_6tote")
 ItemName = "Controle"
 ItemSprite = ExtResource("3_pms7v")
 ItemDesc = "é um controle, estranhamente só funciona com a tv de minha casa, especificamente a da sala"
 Itemfunction = ExtResource("1_iqpxa")
-Funtions = Array[ExtResource("3_v27ia")]([SubResource("Resource_pms7v"), SubResource("Resource_o6yb6"), SubResource("Resource_bhunq"), SubResource("Resource_3v2v4")])
+Funtions = Array[ExtResource("3_v27ia")]([SubResource("Resource_pms7v"), SubResource("Resource_o6yb6"), SubResource("Resource_bhunq"), SubResource("Resource_3v2v4"), SubResource("Resource_61qsw")])
 metadata/_custom_type_script = "uid://frlfpc6h3wac"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dryfg"]

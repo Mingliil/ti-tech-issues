@@ -2,9 +2,7 @@ extends RigidBody3D
 @export var obj_vars: ObjectVariables
 @export var itemVars: ItemData
 @export var televisao: NodePath
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+
 func teste()->void:
 	print("here lies afonso,
 	you can tell it because we put his name on the song")
@@ -43,4 +41,6 @@ func Volume(up: bool) -> void:
 	if Tv:
 		Tv.changeVol(up)
 func trocarEntradaVideo() -> void:
-	print("canalTrocado")
+	var Tv = getTheTv()
+	if Tv:
+		Tv.trocarEntradaVid()

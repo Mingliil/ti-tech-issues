@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://c2dlkkm3ugaw5" path="res://Objetos/portal.tscn" id="6_k07eb"]
 [ext_resource type="PackedScene" uid="uid://kwn4bs2l4idq" path="res://Objetos/televisão.tscn" id="7_2d0ko"]
 [ext_resource type="PackedScene" uid="uid://bu2dj6lpgmw3i" path="res://Objetos/controle.tscn" id="8_ed0ma"]
+[ext_resource type="PackedScene" uid="uid://b5olu2iyulkmb" path="res://Objetos/Computer/Gabinete.tscn" id="9_dryfg"]
+[ext_resource type="Script" uid="uid://dl2e7fwfivbe4" path="res://Objetos/Computer/recursos/PCcomps.gd" id="10_oin45"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bhunq"]
 size = Vector2(20.39, 18.91)
@@ -20,6 +22,11 @@ background_color = Color(0.41881505, 0.4233772, 0.5104654, 1)
 background_energy_multiplier = 2.65
 ambient_light_color = Color(0.6542321, 0.6542321, 0.654232, 1)
 ambient_light_energy = 2.48
+
+[sub_resource type="Resource" id="Resource_k86lx"]
+script = ExtResource("10_oin45")
+Monitor = NodePath("../Televisão")
+metadata/_custom_type_script = "uid://dl2e7fwfivbe4"
 
 [node name="MundoTeste" type="Node3D" unique_id=1308074465]
 
@@ -64,3 +71,7 @@ transform = Transform3D(-0.9992405, 0, -0.038966, 0, 1, 0, 0.038966, 0, -0.99924
 [node name="Controle" parent="." unique_id=603549041 instance=ExtResource("8_ed0ma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15018404, 1.0766468)
 televisao = NodePath("../Televisão")
+
+[node name="Gabinete" parent="." unique_id=693493016 instance=ExtResource("9_dryfg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3297334, 0.80627656, 1.0444348)
+Pc_Comp = SubResource("Resource_k86lx")

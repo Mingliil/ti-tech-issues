@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dfm3ecw6drct2"]
+
+[ext_resource type="Script" uid="uid://c5780oxtqvrm3" path="res://Objetos/Software/OS-DOORS/Cenas/doorsLockScreen.gd" id="1_bk28m"]
+[ext_resource type="Texture2D" uid="uid://dmhmh7nnoa8ho" path="res://Objetos/Software/OS-DOORS/Imagens/UserPfpPlaceholder.png" id="1_tejw5"]
+[ext_resource type="Texture2D" uid="uid://c753jjftidhhp" path="res://Objetos/Software/OS-DOORS/Imagens/D._Afonso_Henriques_O_Conquistador.jpg" id="2_bk28m"]
+[ext_resource type="Texture2D" uid="uid://2qxoybaqqtna" path="res://imgs/afonso - Copia.jpeg" id="2_trsh0"]
+[ext_resource type="Script" uid="uid://v238075i26ql" path="res://Objetos/Software/OS-DOORS/Recursos/OSLoginInfRes.gd" id="3_ljkjk"]
+
+[sub_resource type="Resource" id="Resource_yepoe"]
+script = ExtResource("3_ljkjk")
+UserImg = ExtResource("2_trsh0")
+UserName = "Petya"
+UserPsswd = "123"
+psswdDica = "É os três primeiros numeros;"
+metadata/_custom_type_script = "uid://v238075i26ql"
+
+[node name="DoorsLockScreen" type="Control" unique_id=860575435]
+z_index = 101
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bk28m")
+doorsRootLoginInfo = SubResource("Resource_yepoe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1166015812]
+clip_children = 1
+position = Vector2(0, -145)
+texture = ExtResource("1_tejw5")
+
+[node name="UserImg" type="TextureRect" parent="Sprite2D" unique_id=1052164385]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -127.5
+offset_top = -127.5
+offset_right = -127.5
+offset_bottom = -127.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bk28m")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="UserName" type="Label" parent="." unique_id=1520884800]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -84.5
+offset_right = 84.5
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 21
+text = "NomePlacholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Psswd" type="LineEdit" parent="UserName" unique_id=914810398]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -159.5
+offset_top = 5.0
+offset_right = 159.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+placeholder_text = "Senha"
+
+[node name="LockDown" type="Timer" parent="." unique_id=2017883922]
+
+[connection signal="text_submitted" from="UserName/Psswd" to="." method="_on_psswd_submitted"]

@@ -2,10 +2,17 @@
 
 [ext_resource type="Script" uid="uid://o72fbivrhxvp" path="res://Objetos/Computer/gabinete.gd" id="1_8760m"]
 [ext_resource type="Script" uid="uid://dl2e7fwfivbe4" path="res://Objetos/Computer/recursos/PCcomps.gd" id="2_36pwb"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="3_hyys1"]
 
 [sub_resource type="Resource" id="Resource_36pwb"]
 script = ExtResource("2_36pwb")
 metadata/_custom_type_script = "uid://dl2e7fwfivbe4"
+
+[sub_resource type="Resource" id="Resource_hyys1"]
+script = ExtResource("3_hyys1")
+interactble = true
+FunctionName = "_TurnOnOrOff"
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53pab"]
 
@@ -50,13 +57,14 @@ size = Vector3(0.2758789, 0.24188232, 0.08392334)
 [node name="Gabinete" type="RigidBody3D" unique_id=693493016]
 script = ExtResource("1_8760m")
 Pc_Comp = SubResource("Resource_36pwb")
+obj_vars = SubResource("Resource_hyys1")
 
 [node name="Cube" type="MeshInstance3D" parent="." unique_id=27066992]
-transform = Transform3D(0.175, 0, 0, 0, 0.195, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.557, 0, 0, 0, 0.286, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8760m")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=396341207]
-transform = Transform3D(0.175, 0, 0, 0, 0.195, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.557, 0, 0, 0, 0.286, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_36pwb")
 
 [node name="PlacaMaeSlot" type="Area3D" parent="." unique_id=668357773]
@@ -64,3 +72,5 @@ shape = SubResource("ConcavePolygonShape3D_36pwb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlacaMaeSlot" unique_id=160058440]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033447266, 0.07064819, -0.055633545)
 shape = SubResource("BoxShape3D_bhunq")
+
+[connection signal="TurnOnOff" from="." to="." method="_TurnOnOrOff"]

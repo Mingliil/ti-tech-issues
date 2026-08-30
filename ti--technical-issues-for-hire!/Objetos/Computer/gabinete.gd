@@ -3,13 +3,19 @@ extends RigidBody3D
 
 @export var Pc_Comp: PCComponents
 @export var ligado: bool = true
+@export var obj_vars: ObjectVariables
+const OsDoorsPreload = preload("uid://cu4silnqcvsnr")
+signal TurnOnOff
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _TurnOnOrOff() -> void:
+	if ligado:
+		shutDown()
+	else:
+		startUp()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func shutDown()->void:
+	
+	pass
+func startUp()->void:
 	
 	pass

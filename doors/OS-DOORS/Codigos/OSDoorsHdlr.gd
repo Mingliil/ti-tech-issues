@@ -8,7 +8,7 @@ extends AspectRatioContainer
 @onready var debugentry = $"Debug entry"
 @export var DOORSINF: Array[OSDRE]
 @onready var LockScreen: PackedScene = preload("uid://dfm3ecw6drct2")
-@export var locked: bool = false
+@export var locked: bool = true
 @onready var protecScreen = $ProtectionScreen
 @onready var commandprompt: Window = $CommandPrompt
 var doorslkscName = "DoorsLockScreen"
