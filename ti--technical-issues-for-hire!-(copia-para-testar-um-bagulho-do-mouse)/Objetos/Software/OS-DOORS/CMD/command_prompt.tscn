@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bcsu1i803gyh1"]
+
+[ext_resource type="Texture2D" uid="uid://4cjx44rcjlhw" path="res://OS-DOORS/Imagens/xp.png" id="1_cmo5f"]
+[ext_resource type="Script" uid="uid://cm20sxoiu2x2e" path="res://OS-DOORS/CMD/command_prompt.gd" id="1_f3ug8"]
+[ext_resource type="Script" uid="uid://cb666dpsa5a0c" path="res://OS-DOORS/CMD/CmdCommands.gd" id="2_q7hlj"]
+[ext_resource type="FontFile" uid="uid://dq5rd7mv5idq3" path="res://OS-DOORS/CMD/windows-xp-tahoma.ttf" id="4_txwbc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8sq5k"]
+texture = ExtResource("1_cmo5f")
+texture_margin_left = 4.0
+texture_margin_top = 31.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_left = 3.0
+expand_margin_top = 30.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_67ijr"]
+default_font = ExtResource("4_txwbc")
+default_font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayeno"]
+bg_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lawj5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_txwbc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3ug8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7hlj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_quf0o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eh5w6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhcki"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fwqv8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pd3lp"]
+
+[node name="CommandPrompt" type="Window" unique_id=431698100]
+gui_embed_subwindows = true
+oversampling_override = 1.0
+title = "CommandPrompt"
+initial_position = 1
+size = Vector2i(764, 563)
+theme_override_styles/embedded_border = SubResource("StyleBoxTexture_8sq5k")
+script = ExtResource("1_f3ug8")
+CMDScriptExp = ExtResource("2_q7hlj")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=758875203]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_67ijr")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ayeno")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer" unique_id=343767897]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lawj5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_txwbc")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer" unique_id=344962490]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CodeEdit" type="CodeEdit" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=1315086265]
+custom_minimum_size = Vector2(0, 149.24)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f3ug8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q7hlj")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_quf0o")
+theme_override_styles/completion = SubResource("StyleBoxEmpty_eh5w6")
+editable = false
+wrap_mode = 1
+tab_input_mode = false
+virtual_keyboard_enabled = false
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=64777388]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bhcki")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_fwqv8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pd3lp")
+placeholder_text = ">Insert Command"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="text_submitted" from="PanelContainer/ScrollContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bu2dj6lpgmw3i"]
+
+[ext_resource type="Script" uid="uid://b3ymatc3n8a4n" path="res://Controle.gd" id="1_iqpxa"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="2_wrox8"]
+[ext_resource type="Script" uid="uid://frlfpc6h3wac" path="res://Player/Res/ItemData.gd" id="3_6tote"]
+[ext_resource type="Texture2D" uid="uid://de67fv0nytq0j" path="res://Objetos/Objects Images/08542b8c21193f801beaa7f28a4ffbe2-cd3bae334b7138eb7617620346434956-1024-1024.webp" id="3_pms7v"]
+[ext_resource type="Script" uid="uid://yroihkg54s42" path="res://Player/Res/ItemFunction.gd" id="3_v27ia"]
+
+[sub_resource type="Resource" id="Resource_dws3y"]
+script = ExtResource("2_wrox8")
+grabbable = true
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
+[sub_resource type="Resource" id="Resource_pms7v"]
+script = ExtResource("3_v27ia")
+FunctionType = 1
+FunctionName = "pausar"
+metadata/_custom_type_script = "uid://yroihkg54s42"
+
+[sub_resource type="Resource" id="Resource_o6yb6"]
+script = ExtResource("3_v27ia")
+FunctionName = "trocarCanal"
+metadata/_custom_type_script = "uid://yroihkg54s42"
+
+[sub_resource type="Resource" id="Resource_bhunq"]
+script = ExtResource("3_v27ia")
+FunctionType = 2
+FunctionName = "Volume"
+FunctionVars = [true]
+metadata/_custom_type_script = "uid://yroihkg54s42"
+
+[sub_resource type="Resource" id="Resource_3v2v4"]
+script = ExtResource("3_v27ia")
+FunctionType = 3
+FunctionName = "Volume"
+FunctionVars = [false]
+metadata/_custom_type_script = "uid://yroihkg54s42"
+
+[sub_resource type="Resource" id="Resource_61qsw"]
+script = ExtResource("3_v27ia")
+alternativeFunction = true
+FunctionName = "trocarEntradaVideo"
+metadata/_custom_type_script = "uid://yroihkg54s42"
+
+[sub_resource type="Resource" id="Resource_dryfg"]
+script = ExtResource("3_6tote")
+ItemName = "Controle"
+ItemSprite = ExtResource("3_pms7v")
+ItemDesc = "é um controle, estranhamente só funciona com a tv de minha casa, especificamente a da sala"
+Itemfunction = ExtResource("1_iqpxa")
+Funtions = Array[ExtResource("3_v27ia")]([SubResource("Resource_pms7v"), SubResource("Resource_o6yb6"), SubResource("Resource_bhunq"), SubResource("Resource_3v2v4"), SubResource("Resource_61qsw")])
+metadata/_custom_type_script = "uid://frlfpc6h3wac"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dryfg"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_86ap7"]
+material = SubResource("StandardMaterial3D_dryfg")
+size = Vector3(0.2, 0.1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pms7v"]
+size = Vector3(0.2, 0.1, 0.5)
+
+[node name="Controle" type="RigidBody3D" unique_id=603549041]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_iqpxa")
+obj_vars = SubResource("Resource_dws3y")
+itemVars = SubResource("Resource_dryfg")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=216051253]
+mesh = SubResource("BoxMesh_86ap7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=457628128]
+shape = SubResource("BoxShape3D_pms7v")

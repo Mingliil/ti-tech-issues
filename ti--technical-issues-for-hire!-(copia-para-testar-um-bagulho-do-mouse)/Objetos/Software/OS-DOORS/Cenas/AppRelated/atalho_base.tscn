@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b5rq1gook2y2h"]
+
+[ext_resource type="Script" uid="uid://bgwfab0wf1noc" path="res://OS-DOORS/Codigos/atalhoScript.gd" id="1_slbup"]
+[ext_resource type="Texture2D" uid="uid://c753jjftidhhp" path="res://OS-DOORS/Imagens/D._Afonso_Henriques_O_Conquistador.jpg" id="5_m6tlu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(84, 100)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhunq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_riqys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sn0t7"]
+
+[node name="Atalho" type="StaticBody2D" unique_id=1140816719]
+input_pickable = true
+script = ExtResource("1_slbup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1169982792]
+position = Vector2(0, -35.64875)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=606075244]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -83.0
+offset_right = 43.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1688394958]
+layout_mode = 2
+
+[node name="Icon" type="TextureButton" parent="VBoxContainer/MarginContainer" unique_id=1605376140]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("5_m6tlu")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AppName" type="LineEdit" parent="VBoxContainer" unique_id=397174357]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bhunq")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_riqys")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sn0t7")
+text = "AppName"
+alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

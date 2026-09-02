@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cwax6lsj3jffr"]
+
+[ext_resource type="Script" uid="uid://dxcdd4wk0j5qs" path="res://Objetos/lampada.gd" id="1_dws3y"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="2_d6ks4"]
+
+[sub_resource type="Resource" id="Resource_bhunq"]
+script = ExtResource("2_d6ks4")
+grabbable = true
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bhunq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bhunq"]
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=216951276]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_dws3y")
+obj_vars = SubResource("Resource_bhunq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1611201871]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 0, 0, 0)
+shape = SubResource("SphereShape3D_bhunq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1860855280]
+mesh = SubResource("SphereMesh_bhunq")
+
+[node name="Luz" type="Node3D" parent="." unique_id=92459817]
+
+[node name="Light" type="OmniLight3D" parent="Luz" unique_id=1983294228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38090813, 0)
+light_size = 16.17

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cbhbxkki6pqji"]
+
+[ext_resource type="PackedScene" uid="uid://b5rq1gook2y2h" path="res://Objetos/Software/OS-DOORS/Cenas/AppRelated/atalho_base.tscn" id="1_k55dh"]
+[ext_resource type="PackedScene" uid="uid://b1b0e4cju0hkn" path="res://Objetos/Software/OS-DOORS/Cenas/barra_de_tarefas.tscn" id="2_iyday"]
+
+[node name="OsWorkPlace" type="VBoxContainer" unique_id=450451833]
+
+[node name="AreaDeTrabalho" type="MarginContainer" parent="." unique_id=556365041]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="AtalhoBase" parent="AreaDeTrabalho" unique_id=1140816719 instance=ExtResource("1_k55dh")]
+position = Vector2(485, 427)
+
+[node name="AtalhoBase2" parent="AreaDeTrabalho" unique_id=1532320523 instance=ExtResource("1_k55dh")]
+position = Vector2(306, 473)
+
+[node name="AtalhoBase3" parent="AreaDeTrabalho" unique_id=684622651 instance=ExtResource("1_k55dh")]
+position = Vector2(172, 225)
+
+[node name="BarraDeTarefas" parent="." unique_id=447050468 instance=ExtResource("2_iyday")]
+layout_mode = 2
