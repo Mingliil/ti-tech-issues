@@ -40,6 +40,8 @@ func Volume(up: bool) -> void:
 	var Tv = getTheTv()
 	if Tv:
 		Tv.changeVol(up)
+		
+
 func trocarEntradaVideo() -> void:
 	var Tv = getTheTv()
 	if Tv:

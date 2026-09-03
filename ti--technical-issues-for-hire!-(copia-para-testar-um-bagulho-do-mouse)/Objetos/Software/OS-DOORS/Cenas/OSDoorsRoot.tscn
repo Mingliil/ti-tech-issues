@@ -3,22 +3,23 @@
 [ext_resource type="Script" uid="uid://dw4m1my83cw7a" path="res://Objetos/Software/OS-DOORS/Codigos/OSDoorsHdlr.gd" id="1_qg1k1"]
 [ext_resource type="PackedScene" uid="uid://bcsu1i803gyh1" path="res://Objetos/Software/OS-DOORS/CMD/command_prompt.tscn" id="2_018l3"]
 [ext_resource type="PackedScene" uid="uid://cbhbxkki6pqji" path="res://Objetos/Software/OS-DOORS/Cenas/os_work_place.tscn" id="2_qjldn"]
-[ext_resource type="Texture2D" uid="uid://4v7m1phkij2m" path="res://imgs/Lado.png" id="4_qjldn"]
+[ext_resource type="Texture2D" uid="uid://bdwosgmiesdds" path="res://imgs/MousePointer.png" id="4_qjldn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8imwq"]
+size = Vector2(53.64685, 57.00003)
 
 [node name="OsDoors" type="AspectRatioContainer" unique_id=388035642]
 clip_contents = true
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -29.0
-offset_top = -3.0
-offset_right = -29.0
-offset_bottom = -3.0
+offset_left = -572.0
+offset_right = 577.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 1
 script = ExtResource("1_qg1k1")
-metadata/_edit_use_anchors_ = true
 
 [node name="OsWorkPlace" parent="." unique_id=450451833 instance=ExtResource("2_qjldn")]
 layout_mode = 2
@@ -30,6 +31,15 @@ layout_mode = 2
 visible = false
 
 [node name="Mouse" type="Sprite2D" parent="." unique_id=662861968]
-position = Vector2(519, 292.5)
-scale = Vector2(0.54, 0.57)
+position = Vector2(519, 295.15)
+scale = Vector2(0.09, 0.09)
 texture = ExtResource("4_qjldn")
+
+[node name="Area2D" type="Area2D" parent="Mouse" unique_id=2064223760]
+position = Vector2(-961.1111, -513.1579)
+scale = Vector2(1.8518518, 1.7543861)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse/Area2D" unique_id=2048796705]
+position = Vector2(444.177, 149.05005)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_8imwq")

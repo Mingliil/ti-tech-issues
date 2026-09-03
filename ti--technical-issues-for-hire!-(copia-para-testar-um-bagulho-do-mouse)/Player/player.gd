@@ -13,9 +13,14 @@ enum keygroup {KEY_1, KEY_2, KEY_3, KEY_4, KEY_5}
 @onready var HUD: Control = $HUD
 @onready var InvSlot:PackedScene = preload("uid://b7wrcxuqymh4u")
 @onready var flavourText = preload("uid://ch8xv1204camr")
+@onready var PauseMenu
 @export var selectedInvSlot: int = 1
+enum States{Interagindo, Normal, NoMenu}
+
+var currentState
 
 func _ready() -> void:
+	currentState = States.Normal
 	var invNode: HBoxContainer = HUD.get_node("Panel/Inv")
 	for i in Inventory.Size:
 		invNode.add_child(InvSlot.instantiate())
@@ -40,6 +45,14 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	
+	if Input.is_action_just_pressed("escape") and currentState == States.Normal:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		return
+	elif Input.is_action_just_pressed("escape") and currentState == States.NoMenu:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	
 	
 	if event is InputEventKey:
 		var i = OS.get_keycode_string(event.physical_keycode)
@@ -136,17 +149,17 @@ func getSelectedItem()-> int:
 	return -1
 
 func useItemFunction(alt: bool, button: ActionType) -> void:
-	var o = getSelectedItem()
-	if o == -1:
-		return
-	var item = Inventory.InvItens[o] 
-	if !item:
-		return
-	for i in item.Funtions.size():
-		if item.Funtions[i].FunctionType == button and item.Funtions[i].alternativeFunction == alt:
-			var funcScript = item.Itemfunction.new()
-			funcScript.callv(item.Funtions[i].FunctionName, item.Funtions[i].FunctionVars)
-			#pass
+	if !interagindo:
+		var o = getSelectedItem()
+		if o == -1:
+			return
+		var item = Inventory.InvItens[o] 
+		if !item:
+			return
+		for i in item.Funtions.size():
+			if item.Funtions[i].FunctionType == button and item.Funtions[i].alternativeFunction == alt:
+				var funcScript = item.Itemfunction.new()
+				funcScript.callv(item.Funtions[i].FunctionName, item.Funtions[i].FunctionVars)
 
 
 func getMouseWorldPosReturn(mouse: Vector2, DIST: float) -> Vector3:

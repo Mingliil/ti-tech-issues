@@ -7,8 +7,8 @@ extends RigidBody3D
 @export var Canais: Array[TvChannels]
 @export var canalAtual:int
 @export var curVideo:int = 0
-@export_enum("TvAberta","PC") var EntradaVideo
-
+enum EntradaVideo{TvAberta,PC} 
+var entradaAtual = EntradaVideo.TvAberta
 @onready var cont: PanelContainer = $SubViewport/PanelContainer
 @onready var tela : SubViewport = $SubViewport
 @onready var videoPlayer: VideoStreamPlayer = $SubViewport/PanelContainer/VideoStreamPlayer
@@ -16,14 +16,23 @@ extends RigidBody3D
 @onready var volanim: AnimationPlayer = $SubViewport/PanelContainer/VolNum/AnimationPlayer
 @onready var channelCurNum: Label = $SubViewport/PanelContainer/VideoStreamPlayer/ChannelDisplayer
 @onready var VolNum: Label = $SubViewport/PanelContainer/VolNum
+@onready var SistemaOperacional = $SubViewport/OsDoors
 
 var mouse: Vector2
 var player: CharacterBody3D
 
 func _ready() -> void:
+	
 	if !videoPlayer.get_stream():
 		TrocarCanal()
 	player = get_tree().get_first_node_in_group("PLAYER")
+	if entradaAtual == EntradaVideo.TvAberta:
+		SistemaOperacional.visible = false
+	elif entradaAtual == EntradaVideo.PC:
+		cont.visible = false
+		videoPlayer.set_volume(0)
+		ligado = false
+		
 
 
 func _process(delta: float) -> void:
@@ -96,7 +105,14 @@ func Desligar()->void:
 		return
 
 func trocarEntradaVid() -> void:
-	pass
+	if entradaAtual == EntradaVideo.TvAberta:
+		Desligar()
+		SistemaOperacional.visible = true
+		entradaAtual = EntradaVideo.PC
+	elif entradaAtual == EntradaVideo.PC:
+		Desligar()
+		SistemaOperacional.visible = false
+		entradaAtual = EntradaVideo.TvAberta
 
 func _on_video_stream_player_finished() -> void:
 	curVideo+=1
@@ -106,17 +122,11 @@ func _on_video_stream_player_finished() -> void:
 	pass # Replace with function body.
 
 
-func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
-	print(event_position)
-	pass # Replace with function body.
 
-
-func _on_area_3d_mouse_entered() -> void:
-	print("oi")
-	pass # Replace with function body.
 
 func camLock()-> void:
 	player.interagindo = true
 	$Camera3D.current = true
 	InteractHdlr.show_interact_options()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN

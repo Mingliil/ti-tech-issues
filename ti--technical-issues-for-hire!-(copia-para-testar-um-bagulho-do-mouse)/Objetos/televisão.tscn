@@ -108,6 +108,8 @@ shadow_mesh = SubResource("ArrayMesh_src87")
 [sub_resource type="BoxShape3D" id="BoxShape3D_86ap7"]
 size = Vector3(0.8059387, 0.75531006, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86ap7"]
+
 [sub_resource type="Animation" id="Animation_src87"]
 resource_name = "new_animation"
 length = 2.0
@@ -213,6 +215,11 @@ snap_2d_transforms_to_pixel = true
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 
+[node name="ColorRect" type="ColorRect" parent="SubViewport" unique_id=861816747]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
 [node name="PanelContainer" type="PanelContainer" parent="SubViewport" unique_id=823959767]
 custom_minimum_size = Vector2(512, 512)
 anchors_preset = -1
@@ -220,6 +227,7 @@ anchor_right = 0.44400004
 anchor_bottom = 0.79
 offset_right = 284.672
 offset_bottom = 107.51999
+theme_override_styles/panel = SubResource("StyleBoxEmpty_86ap7")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/PanelContainer" unique_id=286042512]
 custom_minimum_size = Vector2(512, 512)

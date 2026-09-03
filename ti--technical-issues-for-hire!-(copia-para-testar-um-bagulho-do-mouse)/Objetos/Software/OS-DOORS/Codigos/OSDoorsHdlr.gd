@@ -6,11 +6,26 @@ extends AspectRatioContainer
 @onready var mouse: Sprite2D= $Mouse
 
 func updateMouse(MousePos:Vector2)->void:
-	var currentViewPort: Vector2 = get_viewport()
+	var currentViewPort: Vector2 = get_viewport().get_visible_rect().size
 	var screenViewPort:Vector2 = size
-	var CorrectMousePos: Vector2
-	mouse.position = CorrectMousePos
+	var x_ratio = screenViewPort.x / currentViewPort.x
+	var y_ratio = screenViewPort.y / currentViewPort.y
+	mouse.position = Vector2(MousePos.x * x_ratio, MousePos.y * y_ratio)
 	
+	
+	
+	var CorrectMousePos: Vector2 = MousePos/ratio
+	
+	
+	mouse.position = CorrectMousePos
+	print(mouse.position)
+	
+
+func translate_mouse_position(mouse_pos: Vector2, screen_size: Vector2, virtual_screen_size: Vector2) -> Vector2:
+	var x_ratio = virtual_screen_size.x / screen_size.x
+	var y_ratio = virtual_screen_size.y / screen_size.y
+	return Vector2(mouse_pos.x * x_ratio, mouse_pos.y * y_ratio)
+
 #@export_group("general System Information")
 #@export var userInfo: OSLoginInfRes
 #@export var DOORSSYSTEMINF: OSystemRes
