@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://frlfpc6h3wac" path="res://Player/Res/ItemData.gd" id="2_8g4oa"]
 [ext_resource type="Script" uid="uid://dpomvdi1dd7k6" path="res://Player/Res/InventoryData.gd" id="2_ddoul"]
 [ext_resource type="Script" uid="uid://20kdrwdndxt2" path="res://Player/CamScr.gd" id="2_tok1r"]
-[ext_resource type="Texture2D" uid="uid://de67fv0nytq0j" path="res://Objetos/Objects Images/08542b8c21193f801beaa7f28a4ffbe2-cd3bae334b7138eb7617620346434956-1024-1024.webp" id="6_6ysni"]
 
 [sub_resource type="Resource" id="Resource_ddoul"]
 script = ExtResource("2_ddoul")
@@ -16,17 +15,6 @@ height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_riqys"]
 height = 1.8
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v27ia"]
-transparency = 1
-blend_mode = 4
-depth_draw_mode = 1
-albedo_color = Color(1, 1, 1, 0)
-roughness_texture = ExtResource("6_6ysni")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_86ap7"]
-material = SubResource("StandardMaterial3D_v27ia")
-size = Vector2(0.5, 0.5)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o7eon"]
 
@@ -46,12 +34,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56813097, 0)
 script = ExtResource("2_tok1r")
 
 [node name="Cam" type="Camera3D" parent="Head" unique_id=1926517097]
-
-[node name="RayCast3D" type="RayCast3D" parent="Head" unique_id=2067703667]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Head" unique_id=714945595]
-transform = Transform3D(0.7467953, -0.6642084, -0.033526372, 0, 0.050411507, -0.99872863, 0.6650541, 0.7458458, 0.037647076, 0.33859205, -0.18353087, -0.7222327)
-mesh = SubResource("PlaneMesh_86ap7")
 
 [node name="HUD" type="Control" parent="." unique_id=681011377]
 layout_mode = 3

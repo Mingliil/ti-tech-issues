@@ -4,7 +4,13 @@ extends AspectRatioContainer
 @onready var workplace: VBoxContainer=$OsWorkPlace
 
 @onready var mouse: Sprite2D= $Mouse
-@export var mouseCoords: Vector2
+
+func updateMouse(MousePos:Vector2)->void:
+	var currentViewPort: Vector2 = get_viewport()
+	var screenViewPort:Vector2 = size
+	var CorrectMousePos: Vector2
+	mouse.position = CorrectMousePos
+	
 #@export_group("general System Information")
 #@export var userInfo: OSLoginInfRes
 #@export var DOORSSYSTEMINF: OSystemRes

@@ -85,7 +85,6 @@ func get_mouse_world_pos(mouse:Vector2):
 	var result = space.intersect_ray(params)
 	if result.is_empty() == false:
 		obj_looking = result.collider
-		
 		if "obj_vars" in obj_looking and !grabbed_object:
 			if obj_looking.obj_vars.pickable or obj_looking.obj_vars.interactble:
 				show_interact_options()
@@ -104,8 +103,11 @@ func get_mouse_world_pos(mouse:Vector2):
 
 func show_interact_options() -> void:
 
-		if !obj_looking.get_node(objOptName):
+		if !obj_looking.get_node(objOptName) and !player.interagindo:
 			obj_looking.add_child(IntOptPreload.instantiate())
+		elif player.interagindo:
+			if obj_looking and obj_looking.get_node(objOptName):
+				obj_looking.get_node(objOptName).queue_free()
 		else:
 			if last_obj_looking:
 				if last_obj_looking != obj_looking:

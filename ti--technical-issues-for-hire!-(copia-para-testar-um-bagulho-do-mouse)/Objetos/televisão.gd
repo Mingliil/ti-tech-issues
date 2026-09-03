@@ -17,9 +17,28 @@ extends RigidBody3D
 @onready var channelCurNum: Label = $SubViewport/PanelContainer/VideoStreamPlayer/ChannelDisplayer
 @onready var VolNum: Label = $SubViewport/PanelContainer/VolNum
 
+var mouse: Vector2
+var player: CharacterBody3D
+
 func _ready() -> void:
 	if !videoPlayer.get_stream():
 		TrocarCanal()
+	player = get_tree().get_first_node_in_group("PLAYER")
+
+
+func _process(delta: float) -> void:
+	if player.interagindo:
+		if Input.is_action_just_pressed("escape"):
+			player.interagindo = false
+			$Camera3D.current = false
+			return
+		print(mouse)
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and player.interagindo:
+		mouse = event.position
+		if mouse:
+			$SubViewport/OsDoors.updateMouse(mouse)
+
 
 
 func TrocarCanal()->void:
@@ -95,3 +114,9 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 func _on_area_3d_mouse_entered() -> void:
 	print("oi")
 	pass # Replace with function body.
+
+func camLock()-> void:
+	player.interagindo = true
+	$Camera3D.current = true
+	InteractHdlr.show_interact_options()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

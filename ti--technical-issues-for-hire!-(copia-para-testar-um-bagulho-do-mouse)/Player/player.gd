@@ -22,25 +22,22 @@ func _ready() -> void:
 		invNode.get_child(i).setSlot(i+1)
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("pulo") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	if !interagindo:
+		if Input.is_action_just_pressed("pulo") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_and_slide()
+
 
 func _input(event: InputEvent) -> void:
 	
@@ -115,8 +112,6 @@ func DropItem() -> void:
 			return
 		else:
 			var resPath: String = Inventory.InvItens[i].resource_path
-			
-			print(resPath)
 			var itemRealObjload: PackedScene = load(resPath.get_slice("::", 0))
 			get_tree().root.add_child(itemRealObjload.instantiate())
 			get_tree().root.get_child(-1).position = getMouseWorldPosReturn(get_viewport().get_mouse_position(),1)
@@ -145,13 +140,9 @@ func useItemFunction(alt: bool, button: ActionType) -> void:
 	if o == -1:
 		return
 	var item = Inventory.InvItens[o] 
-	print(item)
 	if !item:
 		return
-	print("é uma ação alt?: ",alt)
 	for i in item.Funtions.size():
-		print(i)
-		print(item.Funtions[i].FunctionType, "teste e ", button)
 		if item.Funtions[i].FunctionType == button and item.Funtions[i].alternativeFunction == alt:
 			var funcScript = item.Itemfunction.new()
 			funcScript.callv(item.Funtions[i].FunctionName, item.Funtions[i].FunctionVars)
