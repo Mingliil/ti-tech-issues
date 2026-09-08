@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bcsu1i803gyh1" path="res://Objetos/Software/OS-DOORS/CMD/command_prompt.tscn" id="2_018l3"]
 [ext_resource type="PackedScene" uid="uid://cbhbxkki6pqji" path="res://Objetos/Software/OS-DOORS/Cenas/os_work_place.tscn" id="2_qjldn"]
 [ext_resource type="Texture2D" uid="uid://bdwosgmiesdds" path="res://imgs/MousePointer.png" id="4_qjldn"]
+[ext_resource type="Texture2D" uid="uid://2qxoybaqqtna" path="res://imgs/afonso - Copia.jpeg" id="5_6c62y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8imwq"]
 size = Vector2(53.64685, 57.00003)
@@ -21,16 +22,8 @@ grow_vertical = 2
 stretch_mode = 1
 script = ExtResource("1_qg1k1")
 
-[node name="OsWorkPlace" parent="." unique_id=450451833 instance=ExtResource("2_qjldn")]
-layout_mode = 2
-
-[node name="Windows" type="Control" parent="." unique_id=76153081]
-layout_mode = 2
-
-[node name="CommandPrompt" parent="Windows" unique_id=431698100 instance=ExtResource("2_018l3")]
-visible = false
-
 [node name="Mouse" type="Sprite2D" parent="." unique_id=662861968]
+z_index = 99
 position = Vector2(519, 295.15)
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("4_qjldn")
@@ -43,3 +36,19 @@ scale = Vector2(1.8518518, 1.7543861)
 position = Vector2(444.177, 149.05005)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_8imwq")
+
+[node name="OsWorkPlace" parent="." unique_id=450451833 instance=ExtResource("2_qjldn")]
+layout_mode = 2
+
+[node name="Windows" type="Control" parent="." unique_id=76153081]
+layout_mode = 2
+
+[node name="CommandPrompt" parent="Windows" unique_id=431698100 instance=ExtResource("2_018l3")]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1606683479]
+z_index = -1
+layout_mode = 2
+texture = ExtResource("5_6c62y")
+
+[connection signal="click" from="." to="." method="_on_click"]

@@ -4,6 +4,11 @@ extends AspectRatioContainer
 @onready var workplace: VBoxContainer=$OsWorkPlace
 
 @onready var mouse: Sprite2D= $Mouse
+@onready var player: CharacterBody3D = get_tree().get_first_node_in_group("PLAYER")
+enum clickType{ESQUERDO,DIREITO,MEIO}
+signal click(clickType)
+func _ready() -> void:
+	pass
 
 func updateMouse(MousePos:Vector2)->void:
 	var currentViewPort: Vector2 = get_viewport().get_visible_rect().size
@@ -12,15 +17,10 @@ func updateMouse(MousePos:Vector2)->void:
 	var y_ratio = screenViewPort.y / currentViewPort.y
 	mouse.position = Vector2(MousePos.x * x_ratio, MousePos.y * y_ratio)
 	
-	
-	
 	var CorrectMousePos: Vector2 = MousePos/ratio
-	
 	
 	mouse.position = CorrectMousePos
 	print(mouse.position)
-	
-
 func translate_mouse_position(mouse_pos: Vector2, screen_size: Vector2, virtual_screen_size: Vector2) -> Vector2:
 	var x_ratio = virtual_screen_size.x / screen_size.x
 	var y_ratio = virtual_screen_size.y / screen_size.y
@@ -57,3 +57,9 @@ func translate_mouse_position(mouse_pos: Vector2, screen_size: Vector2, virtual_
 	#locked = false
 	#print("DEBUG - desbloqueado")
 	#get_node(doorslkscName).queue_free()
+
+
+
+func _on_click(clickType: Variant) -> void:
+	
+	pass # Replace with function body.

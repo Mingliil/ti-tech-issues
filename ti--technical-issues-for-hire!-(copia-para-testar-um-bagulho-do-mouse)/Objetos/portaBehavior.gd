@@ -1,4 +1,4 @@
-extends Node3D
+class_name Porta extends Node3D
 
 
 var fechado: bool = false

@@ -3,7 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://b5rq1gook2y2h" path="res://Objetos/Software/OS-DOORS/Cenas/AppRelated/atalho_base.tscn" id="1_k55dh"]
 [ext_resource type="PackedScene" uid="uid://b1b0e4cju0hkn" path="res://Objetos/Software/OS-DOORS/Cenas/barra_de_tarefas.tscn" id="2_iyday"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_pkajy"]
+specular_color = Color(0.8447066, 0.0020296497, 6.738305e-07, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_616q3"]
+texture = SubResource("CanvasTexture_pkajy")
+modulate_color = Color(0.34867966, 0.0005039771, 0.4591571, 1)
+
 [node name="OsWorkPlace" type="VBoxContainer" unique_id=450451833]
+offset_right = 720.0
+offset_bottom = 70.0
 
 [node name="AreaDeTrabalho" type="MarginContainer" parent="." unique_id=556365041]
 layout_mode = 2
@@ -24,3 +33,4 @@ position = Vector2(172, 225)
 
 [node name="BarraDeTarefas" parent="." unique_id=447050468 instance=ExtResource("2_iyday")]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_616q3")

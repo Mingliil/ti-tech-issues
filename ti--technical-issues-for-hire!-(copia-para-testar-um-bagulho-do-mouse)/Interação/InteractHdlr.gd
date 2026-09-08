@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 				last_obj_looking.get_node(objOptName).queue_free()
 	
 	
-	if Input.is_action_just_released("Pegar-segurar") and !player.interagindo:
+	if Input.is_action_just_released("Pegar-segurar") and player.currentState != player.States.Interagindo:
 		if hold_counter >= hold_time:
 			if obj_looking:
 				player.getItemToInventory(obj_looking)
@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 		else:
 			grabbed_object = null
 			pegar_obj = false
-	if Input.is_action_just_pressed("interagir") and !player.interagindo and !grabbed_object:
+	if Input.is_action_just_pressed("interagir") and player.currentState != player.States.Interagindo and !grabbed_object:
 		if obj_looking:
 			if "obj_vars" in obj_looking:
 				if obj_looking.obj_vars.interactble:
@@ -66,9 +66,15 @@ func _process(delta: float) -> void:
 		hold_counter = 0.0
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		mouse = event.position
-		get_mouse_world_pos(mouse)
+	if player.currentState == player.States.Normal: 
+		if event is InputEventMouseMotion:
+			mouse = event.position
+			get_mouse_world_pos(mouse)
+	elif obj_looking:
+		show_interact_options()
+		if obj_looking:
+				if obj_looking.get_node(objOptName):
+					obj_looking.get_node(objOptName).queue_free()
 
 func get_mouse_world_pos(mouse:Vector2):
 	#The physics state of the world
@@ -103,9 +109,9 @@ func get_mouse_world_pos(mouse:Vector2):
 
 func show_interact_options() -> void:
 
-		if !obj_looking.get_node(objOptName) and !player.interagindo:
+		if !obj_looking.get_node(objOptName) and player.currentState == player.States.Normal:
 			obj_looking.add_child(IntOptPreload.instantiate())
-		elif player.interagindo:
+		elif player.currentState == player.States.Interagindo:
 			if obj_looking and obj_looking.get_node(objOptName):
 				obj_looking.get_node(objOptName).queue_free()
 		else:

@@ -195,7 +195,6 @@ mass = 5.0
 script = ExtResource("1_q1vai")
 obj_vars = SubResource("Resource_sd75g")
 Canais = Array[ExtResource("3_o6yb6")]([SubResource("Resource_616q3"), SubResource("Resource_pkajy"), SubResource("Resource_v27ia")])
-EntradaVideo = 0
 
 [node name="Tela" type="MeshInstance3D" parent="." unique_id=1114333278]
 transform = Transform3D(0.38559163, 0, 0, 0, 0.37595183, 0, 0, 0, 0.4337906, 0, 0, 0)
@@ -211,11 +210,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011856079, 0.0030822754, 0)
 shape = SubResource("BoxShape3D_86ap7")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1665020041]
+transparent_bg = true
 snap_2d_transforms_to_pixel = true
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport" unique_id=861816747]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
@@ -288,7 +289,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43086314, 0.03302002, 0.001
 shape = SubResource("BoxShape3D_bhunq")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1974962669]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.7925849, 0.070363045, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.828, 0, 0)
 
 [connection signal="finished" from="SubViewport/PanelContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 [connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

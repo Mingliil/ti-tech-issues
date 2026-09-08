@@ -32,9 +32,22 @@ theme_override_font_sizes/font_size = 45
 text = "PAUSADO"
 horizontal_alignment = 2
 
-[node name="SairDoJogo" type="Button" parent="." unique_id=978185416]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer" unique_id=898421658]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 50
 
-[connection signal="pressed" from="SairDoJogo" to="." method="_on_sair_do_jogo_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer2" unique_id=652365116]
+layout_mode = 2
+alignment = 2
+
+[node name="SairDoJogo" type="Button" parent="PanelContainer/MarginContainer2/VBoxContainer" unique_id=978185416]
+custom_minimum_size = Vector2(131.9, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+offset_transform_position = Vector2(0, -40.86)
+text = "Sair do Jogo"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer2/VBoxContainer/SairDoJogo" to="." method="_on_sair_do_jogo_pressed"]

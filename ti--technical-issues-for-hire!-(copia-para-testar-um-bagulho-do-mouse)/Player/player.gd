@@ -7,17 +7,16 @@ const NORMAL_HEIGHT:float= 1.8
 const CROUCH_HEIGHT:float= NORMAL_HEIGHT/2
 enum ActionType {Right,Left,ScrollUp, ScrollDown, F}
 enum keygroup {KEY_1, KEY_2, KEY_3, KEY_4, KEY_5}
-@export var interagindo: bool = false
 @export var Inventory: InventoryData
 @onready var handSprite: MeshInstance3D = $Head/MeshInstance3D
 @onready var HUD: Control = $HUD
 @onready var InvSlot:PackedScene = preload("uid://b7wrcxuqymh4u")
 @onready var flavourText = preload("uid://ch8xv1204camr")
-@onready var PauseMenu
+@onready var PauseMenu = preload("uid://c6258yrwafblg")
+
 @export var selectedInvSlot: int = 1
 enum States{Interagindo, Normal, NoMenu}
-
-var currentState
+var currentState: States
 
 func _ready() -> void:
 	currentState = States.Normal
@@ -30,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if !interagindo:
+	if currentState != States.Interagindo:
 		if Input.is_action_just_pressed("pulo") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
@@ -48,9 +47,14 @@ func _input(event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("escape") and currentState == States.Normal:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		currentState = States.NoMenu
+		HUD.add_child(PauseMenu.instantiate())
 		return
 	elif Input.is_action_just_pressed("escape") and currentState == States.NoMenu:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		HUD.get_node("PauseMenu").queue_free()
+		currentState = States.Normal
+		return
 	
 	
 	
@@ -149,7 +153,7 @@ func getSelectedItem()-> int:
 	return -1
 
 func useItemFunction(alt: bool, button: ActionType) -> void:
-	if !interagindo:
+	if currentState != States.Interagindo:
 		var o = getSelectedItem()
 		if o == -1:
 			return

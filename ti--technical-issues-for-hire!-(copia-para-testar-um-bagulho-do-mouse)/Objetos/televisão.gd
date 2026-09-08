@@ -17,7 +17,7 @@ var entradaAtual = EntradaVideo.TvAberta
 @onready var channelCurNum: Label = $SubViewport/PanelContainer/VideoStreamPlayer/ChannelDisplayer
 @onready var VolNum: Label = $SubViewport/PanelContainer/VolNum
 @onready var SistemaOperacional = $SubViewport/OsDoors
-
+var usandoPc: bool = false
 var mouse: Vector2
 var player: CharacterBody3D
 
@@ -36,18 +36,19 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if player.interagindo:
+	if player.currentState == player.States.Interagindo:
 		if Input.is_action_just_pressed("escape"):
-			player.interagindo = false
+			player.currentState = player.States.Normal
 			$Camera3D.current = false
+			usandoPc = false
 			return
-		print(mouse)
+	
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and player.interagindo:
-		mouse = event.position
-		if mouse:
-			$SubViewport/OsDoors.updateMouse(mouse)
-
+	if usandoPc:
+		if event is InputEventMouseMotion and player.currentState == player.States.Interagindo:
+			mouse = event.position
+			if mouse:
+				$SubViewport/OsDoors.updateMouse(mouse)
 
 
 func TrocarCanal()->void:
@@ -125,8 +126,10 @@ func _on_video_stream_player_finished() -> void:
 
 
 func camLock()-> void:
-	player.interagindo = true
+	player.currentState = player.States.Interagindo
 	$Camera3D.current = true
+	if entradaAtual == EntradaVideo.PC:
+		usandoPc = true
 	InteractHdlr.show_interact_options()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
