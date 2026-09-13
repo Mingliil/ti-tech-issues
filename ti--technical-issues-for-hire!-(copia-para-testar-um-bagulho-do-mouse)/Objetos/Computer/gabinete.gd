@@ -1,4 +1,3 @@
-@tool
 extends RigidBody3D
 
 @export var Pc_Comp: PCComponents

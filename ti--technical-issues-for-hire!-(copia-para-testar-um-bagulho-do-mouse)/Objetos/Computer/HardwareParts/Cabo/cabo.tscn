@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d1hq7d0t6nlpo"]
+
+[ext_resource type="Script" uid="uid://rwpl2waqif40" path="res://Objetos/Computer/HardwareParts/Cabo/cabo.gd" id="1_ow7gu"]
+
+[node name="Corda" type="Node3D" unique_id=1796440619 node_paths=PackedStringArray("link_inicio", "link_fim")]
+script = ExtResource("1_ow7gu")
+link_inicio = NodePath("End")
+link_fim = NodePath("Start")
+
+[node name="End" type="Node3D" parent="." unique_id=460628016]
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="." unique_id=1564107567]
+linear_limit_x/enabled = false
+linear_limit_y/enabled = false
+linear_limit_z/enabled = false
+
+[node name="Start" type="Node3D" parent="." unique_id=1707589401]
