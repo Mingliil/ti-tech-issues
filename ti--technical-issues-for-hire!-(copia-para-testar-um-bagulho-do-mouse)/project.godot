@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="TI: Technical Issues For Hire! (copia para testar um bagulho do mouse)"
+config/name="TI: Technical Issues For Hire!"
 run/main_scene="uid://cs6e875x58wtv"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InteractHdlr="*uid://bmuafsycaqs81"
+SceneLoader="*uid://dw6im4eo3w6tt"
 
 [display]
 
@@ -27,6 +28,7 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
+"res://MenuPrincipal/": "blue",
 "res://Objetos/Computer/HardwareParts/": "red",
 "res://Objetos/Computer/HardwareParts/Hdd/": "red",
 "res://Objetos/Computer/HardwareParts/MemoriaRam/": "red",
@@ -34,7 +36,10 @@ folder_colors={
 "res://Objetos/Computer/HardwareParts/PlacaDeVideo/": "red",
 "res://Objetos/Computer/HardwareParts/PlacaMae/": "red",
 "res://Objetos/Computer/HardwareParts/Processador/": "red",
-"res://Objetos/Computer/HardwareParts/Ssd/": "red"
+"res://Objetos/Computer/HardwareParts/Ssd/": "red",
+"res://Scripts/": "yellow",
+"res://Scripts/DataSaveNLoad/": "yellow",
+"res://Scripts/SceneLoader/": "yellow"
 }
 
 [global_group]

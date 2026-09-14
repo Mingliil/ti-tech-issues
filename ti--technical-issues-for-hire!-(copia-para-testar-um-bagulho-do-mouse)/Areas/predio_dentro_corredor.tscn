@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://10txa2muxr3r" path="res://Objetos/LampadaDeParede.tscn" id="4_fcckc"]
 [ext_resource type="PackedScene" uid="uid://dylyqmowv44jk" path="res://Objetos/corda.tscn" id="5_rexla"]
 [ext_resource type="PackedScene" uid="uid://cwax6lsj3jffr" path="res://Objetos/lampada.tscn" id="6_5webv"]
-[ext_resource type="PackedScene" uid="uid://by0bt4yx415be" path="res://Player/Player.tscn" id="6_rexla"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ac2yv"]
 
@@ -160,6 +159,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.368961, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1753208610]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02960205, -1.8192265, -0.3126831)
 shape = SubResource("BoxShape3D_bhunq")
-
-[node name="Player" parent="." unique_id=2026455054 instance=ExtResource("6_rexla")]
-transform = Transform3D(0.025306286, -0.0048960457, 0.99966776, -0.0009757962, 0.9999874, 0.0049223113, -0.99967927, -0.0011000276, 0.025301198, 12.682969, 0, 0)

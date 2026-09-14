@@ -6,7 +6,7 @@ var mouse = Vector2()
 var last_obj_looking = null
 var IntOptPreload = preload("uid://co8futgwdr5dd")
 var objOptName = "IntOptionsRoot"
-var player
+var player: CharacterBody3D
 @export var grab_distance = 3
 var pegar_obj = false
 const DIST = 50 #Ray Max distance
@@ -14,11 +14,13 @@ var I = 300.0 #influence #export to make adjustable
 var S = 20.0 #stiffness #export to make adjustable
 var hold_counter: float = 0.0
 var hold_time:float = 0.8
-
+var loading: bool = false
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("PLAYER")
+	
 
 func _process(delta: float) -> void:
+	await SceneLoader.load_finished
 	if !player:
 		player = get_tree().get_first_node_in_group("PLAYER").get_child(0)
 	if grabbed_object:
