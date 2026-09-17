@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 InteractHdlr="*uid://bmuafsycaqs81"
 SceneLoader="*uid://dw6im4eo3w6tt"
+SaveNLoadHndlr="*uid://dnapiwq0vask5"
 
 [display]
 

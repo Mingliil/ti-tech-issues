@@ -2,11 +2,11 @@ extends AspectRatioContainer
 
 @onready var Windows: Control = $Windows
 @onready var workplace: VBoxContainer=$OsWorkPlace
-
 @onready var mouse: Sprite2D= $Mouse
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("PLAYER")
 enum clickType{ESQUERDO,DIREITO,MEIO}
 signal click(clickType)
+
 func _ready() -> void:
 	pass
 

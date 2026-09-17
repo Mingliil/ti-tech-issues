@@ -20,7 +20,10 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	await SceneLoader.load_finished
+	if loading:
+		await SceneLoader.load_finished
+		loading = false
+		return
 	if !player:
 		player = get_tree().get_first_node_in_group("PLAYER").get_child(0)
 	if grabbed_object:

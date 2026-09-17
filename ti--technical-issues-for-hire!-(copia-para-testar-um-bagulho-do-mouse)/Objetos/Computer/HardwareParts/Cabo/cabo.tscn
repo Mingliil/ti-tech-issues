@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://d1hq7d0t6nlpo"]
 
 [ext_resource type="Script" uid="uid://rwpl2waqif40" path="res://Objetos/Computer/HardwareParts/Cabo/cabo.gd" id="1_ow7gu"]
+[ext_resource type="PackedScene" uid="uid://drtye57jjo5fp" path="res://Objetos/Computer/HardwareParts/Cabo/Conector.tscn" id="2_debti"]
 
-[node name="Corda" type="Node3D" unique_id=1796440619 node_paths=PackedStringArray("link_inicio", "link_fim")]
+[node name="Cabo" type="Node3D" unique_id=1796440619 node_paths=PackedStringArray("link_inicio", "link_fim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.573015, 0)
 script = ExtResource("1_ow7gu")
+link_count = 9
+link_length = 0.195
+link_radius = 0.035
+ConexaoInicio = ExtResource("2_debti")
+ConexaoFim = ExtResource("2_debti")
 link_inicio = NodePath("End")
 link_fim = NodePath("Start")
 

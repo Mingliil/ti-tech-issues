@@ -9,14 +9,16 @@ var scene_path: String
 var proguess: Array = []
 var use_sub_threads: bool = true
 var SpawnPos: Vector3
-var player: CharacterBody3D
+var player: PackedScene
 
 func _ready() -> void:
 	set_process(false)
 	
 func load_scene(_scene_path: String, Pos: Vector3) -> void:
-	
+	InteractHdlr.loading = true
 	scene_path = _scene_path
+	player = PackedScene.new()
+	player.pack(get_tree().get_first_node_in_group("PLAYER"))
 	
 	var new_load_screen = loading_screen.instantiate()
 	add_child(new_load_screen)
@@ -41,4 +43,8 @@ func _process(delta: float) -> void:
 		ResourceLoader.THREAD_LOAD_LOADED:
 			loaded_resource = ResourceLoader.load_threaded_get(scene_path)
 			get_tree().change_scene_to_packed(loaded_resource)
+			
+			print(get_tree().get_first_node_in_group("PLAYER"))
+			get_tree().root.add_child(player.instantiate())
+			
 			load_finished.emit()

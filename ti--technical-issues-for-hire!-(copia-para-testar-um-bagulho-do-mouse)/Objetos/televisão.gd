@@ -20,9 +20,10 @@ var entradaAtual = EntradaVideo.TvAberta
 var usandoPc: bool = false
 var mouse: Vector2
 var player: CharacterBody3D
-
+@export var ConnectPc: Node
 func _ready() -> void:
-	
+	if ConnectPc:
+		ConnectPc.Pc_Comp.Monitor = self.get_path()
 	if !videoPlayer.get_stream():
 		TrocarCanal()
 	player = get_tree().get_first_node_in_group("PLAYER")
