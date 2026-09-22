@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://co8futgwdr5dd"]
 
-[ext_resource type="PackedScene" uid="uid://c4gl4yc2f8sxk" path="res://TUDO NECESSÁRIO/Codigos/Interação/select_options.tscn" id="1_ku57y"]
-[ext_resource type="Script" uid="uid://d268vgset5lve" path="res://TUDO NECESSÁRIO/Codigos/Interação/interact_options.gd" id="2_hrelr"]
+[ext_resource type="PackedScene" uid="uid://c4gl4yc2f8sxk" path="res://Scripts/Interação/select_options.tscn" id="1_ku57y"]
+[ext_resource type="Script" uid="uid://bmuafsycaqs81" path="res://Scripts/Interação/InteractHdlr.gd" id="2_hrelr"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hrelr"]
 viewport_path = NodePath("Sprite3D/SubViewport")

@@ -24,8 +24,6 @@ func _process(delta: float) -> void:
 		await SceneLoader.load_finished
 		loading = false
 		return
-	if !player:
-		player = get_tree().get_first_node_in_group("PLAYER").get_child(0)
 	if grabbed_object:
 		if grabbed_object is RigidBody3D:
 			lift_item(grabbed_object,get_grab_position(),delta)
@@ -71,6 +69,12 @@ func _process(delta: float) -> void:
 		hold_counter = 0.0
 
 func _input(event: InputEvent) -> void:
+	if loading:
+		await SceneLoader.load_finished
+		loading = false
+		return
+	if !player:
+		player = get_tree().get_first_node_in_group("PLAYER")
 	if player.currentState == player.States.Normal: 
 		if event is InputEventMouseMotion:
 			mouse = event.position

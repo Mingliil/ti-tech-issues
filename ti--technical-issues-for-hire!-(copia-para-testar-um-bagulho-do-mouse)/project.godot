@@ -40,6 +40,7 @@ folder_colors={
 "res://Objetos/Computer/HardwareParts/Ssd/": "red",
 "res://Scripts/": "yellow",
 "res://Scripts/DataSaveNLoad/": "yellow",
+"res://Scripts/DialogueSystem/": "red",
 "res://Scripts/SceneLoader/": "yellow"
 }
 

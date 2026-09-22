@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://kwn4bs2l4idq"]
 
 [ext_resource type="Script" uid="uid://b5luel62gcfr5" path="res://Objetos/televisão.gd" id="1_q1vai"]
-[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="2_dpu3h"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Scripts/Interação/RES/ObjOptions.gd" id="2_dpu3h"]
 [ext_resource type="Shader" uid="uid://ifcce5o5hsh8" path="res://Objetos/tvTela.gdshader" id="3_dpu3h"]
 [ext_resource type="Script" uid="uid://dxpbe58tjfdxq" path="res://Objetos/TvChannelRes.gd" id="3_o6yb6"]
 [ext_resource type="VideoStream" uid="uid://i2uki6ev1r0a" path="res://Videos/Kids are smoking the coronavirus - imbezo (720p, h264).ogv" id="4_dpu3h"]

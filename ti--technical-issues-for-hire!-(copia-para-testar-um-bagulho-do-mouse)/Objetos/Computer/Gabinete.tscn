@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://o72fbivrhxvp" path="res://Objetos/Computer/gabinete.gd" id="1_8760m"]
 [ext_resource type="Script" uid="uid://dl2e7fwfivbe4" path="res://Objetos/Computer/recursos/PCcomps.gd" id="2_36pwb"]
-[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="3_hyys1"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Scripts/Interação/RES/ObjOptions.gd" id="3_hyys1"]
 
 [sub_resource type="Resource" id="Resource_36pwb"]
 script = ExtResource("2_36pwb")

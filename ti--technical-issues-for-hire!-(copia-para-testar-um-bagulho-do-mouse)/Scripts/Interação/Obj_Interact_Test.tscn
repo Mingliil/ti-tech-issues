@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cg46qg1r7kced"]
 
-[ext_resource type="Script" uid="uid://2wmpfa4qk73n" path="res://TUDO NECESSÁRIO/Codigos/Interação/obj_interact_test.gd" id="1_rjide"]
-[ext_resource type="Script" uid="uid://dokkp6b8webgl" path="res://TUDO NECESSÁRIO/Resources/ExpObjBase.gd" id="2_nuoni"]
-[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://TUDO NECESSÁRIO/Resources/ObjOptions.gd" id="3_w3nq6"]
+[ext_resource type="Script" path="res://TUDO NECESSÁRIO/Codigos/Interação/obj_interact_test.gd" id="1_rjide"]
+[ext_resource type="Script" path="res://TUDO NECESSÁRIO/Resources/ExpObjBase.gd" id="2_nuoni"]
+[ext_resource type="Script" path="res://TUDO NECESSÁRIO/Resources/ObjOptions.gd" id="3_w3nq6"]
 
 [sub_resource type="Resource" id="Resource_5p0qj"]
 script = ExtResource("3_w3nq6")

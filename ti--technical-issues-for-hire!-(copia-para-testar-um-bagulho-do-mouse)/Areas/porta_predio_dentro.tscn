@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ljpk883tvnyi" path="res://Objetos/portaBehavior.gd" id="1_q3imt"]
 [ext_resource type="Script" uid="uid://dl8rcrdnwsbk0" path="res://Objetos/porta_corpo.gd" id="2_w4ot5"]
-[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Interação/RES/ObjOptions.gd" id="3_7arpa"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Scripts/Interação/RES/ObjOptions.gd" id="3_7arpa"]
 
 [sub_resource type="Resource" id="Resource_333rn"]
 script = ExtResource("3_7arpa")
