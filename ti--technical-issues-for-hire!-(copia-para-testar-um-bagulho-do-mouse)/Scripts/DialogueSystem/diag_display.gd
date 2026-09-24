@@ -6,37 +6,41 @@ const ButtonDiag = preload("uid://bfvm87k06qjtk")
 @onready var SpeakerSprite: Sprite2D = $HBoxContainer/FalaParente/FalaSprite
 @onready var ButtaoContainer: HBoxContainer = $HBoxContainer/VBoxContainer/ButtonCont
 @onready var FalaNome: RichTextLabel = $FalaNome
-@onready var playerHUD: CanvasLayer
+
+
+
 
 var dialogue: Array[DE]
 var current_dialogue_item: int = 0
 var next_item: bool = true
 var PLAYER: CharacterBody3D
 var reset: bool = false
+enum States{Interagindo, Normal, NoMenu}
 
 func _ready() -> void:
-	playerHUD = get_tree().get_first_node_in_group("HUD")
-	visible = false
-	playerHUD.visible = true
 	ButtaoContainer.visible = false
-	PLAYER = get_tree().get_first_node_in_group("Player")
+	PLAYER = get_tree().get_first_node_in_group("PLAYER")
+	PLAYER.currentState = States.Interagindo
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if !is_in_group("Dialogue"):
 		add_to_group("Dialogue")
 
 func _process(delta: float) -> void:
 	if current_dialogue_item >= dialogue.size():
 		if !PLAYER:
-			for i in get_tree().get_nodes_in_group("Player"):
+			for i in get_tree().get_nodes_in_group("PLAYER"):
 				PLAYER = i
 			return
-		#PLAYER.Speed = true
+		PLAYER.currentState = States.Normal
 		queue_free()
-		playerHUD.visible = true
 		return
-
+	if  !PLAYER:
+		PLAYER = get_tree().get_first_node_in_group("PLAYER")
+	PLAYER.currentState = States.Interagindo
+	if Input.mouse_mode != Input.MOUSE_MODE_VISIBLE:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if next_item:
 		next_item = false
-		playerHUD.visible = true
 		var i = dialogue[current_dialogue_item]
 		if i is not DialogueFunction:
 			if i.speaker_name:
@@ -47,18 +51,14 @@ func _process(delta: float) -> void:
 		if i is DialogueFunction:
 			if i.hide_dialogue_box:
 				visible = false
-				playerHUD.visible = true
 			else:
 				visible = true
-				playerHUD.visible = false
 			_function_resource(i)
 		elif i is DialogueChoice:
 			visible = true
-			playerHUD.visible = false
 			_choice_resource(i)
 		elif i is DialogueText:
 			visible = true
-			playerHUD.visible = false
 			_text_resource(i)
 		else:
 			printerr("tu fez algo errado aqui com a DE")
@@ -159,7 +159,7 @@ func _text_resource(i:DialogueText) -> void:
 	var total_characters: int = text_without_square_brackets.length()
 	var character_timer: float = 0.0
 	while DialogueLabel.visible_characters < total_characters:
-		if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("pulo"):
+		if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("pulo") or Input.is_action_just_pressed("clickEsq"):
 			DialogueLabel.visible_characters = total_characters
 			break
 		
@@ -182,7 +182,7 @@ func _text_resource(i:DialogueText) -> void:
 	while  true:
 		await  get_tree().process_frame
 		if DialogueLabel.visible_characters == total_characters:
-			if Input. is_action_just_pressed("Interact"):
+			if Input.is_action_just_pressed("Interact") or Input.is_action_just_pressed("clickEsq"):
 				current_dialogue_item +=1
 				next_item = true
 

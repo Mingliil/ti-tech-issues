@@ -3,12 +3,20 @@
 [ext_resource type="Script" uid="uid://c45nbkjmh22fv" path="res://Scripts/Interação/ObjInteractBehavior.gd" id="1_0t4m5"]
 [ext_resource type="Texture2D" uid="uid://2qxoybaqqtna" path="res://imgs/afonso - Copia.jpeg" id="2_0t4m5"]
 [ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Scripts/Interação/RES/ObjOptions.gd" id="2_8vbh6"]
+[ext_resource type="Script" uid="uid://bbrtb8bom50nx" path="res://Scripts/DialogueSystem/Recursos/DialogueExportResource.gd" id="3_nt4s8"]
+[ext_resource type="Script" uid="uid://ukphwgautcoi" path="res://Scripts/DialogueSystem/Recursos/DialogueTextResource.gd" id="4_p22g0"]
 
 [sub_resource type="Resource" id="Resource_bhunq"]
 script = ExtResource("2_8vbh6")
 interactble = true
-FunctionName = "Interact()"
+FunctionName = "Interact"
 metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
+[sub_resource type="Resource" id="Resource_q5hp2"]
+script = ExtResource("4_p22g0")
+speaker_name = "oi"
+text = "oi78"
+metadata/_custom_type_script = "uid://ukphwgautcoi"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfe2d"]
 albedo_texture = ExtResource("2_0t4m5")
@@ -21,7 +29,7 @@ material = SubResource("StandardMaterial3D_dfe2d")
 [node name="Afonso" type="RigidBody3D" unique_id=1902823210]
 script = ExtResource("1_0t4m5")
 obj_vars = SubResource("Resource_bhunq")
-dialogue = null
+dialogue = Array[ExtResource("3_nt4s8")]([SubResource("Resource_q5hp2")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1011134408]
 mesh = SubResource("SphereMesh_tacom")

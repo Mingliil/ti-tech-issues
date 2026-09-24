@@ -47,7 +47,8 @@ func _activate_dialogue() -> void:
 	#		desired_dialogue_pos = dialogue_bottom_pos
 	new_dialogue.global_position = desired_dialogue_pos
 	new_dialogue.dialogue = dialogue
-	get_parent().add_child(new_dialogue)
+	
+	PLAYER.get_node("HUD").add_child(new_dialogue)
 
 func _on_body_entered(body: Node3D) -> void:
 	if only_activate_once and has_activated_already:
