@@ -1,29 +1,28 @@
 extends Control
 
 const ButtonDiag = preload("uid://bfvm87k06qjtk")
-
-@onready var DialogueLabel: RichTextLabel = $HBoxContainer/VBoxContainer/RichTextLabel
-@onready var SpeakerSprite: Sprite2D = $HBoxContainer/FalaParente/FalaSprite
-@onready var ButtaoContainer: HBoxContainer = $HBoxContainer/VBoxContainer/ButtonCont
-@onready var FalaNome: RichTextLabel = $FalaNome
-
+const TextBox = preload("uid://0ko11f48wma6")
+@onready var DialogueLabel: RichTextLabel
+@onready var SpeakerSprite: Sprite2D = $TextureRect
+@onready var ButtaoContainer: HBoxContainer
+@onready var FalaNome: RichTextLabel
+@onready var TextList: VBoxContainer = $PanelContainer/MarginContainer/ScrollContainer/TextList
 
 
 
 var dialogue: Array[DE]
 var current_dialogue_item: int = 0
+var currentTextBox
 var next_item: bool = true
 var PLAYER: CharacterBody3D
 var reset: bool = false
 enum States{Interagindo, Normal, NoMenu}
 
 func _ready() -> void:
-	ButtaoContainer.visible = false
+	#ButtaoContainer.visible = false
 	PLAYER = get_tree().get_first_node_in_group("PLAYER")
 	PLAYER.currentState = States.Interagindo
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if !is_in_group("Dialogue"):
-		add_to_group("Dialogue")
 
 func _process(delta: float) -> void:
 	if current_dialogue_item >= dialogue.size():
@@ -87,6 +86,8 @@ func _function_resource(i:DialogueFunction) -> void:
 	next_item = true
 
 func _choice_resource(i:DialogueChoice	) -> void:
+	
+	
 	#speaker
 	DialogueLabel.text = i.text
 	DialogueLabel.visible_characters = -1
@@ -136,9 +137,12 @@ func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue: Stri
 	next_item = true
 
 func _text_resource(i:DialogueText) -> void:
+	TextList.add_child(TextBox.instantiate())
+	currentTextBox = TextList.get_child(current_dialogue_item)
+	
 	#nome do falante
-	$FalaAudio.stream = i.text_sound
-	$FalaAudio.volume_db = i.text_volume_db
+	#$FalaAudio.stream = i.text_sound
+	#$FalaAudio.volume_db = i.text_volume_db
 	
 	var camera: Camera3D = get_viewport().get_camera_3d()
 	if camera and i.camera_position != Vector3(999.999,999.999,999.999):
@@ -203,3 +207,4 @@ func _text_without_square_brackets(text: String) -> String:
 			result += i
 	
 	return result
+	

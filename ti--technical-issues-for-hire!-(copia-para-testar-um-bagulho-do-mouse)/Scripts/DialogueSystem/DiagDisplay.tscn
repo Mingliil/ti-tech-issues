@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ca4whgc5wgkjp"]
 
 [ext_resource type="Script" uid="uid://c1jeohekr5n25" path="res://Scripts/DialogueSystem/diag_display.gd" id="1_thj84"]
-[ext_resource type="PackedScene" uid="uid://0ko11f48wma6" path="res://Scripts/DialogueSystem/text_box.tscn" id="2_s3xnd"]
+[ext_resource type="Texture2D" uid="uid://sfplgxnfy8r5" path="res://icon.svg" id="2_s3xnd"]
 
 [node name="DiagDisplay" type="Control" unique_id=924647930]
 layout_mode = 3
@@ -35,14 +35,20 @@ theme_override_constants/margin_bottom = 4
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer" unique_id=81056377]
 layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/ScrollContainer" unique_id=540576111]
+[node name="TextList" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer" unique_id=2015669335]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 1
 
-[node name="TextBox" parent="PanelContainer/MarginContainer/ScrollContainer/PanelContainer" unique_id=1618370354 instance=ExtResource("2_s3xnd")]
-layout_mode = 2
-
-[node name="TextBox2" parent="PanelContainer/MarginContainer/ScrollContainer/PanelContainer" unique_id=11463271 instance=ExtResource("2_s3xnd")]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="." unique_id=625658694]
+layout_mode = 0
+offset_left = 692.0
+offset_top = 51.0
+offset_right = 832.0
+offset_bottom = 230.0
+texture = ExtResource("2_s3xnd")
+stretch_mode = 5
