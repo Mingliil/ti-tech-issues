@@ -2,15 +2,14 @@ extends Control
 
 const ButtonDiag = preload("uid://bfvm87k06qjtk")
 const TextBox = preload("uid://0ko11f48wma6")
+@onready var SpeakerSprite: TextureRect = $TextureRect
 @onready var DialogueLabel: RichTextLabel
-@onready var SpeakerSprite: Sprite2D = $TextureRect
-@onready var ButtaoContainer: HBoxContainer
-@onready var FalaNome: RichTextLabel
+@onready var ButtaoContainer: VBoxContainer
 @onready var TextList: VBoxContainer = $PanelContainer/MarginContainer/ScrollContainer/TextList
+@onready var StreamPlayer: AudioStreamPlayer2D=$AudioStreamPlayer2D
 
 
-
-var dialogue: Array[DE]
+@export var dialogue: Array[DE]
 var current_dialogue_item: int = 0
 var currentTextBox
 var next_item: bool = true
@@ -23,6 +22,11 @@ func _ready() -> void:
 	PLAYER = get_tree().get_first_node_in_group("PLAYER")
 	PLAYER.currentState = States.Interagindo
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	add_to_group("DIALOGUE")
+func SetVars()-> void:
+	#FalaNome = TextList.get_child(current_dialogue_item).get_node("VBoxContainer/Nome")
+	ButtaoContainer = TextList.get_child(current_dialogue_item).get_node("VBoxContainer/MarginContainer/DiagOptions")
+	DialogueLabel = TextList.get_child(current_dialogue_item).get_node("VBoxContainer/CorpoTexto")
 
 func _process(delta: float) -> void:
 	if current_dialogue_item >= dialogue.size():
@@ -31,6 +35,7 @@ func _process(delta: float) -> void:
 				PLAYER = i
 			return
 		PLAYER.currentState = States.Normal
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		queue_free()
 		return
 	if  !PLAYER:
@@ -43,10 +48,9 @@ func _process(delta: float) -> void:
 		var i = dialogue[current_dialogue_item]
 		if i is not DialogueFunction:
 			if i.speaker_name:
-				FalaNome.text = i.speaker_name
 				print(i.speaker_name)
-			else:
-				FalaNome.visible = false
+			#else:
+				#FalaNome.visible = false
 		if i is DialogueFunction:
 			if i.hide_dialogue_box:
 				visible = false
@@ -86,21 +90,24 @@ func _function_resource(i:DialogueFunction) -> void:
 	next_item = true
 
 func _choice_resource(i:DialogueChoice	) -> void:
-	
-	
+
+	TextList.add_child(TextBox.instantiate())
+	currentTextBox = TextList.get_child(current_dialogue_item)
+	SetVars()
+	#ButtaoContainer.visible = true
 	#speaker
 	DialogueLabel.text = i.text
 	DialogueLabel.visible_characters = -1
 	if i.speaker_img:
-		$HBoxContainer/FalaParente.visible = true
+		SpeakerSprite.visible = true
 		SpeakerSprite.texture = i.speaker_img
-		SpeakerSprite.hframes = i.speaker_img_Hframes
-		SpeakerSprite.frame = min(i.speaker_img_select_frame, i.speaker_img_Hframes -1)
+		#SpeakerSprite.hframes = i.speaker_img_Hframes
+		#SpeakerSprite.frame = min(i.speaker_img_select_frame, i.speaker_img_Hframes -1)
 	else:
-		$HBoxContainer/FalaParente.visible = false
-	$HBoxContainer/VBoxContainer/ButtonCont.visible = true
+		SpeakerSprite.visible = false
 	for item in i.choice_text.size():
 		var DialogueButtonVar = ButtonDiag.instantiate()
+		
 		DialogueButtonVar.text = i.choice_text[item]
 		
 		var function_resource: DialogueFunction = i.choice_function_call[item]
@@ -139,7 +146,8 @@ func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue: Stri
 func _text_resource(i:DialogueText) -> void:
 	TextList.add_child(TextBox.instantiate())
 	currentTextBox = TextList.get_child(current_dialogue_item)
-	
+	SetVars()
+	DialogueLabel.text = i.speaker_name + ": "
 	#nome do falante
 	#$FalaAudio.stream = i.text_sound
 	#$FalaAudio.volume_db = i.text_volume_db
@@ -150,16 +158,16 @@ func _text_resource(i:DialogueText) -> void:
 		camera_tween.tween_property(camera, "global_position", i.camera_position, i.camera_tansition_time)
 	
 	if !i.speaker_img:
-		$HBoxContainer/FalaParente.visible = false
+		StreamPlayer.visible = false
 	else:
-		$HBoxContainer/FalaParente.visible = true
+		StreamPlayer.visible = true
 		SpeakerSprite.texture = i.speaker_img
-		SpeakerSprite.hframes = i.speaker_img_Hframes
-		SpeakerSprite.frame = 0
+		#SpeakerSprite.hframes = i.speaker_img_Hframes
+		#SpeakerSprite.frame = 0
 	
 	DialogueLabel.visible_characters = 0
-	DialogueLabel.text = i.text
-	var text_without_square_brackets: String = _text_without_square_brackets(i.text)
+	DialogueLabel.text += i.text
+	var text_without_square_brackets: String = _text_without_square_brackets(DialogueLabel.text)
 	var total_characters: int = text_without_square_brackets.length()
 	var character_timer: float = 0.0
 	while DialogueLabel.visible_characters < total_characters:
@@ -172,8 +180,8 @@ func _text_resource(i:DialogueText) -> void:
 			var character: String = text_without_square_brackets[DialogueLabel.visible_characters]
 			DialogueLabel.visible_characters +=1
 			if character != " ":
-				$FalaAudio.pitch_scale = randf_range(i.text_volume_pithc_min, i.text_volume_pithc_max)
-				$FalaAudio.play()
+				StreamPlayer.pitch_scale = randf_range(i.text_volume_pithc_min, i.text_volume_pithc_max)
+				StreamPlayer.play()
 				if i.speaker_img_Hframes !=1:
 					if SpeakerSprite.frame < i.speaker_img_Hframes - 1:
 						SpeakerSprite.frame += 1
@@ -181,7 +189,7 @@ func _text_resource(i:DialogueText) -> void:
 						SpeakerSprite.frame = 0
 			character_timer = 0.0
 		await  get_tree().process_frame
-	SpeakerSprite.frame = min(i.speaker_img_rest_frame, i.speaker_img_Hframes-1)
+#	SpeakerSprite.frame = min(i.speaker_img_rest_frame, i.speaker_img_Hframes-1)
 	
 	while  true:
 		await  get_tree().process_frame

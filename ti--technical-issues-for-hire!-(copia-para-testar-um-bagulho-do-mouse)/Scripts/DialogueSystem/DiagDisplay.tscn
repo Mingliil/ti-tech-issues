@@ -42,13 +42,15 @@ vertical_scroll_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=625658694]
 layout_mode = 0
-offset_left = 692.0
-offset_top = 51.0
-offset_right = 832.0
-offset_bottom = 230.0
+offset_left = 672.0
+offset_top = 4.0
+offset_right = 801.0
+offset_bottom = 217.0
 texture = ExtResource("2_s3xnd")
+expand_mode = 5
 stretch_mode = 5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=533885930]

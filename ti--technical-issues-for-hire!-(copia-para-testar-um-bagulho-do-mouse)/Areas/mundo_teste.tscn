@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://b5olu2iyulkmb" path="res://Objetos/Computer/Gabinete.tscn" id="9_dryfg"]
 [ext_resource type="PackedScene" uid="uid://df3703gu3c7hl" path="res://Objetos/Computer/HardwareParts/mouse.tscn" id="9_oin45"]
 [ext_resource type="PackedScene" uid="uid://di1stwvj6uw28" path="res://Objetos/afonso_Sphere.tscn" id="10_oin45"]
+[ext_resource type="Script" uid="uid://bbrtb8bom50nx" path="res://Scripts/DialogueSystem/Recursos/DialogueExportResource.gd" id="11_ftfsj"]
+[ext_resource type="Script" uid="uid://ukphwgautcoi" path="res://Scripts/DialogueSystem/Recursos/DialogueTextResource.gd" id="12_0h6w8"]
+[ext_resource type="Script" uid="uid://c0bvb08wya4bi" path="res://Scripts/DialogueSystem/Recursos/DialogueFunctionResource.gd" id="13_5ut8k"]
+[ext_resource type="Texture2D" uid="uid://c5kv0gw8q2do7" path="res://imgs/afonso.jpeg" id="13_k4ikx"]
+[ext_resource type="Script" uid="uid://bdm8tdtgbhgkm" path="res://Scripts/DialogueSystem/Recursos/DialogueChoiceResource.gd" id="14_k4ikx"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bhunq"]
 size = Vector2(20.39, 18.91)
@@ -22,6 +27,111 @@ background_color = Color(0.41881505, 0.4233772, 0.5104654, 1)
 background_energy_multiplier = 2.65
 ambient_light_color = Color(0.6542321, 0.6542321, 0.654232, 1)
 ambient_light_energy = 2.48
+
+[sub_resource type="Resource" id="Resource_5ut8k"]
+script = ExtResource("12_0h6w8")
+speaker_name = "oi"
+speaker_img = ExtResource("13_k4ikx")
+text = "oi78"
+text_speed = 19.5
+metadata/_custom_type_script = "uid://ukphwgautcoi"
+
+[sub_resource type="Resource" id="Resource_gmc1c"]
+script = ExtResource("12_0h6w8")
+speaker_name = "Petya"
+speaker_img = ExtResource("13_k4ikx")
+text = "quem é você?"
+metadata/_custom_type_script = "uid://ukphwgautcoi"
+
+[sub_resource type="Resource" id="Resource_kfj2f"]
+script = ExtResource("12_0h6w8")
+speaker_name = "Afonso"
+speaker_img = ExtResource("13_k4ikx")
+text = "Eu sou o cesar, afonso"
+metadata/_custom_type_script = "uid://ukphwgautcoi"
+
+[sub_resource type="Resource" id="Resource_uus4o"]
+script = ExtResource("13_5ut8k")
+target_path = NodePath(".")
+function_name = "OpcaoSimNao"
+function_arguments = [true]
+metadata/_custom_type_script = "uid://c0bvb08wya4bi"
+
+[sub_resource type="Resource" id="Resource_5kn2d"]
+script = ExtResource("13_5ut8k")
+target_path = NodePath(".")
+function_name = "OpcaoSimNao"
+function_arguments = [false]
+metadata/_custom_type_script = "uid://c0bvb08wya4bi"
+
+[sub_resource type="Resource" id="Resource_bbii7"]
+script = ExtResource("14_k4ikx")
+speaker_name = "Afonso"
+speaker_img = ExtResource("13_k4ikx")
+text = "Quer ouvir o script do shrek?"
+choice_text = Array[String](["Ok, porque não?", "claro que não, oshi"])
+choice_function_call = Array[ExtResource("13_5ut8k")]([SubResource("Resource_uus4o"), SubResource("Resource_5kn2d")])
+metadata/_custom_type_script = "uid://bdm8tdtgbhgkm"
+
+[sub_resource type="Resource" id="Resource_k4ikx"]
+script = ExtResource("14_k4ikx")
+speaker_name = "Afonso"
+speaker_img = ExtResource("13_k4ikx")
+text = "Quer ouvir o script do shrek?"
+choice_text = Array[String](["Ok, porque não?", "claro que não, oshi"])
+choice_function_call = Array[ExtResource("13_5ut8k")]([SubResource("Resource_uus4o"), SubResource("Resource_5kn2d")])
+metadata/_custom_type_script = "uid://bdm8tdtgbhgkm"
+
+[sub_resource type="Resource" id="Resource_lbrp4"]
+script = ExtResource("12_0h6w8")
+speaker_name = "Afonso"
+text = "hich could only be broken by Love's first kiss. She was locked away in a castle guarded by a
+terrible fire breathing dragon. Many brave knights had attempted to free her from this dreadful
+prison, but none prevailed. She waited in the dragon's keep in the highest room of the tallest tower
+for her true love and true love's first kiss. Like that's ever going to happen. What a loony. Shrek
+Beware Stay out I think he's in here. All right. Lets get it! Hold on. Do you know what that thing can
+do to you? Yeah. He'll groan into your bones for his brains. Well actually that would be a giant. Now
+Ogres, huh, they are much worse. They'll make a soup from your freshly peeled skin. They'll chew
+your livers, squeeze the jelly from your eyes. Actually, it's quite good on toast. Back, back beast,
+back! I warned you! Right. This is the part, where you run away. Yeah! And stay out. Wanted.
+Fairytale creatures. Right, this one is full. Take it away. Give me that. Your fine days are over. -25
+pieces of silver for the witch. Next. -Come on. Sit down there! And be quiet! This cage is so small.
+You wouldn't turn me in. I'll never be stubborn again. I can change. Please, give me another chance.
+Oh, shut up! Next. What do we got? This little wooden puppet. I'm not a puppet, I'm a real boy. Five
+shillings for the possessed toy. Take it away. No! Please, don't let them do it! Next. What do you
+got? Well, I've got a talking donkey! Right. Well that's good for ten schillings, if you can prove it. Oh,
+go ahead fella. Well? He's just a li..., just a little nervous. He's really quite a chatterbox. You
+boneheaded donkey! That's it. I have heard enough. Guards! No, no, he talks, he does! I can talk. I
+love to talk. I've talked to... Get her out of my sight! -No, no, I swear! Hey, I can fly. -He can fly! -He
+can fly! He can talk! -That's right, fool! Now I'm a flying, talking donkey! You might have seen house
+fly, maybe even a superfly. But I bet you ain't never seen a donkey fly! Seize him! Get him! This way!
+Hurry! You there. Ogre. -I. By the order of lord Farquaad. I am authorized to place you both under
+arrest. And transport you to designated resettlement facility. Oh really? You and what army? Can I
+say something to you? Listen, you were really, really something, back there. Incredible. Are you
+talking to... ...me? Yes, I was talking to you. Can I just tell you that you were really great back there
+with those guards. They thought that was all over there. And then you showed up and BAM. There
+was tripping on over themselves like babes in the woods. That really made me feel good to see that.
+Oh, that's great. Really. Man, it's good to be free. Now, why don't you go celebrate your freedom
+with your own friends? But I... I don't have any friends. And I'm not going out there by myself. Hey
+wait a minute. I have a great idea... I'll stick with you. You and me in green fighting machine.
+Together we'll scare the spin if anybody crosses us. Oh, a, that was really scary. Maybe you don't
+mine me saying. If that don't work, your breath will certainly do the job done, 'cause... you
+definitively need some tic-tac or something, 'cause your breath stinks! Man you've ??? my note!
+Just like the time... ...and then I ate some rotten berries. Man I had some strong gases leaking out of
+my but that day. Why are you following me? I'll tell you why. 'Cause I'm all alone, there is no one
+here, beside me. My problems have all gone. There's no one to derive me. But you got to have
+free ... -Stop singing! Well, it's no wonder, you don't have any friends. Wow! Only a true friend
+would be that truly honest. Listen! Little donkey. Take a look at me! What am I? A... ...really tall? No!
+I'm an Ogre. You know, grab your torch and pitchforks. Doesn't that bother you? Nope. Really?
+-Really really. Oh? Man, I like you. What's your name? A..., Shrek. Shrek?! But do you know, what I
+like about you, Shrek? You've got that kind of: \"I don't care what nobody thinks of me\" thing"
+metadata/_custom_type_script = "uid://ukphwgautcoi"
+
+[sub_resource type="Resource" id="Resource_xffhr"]
+script = ExtResource("12_0h6w8")
+speaker_name = "Afonso"
+text = "Ok, tchau"
+metadata/_custom_type_script = "uid://ukphwgautcoi"
 
 [node name="MundoTeste" type="Node3D" unique_id=1308074465]
 
@@ -74,3 +184,7 @@ connectedPc = NodePath("../Gabinete")
 
 [node name="Afonso" parent="." unique_id=1902823210 instance=ExtResource("10_oin45")]
 transform = Transform3D(0.037219822, 0, -0.9993071, 0, 1, 0, 0.9993071, 0, 0.037219822, 0, 1.3005184, 0)
+dialogue = Array[ExtResource("11_ftfsj")]([SubResource("Resource_5ut8k"), SubResource("Resource_gmc1c"), SubResource("Resource_kfj2f"), SubResource("Resource_bbii7")])
+DialogoSemintro = Array[ExtResource("11_ftfsj")]([SubResource("Resource_k4ikx")])
+DialogoSeSim = Array[ExtResource("11_ftfsj")]([SubResource("Resource_lbrp4")])
+DialogoSeNAO = Array[ExtResource("11_ftfsj")]([SubResource("Resource_xffhr")])
