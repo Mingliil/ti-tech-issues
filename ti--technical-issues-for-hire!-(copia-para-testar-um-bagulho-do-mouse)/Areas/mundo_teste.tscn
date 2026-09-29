@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://c0bvb08wya4bi" path="res://Scripts/DialogueSystem/Recursos/DialogueFunctionResource.gd" id="13_5ut8k"]
 [ext_resource type="Texture2D" uid="uid://c5kv0gw8q2do7" path="res://imgs/afonso.jpeg" id="13_k4ikx"]
 [ext_resource type="Script" uid="uid://bdm8tdtgbhgkm" path="res://Scripts/DialogueSystem/Recursos/DialogueChoiceResource.gd" id="14_k4ikx"]
+[ext_resource type="PackedScene" uid="uid://cyxw7g4yljuoe" path="res://Objetos/Computer/HardwareParts/Fonte.tscn" id="16_uus4o"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bhunq"]
 size = Vector2(20.39, 18.91)
@@ -55,6 +56,7 @@ script = ExtResource("13_5ut8k")
 target_path = NodePath(".")
 function_name = "OpcaoSimNao"
 function_arguments = [true]
+wait_for_signal_to_continue = "Adicionou"
 metadata/_custom_type_script = "uid://c0bvb08wya4bi"
 
 [sub_resource type="Resource" id="Resource_5kn2d"]
@@ -62,6 +64,7 @@ script = ExtResource("13_5ut8k")
 target_path = NodePath(".")
 function_name = "OpcaoSimNao"
 function_arguments = [false]
+wait_for_signal_to_continue = "Adicionou"
 metadata/_custom_type_script = "uid://c0bvb08wya4bi"
 
 [sub_resource type="Resource" id="Resource_bbii7"]
@@ -188,3 +191,6 @@ dialogue = Array[ExtResource("11_ftfsj")]([SubResource("Resource_5ut8k"), SubRes
 DialogoSemintro = Array[ExtResource("11_ftfsj")]([SubResource("Resource_k4ikx")])
 DialogoSeSim = Array[ExtResource("11_ftfsj")]([SubResource("Resource_lbrp4")])
 DialogoSeNAO = Array[ExtResource("11_ftfsj")]([SubResource("Resource_xffhr")])
+
+[node name="Fonte" parent="." unique_id=1653918813 instance=ExtResource("16_uus4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3543016, 0.9667231, 0)

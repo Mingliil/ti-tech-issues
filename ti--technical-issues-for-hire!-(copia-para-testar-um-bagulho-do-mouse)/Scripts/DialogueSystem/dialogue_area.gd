@@ -21,7 +21,8 @@ func _ready() -> void:
 	print(get_tree().get_first_node_in_group("Player"))
 	PLAYER = get_tree().get_first_node_in_group("Player")
  
-func _activate_dialogue(diag: Array[DE]) -> void:
+func _activate_dialogue(originNode: Object) -> void:
 	var new_dialogue = DialogueSysPreload.instantiate()
-	new_dialogue.dialogue = diag
+	new_dialogue.originNode = originNode
+	new_dialogue.dialogue =dialogue
 	PLAYER.get_node("HUD").add_child(new_dialogue)

@@ -10,6 +10,7 @@ const TextBox = preload("uid://0ko11f48wma6")
 
 
 @export var dialogue: Array[DE]
+var originNode: Object
 var current_dialogue_item: int = 0
 var currentTextBox
 var next_item: bool = true
@@ -36,6 +37,7 @@ func _process(delta: float) -> void:
 			return
 		PLAYER.currentState = States.Normal
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		dialogue.clear()
 		queue_free()
 		return
 	if  !PLAYER:
@@ -101,8 +103,6 @@ func _choice_resource(i:DialogueChoice	) -> void:
 	if i.speaker_img:
 		SpeakerSprite.visible = true
 		SpeakerSprite.texture = i.speaker_img
-		#SpeakerSprite.hframes = i.speaker_img_Hframes
-		#SpeakerSprite.frame = min(i.speaker_img_select_frame, i.speaker_img_Hframes -1)
 	else:
 		SpeakerSprite.visible = false
 	for item in i.choice_text.size():
@@ -113,8 +113,11 @@ func _choice_resource(i:DialogueChoice	) -> void:
 		var function_resource: DialogueFunction = i.choice_function_call[item]
 		if function_resource:
 			DialogueButtonVar.connect("pressed",
-			Callable(get_node(function_resource.target_path),function_resource.function_name).bindv(function_resource.function_arguments),
+			Callable(originNode,function_resource.function_name).bindv(function_resource.function_arguments),
 			CONNECT_ONE_SHOT)
+			#DialogueButtonVar.connect("pressed",
+			#Callable(get_node(function_resource.target_path),function_resource.function_name).bindv(function_resource.function_arguments),
+			#CONNECT_ONE_SHOT)
 			if function_resource.hide_dialogue_box:
 				DialogueButtonVar.connect("pressed", hide, CONNECT_ONE_SHOT)
 			DialogueButtonVar.connect("pressed",
@@ -127,6 +130,7 @@ func _choice_resource(i:DialogueChoice	) -> void:
 	
 
 func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue: String):
+	
 	ButtaoContainer.visible = false
 	for i in ButtaoContainer.get_children():
 		i.queue_free()

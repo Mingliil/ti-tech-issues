@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cyxw7g4yljuoe"]
+
+[ext_resource type="Script" uid="uid://bm5mqes0120nt" path="res://Objetos/Computer/HardwareParts/fonte.gd" id="1_d8wpd"]
+[ext_resource type="Script" uid="uid://c2gxb0hnqpfsv" path="res://Scripts/Interação/RES/ObjOptions.gd" id="2_uoytk"]
+
+[sub_resource type="Resource" id="Resource_86ap7"]
+script = ExtResource("2_uoytk")
+metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d8wpd"]
+size = Vector3(0.35, 0.35, 0.35)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8imwq"]
+size = Vector3(0.35, 0.35, 0.35)
+
+[node name="Fonte" type="RigidBody3D" unique_id=1653918813]
+collision_layer = 8
+script = ExtResource("1_d8wpd")
+obj_vars = SubResource("Resource_86ap7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1798615676]
+shape = SubResource("BoxShape3D_d8wpd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=860750628]
+mesh = SubResource("BoxMesh_8imwq")

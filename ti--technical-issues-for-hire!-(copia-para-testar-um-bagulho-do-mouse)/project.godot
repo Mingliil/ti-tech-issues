@@ -127,6 +127,7 @@ escape={
 3d_physics/layer_1="Env"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="PhysObjs"
+3d_physics/layer_4="PcHardware"
 
 [physics]
 

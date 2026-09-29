@@ -49,7 +49,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vgb1g")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hyys1"]
-size = Vector3(2.1152616, 2.0022063, 2)
+size = Vector3(2.1152616, 2.0191696, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_86ap7"]
+size = Vector3(0.39501953, 0.36611938, 0.35327148)
 
 [node name="Gabinete" type="RigidBody3D" unique_id=693493016]
 collision_layer = 6
@@ -63,7 +66,24 @@ transform = Transform3D(0.5, 0, 0, 0, 0.557, 0, 0, 0, 0.286, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8760m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1788175400]
-transform = Transform3D(0.5, 0, 0, 0, 0.557, 0, 0, 0, 0.286, 0.028815389, 0.00061446166, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.557, 0, 0, 0, 0.286, 0.028815389, -0.0041098017, 0)
 shape = SubResource("BoxShape3D_hyys1")
 
+[node name="ConexaoFonte" type="Area3D" parent="." unique_id=603715955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29706025, -0.34456488, -0.10481286)
+
+[node name="ColisãoFonte" type="CollisionShape3D" parent="ConexaoFonte" unique_id=147561590]
+shape = SubResource("BoxShape3D_86ap7")
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="." unique_id=688447213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29706025, -0.34456488, -0.10481286)
+node_a = NodePath("..")
+linear_limit_x/enabled = false
+linear_limit_y/enabled = false
+linear_limit_z/enabled = false
+angular_limit_x/enabled = false
+angular_limit_y/enabled = false
+angular_limit_z/enabled = false
+
 [connection signal="TurnOnOff" from="." to="." method="_TurnOnOrOff"]
+[connection signal="body_entered" from="ConexaoFonte" to="." method="_on_conexao_fonte_entered"]
