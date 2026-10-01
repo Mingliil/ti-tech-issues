@@ -52,7 +52,7 @@ shadow_mesh = SubResource("ArrayMesh_vgb1g")
 size = Vector3(2.1152616, 2.0191696, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_86ap7"]
-size = Vector3(0.39501953, 0.36611938, 0.35327148)
+size = Vector3(0.39501953, 0.36611938, 0.5739746)
 
 [node name="Gabinete" type="RigidBody3D" unique_id=693493016]
 collision_layer = 6
@@ -73,6 +73,7 @@ shape = SubResource("BoxShape3D_hyys1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29706025, -0.34456488, -0.10481286)
 
 [node name="ColisãoFonte" type="CollisionShape3D" parent="ConexaoFonte" unique_id=147561590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11035156)
 shape = SubResource("BoxShape3D_86ap7")
 
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="." unique_id=688447213]

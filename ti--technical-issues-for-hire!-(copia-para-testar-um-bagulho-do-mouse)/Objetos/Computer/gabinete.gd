@@ -26,5 +26,5 @@ func _on_conexao_fonte_entered(body: Node3D) -> void:
 	if 'Name'in body:
 		if body.Name == "Fonte":
 			print("Conectado")
-			$Generic6DOFJoint3D
+			$Generic6DOFJoint3D.nobe_b = body
 	pass # Replace with function body.
