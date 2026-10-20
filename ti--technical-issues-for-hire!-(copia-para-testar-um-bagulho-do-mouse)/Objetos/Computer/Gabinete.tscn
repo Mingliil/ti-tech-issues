@@ -11,7 +11,7 @@ metadata/_custom_type_script = "uid://dl2e7fwfivbe4"
 [sub_resource type="Resource" id="Resource_hyys1"]
 script = ExtResource("3_hyys1")
 interactble = true
-FunctionName = "_TurnOnOrOff"
+FunctionName = "OpenInteractMenu"
 metadata/_custom_type_script = "uid://c2gxb0hnqpfsv"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53pab"]

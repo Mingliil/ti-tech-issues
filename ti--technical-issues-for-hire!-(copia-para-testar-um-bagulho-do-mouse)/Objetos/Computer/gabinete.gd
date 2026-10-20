@@ -4,15 +4,15 @@ extends RigidBody3D
 @export var ligado: bool = true
 @export var obj_vars: ObjectVariables
 const OsDoorsPreload = preload("uid://cu4silnqcvsnr")
+const InteractMenuPreload = preload("uid://qrb0un5g28b1")
+
 
 signal TurnOnOff
 
 
-func _TurnOnOrOff() -> void:
-	if ligado:
-		shutDown()
-	else:
-		startUp()
+func OpenInteractMenu() -> void:
+	var intMenu = InteractMenuPreload.instantiate()
+	get_tree().get_first_node_in_group("PLAYER").get_node("HUD").add_child(intMenu)
 
 func shutDown()->void:
 	
