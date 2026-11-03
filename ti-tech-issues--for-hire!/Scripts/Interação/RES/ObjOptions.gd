@@ -1,0 +1,8 @@
+extends UniResExpo
+class_name ObjectVariables
+
+@export var pickable: bool = true
+@export var interactble: bool
+@export var grabbable: bool
+@export var FunctionName: String
+@export var FunctionVars: Array

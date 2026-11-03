@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dakt44bvspufa"]
+
+[ext_resource type="VideoStream" uid="uid://dej2bfmgt8lir" path="res://Videos/AFONSO SANTOS - Cibersegurança e Privacidade.ogv" id="1_jxuh0"]
+
+[node name="Televisão Tela" type="Control" unique_id=1570865461]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2110801707]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="PanelContainer" unique_id=2015123197]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+stream = ExtResource("1_jxuh0")
+volume_db = 3.6799994
+autoplay = true
+loop = true

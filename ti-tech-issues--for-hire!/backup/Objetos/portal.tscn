@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c2dlkkm3ugaw5"]
+
+[ext_resource type="Script" uid="uid://dp8n4kx4pmcte" path="res://Objetos/portal.gd" id="1_chxae"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y4ejg"]
+size = Vector3(1, 0.001, 2.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chxae"]
+resource_local_to_scene = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fgo3p"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_chxae")
+size = Vector2(1, 2.1)
+
+[node name="Portal" type="Node3D" unique_id=2136967207]
+script = ExtResource("1_chxae")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1778963666]
+transform = Transform3D(-1, -8.742277e-08, -4.3711385e-08, 4.371139e-08, 1.9106853e-15, -0.9999999, 8.742278e-08, -0.9999999, 1.9106853e-15, -0.027648926, -0.028366089, -0.084665895)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=686527992]
+transform = Transform3D(1, -7.1054274e-15, -3.5527135e-15, 7.1054274e-15, 1, 4.2351647e-22, 3.5527137e-15, 4.2351647e-22, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_y4ejg")
+
+[node name="PortalMesh" type="MeshInstance3D" parent="." unique_id=1964518440]
+transform = Transform3D(-1, -8.742277e-08, -4.3711385e-08, 4.371139e-08, 1.9106853e-15, -0.9999999, 8.742278e-08, -0.9999999, 1.9106853e-15, -0.027648926, -0.028366089, -0.084665895)
+mesh = SubResource("PlaneMesh_fgo3p")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1518258851]
+canvas_item_default_texture_filter = 0
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=2146427490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.11201906)

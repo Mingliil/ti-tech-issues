@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cjmt3sctfsyan"]
+
+[ext_resource type="Script" uid="uid://dtdv0jrtbom7x" path="res://OS-DOORS/Cenas/AppRelated/Apps/PhotoDisplayer.gd" id="1_4tc8g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhunq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_riqys"]
+
+[node name="PhotoShock" type="Window" unique_id=321383053]
+oversampling_override = 1.0
+title = "PhotoShocks"
+initial_position = 2
+size = Vector2i(400, 300)
+wrap_controls = true
+transient = true
+transient_to_focused = true
+script = ExtResource("1_4tc8g")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=2090470729]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bhunq")
+
+[node name="ImgDisplay" type="TextureRect" parent="Panel" unique_id=192344151]
+visible = false
+layout_mode = 2
+
+[node name="VidDisplay" type="VideoStreamPlayer" parent="Panel" unique_id=708318296]
+visible = false
+layout_mode = 2
+autoplay = true
+
+[node name="Panel" type="Panel" parent="Panel" unique_id=679659686]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_riqys")
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/Panel" unique_id=2043928384]
+layout_mode = 0
+offset_left = -104.0
+offset_right = 104.0
+offset_bottom = 11.0
+show_percentage = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2048430924]
