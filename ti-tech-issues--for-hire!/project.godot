@@ -13,6 +13,11 @@ config_version=5
 config/name="Ti Tech Issues: For Hire!"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[autoload]
+
+InteractHdlr="*uid://bmuafsycaqs81"
+SceneLoader="*uid://dw6im4eo3w6tt"
+
 [display]
 
 window/stretch/mode="canvas_items"
