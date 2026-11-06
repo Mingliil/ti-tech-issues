@@ -29,7 +29,8 @@ folder_colors={
 "res://Objects/": "purple",
 "res://Player/": "red",
 "res://SaveAndLoadRelatedFiles/": "yellow",
-"res://Scripts/": "green"
+"res://Scripts/": "green",
+"res://backup/": "gray"
 }
 
 [physics]

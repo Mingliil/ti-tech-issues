@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs6e875x58wtv"]
 
-[ext_resource type="PackedScene" uid="uid://by0bt4yx415be" path="res://backup/Player/Player.tscn" id="1_6smej"]
+[ext_resource type="PackedScene" uid="uid://by0bt4yx415be" path="res://Player/Player.tscn" id="1_6smej"]
 [ext_resource type="PackedScene" uid="uid://bhapcm1m3lcit" path="res://backup/Objetos/porta.tscn" id="2_g5yij"]
 [ext_resource type="PackedScene" uid="uid://cwax6lsj3jffr" path="res://backup/Objetos/lampada.tscn" id="3_6in6t"]
 [ext_resource type="PackedScene" uid="uid://dylyqmowv44jk" path="res://backup/Objetos/corda.tscn" id="4_eq1iw"]
