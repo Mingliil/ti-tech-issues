@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bw52n14j064sk"]
+
+[sub_resource type="Environment" id="Environment_86ap7"]
+volumetric_fog_enabled = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_86ap7"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_86ap7"]
+
+[node name="Estacionamento" type="Node3D" unique_id=622812490]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=926524740]
+environment = SubResource("Environment_86ap7")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1351186107]
+physics_material_override = SubResource("PhysicsMaterial_86ap7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=373411771]
+shape = SubResource("WorldBoundaryShape3D_86ap7")

@@ -1,12 +1,15 @@
 [gd_scene format=4 uid="uid://cg7f0of57tlju"]
 
-[ext_resource type="PackedScene" uid="uid://dfhl8p0u3btnc" path="res://Objetos/interruptor.tscn" id="1_1dlm8"]
-[ext_resource type="PackedScene" uid="uid://no5m3vse1n8t" path="res://Areas/porta_predio_dentro.tscn" id="3_4yudc"]
-[ext_resource type="PackedScene" uid="uid://10txa2muxr3r" path="res://Objetos/LampadaDeParede.tscn" id="4_fcckc"]
-[ext_resource type="PackedScene" uid="uid://dylyqmowv44jk" path="res://Objetos/corda.tscn" id="5_rexla"]
-[ext_resource type="PackedScene" uid="uid://cwax6lsj3jffr" path="res://Objetos/lampada.tscn" id="6_5webv"]
+[ext_resource type="Texture2D" uid="uid://b12j0w8p14x8y" path="res://Images/placeholdertexture.png" id="1_hgupb"]
+[ext_resource type="PackedScene" uid="uid://dfhl8p0u3btnc" path="res://backup/Objetos/interruptor.tscn" id="2_3virq"]
+[ext_resource type="PackedScene" uid="uid://no5m3vse1n8t" path="res://backup/Objetos/porta_predio_dentro.tscn" id="3_7gkkp"]
+[ext_resource type="PackedScene" uid="uid://10txa2muxr3r" path="res://backup/Objetos/LampadaDeParede.tscn" id="4_j3n11"]
+[ext_resource type="PackedScene" uid="uid://dylyqmowv44jk" path="res://backup/Objetos/corda.tscn" id="5_0qxef"]
+[ext_resource type="PackedScene" uid="uid://cwax6lsj3jffr" path="res://backup/Objetos/lampada.tscn" id="6_hr2cd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ac2yv"]
+albedo_texture = ExtResource("1_hgupb")
+texture_filter = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cmbjg"]
 _surfaces = [{
@@ -65,92 +68,92 @@ mesh = SubResource("ArrayMesh_s2um5")
 transform = Transform3D(55.592415, 0, 0, 0, 7.641524, 0, 0, 0, 7.641524, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_nh7dv")
 
-[node name="Interruptor" parent="." unique_id=1155435858 instance=ExtResource("1_1dlm8")]
+[node name="Interruptor" parent="." unique_id=1155435858 instance=ExtResource("2_3virq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.078696, -0.25817347, -1.7957549)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1301313000]
 environment = SubResource("Environment_bhunq")
 
-[node name="PortaPredioDentro" parent="." unique_id=1798116574 instance=ExtResource("3_4yudc")]
+[node name="PortaPredioDentro" parent="." unique_id=1798116574 instance=ExtResource("3_7gkkp")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 11.572883, -0.30333698, 1.8592167)
 
-[node name="PortaPredioDentro2" parent="." unique_id=1155522654 instance=ExtResource("3_4yudc")]
+[node name="PortaPredioDentro2" parent="." unique_id=1155522654 instance=ExtResource("3_7gkkp")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 6.544915, -0.30333698, 1.8592167)
 
-[node name="PortaPredioDentro3" parent="." unique_id=1325025477 instance=ExtResource("3_4yudc")]
+[node name="PortaPredioDentro3" parent="." unique_id=1325025477 instance=ExtResource("3_7gkkp")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 1.5215206, -0.30333698, 1.8592167)
 
-[node name="PortaPredioDentro4" parent="." unique_id=322380603 instance=ExtResource("3_4yudc")]
+[node name="PortaPredioDentro4" parent="." unique_id=322380603 instance=ExtResource("3_7gkkp")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, -3.5172567, -0.30333698, 1.8592167)
 
-[node name="PortaPredioDentro5" parent="." unique_id=427593020 instance=ExtResource("3_4yudc")]
+[node name="PortaPredioDentro5" parent="." unique_id=427593020 instance=ExtResource("3_7gkkp")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, -8.569997, -0.30333698, 1.8592167)
 
-[node name="PortaPredioDentro6" parent="." unique_id=815218523 instance=ExtResource("3_4yudc")]
+[node name="PortaPredioDentro6" parent="." unique_id=815218523 instance=ExtResource("3_7gkkp")]
 transform = Transform3D(3.278354e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, 3.278354e-08, 10.164054, -0.30333698, -1.8666666)
 
-[node name="PortaPredioDentro7" parent="." unique_id=712427220 instance=ExtResource("3_4yudc")]
+[node name="PortaPredioDentro7" parent="." unique_id=712427220 instance=ExtResource("3_7gkkp")]
 transform = Transform3D(3.278354e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, 3.278354e-08, 5.1360865, -0.30333698, -1.8666666)
 
-[node name="PortaPredioDentro8" parent="." unique_id=1274811733 instance=ExtResource("3_4yudc")]
+[node name="PortaPredioDentro8" parent="." unique_id=1274811733 instance=ExtResource("3_7gkkp")]
 transform = Transform3D(3.278354e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, 3.278354e-08, 0.112692, -0.30333698, -1.8666666)
 
-[node name="PortaPredioDentro9" parent="." unique_id=903005593 instance=ExtResource("3_4yudc")]
+[node name="PortaPredioDentro9" parent="." unique_id=903005593 instance=ExtResource("3_7gkkp")]
 transform = Transform3D(3.278354e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, 3.278354e-08, -4.9260855, -0.30333698, -1.8666666)
 
-[node name="PortaPredioDentro10" parent="." unique_id=1329964786 instance=ExtResource("3_4yudc")]
+[node name="PortaPredioDentro10" parent="." unique_id=1329964786 instance=ExtResource("3_7gkkp")]
 transform = Transform3D(3.278354e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, 3.278354e-08, -9.978826, -0.30333698, -1.8666666)
 
 [node name="Portas" type="Node3D" parent="." unique_id=222984079]
 
 [node name="Lamps" type="Node3D" parent="." unique_id=1517214498]
 
-[node name="StaticBody3D" parent="Lamps" unique_id=1577019475 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_fcckc")]
+[node name="StaticBody3D" parent="Lamps" unique_id=1577019475 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_j3n11")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 12.660371, 0.7477207, -1.7957549)
 interruptor = NodePath("../../Interruptor")
 
-[node name="StaticBody3D2" parent="Lamps" unique_id=1298851272 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_fcckc")]
+[node name="StaticBody3D2" parent="Lamps" unique_id=1298851272 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_j3n11")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 8.441879, 0.7477207, -1.7957549)
 interruptor = NodePath("../../Interruptor")
 
-[node name="StaticBody3D3" parent="Lamps" unique_id=1747476619 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_fcckc")]
+[node name="StaticBody3D3" parent="Lamps" unique_id=1747476619 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_j3n11")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 3.5733557, 0.7477207, -1.7957549)
 interruptor = NodePath("../../Interruptor")
 
-[node name="StaticBody3D4" parent="Lamps" unique_id=1824294478 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_fcckc")]
+[node name="StaticBody3D4" parent="Lamps" unique_id=1824294478 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_j3n11")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.3979039, 0.7477207, -1.7957549)
 interruptor = NodePath("../../Interruptor")
 
-[node name="StaticBody3D5" parent="Lamps" unique_id=445937017 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_fcckc")]
+[node name="StaticBody3D5" parent="Lamps" unique_id=445937017 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_j3n11")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -6.4757304, 0.7477207, -1.7957549)
 interruptor = NodePath("../../Interruptor")
 
-[node name="StaticBody3D6" parent="Lamps" unique_id=836277223 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_fcckc")]
+[node name="StaticBody3D6" parent="Lamps" unique_id=836277223 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_j3n11")]
 transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, 12.660371, 0.7477207, 1.707366)
 interruptor = NodePath("../../Interruptor")
 
-[node name="StaticBody3D7" parent="Lamps" unique_id=1156033597 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_fcckc")]
+[node name="StaticBody3D7" parent="Lamps" unique_id=1156033597 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_j3n11")]
 transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, 8.441879, 0.7477207, 1.707366)
 interruptor = NodePath("../../Interruptor")
 
-[node name="StaticBody3D8" parent="Lamps" unique_id=485190712 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_fcckc")]
+[node name="StaticBody3D8" parent="Lamps" unique_id=485190712 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_j3n11")]
 transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, 3.5733557, 0.7477207, 1.707366)
 interruptor = NodePath("../../Interruptor")
 
-[node name="StaticBody3D9" parent="Lamps" unique_id=1643497226 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_fcckc")]
+[node name="StaticBody3D9" parent="Lamps" unique_id=1643497226 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_j3n11")]
 transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -1.3979039, 0.7477207, 1.707366)
 interruptor = NodePath("../../Interruptor")
 
-[node name="StaticBody3D10" parent="Lamps" unique_id=929608382 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_fcckc")]
+[node name="StaticBody3D10" parent="Lamps" unique_id=929608382 node_paths=PackedStringArray("interruptor") instance=ExtResource("4_j3n11")]
 transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -6.4757304, 0.7477207, 1.707366)
 interruptor = NodePath("../../Interruptor")
 
-[node name="Corda" parent="." unique_id=1796440619 node_paths=PackedStringArray("interruptor") instance=ExtResource("5_rexla")]
+[node name="Corda" parent="." unique_id=1796440619 node_paths=PackedStringArray("interruptor") instance=ExtResource("5_0qxef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.583408, 3.200518, 0)
 link_count = 23
 link_length = 0.115
 link_radius = 0.025
-attached_scene = ExtResource("6_5webv")
+attached_scene = ExtResource("6_hr2cd")
 interruptor = NodePath("../Interruptor")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=920976617]

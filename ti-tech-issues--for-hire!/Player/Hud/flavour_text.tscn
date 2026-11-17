@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ch8xv1204camr"]
 
-[ext_resource type="Script" uid="uid://cnywdaatqf185" path="res://flavour_text.gd" id="1_3u2d6"]
+[ext_resource type="Script" uid="uid://b5nagfrhm0re3" path="res://Player/Hud/flavour_text.gd" id="1_3u2d6"]
 
 [sub_resource type="Animation" id="Animation_aas2y"]
 resource_name = "Dissapear"

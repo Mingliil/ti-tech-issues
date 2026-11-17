@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://0tu7tp0chbs8"]
+
+[ext_resource type="PackedScene" uid="uid://bs521mkc3i05h" path="res://Maps/EstacionamentosSub.blend" id="1_8qmpf"]
+
+[node name="EstacionamentosSub" unique_id=1309074624 instance=ExtResource("1_8qmpf")]
+
+[node name="Cube" parent="." index="0" unique_id=1971570867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -2, -1)

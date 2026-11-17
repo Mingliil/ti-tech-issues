@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1l2f2lswx5rh"
-path="res://.godot/imported/Cenarios.blend-6932da502b4e3041495c66ced67a1b6f.scn"
+uid="uid://bs521mkc3i05h"
+path="res://.godot/imported/EstacionamentosSub.blend-a461cded1fc534468d3b7aac352b8919.scn"
 
 [deps]
 
-source_file="res://backup/Blender/Cenarios.blend"
-dest_files=["res://.godot/imported/Cenarios.blend-6932da502b4e3041495c66ced67a1b6f.scn"]
+source_file="res://Maps/EstacionamentosSub.blend"
+dest_files=["res://.godot/imported/EstacionamentosSub.blend-a461cded1fc534468d3b7aac352b8919.scn"]
 
 [params]
 
